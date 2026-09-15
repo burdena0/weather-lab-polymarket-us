@@ -1,0 +1,12 @@
+{
+  "strategy": "polyswarm",
+  "venue": "polymarket_us",
+  "mode": "paper",
+  "initial_capital": 50,
+  "reserve": 40,
+  "monthly_subscription": 200,
+  "reference_wallet": "",
+  "control_mode": "copy",
+  "swarm_count": 5,
+  "risk_profile": "balanced"
+}

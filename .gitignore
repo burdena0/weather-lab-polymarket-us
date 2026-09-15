@@ -1,0 +1,25 @@
+# Local credentials and account/research state
+.env
+.env.*
+*.dpapi
+*.pem
+*.key
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+data/
+runs/
+captures/
+scratch-runs/
+validation-capture*/
+package-verification/
+*.log
+__pycache__/
+*.pyc
+.venv/
+venv/
+node_modules/
+# Local design references and screenshots
+/docs/*.png
+/docs/*.jpg

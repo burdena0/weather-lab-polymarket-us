@@ -1,0 +1,2 @@
+# Preserve exact source bytes: ZIP registration verifies code against the local runtime.
+* -text
