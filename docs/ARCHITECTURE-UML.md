@@ -473,6 +473,35 @@ sequenceDiagram
 
 `historical_report` reads completed run journals, verifies prediction hash chains and computes the comparison on the common scored station-days. All-case coverage remains visible beside the graph. Uncertainty uses calendar-day blocks to preserve same-day station dependence, with only ten dates in this pilot. Static scientific plots and the dashboard use the same comparison JSON. Supplemental prices and settlements remain outside model inputs and the live RAG index.
 
+## Contract-matched return scenario architecture
+
+```mermaid
+sequenceDiagram
+    participant C as Frozen weather corpus
+    participant P as US price history API
+    participant I as Frozen exact-contract cases
+    participant M as Baseline and cloud forecasters
+    participant A as Prediction audit
+    participant S as Return scenario scorer
+    participant D as Dashboard and report
+    C->>I: Select the bin containing each MOS high without outcome ranking
+    I->>P: Fetch bounded minute-level windows for selected contracts
+    P-->>I: Prices before decision and after fixed five-minute delay
+    I->>I: Omit ambiguous seconds and reject stale prices
+    I->>M: Blind station and date; exact bounds and earlier calibration
+    Note over I,M: Prices withheld from cloud prompts; prior quote midpoint enters local swarm aggregation
+    M->>A: Commit forecast, failures, cost and hash chain
+    Note over A,S: All prediction journals close before the scorer opens outcomes
+    A->>S: Verify cases, protocol and prediction chains
+    C->>S: Final NWS CLI labels
+    P-->>S: Previously archived verified settlement payouts and times
+    S->>S: Check CLI agreement; simulate fee and entry-price scenarios
+    Note over S,D: Full fills are hypothetical; no historical quantity or wallet signals
+    S->>D: Payouts, PnL, costs, coverage and sensitivity
+```
+
+This separate exploratory harness uses all three production forecasting functions, including PolySwarm's fixed market blend, with one common point-probability entry rule. It does not reproduce the complete live RAG, confidence gates or order engine. Portfolio cash is released only at the archived settlement time; costs of cloud calls and the $200 monthly overhead are reported outside the $50 trading cash account. Old weather-only results remain immutable. Exact historical rules availability, quantities and actual fills remain unverified; this does not unlock live RAG.
+
 ## Source map
 
 | Responsibility | Implementation |
@@ -491,6 +520,7 @@ sequenceDiagram
 | Model adapter, persona prompts, cost reservation | `weatherlab/models.py` |
 | Recent archive download, raw CLI checks and weather-only benchmark | `weatherlab/historical_window.py`, `weatherlab/historical.py` |
 | US historical display-price and venue settlement archive | `weatherlab/historical_market.py` |
+| Exact contract matching, cloud rerun and hypothetical return scenarios | `weatherlab/profitability.py` |
 | Paired accuracy comparison, coverage and bootstrap intervals | `weatherlab/historical_report.py` |
 | Optional PNG, SVG and PDF scientific figure export | `tools/plot_historical.py`, `tools/plotting-requirements.txt` |
 | Apple/NWS side study | `weatherlab/shortcut_feed.py`, `weatherlab/disagreement.py` |

@@ -29,6 +29,7 @@ function render(){
   if(state.recent_historical){const h=state.recent_historical;$('recent-historical-summary').textContent=`Recent archive: ${h.period} / ${h.test_station_days} test station-days / ${h.calibration_station_days} earlier calibration days. Baseline Brier: ${Object.entries(h.baseline).map(([k,v])=>k+' '+v.mean_brier.toFixed(4)).join(', ')}. Cloud: ${h.cloud.validated_calls} validated calls; ${h.cloud.provider_code||h.cloud.status}. Assumed archive availability; weather accuracy only, no historical trades.`;}
   if(state.recent_historical?.market_inputs){const m=state.recent_historical.market_inputs;$('historical-market-inputs').textContent=`US market archive: ${m.markets} contracts / ${m.price_points} historical display prices / ${m.settlements} verified settlements. Historical depth and reference-wallet signals unavailable; no simulated fills.`;}
   renderHistoricalComparison();
+  renderProfitability();
   const session=state.session;
   $('session-badge').textContent=session?(session.alive?'Running':'Stopped')+' · '+(session.mode==='demo'?'SAMPLE':'PUBLIC DATA'):'Stopped';
   $('session-badge').className=session?.alive?'active':'';
@@ -109,3 +110,23 @@ function renderHistoricalComparison(){
   shape('text',{x:left+width/2,y:304,fill:'#eee','text-anchor':'middle'},'Mean Brier error (0 = perfect)');$('historical-chart').replaceChildren(svg);
   const table=el('table'),tr=el('tr');['Model','Scored / 50','Shared-case accuracy','All scored Brier'].forEach(x=>tr.append(el('th',x)));const head=el('thead');head.append(tr);table.append(head);const body=el('tbody');for(const a of h.arms){const row=el('tr');[a.name,`${a.scored} / ${a.expected}`,a.paired_accuracy===null?'—':(100*a.paired_accuracy).toFixed(1)+'%',a.mean_brier_all===null?'—':a.mean_brier_all.toFixed(4)].forEach(x=>row.append(el('td',x)));body.append(row)}table.append(body);$('historical-coverage').replaceChildren(table,el('p','Unequal all-case coverage is not a fair ranking. Shared-case filtering also excludes abstentions and can bias the comparison. Ten dates are exploratory.','hint'));
 }
+
+function renderProfitability(){
+  const dollars=v=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:2}).format(v);
+  const r=state.recent_historical?.profitability;
+  $('profitability').hidden=!r;
+  if(!r)return;
+  const slip=Number($('profitability-slippage').value);
+  $('profitability-caption').textContent=`${r.preparation.eligible} exact contracts / September 6-15, 2026 / ${r.validated_calls} validated cloud responses. Each arm starts with $50 and keeps $40 in reserve. Additional entry cost: ${(100*slip).toFixed(0)} cents/share. Overhead: ${dollars(r.overhead_per_arm)} per arm over ${r.overhead_days.toFixed(2)} days. Exploratory reused dates; assumed archive availability.`;
+  const rows=r.arms.map(a=>({a,s:a.scenarios.find(s=>s.slippage_per_share===slip)}));
+  const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');svg.setAttribute('viewBox','0 0 900 310');svg.setAttribute('role','img');svg.setAttribute('aria-label','Hypothetical return after fees and model costs, excluding subscription overhead');
+  const add=(tag,attrs,text)=>{const n=document.createElementNS(svg.namespaceURI,tag);for(const [k,v] of Object.entries(attrs))n.setAttribute(k,String(v));if(text!==undefined)n.textContent=text;svg.append(n);return n};
+  const vals=rows.map(x=>x.s.pnl_after_models),lo=Math.min(0,...vals)-1,hi=Math.max(0,...vals)+1,px=v=>220+(v-lo)/(hi-lo)*570;
+  for(let i=0;i<=4;i++){const v=lo+(hi-lo)*i/4;add('line',{x1:px(v),x2:px(v),y1:20,y2:264,stroke:'#514a52'});add('text',{x:px(v),y:286,fill:'#eee','text-anchor':'middle'},'$'+v.toFixed(1));}
+  add('line',{x1:px(0),x2:px(0),y1:20,y2:264,stroke:'#fff'});
+  rows.forEach(({a,s},i)=>{const y=40+i*46;add('text',{x:205,y:y+5,fill:'#fff','text-anchor':'end'},a.name);add('rect',{x:Math.min(px(0),px(s.pnl_after_models)),y:y-12,width:Math.max(1,Math.abs(px(s.pnl_after_models)-px(0))),height:24,fill:s.pnl_after_models<0?'#d997aa':'#abd1ad'});add('text',{x:880,y:y+5,fill:'#fff','text-anchor':'end'},dollars(s.pnl_after_models));});
+  add('text',{x:500,y:308,fill:'#fff','text-anchor':'middle'},'P&L after fees and model costs / excludes overhead');$('profitability-chart').replaceChildren(svg);
+  const table=el('table'),head=el('tr');['Method','Forecasts / 50','Trades','Win rate','Trading P&L','Model cost*','Net incl. overhead'].forEach(t=>head.append(el('th',t)));const thead=el('thead');thead.append(head);table.append(thead);const body=el('tbody');
+  rows.forEach(({a,s})=>{const tr=el('tr');[a.name,a.scored+' / 50',s.trades,s.win_rate===null?'No trades':(100*s.win_rate).toFixed(1)+'%',dollars(s.trading_pnl),dollars(a.model_cost_or_reserved_usd),dollars(s.net_after_all_costs)].forEach(v=>tr.append(el('td',String(v))));body.append(tr)});table.append(body);$('profitability-table').replaceChildren(table,el('p','*Includes known failed-call usage and unresolved reservations; estimates, not invoices. Trading P&L includes fees and the selected entry-price assumption.','hint'));
+}
+$('profitability-slippage').addEventListener('change',renderProfitability);

@@ -1,0 +1,5932 @@
+{
+  "status": "complete",
+  "created_at": 1789594376.1919587,
+  "policy": {
+    "version": "contract-returns-v1",
+    "selection": "One bin containing the unadjusted MOS high per station-day; no outcome or price ranking",
+    "initial_cash": 50,
+    "cash_reserve": 40,
+    "max_entry_cost": 2,
+    "max_quantity": 5,
+    "minimum_edge": 0.03,
+    "primary_slippage": 0.02,
+    "slippages": [
+      0,
+      0.02,
+      0.05
+    ],
+    "quote_max_age_seconds": 300,
+    "execution_delay_seconds": 300,
+    "execution_window_seconds": 180,
+    "fee_coefficient": 0.06,
+    "monthly_overhead": 200,
+    "month_days": 30,
+    "limits": "Hypothetical full fills, no historical quantities. Date/station blinded. Assumed MOS availability and retrospective rules. Same previously inspected dates: exploratory, not held out. Common point-probability entry rule, not the full live risk/RAG pipeline."
+  },
+  "preparation": {
+    "selected": 50,
+    "eligible": 50,
+    "exclusions": [],
+    "requests": 50,
+    "price_points": 1389,
+    "cases_hash": "34fefc2c619b8e7b0eb4848c35f63d34abedc9721bfc98b303cdb5f608369c9f",
+    "protocol_hash": "e5b2afce9f642615d377da5503c625567fd9a053d94a3e62c6987ab5141541a8",
+    "corpus": "data/historical/2026-09-06_2026-09-15-v2",
+    "archive": "data/historical/market-inputs-20260916-v2",
+    "created_at": 1789592988.1069357
+  },
+  "arms": [
+    {
+      "id": "statistical_baseline",
+      "name": "Statistical baseline",
+      "scored": 50,
+      "eligible": 50,
+      "errors": {},
+      "brier": 0.16860727046208374,
+      "paired_brier": 0.19272797683189655,
+      "model_cost_or_reserved_usd": 0.0,
+      "scenarios": [
+        {
+          "slippage_per_share": 0,
+          "trades": 30,
+          "wins": 15,
+          "win_rate": 0.5,
+          "trading_pnl": 1.5999999999999872,
+          "entry_fees": 1.1300000000000003,
+          "capital_deployed": 41.400000000000006,
+          "return_on_initial_cash": 0.031999999999999744,
+          "pnl_after_models": 1.5999999999999872,
+          "net_after_all_costs": -70.90193781688996,
+          "skips": {
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 3
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.73,
+              "fee": 0.02,
+              "cost": 1.48,
+              "payout": 2.0,
+              "pnl": 0.52,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-06",
+              "slug": "tc-temp-mdwhigh-2026-09-06-gte79lt80f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 0.0,
+              "pnl": -1.35,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782503.993841,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KNYC:2026-09-06",
+              "slug": "tc-temp-nychigh-2026-09-06-lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793244.039155,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.04,
+              "fee": 0.01,
+              "cost": 0.21000000000000002,
+              "payout": 0.0,
+              "pnl": -0.21000000000000002,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 3.0,
+              "pnl": 1.0699999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-08",
+              "slug": "tc-temp-nychigh-2026-09-08-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 0.0,
+              "pnl": -1.6300000000000001,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788972653.381185,
+              "quote_age_at_decision": 11.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.42,
+              "fee": 0.06,
+              "cost": 1.74,
+              "payout": 4.0,
+              "pnl": 2.26,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMIA:2026-09-09",
+              "slug": "tc-temp-miahigh-2026-09-09-gte91lt92f",
+              "side": "NO",
+              "qty": 4,
+              "entry": 0.41,
+              "fee": 0.06,
+              "cost": 1.7,
+              "payout": 4.0,
+              "pnl": 2.3,
+              "entered_at": 1788890741.0,
+              "settled_at": 1789041658.242525,
+              "quote_age_at_decision": 19.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.12,
+              "fee": 0.03,
+              "cost": 0.63,
+              "payout": 0.0,
+              "pnl": -0.63,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-10",
+              "slug": "tc-temp-sfohigh-2026-09-10-gte78lt79f",
+              "side": "YES",
+              "qty": 2,
+              "entry": 0.22,
+              "fee": 0.02,
+              "cost": 0.46,
+              "payout": 0.0,
+              "pnl": -0.46,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789138843.244577,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.51,
+              "fee": 0.04,
+              "cost": 1.57,
+              "payout": 3.0,
+              "pnl": 1.43,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 0.0,
+              "pnl": -1.35,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 3.0,
+              "pnl": 1.2200000000000002,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.7,
+              "fee": 0.03,
+              "cost": 1.43,
+              "payout": 2.0,
+              "pnl": 0.5700000000000001,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.67,
+              "fee": 0.03,
+              "cost": 1.37,
+              "payout": 2.0,
+              "pnl": 0.6299999999999999,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.31,
+              "fee": 0.06,
+              "cost": 1.61,
+              "payout": 0.0,
+              "pnl": -1.61,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.62,
+              "fee": 0.04,
+              "cost": 1.9,
+              "payout": 3.0,
+              "pnl": 1.1,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 0.0,
+              "pnl": -1.54,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 0.0,
+              "pnl": -1.6300000000000001,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KLAX:2026-09-15",
+              "slug": "tc-temp-laxhigh-2026-09-15-gte77lt78f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.7,
+              "fee": 0.03,
+              "cost": 1.43,
+              "payout": 2.0,
+              "pnl": 0.5700000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560114.124821,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.15,
+              "fee": 0.04,
+              "cost": 0.79,
+              "payout": 0.0,
+              "pnl": -0.79,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 3.0,
+              "pnl": 1.46,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-15",
+              "slug": "tc-temp-nychigh-2026-09-15-gte70lt71f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789570825.114107,
+              "quote_age_at_decision": 63.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782503.993841,
+              "trading_pnl": -1.3500000000000014
+            },
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": -0.8299999999999983
+            },
+            {
+              "at": 1788793244.039155,
+              "trading_pnl": -1.8800000000000026
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": -0.6899999999999977
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.9000000000000057
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -2.6799999999999997
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -1.6100000000000065
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -1.9300000000000068
+            },
+            {
+              "at": 1788972653.381185,
+              "trading_pnl": -3.5600000000000094
+            },
+            {
+              "at": 1789041658.242525,
+              "trading_pnl": -1.2600000000000122
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": 0.9999999999999858
+            },
+            {
+              "at": 1789138843.244577,
+              "trading_pnl": 0.5399999999999849
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": 1.7299999999999827
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": 1.0999999999999872
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": 2.529999999999987
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": 1.1799999999999855
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": 2.3999999999999844
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 3.4399999999999835
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": 2.6999999999999886
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": 3.329999999999984
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": 1.7199999999999847
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": 2.289999999999985
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": 0.6599999999999895
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -0.8800000000000097
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": 0.21999999999998465
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -0.8300000000000125
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": 0.6299999999999883
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -0.1600000000000108
+            },
+            {
+              "at": 1789560114.124821,
+              "trading_pnl": 0.4099999999999895
+            },
+            {
+              "at": 1789570825.114107,
+              "trading_pnl": 1.5999999999999872
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.02,
+          "trades": 29,
+          "wins": 14,
+          "win_rate": 0.4827586206896552,
+          "trading_pnl": -1.6200000000000045,
+          "entry_fees": 1.0200000000000005,
+          "capital_deployed": 38.620000000000005,
+          "return_on_initial_cash": -0.03240000000000009,
+          "pnl_after_models": -1.6200000000000045,
+          "net_after_all_costs": -74.12193781688994,
+          "skips": {
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 4
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-06",
+              "slug": "tc-temp-mdwhigh-2026-09-06-gte79lt80f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 0.0,
+              "pnl": -1.3900000000000001,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782503.993841,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.61,
+              "fee": 0.04,
+              "cost": 1.87,
+              "payout": 3.0,
+              "pnl": 1.13,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KNYC:2026-09-06",
+              "slug": "tc-temp-nychigh-2026-09-06-lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.22,
+              "fee": 0.05,
+              "cost": 1.1500000000000001,
+              "payout": 0.0,
+              "pnl": -1.1500000000000001,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793244.039155,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.6,
+              "fee": 0.04,
+              "cost": 1.8399999999999999,
+              "payout": 0.0,
+              "pnl": -1.8399999999999999,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.08,
+              "fee": 0.02,
+              "cost": 0.42000000000000004,
+              "payout": 0.0,
+              "pnl": -0.42000000000000004,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.65,
+              "fee": 0.04,
+              "cost": 1.9900000000000002,
+              "payout": 3.0,
+              "pnl": 1.0099999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-08",
+              "slug": "tc-temp-nychigh-2026-09-08-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788972653.381185,
+              "quote_age_at_decision": 11.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.44,
+              "fee": 0.06,
+              "cost": 1.82,
+              "payout": 4.0,
+              "pnl": 2.1799999999999997,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMIA:2026-09-09",
+              "slug": "tc-temp-miahigh-2026-09-09-gte91lt92f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.43,
+              "fee": 0.03,
+              "cost": 0.89,
+              "payout": 2.0,
+              "pnl": 1.1099999999999999,
+              "entered_at": 1788890741.0,
+              "settled_at": 1789041658.242525,
+              "quote_age_at_decision": 19.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.61,
+              "fee": 0.04,
+              "cost": 1.87,
+              "payout": 3.0,
+              "pnl": 1.13,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-10",
+              "slug": "tc-temp-sfohigh-2026-09-10-gte78lt79f",
+              "side": "YES",
+              "qty": 1,
+              "entry": 0.24,
+              "fee": 0.01,
+              "cost": 0.25,
+              "payout": 0.0,
+              "pnl": -0.25,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789138843.244577,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 3.0,
+              "pnl": 1.3699999999999999,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 0.0,
+              "pnl": -1.3900000000000001,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 2.0,
+              "pnl": 0.6499999999999999,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.6,
+              "fee": 0.04,
+              "cost": 1.8399999999999999,
+              "payout": 3.0,
+              "pnl": 1.1600000000000001,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.16,
+              "fee": 0.04,
+              "cost": 0.8400000000000001,
+              "payout": 0.0,
+              "pnl": -0.8400000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.33,
+              "fee": 0.07,
+              "cost": 1.7200000000000002,
+              "payout": 0.0,
+              "pnl": -1.7200000000000002,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 0.0,
+              "pnl": -1.6,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.22,
+              "fee": 0.05,
+              "cost": 1.1500000000000001,
+              "payout": 0.0,
+              "pnl": -1.1500000000000001,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 1,
+              "entry": 0.55,
+              "fee": 0.01,
+              "cost": 0.56,
+              "payout": 0.0,
+              "pnl": -0.56,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KLAX:2026-09-15",
+              "slug": "tc-temp-laxhigh-2026-09-15-gte77lt78f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560114.124821,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 3.0,
+              "pnl": 1.4,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782503.993841,
+              "trading_pnl": -1.3899999999999935
+            },
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": -0.9099999999999966
+            },
+            {
+              "at": 1788793244.039155,
+              "trading_pnl": -2.059999999999995
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": -0.9299999999999997
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -1.25
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -3.0899999999999963
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -2.0799999999999983
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -2.5
+            },
+            {
+              "at": 1788972653.381185,
+              "trading_pnl": -4.189999999999998
+            },
+            {
+              "at": 1789041658.242525,
+              "trading_pnl": -3.0799999999999983
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": -0.8999999999999986
+            },
+            {
+              "at": 1789138843.244577,
+              "trading_pnl": -1.1499999999999986
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": -0.020000000000003126
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -0.759999999999998
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": 0.6099999999999994
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -0.7800000000000011
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": 0.38000000000000256
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 1.0300000000000011
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": 0.18999999999999773
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": 0.7800000000000011
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": -0.9399999999999977
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -0.4000000000000057
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": -0.960000000000008
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -2.5600000000000023
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": -1.5200000000000031
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -2.6700000000000017
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -1.2700000000000031
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -2.1600000000000037
+            },
+            {
+              "at": 1789560114.124821,
+              "trading_pnl": -1.6200000000000045
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.05,
+          "trades": 26,
+          "wins": 12,
+          "win_rate": 0.46153846153846156,
+          "trading_pnl": -5.949999999999989,
+          "entry_fees": 0.8000000000000003,
+          "capital_deployed": 31.95,
+          "return_on_initial_cash": -0.11899999999999977,
+          "pnl_after_models": -5.949999999999989,
+          "net_after_all_costs": -78.45193781688992,
+          "skips": {
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 7
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.78,
+              "fee": 0.02,
+              "cost": 1.58,
+              "payout": 2.0,
+              "pnl": 0.41999999999999993,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-06",
+              "slug": "tc-temp-mdwhigh-2026-09-06-gte79lt80f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 0.0,
+              "pnl": -1.44,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782503.993841,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KNYC:2026-09-06",
+              "slug": "tc-temp-nychigh-2026-09-06-lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.25,
+              "fee": 0.06,
+              "cost": 1.31,
+              "payout": 0.0,
+              "pnl": -1.31,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793244.039155,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 0.0,
+              "pnl": -1.9300000000000002,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.09,
+              "fee": 0.02,
+              "cost": 0.47,
+              "payout": 0.0,
+              "pnl": -0.47,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.11,
+              "fee": 0.03,
+              "cost": 0.5800000000000001,
+              "payout": 0.0,
+              "pnl": -0.5800000000000001,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 2.0,
+              "pnl": 0.6099999999999999,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-08",
+              "slug": "tc-temp-nychigh-2026-09-08-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788972653.381185,
+              "quote_age_at_decision": 11.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.47,
+              "fee": 0.06,
+              "cost": 1.94,
+              "payout": 4.0,
+              "pnl": 2.06,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMIA:2026-09-09",
+              "slug": "tc-temp-miahigh-2026-09-09-gte91lt92f",
+              "side": "NO",
+              "qty": 1,
+              "entry": 0.46,
+              "fee": 0.01,
+              "cost": 0.47000000000000003,
+              "payout": 1.0,
+              "pnl": 0.53,
+              "entered_at": 1788890741.0,
+              "settled_at": 1789041658.242525,
+              "quote_age_at_decision": 19.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 1,
+              "entry": 0.64,
+              "fee": 0.01,
+              "cost": 0.65,
+              "payout": 1.0,
+              "pnl": 0.35,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-10",
+              "slug": "tc-temp-sfohigh-2026-09-10-gte78lt79f",
+              "side": "YES",
+              "qty": 2,
+              "entry": 0.27,
+              "fee": 0.02,
+              "cost": 0.56,
+              "payout": 0.0,
+              "pnl": -0.56,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789138843.244577,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.56,
+              "fee": 0.04,
+              "cost": 1.7200000000000002,
+              "payout": 3.0,
+              "pnl": 1.2799999999999998,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 0.0,
+              "pnl": -1.44,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.63,
+              "fee": 0.03,
+              "cost": 1.29,
+              "payout": 2.0,
+              "pnl": 0.71,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.19,
+              "fee": 0.05,
+              "cost": 1.0,
+              "payout": 0.0,
+              "pnl": -1.0,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 1,
+              "entry": 0.36,
+              "fee": 0.01,
+              "cost": 0.37,
+              "payout": 0.0,
+              "pnl": -0.37,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.67,
+              "fee": 0.03,
+              "cost": 1.37,
+              "payout": 2.0,
+              "pnl": 0.6299999999999999,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.25,
+              "fee": 0.04,
+              "cost": 1.04,
+              "payout": 0.0,
+              "pnl": -1.04,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KLAX:2026-09-15",
+              "slug": "tc-temp-laxhigh-2026-09-15-gte77lt78f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560114.124821,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 3,
+              "entry": 0.2,
+              "fee": 0.03,
+              "cost": 0.6300000000000001,
+              "payout": 0.0,
+              "pnl": -0.6300000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782503.993841,
+              "trading_pnl": -1.4399999999999977
+            },
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": -1.019999999999996
+            },
+            {
+              "at": 1788793244.039155,
+              "trading_pnl": -2.3299999999999983
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": -1.2899999999999991
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -1.759999999999998
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -3.6899999999999977
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -3.0799999999999983
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -3.6599999999999966
+            },
+            {
+              "at": 1788972653.381185,
+              "trading_pnl": -5.439999999999998
+            },
+            {
+              "at": 1789041658.242525,
+              "trading_pnl": -4.909999999999997
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": -2.8499999999999943
+            },
+            {
+              "at": 1789138843.244577,
+              "trading_pnl": -3.4099999999999895
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": -3.059999999999988
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -3.9499999999999886
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": -2.6699999999999875
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -4.109999999999985
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": -3.3999999999999915
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": -2.809999999999988
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": -3.809999999999981
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": -4.1799999999999855
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -3.6999999999999815
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -5.389999999999986
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": -4.759999999999991
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -5.79999999999999
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -6.4299999999999855
+            },
+            {
+              "at": 1789560114.124821,
+              "trading_pnl": -5.949999999999989
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fixed_llm",
+      "name": "Fixed LLM",
+      "scored": 50,
+      "eligible": 50,
+      "errors": {},
+      "brier": 0.15936150000000007,
+      "paired_brier": 0.19595000000000004,
+      "model_cost_or_reserved_usd": 0.7704020000000009,
+      "scenarios": [
+        {
+          "slippage_per_share": 0,
+          "trades": 32,
+          "wins": 16,
+          "win_rate": 0.5,
+          "trading_pnl": 3.4199999999999946,
+          "entry_fees": 1.1500000000000006,
+          "capital_deployed": 41.58,
+          "return_on_initial_cash": 0.06839999999999989,
+          "pnl_after_models": 2.649597999999994,
+          "net_after_all_costs": -69.85233981688994,
+          "skips": {
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 1
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.73,
+              "fee": 0.02,
+              "cost": 1.48,
+              "payout": 2.0,
+              "pnl": 0.52,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KNYC:2026-09-06",
+              "slug": "tc-temp-nychigh-2026-09-06-lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793244.039155,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KSFO:2026-09-06",
+              "slug": "tc-temp-sfohigh-2026-09-06-gte67lt68f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.19,
+              "fee": 0.05,
+              "cost": 1.0,
+              "payout": 0.0,
+              "pnl": -1.0,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782569.047033,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.04,
+              "fee": 0.01,
+              "cost": 0.21000000000000002,
+              "payout": 0.0,
+              "pnl": -0.21000000000000002,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 3.0,
+              "pnl": 1.0699999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.42,
+              "fee": 0.06,
+              "cost": 1.74,
+              "payout": 4.0,
+              "pnl": 2.26,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMIA:2026-09-09",
+              "slug": "tc-temp-miahigh-2026-09-09-gte91lt92f",
+              "side": "NO",
+              "qty": 4,
+              "entry": 0.41,
+              "fee": 0.06,
+              "cost": 1.7,
+              "payout": 4.0,
+              "pnl": 2.3,
+              "entered_at": 1788890741.0,
+              "settled_at": 1789041658.242525,
+              "quote_age_at_decision": 19.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.86,
+              "fee": 0.01,
+              "cost": 1.73,
+              "payout": 2.0,
+              "pnl": 0.27,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KSFO:2026-09-09",
+              "slug": "tc-temp-sfohigh-2026-09-09-gte90lt91f",
+              "side": "YES",
+              "qty": 1,
+              "entry": 0.19,
+              "fee": 0.01,
+              "cost": 0.2,
+              "payout": 0.0,
+              "pnl": -0.2,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789052473.26715,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.12,
+              "fee": 0.03,
+              "cost": 0.63,
+              "payout": 0.0,
+              "pnl": -0.63,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.51,
+              "fee": 0.04,
+              "cost": 1.57,
+              "payout": 3.0,
+              "pnl": 1.43,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 0.0,
+              "pnl": -1.35,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KLAX:2026-09-12",
+              "slug": "tc-temp-laxhigh-2026-09-12-gte77lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.02,
+              "fee": 0.01,
+              "cost": 0.11,
+              "payout": 0.0,
+              "pnl": -0.11,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300886.986154,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 3.0,
+              "pnl": 1.2200000000000002,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.7,
+              "fee": 0.03,
+              "cost": 1.43,
+              "payout": 2.0,
+              "pnl": 0.5700000000000001,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.67,
+              "fee": 0.03,
+              "cost": 1.37,
+              "payout": 2.0,
+              "pnl": 0.6299999999999999,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.31,
+              "fee": 0.06,
+              "cost": 1.61,
+              "payout": 0.0,
+              "pnl": -1.61,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KLAX:2026-09-14",
+              "slug": "tc-temp-laxhigh-2026-09-14-gte77lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.11,
+              "fee": 0.03,
+              "cost": 0.5800000000000001,
+              "payout": 0.0,
+              "pnl": -0.5800000000000001,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789484444.107814,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.62,
+              "fee": 0.04,
+              "cost": 1.9,
+              "payout": 3.0,
+              "pnl": 1.1,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 0.0,
+              "pnl": -1.54,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 0.0,
+              "pnl": -1.6300000000000001,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KLAX:2026-09-15",
+              "slug": "tc-temp-laxhigh-2026-09-15-gte77lt78f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.7,
+              "fee": 0.03,
+              "cost": 1.43,
+              "payout": 2.0,
+              "pnl": 0.5700000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560114.124821,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.15,
+              "fee": 0.04,
+              "cost": 0.79,
+              "payout": 0.0,
+              "pnl": -0.79,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 3.0,
+              "pnl": 1.46,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-15",
+              "slug": "tc-temp-nychigh-2026-09-15-gte70lt71f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789570825.114107,
+              "quote_age_at_decision": 63.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": 0.5200000000000031
+            },
+            {
+              "at": 1788782569.047033,
+              "trading_pnl": -0.4799999999999969
+            },
+            {
+              "at": 1788793244.039155,
+              "trading_pnl": -1.5300000000000011
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": -0.3399999999999963
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.5499999999999972
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -2.3299999999999983
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -1.2600000000000051
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -1.5800000000000054
+            },
+            {
+              "at": 1789041658.242525,
+              "trading_pnl": 0.7199999999999918
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": 0.9899999999999949
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": 3.249999999999993
+            },
+            {
+              "at": 1789052473.26715,
+              "trading_pnl": 3.04999999999999
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": 4.239999999999988
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": 3.6099999999999923
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": 5.039999999999992
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": 3.6899999999999906
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": 4.9099999999999895
+            },
+            {
+              "at": 1789300886.986154,
+              "trading_pnl": 4.79999999999999
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 5.839999999999989
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": 5.099999999999994
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": 5.729999999999997
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": 4.11999999999999
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": 4.689999999999998
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": 3.059999999999995
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": 1.519999999999996
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": 2.6199999999999974
+            },
+            {
+              "at": 1789484444.107814,
+              "trading_pnl": 2.039999999999992
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": 0.9899999999999949
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": 2.4499999999999957
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": 1.6599999999999966
+            },
+            {
+              "at": 1789560114.124821,
+              "trading_pnl": 2.229999999999997
+            },
+            {
+              "at": 1789570825.114107,
+              "trading_pnl": 3.4199999999999946
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.02,
+          "trades": 32,
+          "wins": 16,
+          "win_rate": 0.5,
+          "trading_pnl": 0.3399999999999821,
+          "entry_fees": 1.1400000000000003,
+          "capital_deployed": 41.660000000000004,
+          "return_on_initial_cash": 0.006799999999999642,
+          "pnl_after_models": -0.4304020000000188,
+          "net_after_all_costs": -72.93233981688995,
+          "skips": {
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 1
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.61,
+              "fee": 0.04,
+              "cost": 1.87,
+              "payout": 3.0,
+              "pnl": 1.13,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KNYC:2026-09-06",
+              "slug": "tc-temp-nychigh-2026-09-06-lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.22,
+              "fee": 0.05,
+              "cost": 1.1500000000000001,
+              "payout": 0.0,
+              "pnl": -1.1500000000000001,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793244.039155,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KSFO:2026-09-06",
+              "slug": "tc-temp-sfohigh-2026-09-06-gte67lt68f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.21,
+              "fee": 0.05,
+              "cost": 1.1,
+              "payout": 0.0,
+              "pnl": -1.1,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782569.047033,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.6,
+              "fee": 0.04,
+              "cost": 1.8399999999999999,
+              "payout": 0.0,
+              "pnl": -1.8399999999999999,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.08,
+              "fee": 0.02,
+              "cost": 0.42000000000000004,
+              "payout": 0.0,
+              "pnl": -0.42000000000000004,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.65,
+              "fee": 0.04,
+              "cost": 1.9900000000000002,
+              "payout": 3.0,
+              "pnl": 1.0099999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.44,
+              "fee": 0.06,
+              "cost": 1.82,
+              "payout": 4.0,
+              "pnl": 2.1799999999999997,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMIA:2026-09-09",
+              "slug": "tc-temp-miahigh-2026-09-09-gte91lt92f",
+              "side": "NO",
+              "qty": 4,
+              "entry": 0.43,
+              "fee": 0.06,
+              "cost": 1.78,
+              "payout": 4.0,
+              "pnl": 2.2199999999999998,
+              "entered_at": 1788890741.0,
+              "settled_at": 1789041658.242525,
+              "quote_age_at_decision": 19.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 1,
+              "entry": 0.88,
+              "fee": 0.01,
+              "cost": 0.89,
+              "payout": 1.0,
+              "pnl": 0.10999999999999999,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KSFO:2026-09-09",
+              "slug": "tc-temp-sfohigh-2026-09-09-gte90lt91f",
+              "side": "YES",
+              "qty": 1,
+              "entry": 0.21,
+              "fee": 0.01,
+              "cost": 0.22,
+              "payout": 0.0,
+              "pnl": -0.22,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789052473.26715,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.61,
+              "fee": 0.04,
+              "cost": 1.87,
+              "payout": 3.0,
+              "pnl": 1.13,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 3.0,
+              "pnl": 1.3699999999999999,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 0.0,
+              "pnl": -1.3900000000000001,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 2.0,
+              "pnl": 0.6499999999999999,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KLAX:2026-09-12",
+              "slug": "tc-temp-laxhigh-2026-09-12-gte77lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.04,
+              "fee": 0.01,
+              "cost": 0.21000000000000002,
+              "payout": 0.0,
+              "pnl": -0.21000000000000002,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300886.986154,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.6,
+              "fee": 0.04,
+              "cost": 1.8399999999999999,
+              "payout": 3.0,
+              "pnl": 1.1600000000000001,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.16,
+              "fee": 0.04,
+              "cost": 0.8400000000000001,
+              "payout": 0.0,
+              "pnl": -0.8400000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.33,
+              "fee": 0.07,
+              "cost": 1.7200000000000002,
+              "payout": 0.0,
+              "pnl": -1.7200000000000002,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KLAX:2026-09-14",
+              "slug": "tc-temp-laxhigh-2026-09-14-gte77lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.13,
+              "fee": 0.03,
+              "cost": 0.68,
+              "payout": 0.0,
+              "pnl": -0.68,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789484444.107814,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 0.0,
+              "pnl": -1.6,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.22,
+              "fee": 0.05,
+              "cost": 1.1500000000000001,
+              "payout": 0.0,
+              "pnl": -1.1500000000000001,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KLAX:2026-09-15",
+              "slug": "tc-temp-laxhigh-2026-09-15-gte77lt78f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560114.124821,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 3.0,
+              "pnl": 1.4,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-15",
+              "slug": "tc-temp-nychigh-2026-09-15-gte70lt71f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.61,
+              "fee": 0.03,
+              "cost": 1.25,
+              "payout": 2.0,
+              "pnl": 0.75,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789570825.114107,
+              "quote_age_at_decision": 63.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": 0.4799999999999969
+            },
+            {
+              "at": 1788782569.047033,
+              "trading_pnl": -0.6200000000000045
+            },
+            {
+              "at": 1788793244.039155,
+              "trading_pnl": -1.7700000000000031
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": -0.6400000000000077
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.960000000000008
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -2.8000000000000114
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -1.7900000000000063
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -2.210000000000008
+            },
+            {
+              "at": 1789041658.242525,
+              "trading_pnl": 0.009999999999990905
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": 0.11999999999999034
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": 2.29999999999999
+            },
+            {
+              "at": 1789052473.26715,
+              "trading_pnl": 2.079999999999991
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": 3.2099999999999866
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": 2.4699999999999918
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": 3.839999999999982
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": 2.4499999999999815
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": 3.609999999999985
+            },
+            {
+              "at": 1789300886.986154,
+              "trading_pnl": 3.3999999999999844
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 4.049999999999983
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": 3.2099999999999866
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": 3.799999999999983
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": 2.079999999999984
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": 2.6199999999999832
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": 0.9299999999999784
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -0.6700000000000159
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": 0.36999999999998323
+            },
+            {
+              "at": 1789484444.107814,
+              "trading_pnl": -0.3100000000000165
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -1.460000000000015
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -0.060000000000016485
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -0.950000000000017
+            },
+            {
+              "at": 1789560114.124821,
+              "trading_pnl": -0.4100000000000179
+            },
+            {
+              "at": 1789570825.114107,
+              "trading_pnl": 0.3399999999999821
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.05,
+          "trades": 29,
+          "wins": 14,
+          "win_rate": 0.4827586206896552,
+          "trading_pnl": -3.6099999999999923,
+          "entry_fees": 1.0500000000000005,
+          "capital_deployed": 37.61000000000001,
+          "return_on_initial_cash": -0.07219999999999985,
+          "pnl_after_models": -4.380401999999993,
+          "net_after_all_costs": -76.88233981688992,
+          "skips": {
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 4
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.78,
+              "fee": 0.02,
+              "cost": 1.58,
+              "payout": 2.0,
+              "pnl": 0.41999999999999993,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KNYC:2026-09-06",
+              "slug": "tc-temp-nychigh-2026-09-06-lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.25,
+              "fee": 0.06,
+              "cost": 1.31,
+              "payout": 0.0,
+              "pnl": -1.31,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793244.039155,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KSFO:2026-09-06",
+              "slug": "tc-temp-sfohigh-2026-09-06-gte67lt68f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.24,
+              "fee": 0.05,
+              "cost": 1.25,
+              "payout": 0.0,
+              "pnl": -1.25,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782569.047033,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 0.0,
+              "pnl": -1.9300000000000002,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.09,
+              "fee": 0.02,
+              "cost": 0.47,
+              "payout": 0.0,
+              "pnl": -0.47,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.11,
+              "fee": 0.03,
+              "cost": 0.5800000000000001,
+              "payout": 0.0,
+              "pnl": -0.5800000000000001,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 2.0,
+              "pnl": 0.6099999999999999,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.47,
+              "fee": 0.06,
+              "cost": 1.94,
+              "payout": 4.0,
+              "pnl": 2.06,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMIA:2026-09-09",
+              "slug": "tc-temp-miahigh-2026-09-09-gte91lt92f",
+              "side": "NO",
+              "qty": 4,
+              "entry": 0.46,
+              "fee": 0.06,
+              "cost": 1.9000000000000001,
+              "payout": 4.0,
+              "pnl": 2.0999999999999996,
+              "entered_at": 1788890741.0,
+              "settled_at": 1789041658.242525,
+              "quote_age_at_decision": 19.0
+            },
+            {
+              "key": "KSFO:2026-09-09",
+              "slug": "tc-temp-sfohigh-2026-09-09-gte90lt91f",
+              "side": "YES",
+              "qty": 2,
+              "entry": 0.24,
+              "fee": 0.02,
+              "cost": 0.5,
+              "payout": 0.0,
+              "pnl": -0.5,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789052473.26715,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 1,
+              "entry": 0.64,
+              "fee": 0.01,
+              "cost": 0.65,
+              "payout": 1.0,
+              "pnl": 0.35,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.56,
+              "fee": 0.04,
+              "cost": 1.7200000000000002,
+              "payout": 3.0,
+              "pnl": 1.2799999999999998,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 0.0,
+              "pnl": -1.44,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KLAX:2026-09-12",
+              "slug": "tc-temp-laxhigh-2026-09-12-gte77lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.07,
+              "fee": 0.02,
+              "cost": 0.37000000000000005,
+              "payout": 0.0,
+              "pnl": -0.37000000000000005,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300886.986154,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 3.0,
+              "pnl": 1.0699999999999998,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.19,
+              "fee": 0.05,
+              "cost": 1.0,
+              "payout": 0.0,
+              "pnl": -1.0,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.36,
+              "fee": 0.06,
+              "cost": 1.5,
+              "payout": 0.0,
+              "pnl": -1.5,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KLAX:2026-09-14",
+              "slug": "tc-temp-laxhigh-2026-09-14-gte77lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.16,
+              "fee": 0.04,
+              "cost": 0.8400000000000001,
+              "payout": 0.0,
+              "pnl": -0.8400000000000001,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789484444.107814,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.67,
+              "fee": 0.03,
+              "cost": 1.37,
+              "payout": 2.0,
+              "pnl": 0.6299999999999999,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.25,
+              "fee": 0.06,
+              "cost": 1.31,
+              "payout": 0.0,
+              "pnl": -1.31,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KLAX:2026-09-15",
+              "slug": "tc-temp-laxhigh-2026-09-15-gte77lt78f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560114.124821,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.55,
+              "fee": 0.03,
+              "cost": 1.1300000000000001,
+              "payout": 2.0,
+              "pnl": 0.8699999999999999,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": 0.4200000000000017
+            },
+            {
+              "at": 1788782569.047033,
+              "trading_pnl": -0.8299999999999983
+            },
+            {
+              "at": 1788793244.039155,
+              "trading_pnl": -2.1400000000000006
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": -1.1000000000000014
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -1.5700000000000003
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -3.5
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -2.8899999999999935
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -3.469999999999999
+            },
+            {
+              "at": 1789041658.242525,
+              "trading_pnl": -1.3699999999999974
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": 0.6900000000000048
+            },
+            {
+              "at": 1789052473.26715,
+              "trading_pnl": 0.19000000000000483
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": 0.5400000000000063
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -0.3499999999999943
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": 0.9300000000000139
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -0.5099999999999838
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": 0.5600000000000094
+            },
+            {
+              "at": 1789300886.986154,
+              "trading_pnl": 0.19000000000001194
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 0.7800000000000153
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": -0.21999999999998465
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": 0.3200000000000074
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": -1.1799999999999926
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -0.6999999999999886
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -2.3899999999999935
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": -1.759999999999991
+            },
+            {
+              "at": 1789484444.107814,
+              "trading_pnl": -2.5999999999999943
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -3.9099999999999895
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -3.039999999999992
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -4.089999999999989
+            },
+            {
+              "at": 1789560114.124821,
+              "trading_pnl": -3.6099999999999923
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "adaptive_llm",
+      "name": "Adaptive LLM",
+      "scored": 44,
+      "eligible": 50,
+      "errors": {
+        "Cloud call failed (ValueError); budget reservation retained if usage unknown": 6
+      },
+      "brier": 0.17315066441761368,
+      "paired_brier": 0.19027890463362068,
+      "model_cost_or_reserved_usd": 2.507453,
+      "scenarios": [
+        {
+          "slippage_per_share": 0,
+          "trades": 25,
+          "wins": 11,
+          "win_rate": 0.44,
+          "trading_pnl": -3.7800000000000082,
+          "entry_fees": 0.9100000000000001,
+          "capital_deployed": 33.78,
+          "return_on_initial_cash": -0.07560000000000017,
+          "pnl_after_models": -6.287453000000008,
+          "net_after_all_costs": -78.78939081688995,
+          "skips": {
+            "model_failure_or_abstention": 6,
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 2
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.73,
+              "fee": 0.02,
+              "cost": 1.48,
+              "payout": 2.0,
+              "pnl": 0.52,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-06",
+              "slug": "tc-temp-mdwhigh-2026-09-06-gte79lt80f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 0.0,
+              "pnl": -1.35,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782503.993841,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.59,
+              "fee": 0.04,
+              "cost": 1.81,
+              "payout": 3.0,
+              "pnl": 1.19,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.04,
+              "fee": 0.01,
+              "cost": 0.21000000000000002,
+              "payout": 0.0,
+              "pnl": -0.21000000000000002,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-08",
+              "slug": "tc-temp-nychigh-2026-09-08-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 0.0,
+              "pnl": -1.6300000000000001,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788972653.381185,
+              "quote_age_at_decision": 11.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.42,
+              "fee": 0.06,
+              "cost": 1.74,
+              "payout": 4.0,
+              "pnl": 2.26,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.86,
+              "fee": 0.01,
+              "cost": 1.73,
+              "payout": 2.0,
+              "pnl": 0.27,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KSFO:2026-09-09",
+              "slug": "tc-temp-sfohigh-2026-09-09-gte90lt91f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.19,
+              "fee": 0.05,
+              "cost": 1.0,
+              "payout": 0.0,
+              "pnl": -1.0,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789052473.26715,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.12,
+              "fee": 0.03,
+              "cost": 0.63,
+              "payout": 0.0,
+              "pnl": -0.63,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-10",
+              "slug": "tc-temp-nychigh-2026-09-10-gte85lt86f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.59,
+              "fee": 0.03,
+              "cost": 1.21,
+              "payout": 2.0,
+              "pnl": 0.79,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145138.357048,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.51,
+              "fee": 0.04,
+              "cost": 1.57,
+              "payout": 3.0,
+              "pnl": 1.43,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 0.0,
+              "pnl": -1.35,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 3.0,
+              "pnl": 1.2200000000000002,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.7,
+              "fee": 0.03,
+              "cost": 1.43,
+              "payout": 2.0,
+              "pnl": 0.5700000000000001,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.31,
+              "fee": 0.06,
+              "cost": 1.61,
+              "payout": 0.0,
+              "pnl": -1.61,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.62,
+              "fee": 0.04,
+              "cost": 1.9,
+              "payout": 3.0,
+              "pnl": 1.1,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 0.0,
+              "pnl": -1.54,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 0.0,
+              "pnl": -1.6300000000000001,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.15,
+              "fee": 0.04,
+              "cost": 0.79,
+              "payout": 0.0,
+              "pnl": -0.79,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 3.0,
+              "pnl": 1.46,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782503.993841,
+              "trading_pnl": -1.3500000000000014
+            },
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": -0.8300000000000054
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": 0.35999999999999943
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": 0.14999999999999147
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -1.6300000000000026
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -1.9500000000000028
+            },
+            {
+              "at": 1788972653.381185,
+              "trading_pnl": -3.5800000000000054
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": -3.3100000000000094
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": -1.0500000000000114
+            },
+            {
+              "at": 1789052473.26715,
+              "trading_pnl": -2.0500000000000114
+            },
+            {
+              "at": 1789145138.357048,
+              "trading_pnl": -1.2600000000000122
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -1.8900000000000077
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": -0.46000000000000796
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -1.8100000000000094
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": -0.5900000000000105
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 0.44999999999998863
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": -0.29000000000000625
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": -1.9000000000000128
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -1.3300000000000125
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": -2.960000000000008
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -4.500000000000007
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": -3.4000000000000057
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -4.45000000000001
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -2.990000000000009
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -3.7800000000000082
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.02,
+          "trades": 24,
+          "wins": 10,
+          "win_rate": 0.4166666666666667,
+          "trading_pnl": -4.890000000000022,
+          "entry_fees": 0.7900000000000003,
+          "capital_deployed": 29.890000000000008,
+          "return_on_initial_cash": -0.09780000000000044,
+          "pnl_after_models": -7.397453000000022,
+          "net_after_all_costs": -79.89939081688996,
+          "skips": {
+            "model_failure_or_abstention": 6,
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 3
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-06",
+              "slug": "tc-temp-mdwhigh-2026-09-06-gte79lt80f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 0.0,
+              "pnl": -1.3900000000000001,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782503.993841,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.61,
+              "fee": 0.04,
+              "cost": 1.87,
+              "payout": 3.0,
+              "pnl": 1.13,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.6,
+              "fee": 0.04,
+              "cost": 1.8399999999999999,
+              "payout": 0.0,
+              "pnl": -1.8399999999999999,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.08,
+              "fee": 0.02,
+              "cost": 0.42000000000000004,
+              "payout": 0.0,
+              "pnl": -0.42000000000000004,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-08",
+              "slug": "tc-temp-nychigh-2026-09-08-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788972653.381185,
+              "quote_age_at_decision": 11.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.44,
+              "fee": 0.06,
+              "cost": 1.82,
+              "payout": 4.0,
+              "pnl": 2.1799999999999997,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.88,
+              "fee": 0.01,
+              "cost": 1.77,
+              "payout": 2.0,
+              "pnl": 0.22999999999999998,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KSFO:2026-09-09",
+              "slug": "tc-temp-sfohigh-2026-09-09-gte90lt91f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.21,
+              "fee": 0.05,
+              "cost": 1.1,
+              "payout": 0.0,
+              "pnl": -1.1,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789052473.26715,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KSFO:2026-09-10",
+              "slug": "tc-temp-sfohigh-2026-09-10-gte78lt79f",
+              "side": "YES",
+              "qty": 2,
+              "entry": 0.24,
+              "fee": 0.02,
+              "cost": 0.5,
+              "payout": 0.0,
+              "pnl": -0.5,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789138843.244577,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 3.0,
+              "pnl": 1.3699999999999999,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 0.0,
+              "pnl": -1.3900000000000001,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 2.0,
+              "pnl": 0.6499999999999999,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.6,
+              "fee": 0.03,
+              "cost": 1.23,
+              "payout": 2.0,
+              "pnl": 0.77,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.16,
+              "fee": 0.04,
+              "cost": 0.8400000000000001,
+              "payout": 0.0,
+              "pnl": -0.8400000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 3,
+              "entry": 0.33,
+              "fee": 0.04,
+              "cost": 1.03,
+              "payout": 0.0,
+              "pnl": -1.03,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 0.0,
+              "pnl": -1.6,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 2,
+              "entry": 0.22,
+              "fee": 0.02,
+              "cost": 0.46,
+              "payout": 0.0,
+              "pnl": -0.46,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.52,
+              "fee": 0.03,
+              "cost": 1.07,
+              "payout": 2.0,
+              "pnl": 0.9299999999999999,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782503.993841,
+              "trading_pnl": -1.3900000000000006
+            },
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": -0.9100000000000037
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": 0.21999999999999176
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.10000000000000142
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -1.9400000000000048
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -2.3600000000000065
+            },
+            {
+              "at": 1788972653.381185,
+              "trading_pnl": -4.050000000000011
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": -3.8200000000000074
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": -1.6400000000000077
+            },
+            {
+              "at": 1789052473.26715,
+              "trading_pnl": -2.740000000000009
+            },
+            {
+              "at": 1789138843.244577,
+              "trading_pnl": -3.240000000000016
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -3.980000000000011
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": -2.6100000000000136
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -4.000000000000014
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": -3.230000000000018
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": -2.5800000000000196
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": -3.420000000000023
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": -4.450000000000024
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -3.910000000000018
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -5.510000000000019
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": -4.47000000000002
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -4.930000000000021
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -4.000000000000021
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -4.890000000000022
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.05,
+          "trades": 23,
+          "wins": 10,
+          "win_rate": 0.43478260869565216,
+          "trading_pnl": -5.9699999999999775,
+          "entry_fees": 0.7300000000000003,
+          "capital_deployed": 29.970000000000002,
+          "return_on_initial_cash": -0.11939999999999955,
+          "pnl_after_models": -8.477452999999977,
+          "net_after_all_costs": -80.97939081688992,
+          "skips": {
+            "model_failure_or_abstention": 6,
+            "insufficient_edge": 17,
+            "cash_reserve_or_minimum_size": 4
+          },
+          "trade_ledger": [
+            {
+              "key": "KLAX:2026-09-06",
+              "slug": "tc-temp-laxhigh-2026-09-06-gte78lt79f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.78,
+              "fee": 0.02,
+              "cost": 1.58,
+              "payout": 2.0,
+              "pnl": 0.41999999999999993,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782538.99057,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-06",
+              "slug": "tc-temp-mdwhigh-2026-09-06-gte79lt80f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 0.0,
+              "pnl": -1.44,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788782503.993841,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMIA:2026-09-06",
+              "slug": "tc-temp-miahigh-2026-09-06-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1788631511.0,
+              "settled_at": 1788793274.056094,
+              "quote_age_at_decision": 49.0
+            },
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 0.0,
+              "pnl": -1.9300000000000002,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.09,
+              "fee": 0.02,
+              "cost": 0.47,
+              "payout": 0.0,
+              "pnl": -0.47,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.11,
+              "fee": 0.03,
+              "cost": 0.5800000000000001,
+              "payout": 0.0,
+              "pnl": -0.5800000000000001,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KNYC:2026-09-08",
+              "slug": "tc-temp-nychigh-2026-09-08-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788972653.381185,
+              "quote_age_at_decision": 11.0
+            },
+            {
+              "key": "KNYC:2026-09-09",
+              "slug": "tc-temp-nychigh-2026-09-09-lt84f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.47,
+              "fee": 0.06,
+              "cost": 1.94,
+              "payout": 4.0,
+              "pnl": 2.06,
+              "entered_at": 1788890701.0,
+              "settled_at": 1789052430.874257,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.91,
+              "fee": 0.01,
+              "cost": 1.83,
+              "payout": 2.0,
+              "pnl": 0.16999999999999993,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KSFO:2026-09-09",
+              "slug": "tc-temp-sfohigh-2026-09-09-gte90lt91f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.24,
+              "fee": 0.05,
+              "cost": 1.25,
+              "payout": 0.0,
+              "pnl": -1.25,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789052473.26715,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 1,
+              "entry": 0.17,
+              "fee": 0.01,
+              "cost": 0.18000000000000002,
+              "payout": 0.0,
+              "pnl": -0.18000000000000002,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.56,
+              "fee": 0.04,
+              "cost": 1.7200000000000002,
+              "payout": 3.0,
+              "pnl": 1.2799999999999998,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 0.0,
+              "pnl": -1.44,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KMDW:2026-09-12",
+              "slug": "tc-temp-mdwhigh-2026-09-12-gte86lt87f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.63,
+              "fee": 0.03,
+              "cost": 1.29,
+              "payout": 2.0,
+              "pnl": 0.71,
+              "entered_at": 1789149950.0,
+              "settled_at": 1789300866.495209,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-13",
+              "slug": "tc-temp-mdwhigh-2026-09-13-gte72lt73f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.19,
+              "fee": 0.05,
+              "cost": 1.0,
+              "payout": 0.0,
+              "pnl": -1.0,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393469.165851,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KNYC:2026-09-13",
+              "slug": "tc-temp-nychigh-2026-09-13-lt78f",
+              "side": "YES",
+              "qty": 1,
+              "entry": 0.36,
+              "fee": 0.01,
+              "cost": 0.37,
+              "payout": 0.0,
+              "pnl": -0.37,
+              "entered_at": 1789236410.0,
+              "settled_at": 1789393474.256062,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMDW:2026-09-14",
+              "slug": "tc-temp-mdwhigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.67,
+              "fee": 0.03,
+              "cost": 1.37,
+              "payout": 2.0,
+              "pnl": 0.6299999999999999,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473689.152166,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KSFO:2026-09-14",
+              "slug": "tc-temp-sfohigh-2026-09-14-gte72lt73f",
+              "side": "YES",
+              "qty": 4,
+              "entry": 0.25,
+              "fee": 0.04,
+              "cost": 1.04,
+              "payout": 0.0,
+              "pnl": -1.04,
+              "entered_at": 1789322799.0,
+              "settled_at": 1789484464.078524,
+              "quote_age_at_decision": 3.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.55,
+              "fee": 0.03,
+              "cost": 1.1300000000000001,
+              "payout": 2.0,
+              "pnl": 0.8699999999999999,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788782503.993841,
+              "trading_pnl": -1.4399999999999977
+            },
+            {
+              "at": 1788782538.99057,
+              "trading_pnl": -1.019999999999996
+            },
+            {
+              "at": 1788793274.056094,
+              "trading_pnl": 0.020000000000003126
+            },
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.44999999999999574
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -2.3799999999999955
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -2.9599999999999937
+            },
+            {
+              "at": 1788972653.381185,
+              "trading_pnl": -4.739999999999995
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": -4.569999999999993
+            },
+            {
+              "at": 1789052430.874257,
+              "trading_pnl": -2.509999999999991
+            },
+            {
+              "at": 1789052473.26715,
+              "trading_pnl": -3.759999999999991
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -3.9399999999999835
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": -2.6599999999999824
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -4.09999999999998
+            },
+            {
+              "at": 1789300866.495209,
+              "trading_pnl": -3.3899999999999864
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": -2.799999999999983
+            },
+            {
+              "at": 1789393469.165851,
+              "trading_pnl": -3.799999999999976
+            },
+            {
+              "at": 1789393474.256062,
+              "trading_pnl": -4.16999999999998
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -3.6899999999999764
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -5.379999999999981
+            },
+            {
+              "at": 1789473689.152166,
+              "trading_pnl": -4.749999999999979
+            },
+            {
+              "at": 1789484464.078524,
+              "trading_pnl": -5.789999999999978
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -4.91999999999998
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -5.9699999999999775
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "polyswarm",
+      "name": "PolySwarm",
+      "scored": 32,
+      "eligible": 50,
+      "errors": {
+        "Model abstained": 7,
+        "Cloud call failed (ValueError); budget reservation retained if usage unknown": 5,
+        "Cloud call failed (TimeoutError); budget reservation retained if usage unknown": 6
+      },
+      "brier": 0.15377131051809995,
+      "paired_brier": 0.16718349335148908,
+      "model_cost_or_reserved_usd": 3.709705999999999,
+      "scenarios": [
+        {
+          "slippage_per_share": 0,
+          "trades": 17,
+          "wins": 8,
+          "win_rate": 0.47058823529411764,
+          "trading_pnl": -1.5399999999999991,
+          "entry_fees": 0.52,
+          "capital_deployed": 21.54,
+          "return_on_initial_cash": -0.030799999999999984,
+          "pnl_after_models": -5.249705999999998,
+          "net_after_all_costs": -77.75164381688994,
+          "skips": {
+            "model_failure_or_abstention": 18,
+            "insufficient_edge": 15
+          },
+          "trade_ledger": [
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.04,
+              "fee": 0.01,
+              "cost": 0.21000000000000002,
+              "payout": 0.0,
+              "pnl": -0.21000000000000002,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 3.0,
+              "pnl": 1.0699999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.86,
+              "fee": 0.01,
+              "cost": 1.73,
+              "payout": 2.0,
+              "pnl": 0.27,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.12,
+              "fee": 0.03,
+              "cost": 0.63,
+              "payout": 0.0,
+              "pnl": -0.63,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-10",
+              "slug": "tc-temp-miahigh-2026-09-10-gte88lt89f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 2.0,
+              "pnl": 0.56,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789145138.258645,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.51,
+              "fee": 0.04,
+              "cost": 1.57,
+              "payout": 3.0,
+              "pnl": 1.43,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 0.0,
+              "pnl": -1.35,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.64,
+              "fee": 0.04,
+              "cost": 1.96,
+              "payout": 3.0,
+              "pnl": 1.04,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.7,
+              "fee": 0.03,
+              "cost": 1.43,
+              "payout": 2.0,
+              "pnl": 0.5700000000000001,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KLAX:2026-09-13",
+              "slug": "tc-temp-laxhigh-2026-09-13-gte76lt77f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789387244.082562,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.67,
+              "fee": 0.03,
+              "cost": 1.37,
+              "payout": 2.0,
+              "pnl": 0.6299999999999999,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 0.0,
+              "pnl": -1.54,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 0.0,
+              "pnl": -1.6300000000000001,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.15,
+              "fee": 0.04,
+              "cost": 0.79,
+              "payout": 0.0,
+              "pnl": -0.79,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.5,
+              "fee": 0.04,
+              "cost": 1.54,
+              "payout": 3.0,
+              "pnl": 1.46,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.21000000000000085
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -1.990000000000002
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -0.9200000000000017
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -1.240000000000002
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": -0.9699999999999989
+            },
+            {
+              "at": 1789145138.258645,
+              "trading_pnl": -0.4100000000000037
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -1.0399999999999991
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": 0.39000000000000057
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -0.9600000000000009
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": 0.0799999999999983
+            },
+            {
+              "at": 1789387244.082562,
+              "trading_pnl": -0.240000000000002
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": 0.39000000000000057
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": 0.9600000000000009
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": -0.6700000000000017
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -2.210000000000001
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -0.75
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -1.5399999999999991
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.02,
+          "trades": 17,
+          "wins": 8,
+          "win_rate": 0.47058823529411764,
+          "trading_pnl": -3.000000000000014,
+          "entry_fees": 0.52,
+          "capital_deployed": 22.000000000000004,
+          "return_on_initial_cash": -0.06000000000000028,
+          "pnl_after_models": -6.709706000000013,
+          "net_after_all_costs": -79.21164381688995,
+          "skips": {
+            "model_failure_or_abstention": 18,
+            "insufficient_edge": 15
+          },
+          "trade_ledger": [
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.6,
+              "fee": 0.04,
+              "cost": 1.8399999999999999,
+              "payout": 0.0,
+              "pnl": -1.8399999999999999,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.06,
+              "fee": 0.02,
+              "cost": 0.32,
+              "payout": 0.0,
+              "pnl": -0.32,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.08,
+              "fee": 0.02,
+              "cost": 0.42000000000000004,
+              "payout": 0.0,
+              "pnl": -0.42000000000000004,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.65,
+              "fee": 0.04,
+              "cost": 1.9900000000000002,
+              "payout": 3.0,
+              "pnl": 1.0099999999999998,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.88,
+              "fee": 0.01,
+              "cost": 1.77,
+              "payout": 2.0,
+              "pnl": 0.22999999999999998,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.14,
+              "fee": 0.04,
+              "cost": 0.7400000000000001,
+              "payout": 0.0,
+              "pnl": -0.7400000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-10",
+              "slug": "tc-temp-miahigh-2026-09-10-gte88lt89f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.73,
+              "fee": 0.02,
+              "cost": 1.48,
+              "payout": 2.0,
+              "pnl": 0.52,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789145138.258645,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.53,
+              "fee": 0.04,
+              "cost": 1.6300000000000001,
+              "payout": 3.0,
+              "pnl": 1.3699999999999999,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 0.0,
+              "pnl": -1.3900000000000001,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.66,
+              "fee": 0.03,
+              "cost": 1.35,
+              "payout": 2.0,
+              "pnl": 0.6499999999999999,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KLAX:2026-09-13",
+              "slug": "tc-temp-laxhigh-2026-09-13-gte76lt77f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.08,
+              "fee": 0.02,
+              "cost": 0.42000000000000004,
+              "payout": 0.0,
+              "pnl": -0.42000000000000004,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789387244.082562,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 0.0,
+              "pnl": -1.6,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.52,
+              "fee": 0.04,
+              "cost": 1.6,
+              "payout": 3.0,
+              "pnl": 1.4,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.3200000000000074
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -2.160000000000011
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -1.1500000000000128
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -1.5700000000000074
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": -1.3400000000000105
+            },
+            {
+              "at": 1789145138.258645,
+              "trading_pnl": -0.8200000000000145
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -1.5600000000000094
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": -0.19000000000001194
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -1.5800000000000125
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": -0.9300000000000139
+            },
+            {
+              "at": 1789387244.082562,
+              "trading_pnl": -1.3500000000000085
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": -0.7600000000000122
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -0.22000000000001307
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": -1.9100000000000108
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -3.510000000000012
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -2.1100000000000136
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -3.000000000000014
+            }
+          ]
+        },
+        {
+          "slippage_per_share": 0.05,
+          "trades": 17,
+          "wins": 8,
+          "win_rate": 0.47058823529411764,
+          "trading_pnl": -4.969999999999985,
+          "entry_fees": 0.52,
+          "capital_deployed": 22.970000000000006,
+          "return_on_initial_cash": -0.0993999999999997,
+          "pnl_after_models": -8.679705999999983,
+          "net_after_all_costs": -81.18164381688992,
+          "skips": {
+            "model_failure_or_abstention": 18,
+            "insufficient_edge": 15
+          },
+          "trade_ledger": [
+            {
+              "key": "KMDW:2026-09-07",
+              "slug": "tc-temp-mdwhigh-2026-09-07-gte80lt81f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.63,
+              "fee": 0.04,
+              "cost": 1.9300000000000002,
+              "payout": 0.0,
+              "pnl": -1.9300000000000002,
+              "entered_at": 1788717924.0,
+              "settled_at": 1788881529.023818,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-07",
+              "slug": "tc-temp-sfohigh-2026-09-07-lt74f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.09,
+              "fee": 0.02,
+              "cost": 0.47,
+              "payout": 0.0,
+              "pnl": -0.47,
+              "entered_at": 1788717939.0,
+              "settled_at": 1788879649.890988,
+              "quote_age_at_decision": 21.0
+            },
+            {
+              "key": "KSFO:2026-09-08",
+              "slug": "tc-temp-sfohigh-2026-09-08-gte78lt79f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.11,
+              "fee": 0.03,
+              "cost": 0.5800000000000001,
+              "payout": 0.0,
+              "pnl": -0.5800000000000001,
+              "entered_at": 1788804322.0,
+              "settled_at": 1788966098.323561,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-08",
+              "slug": "tc-temp-laxhigh-2026-09-08-gte86lt87f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.68,
+              "fee": 0.03,
+              "cost": 1.3900000000000001,
+              "payout": 2.0,
+              "pnl": 0.6099999999999999,
+              "entered_at": 1788804339.0,
+              "settled_at": 1788966083.260109,
+              "quote_age_at_decision": 81.0
+            },
+            {
+              "key": "KLAX:2026-09-09",
+              "slug": "tc-temp-laxhigh-2026-09-09-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.91,
+              "fee": 0.01,
+              "cost": 1.83,
+              "payout": 2.0,
+              "pnl": 0.16999999999999993,
+              "entered_at": 1788890801.0,
+              "settled_at": 1789041688.275128,
+              "quote_age_at_decision": 79.0
+            },
+            {
+              "key": "KMDW:2026-09-10",
+              "slug": "tc-temp-mdwhigh-2026-09-10-gte81lt82f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.17,
+              "fee": 0.04,
+              "cost": 0.8900000000000001,
+              "payout": 0.0,
+              "pnl": -0.8900000000000001,
+              "entered_at": 1788977144.0,
+              "settled_at": 1789145143.229105,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-10",
+              "slug": "tc-temp-miahigh-2026-09-10-gte88lt89f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.76,
+              "fee": 0.02,
+              "cost": 1.54,
+              "payout": 2.0,
+              "pnl": 0.45999999999999996,
+              "entered_at": 1788977204.0,
+              "settled_at": 1789145138.258645,
+              "quote_age_at_decision": 16.0
+            },
+            {
+              "key": "KMIA:2026-09-11",
+              "slug": "tc-temp-miahigh-2026-09-11-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.56,
+              "fee": 0.04,
+              "cost": 1.7200000000000002,
+              "payout": 3.0,
+              "pnl": 1.2799999999999998,
+              "entered_at": 1789063508.0,
+              "settled_at": 1789214453.493991,
+              "quote_age_at_decision": 36.0
+            },
+            {
+              "key": "KSFO:2026-09-11",
+              "slug": "tc-temp-sfohigh-2026-09-11-gte72lt73f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.71,
+              "fee": 0.02,
+              "cost": 1.44,
+              "payout": 0.0,
+              "pnl": -1.44,
+              "entered_at": 1789063604.0,
+              "settled_at": 1789225278.415343,
+              "quote_age_at_decision": 76.0
+            },
+            {
+              "key": "KSFO:2026-09-12",
+              "slug": "tc-temp-sfohigh-2026-09-12-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.69,
+              "fee": 0.03,
+              "cost": 1.41,
+              "payout": 2.0,
+              "pnl": 0.5900000000000001,
+              "entered_at": 1789149913.0,
+              "settled_at": 1789311646.647474,
+              "quote_age_at_decision": 70.0
+            },
+            {
+              "key": "KSFO:2026-09-13",
+              "slug": "tc-temp-sfohigh-2026-09-13-gte69lt70f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.75,
+              "fee": 0.02,
+              "cost": 1.52,
+              "payout": 2.0,
+              "pnl": 0.48,
+              "entered_at": 1789236323.0,
+              "settled_at": 1789398034.120531,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KLAX:2026-09-13",
+              "slug": "tc-temp-laxhigh-2026-09-13-gte76lt77f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.11,
+              "fee": 0.03,
+              "cost": 0.5800000000000001,
+              "payout": 0.0,
+              "pnl": -0.5800000000000001,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789387244.082562,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-13",
+              "slug": "tc-temp-miahigh-2026-09-13-gte89lt90f",
+              "side": "NO",
+              "qty": 2,
+              "entry": 0.72,
+              "fee": 0.02,
+              "cost": 1.46,
+              "payout": 2.0,
+              "pnl": 0.54,
+              "entered_at": 1789236350.0,
+              "settled_at": 1789393474.106386,
+              "quote_age_at_decision": 10.0
+            },
+            {
+              "key": "KMIA:2026-09-14",
+              "slug": "tc-temp-miahigh-2026-09-14-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 0.0,
+              "pnl": -1.6900000000000002,
+              "entered_at": 1789322750.0,
+              "settled_at": 1789473669.072715,
+              "quote_age_at_decision": 68.0
+            },
+            {
+              "key": "KNYC:2026-09-14",
+              "slug": "tc-temp-nychigh-2026-09-14-gte74lt75f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.58,
+              "fee": 0.04,
+              "cost": 1.7799999999999998,
+              "payout": 0.0,
+              "pnl": -1.7799999999999998,
+              "entered_at": 1789322810.0,
+              "settled_at": 1789473639.096032,
+              "quote_age_at_decision": 5.0
+            },
+            {
+              "key": "KMDW:2026-09-15",
+              "slug": "tc-temp-mdwhigh-2026-09-15-gte80lt81f",
+              "side": "YES",
+              "qty": 5,
+              "entry": 0.2,
+              "fee": 0.05,
+              "cost": 1.05,
+              "payout": 0.0,
+              "pnl": -1.05,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560094.134731,
+              "quote_age_at_decision": 63.0
+            },
+            {
+              "key": "KMIA:2026-09-15",
+              "slug": "tc-temp-miahigh-2026-09-15-gte90lt91f",
+              "side": "NO",
+              "qty": 3,
+              "entry": 0.55,
+              "fee": 0.04,
+              "cost": 1.6900000000000002,
+              "payout": 3.0,
+              "pnl": 1.3099999999999998,
+              "entered_at": 1789409157.0,
+              "settled_at": 1789560069.166034,
+              "quote_age_at_decision": 3.0
+            }
+          ],
+          "settled_pnl_curve": [
+            {
+              "at": 1788879649.890988,
+              "trading_pnl": -0.46999999999999886
+            },
+            {
+              "at": 1788881529.023818,
+              "trading_pnl": -2.3999999999999986
+            },
+            {
+              "at": 1788966083.260109,
+              "trading_pnl": -1.789999999999992
+            },
+            {
+              "at": 1788966098.323561,
+              "trading_pnl": -2.3699999999999974
+            },
+            {
+              "at": 1789041688.275128,
+              "trading_pnl": -2.1999999999999957
+            },
+            {
+              "at": 1789145138.258645,
+              "trading_pnl": -1.7399999999999949
+            },
+            {
+              "at": 1789145143.229105,
+              "trading_pnl": -2.6299999999999955
+            },
+            {
+              "at": 1789214453.493991,
+              "trading_pnl": -1.3499999999999872
+            },
+            {
+              "at": 1789225278.415343,
+              "trading_pnl": -2.789999999999992
+            },
+            {
+              "at": 1789311646.647474,
+              "trading_pnl": -2.1999999999999886
+            },
+            {
+              "at": 1789387244.082562,
+              "trading_pnl": -2.779999999999987
+            },
+            {
+              "at": 1789393474.106386,
+              "trading_pnl": -2.239999999999988
+            },
+            {
+              "at": 1789398034.120531,
+              "trading_pnl": -1.759999999999991
+            },
+            {
+              "at": 1789473639.096032,
+              "trading_pnl": -3.539999999999985
+            },
+            {
+              "at": 1789473669.072715,
+              "trading_pnl": -5.229999999999983
+            },
+            {
+              "at": 1789560069.166034,
+              "trading_pnl": -3.9199999999999875
+            },
+            {
+              "at": 1789560094.134731,
+              "trading_pnl": -4.969999999999985
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "market_implied",
+      "name": "Market implied",
+      "scored": 50,
+      "eligible": 50,
+      "errors": {},
+      "brier": 0.1442135,
+      "paired_brier": 0.1441215517241379,
+      "model_cost_or_reserved_usd": 0.0,
+      "scenarios": [
+        {
+          "slippage_per_share": 0,
+          "trades": 0,
+          "wins": 0,
+          "win_rate": null,
+          "trading_pnl": 0.0,
+          "entry_fees": 0.0,
+          "capital_deployed": 0.0,
+          "return_on_initial_cash": 0.0,
+          "pnl_after_models": 0.0,
+          "net_after_all_costs": -72.50193781688994,
+          "skips": {
+            "insufficient_edge": 50
+          },
+          "trade_ledger": [],
+          "settled_pnl_curve": []
+        },
+        {
+          "slippage_per_share": 0.02,
+          "trades": 0,
+          "wins": 0,
+          "win_rate": null,
+          "trading_pnl": 0.0,
+          "entry_fees": 0.0,
+          "capital_deployed": 0.0,
+          "return_on_initial_cash": 0.0,
+          "pnl_after_models": 0.0,
+          "net_after_all_costs": -72.50193781688994,
+          "skips": {
+            "insufficient_edge": 50
+          },
+          "trade_ledger": [],
+          "settled_pnl_curve": []
+        },
+        {
+          "slippage_per_share": 0.05,
+          "trades": 0,
+          "wins": 0,
+          "win_rate": null,
+          "trading_pnl": 0.0,
+          "entry_fees": 0.0,
+          "capital_deployed": 0.0,
+          "return_on_initial_cash": 0.0,
+          "pnl_after_models": 0.0,
+          "net_after_all_costs": -72.50193781688994,
+          "skips": {
+            "insufficient_edge": 50
+          },
+          "trade_ledger": [],
+          "settled_pnl_curve": []
+        }
+      ]
+    }
+  ],
+  "paired_cases": 29,
+  "validated_calls": 353,
+  "models": {
+    "gpt-5.6-terra": 314,
+    "gpt-5.6-sol": 39
+  },
+  "cost_or_reserved_usd": 6.9875609999999995,
+  "overhead_days": 10.87529067253349,
+  "overhead_per_arm": 72.50193781688994,
+  "start": 1788631200.0,
+  "settlement_end": 1789570825.114107,
+  "profitability_established": false,
+  "fills_verified": false,
+  "control_status": "Not evaluated: historical depth and reference-wallet signals unavailable",
+  "sources": [
+    "https://docs.polymarket.us/fees",
+    "https://docs.polymarket.us/api-reference/price-history/get-price-history",
+    "https://mesonet.agron.iastate.edu/api/1/mos.json",
+    "https://mesonet.agron.iastate.edu/json/cli.py"
+  ],
+  "executed_code_commit": "1bdbd57",
+  "run_audits": [
+    {
+      "station": "KLAX",
+      "counts": {
+        "validated_calls": 71,
+        "statistical_baseline": 10,
+        "fixed_llm": 10,
+        "adaptive_llm": 10,
+        "polyswarm": 10,
+        "market_implied": 10
+      },
+      "prediction_chain_tip": "91d8da9d0704b6d3b730fb656f00eb9e85725a04076f9d6849996cd7e52b0317",
+      "cases_hash": "34fefc2c619b8e7b0eb4848c35f63d34abedc9721bfc98b303cdb5f608369c9f",
+      "protocol_hash": "e5b2afce9f642615d377da5503c625567fd9a053d94a3e62c6987ab5141541a8",
+      "seconds": 1048.9690000000119,
+      "fixture": false,
+      "cost_or_reserved_usd": 1.2625140000000004,
+      "code_hash": "63b9bb03527377ff7c85938837bdfba60dc6bfefdd098b76f8b3f46af9b48889"
+    },
+    {
+      "station": "KMDW",
+      "counts": {
+        "validated_calls": 73,
+        "statistical_baseline": 10,
+        "fixed_llm": 10,
+        "adaptive_llm": 10,
+        "polyswarm": 10,
+        "market_implied": 10
+      },
+      "prediction_chain_tip": "be7c5b08e4a84e0e88d229b547763649374b383b5422c418dee341fa692afc61",
+      "cases_hash": "34fefc2c619b8e7b0eb4848c35f63d34abedc9721bfc98b303cdb5f608369c9f",
+      "protocol_hash": "e5b2afce9f642615d377da5503c625567fd9a053d94a3e62c6987ab5141541a8",
+      "seconds": 1344.922000000006,
+      "fixture": false,
+      "cost_or_reserved_usd": 1.5872600000000001,
+      "code_hash": "63b9bb03527377ff7c85938837bdfba60dc6bfefdd098b76f8b3f46af9b48889"
+    },
+    {
+      "station": "KMIA",
+      "counts": {
+        "validated_calls": 66,
+        "statistical_baseline": 10,
+        "fixed_llm": 10,
+        "adaptive_llm": 10,
+        "polyswarm": 10,
+        "market_implied": 10
+      },
+      "prediction_chain_tip": "787206ec349c0fef498fc25ced6a57a48f00d36e6e692e5c628389e6e666cd3e",
+      "cases_hash": "34fefc2c619b8e7b0eb4848c35f63d34abedc9721bfc98b303cdb5f608369c9f",
+      "protocol_hash": "e5b2afce9f642615d377da5503c625567fd9a053d94a3e62c6987ab5141541a8",
+      "seconds": 1095.3439999999973,
+      "fixture": false,
+      "cost_or_reserved_usd": 1.2880999999999994,
+      "code_hash": "63b9bb03527377ff7c85938837bdfba60dc6bfefdd098b76f8b3f46af9b48889"
+    },
+    {
+      "station": "KNYC",
+      "counts": {
+        "validated_calls": 69,
+        "statistical_baseline": 10,
+        "fixed_llm": 10,
+        "adaptive_llm": 10,
+        "polyswarm": 10,
+        "market_implied": 10
+      },
+      "prediction_chain_tip": "8e5dd189d4b0b47a4aec20b7b4095c1ee1b736e47b7270733a30eb200309ba61",
+      "cases_hash": "34fefc2c619b8e7b0eb4848c35f63d34abedc9721bfc98b303cdb5f608369c9f",
+      "protocol_hash": "e5b2afce9f642615d377da5503c625567fd9a053d94a3e62c6987ab5141541a8",
+      "seconds": 1196.1719999999914,
+      "fixture": false,
+      "cost_or_reserved_usd": 1.4048189999999996,
+      "code_hash": "63b9bb03527377ff7c85938837bdfba60dc6bfefdd098b76f8b3f46af9b48889"
+    },
+    {
+      "station": "KSFO",
+      "counts": {
+        "validated_calls": 74,
+        "statistical_baseline": 10,
+        "fixed_llm": 10,
+        "adaptive_llm": 10,
+        "polyswarm": 10,
+        "market_implied": 10
+      },
+      "prediction_chain_tip": "4ba71ab2d7c69d9441552ce7af2d75aecbc9284a0aa3575190fb99d68b7e6e85",
+      "cases_hash": "34fefc2c619b8e7b0eb4848c35f63d34abedc9721bfc98b303cdb5f608369c9f",
+      "protocol_hash": "e5b2afce9f642615d377da5503c625567fd9a053d94a3e62c6987ab5141541a8",
+      "seconds": 1156.1399999999994,
+      "fixture": false,
+      "cost_or_reserved_usd": 1.4448679999999994,
+      "code_hash": "63b9bb03527377ff7c85938837bdfba60dc6bfefdd098b76f8b3f46af9b48889"
+    }
+  ],
+  "validation": "Independent Decimal fee/PnL reconciliation and chronological cash audit passed for every arm/scenario."
+}

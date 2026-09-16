@@ -1,8 +1,18 @@
 import unittest
-from weatherlab.profitability import fee, quote_pair, signal, simulate, matches, clean_history, contract_context
+import json
+from pathlib import Path
+import tempfile
+from weatherlab.profitability import fee, quote_pair, signal, simulate, matches, clean_history, contract_context, prepare
 
 
 class ProfitabilityTests(unittest.TestCase):
+    def test_future_dates_cannot_reuse_old_fee_schedule(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);archive=root/'archive';archive.mkdir()
+            (archive/'summary.json').write_text(json.dumps({'start':'2026-09-17','end':'2026-09-26','files':{}}))
+            with self.assertRaisesRegex(ValueError,'dated fee protocol'):
+                prepare(root/'missing-corpus',archive,root/'out')
+
     def test_exact_bound_context_is_blind_to_test_label_and_prices(self):
         case=dict(station='KLAX',date='2026-09-06',decision_at=100000,forecast_runtime=99000,
                   forecast_available_at=100000,day_start=100001,forecast_high_f=78,

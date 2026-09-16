@@ -1,22 +1,22 @@
 {
   "01-wallet-control.zip": {
-    "sha256": "295445e96f5ef947b31f705ffd321a2b03403d3fc77961ce52b76be83da19060",
-    "bytes": 1081826
+    "sha256": "c81b71477f2a84d64d1266809d74ecade89cd4e3712039971bbe8f8f21788478",
+    "bytes": 1376930
   },
   "02-fixed-llm.zip": {
-    "sha256": "21219c4c09837068d8e7960c73b788d944fe20df848edad914782707970b580d",
-    "bytes": 1081882
+    "sha256": "c00935e34fbc59fcf3784be029e9dd2d60330d620de9607a5b922cb0d3e23030",
+    "bytes": 1376986
   },
   "03-adaptive-llm.zip": {
-    "sha256": "5fbf97367fd01da5dafc4e41ce378b29d8675deb200ca8d56bcef1d0c6fd1cbd",
-    "bytes": 1081880
+    "sha256": "59bef642d23be44a742091fa1082cd50d5fedd31b1c7fdf1680fd4a4b15fc066",
+    "bytes": 1376984
   },
   "04-polyswarm.zip": {
-    "sha256": "aa914fe656c1a30e9ba11c7082963617529fd75eef377628f13606e18d26c1c3",
-    "bytes": 1081876
+    "sha256": "ec28079b28259f8dc5cf3c8daf04c80b26a942b2200f7518f37669be14a07ed5",
+    "bytes": 1376981
   },
   "weather-lab-dashboard.zip": {
-    "sha256": "413d1f41523dc356b2424bca3e85293974b18a1ca640dbaea0c2cf0c1be4add8",
-    "bytes": 1076675
+    "sha256": "5c122d8765199bf1cc018571c2a4e1b18b01efe458be7d2584066b99ad49fba1",
+    "bytes": 1371542
   }
 }

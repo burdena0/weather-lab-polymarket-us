@@ -78,7 +78,10 @@ def clean_history(data, start, end):
 def prepare(corpus, archive, out):
     corpus, archive, out = map(Path, (corpus, archive, out))
     out.mkdir(exist_ok=False)
-    manifest = json.loads((archive/'summary.json').read_text(encoding='utf-8')); verify_files(archive, manifest)
+    manifest = json.loads((archive/'summary.json').read_text(encoding='utf-8'))
+    if (manifest.get('start'),manifest.get('end')) != ('2026-09-06','2026-09-15'):
+        raise ValueError('This dated fee protocol requires September 6-15, 2026; declare a new protocol for another period')
+    verify_files(archive, manifest)
     # Settlements in this source are deliberately stripped before selection/model files.
     markets = [r['market'] for r in read_rows(archive/'market-history.jsonl')]
     source = PublicSource(out/'receipts', max_requests=55)
@@ -86,6 +89,8 @@ def prepare(corpus, archive, out):
     for station in STATIONS:
         folder = corpus/station
         m = json.loads((folder/'manifest.json').read_text(encoding='utf-8')); verify_files(folder, m)
+        if (m.get('test_start'),m.get('test_end')) != ('2026-09-06','2026-09-15'):
+            raise ValueError('Weather dates differ from the dated fee protocol')
         training = list(read_rows(folder/'training.jsonl',31))
         for case in read_rows(folder/'cases.jsonl',31):
             group = [r for r in markets if (r['station'],r['date']) == (station,case['date'])]
