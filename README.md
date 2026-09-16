@@ -4,9 +4,11 @@ Four independently packaged strategies and a new local dashboard. Python 3.10+ w
 
 ## Start here
 
+[Free Apple Shortcuts feed setup](docs/APPLE-SHORTCUTS.md) — automatic weather retrieval on your iPhone, synced to this PC. No Apple Developer membership required for this route.
+
 [Setup checklist](docs/GETTING-STARTED.md) · [August historical test](docs/HISTORICAL-REPLAY.md) · [Prospective data collection](docs/DATA-COLLECTION.md)
 
-[Apple Weather / NWS tracker and arbitrage explanation](docs/APPLE-NWS-STUDY.md): prospective forecast, observation and contract-depth collection; authenticated WeatherKit only. Separate post-day CLI scoring. This study does not execute trades.
+[Apple Weather / NWS tracker and arbitrage explanation](docs/APPLE-NWS-STUDY.md): prospective forecast, observation and contract-depth collection; automatic iPhone Shortcuts exports, with WeatherKit retained as an optional CLI source. Separate post-day CLI scoring. This study does not execute trades.
 
 
 ```powershell

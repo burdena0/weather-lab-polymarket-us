@@ -1,5 +1,7 @@
 # Apple Weather, NWS and contract depth
 
+**Current default:** [Automatic iPhone Shortcuts feed](APPLE-SHORTCUTS.md). This avoids Developer Program membership. The direct WeatherKit API remains optional through the CLI.
+
 ## What arbitrage already does
 
 Choose **Configuration → Control mode → Strict basket arbitrage**, save, then start a new paper session. Copy mode follows mapped wallet trades; it is not arbitrage.
@@ -25,7 +27,7 @@ Apple/NWS disagreement is a hypothesis about forecast-driven mispricing. This tr
 
 ## Automatic Apple WeatherKit setup
 
-Apple forecasts are retrieved only through WeatherKit. There is no phone entry, manual upload, or alternate Apple source. The dashboard refuses to start the tracker until credentials are configured. Existing archives remain unchanged.
+These instructions configure the optional direct WeatherKit API. The dashboard now uses automatic Apple Shortcuts exports by default. Existing archives remain unchanged.
 
 The connector is implemented and locally tested, but an authenticated Apple response has not been validated for this project. WeatherKit requires your own Apple Developer Program access. No account was opened, membership purchased, or paid service enabled by this change.
 
@@ -46,7 +48,7 @@ The connector is implemented and locally tested, but an authenticated Apple resp
    WEATHERLAB_WEATHERKIT_KEY_PATH=C:\private\AuthKey_YOUR_KEY_ID.p8
    ```
 
-5. Restart the dashboard server to read the local settings. Select the station, contract date and **One snapshot**, then **Start tracker**.
+5. Run `python -m weatherlab.disagreement snapshot --apple-mode weatherkit --station KLAX --date YYYY-MM-DD --out data/weatherkit-new-run` with the target date and a new output directory.
 6. Verify a returned Apple high and inspect **Source coverage and audit**. Configured credentials alone do not prove access. Authentication, attribution, coordinates, metric units, freshness and exact returned weather-day boundaries must pass. An expired token, unavailable API, or interval mismatch produces a notice and no Apple comparison.
 7. Once one authenticated snapshot succeeds, use a bounded tracking period. The server signs a new 20-minute ES256 token locally for each snapshot. An existing developer JWT can alternatively be placed in `WEATHERLAB_WEATHERKIT_TOKEN`; that override is not automatically renewed.
 

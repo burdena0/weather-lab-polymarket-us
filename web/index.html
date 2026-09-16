@@ -9,12 +9,13 @@
 <div class="lower"><section class="journal panel" data-sector="05"><div class="section-head"><h2>Event log</h2><select id="journal-filter" aria-label="Filter decision journal"><option value="all">All strategies</option></select></div><div id="journal"><p class="empty">Upload a package, then run a replay to inspect decisions.</p></div></section>
 <section class="settings panel" data-sector="06"><h2>Configuration</h2><form id="settings-form"><label for="wallet">Reference wallet</label><input id="wallet" placeholder="0x…" autocomplete="off"><label for="source">Source</label><select id="source"><option value="sample">Sample replay</option><option value="recorded">Recorded data · test model</option><option value="cloud">Recorded data · cloud models</option></select><label for="control-mode">Control mode</label><select id="control-mode"><option value="copy">Wallet copy</option><option value="arbitrage">Strict basket arbitrage</option></select><span></span><div><p class="hint" id="cloud-status">Cloud calls are disabled until configured.</p><button type="submit">Save settings</button></div></form></section></div>
 <section class="panel" aria-label="Apple and NWS comparison">
-<div class="section-head"><h2>Apple Weather / NWS</h2><a href="https://github.com/burdena0/weather-lab-polymarket-us/blob/main/docs/APPLE-NWS-STUDY.md" target="_blank" rel="noreferrer">Tracker setup</a></div>
+<div class="section-head"><h2>Apple Weather / NWS</h2><a href="https://github.com/burdena0/weather-lab-polymarket-us/blob/main/docs/APPLE-SHORTCUTS.md" target="_blank" rel="noreferrer">Shortcuts setup</a></div>
 <p class="hint">Compare daily forecasts with contract prices and visible shares. Forecast disagreement is a research signal, not locked-in arbitrage. Current observations are not final daily highs.</p>
+<form id="shortcuts-folder-form"><label for="shortcuts-folder">Synced forecast folder</label><input id="shortcuts-folder" placeholder="Local iCloud Drive / Shortcuts / WeatherLab folder" required><span></span><button type="submit">Connect forecast folder</button></form>
 <form id="weather-study-form" class="weather-study-form">
 <label>Settlement station<select id="study-station"><option value="KLAX">Los Angeles / KLAX</option><option value="KNYC">Central Park / KNYC</option><option value="KSFO">San Francisco / KSFO</option><option value="KMIA">Miami / KMIA</option><option value="KMDW">Chicago Midway / KMDW</option></select></label>
 <label>Contract date<input id="study-date" type="date" required></label>
-<p class="hint">Apple source: WeatherKit API</p>
+<p class="hint">Apple source: automatic iPhone Shortcut</p>
 <label>Capture length<select id="study-duration"><option value="1">One snapshot</option><option value="900">15 minutes</option><option value="3600" selected>1 hour</option></select></label>
 <div class="actions"><button type="submit">Start tracker</button><button id="study-stop" type="button">Stop tracker</button></div></form>
 <p id="study-status" role="status">No tracker started.</p><p id="study-weather" class="hint"></p><div id="apple-attribution"></div>

@@ -16,6 +16,7 @@ from pathlib import Path
 
 from .core import number, stamp, levels, quote, complete_partition
 from .sources import PublicSource, NoRedirect, STATIONS, normalize_market
+from .shortcut_feed import ShortcutFeed
 
 # Daily CLI products use local standard time. Ask Apple to roll up that same
 # interval, then verify returned boundaries against the actual contract anyway.
@@ -176,13 +177,13 @@ def compare_market(m, apple, nws, now):
     return row
 
 
-def collect_snapshot(root, station, day, source_factory=PublicSource):
+def collect_snapshot(root, station, day, source_factory=PublicSource, apple_mode="shortcuts", shortcut_feed=None):
     validate_target(station, day)
     root = Path(root); root.mkdir(parents=True, exist_ok=False)
     source = source_factory(root/'receipts', max_requests=24)
     report = {'station': station, 'date': day, 'started_at': time.time(), 'apple': None,
         'nws_forecast': None, 'nws_observation': None, 'markets': [], 'errors': [],
-        'classification': 'forecast-disagreement study', 'apple_mode': 'weatherkit', 'trade_enabled': False,
+        'classification': 'forecast-disagreement study', 'apple_mode': apple_mode, 'trade_enabled': False,
         'final_cli_high_f': None, 'final_cli_status': 'Awaiting a separately reviewed CLI outcome',
         'profit_verified': False, 'snapshot_path': str(root/'snapshot.json')}
     def attempt(label, fn):
@@ -209,7 +210,13 @@ def collect_snapshot(root, station, day, source_factory=PublicSource):
         if len({(x['day_start'], x['close_at']) for x in selected}) != 1:
             raise ValueError('Venue weather-day intervals disagree')
         report.update(day_start=stamp(m['day_start']), day_end=stamp(m['close_at']))
-        report['apple'] = attempt('WeatherKit', lambda: apple_forecast(source, m, root))
+        if apple_mode == 'shortcuts':
+            if shortcut_feed is None: raise ValueError('Apple Shortcuts feed not configured')
+            report['apple'] = attempt('Apple Shortcuts', lambda: shortcut_feed.forecast(m, root))
+        elif apple_mode == 'weatherkit':
+            report['apple'] = attempt('WeatherKit', lambda: apple_forecast(source, m, root))
+        else:
+            raise ValueError('Unsupported Apple source')
         def nws_forecast():
             f = source.forecast(m)
             if not 0 <= time.time()-stamp(f['issued_at']) <= 21600 or stamp(f['issued_at']) > stamp(f['received_at']):
@@ -268,10 +275,11 @@ class DisagreementStudy:
         self.root = Path(root); self.root.mkdir(parents=True, exist_ok=True)
         self.lock = threading.Lock(); self.stop = threading.Event(); self.thread = None
         self.latest = None; self.count = 0; self.error = None; self.ends_at = None
+        self.shortcuts = ShortcutFeed(self.root/'shortcuts')
         path = self.root/'latest.json'
         if path.exists():
             previous = json.loads(path.read_text(encoding='utf-8'))
-            if previous.get('apple_mode') == 'weatherkit' and (previous.get('apple') is None or previous['apple'].get('source') == 'weatherkit_daily'):
+            if previous.get('apple_mode') == 'shortcuts' and (previous.get('apple') is None or previous['apple'].get('source') == 'apple_shortcuts'):
                 self.latest = previous
 
     def state(self):
@@ -279,13 +287,14 @@ class DisagreementStudy:
             return copy.deepcopy({'running': bool(self.thread and self.thread.is_alive()),
                 'snapshots': self.count, 'ends_at': self.ends_at, 'error': self.error,
                 'weatherkit_configured': apple_configured(),
-                'apple_mode': 'weatherkit', 'latest': self.latest})
+                'apple_mode': 'shortcuts', 'shortcuts': self.shortcuts.state(), 'latest': self.latest})
 
     def start(self, body):
         station, day = body['station'], body['date']; validate_target(station, day)
-        mode = body.get('apple_mode', 'weatherkit')
-        if mode != 'weatherkit': raise ValueError('WeatherKit is the only supported Apple source')
-        if not apple_configured(): raise ValueError('WeatherKit credentials missing. Complete Tracker setup, then restart the dashboard.')
+        mode = body.get('apple_mode', 'shortcuts')
+        if mode not in ('shortcuts','weatherkit'): raise ValueError('Only automatic Apple sources are supported')
+        if mode == 'weatherkit' and not apple_configured(): raise ValueError('WeatherKit credentials missing')
+        if mode == 'shortcuts' and not self.shortcuts.state()['configured']: raise ValueError('Connect your local iCloud Drive forecast folder using Shortcuts setup first')
         duration, interval = int(body.get('duration', 3600)), int(body.get('interval', 300))
         if not 1 <= duration <= 3600 or not 60 <= interval <= 900:
             raise ValueError('Choose 1-3600 seconds duration and 60-900 seconds interval')
@@ -298,7 +307,7 @@ class DisagreementStudy:
             def work():
                 try:
                     while not self.stop.is_set():
-                        result = collect_snapshot(run/str(self.count+1).zfill(4), station, day)
+                        result = collect_snapshot(run/str(self.count+1).zfill(4), station, day, apple_mode=mode, shortcut_feed=self.shortcuts)
                         with self.lock:
                             self.latest = result; self.count += 1
                             (self.root/'latest.json').write_text(json.dumps(result, allow_nan=False), encoding='utf-8')
@@ -319,12 +328,16 @@ def main():
     c = sub.add_parser('snapshot')
     c.add_argument('--station', choices=sorted(STATIONS), required=True)
     c.add_argument('--date', required=True); c.add_argument('--out', required=True)
+    c.add_argument('--apple-mode', choices=('shortcuts','weatherkit'), default='shortcuts')
+    c.add_argument('--feed-state', default='data/disagreement/shortcuts')
     s = sub.add_parser('score')
     s.add_argument('--snapshot', required=True); s.add_argument('--outcome', required=True); s.add_argument('--out', required=True)
     args = p.parse_args()
     if args.cmd == 'snapshot':
-        if not apple_configured(): raise ValueError('Configure local WeatherKit credentials before collecting a snapshot')
-        result = collect_snapshot(args.out, args.station, args.date)
+        feed = ShortcutFeed(args.feed_state)
+        if args.apple_mode == 'weatherkit' and not apple_configured(): raise ValueError('Configure local WeatherKit credentials before collecting a snapshot')
+        if args.apple_mode == 'shortcuts' and not feed.state()['configured']: raise ValueError('Configure the synced Apple Shortcuts folder first')
+        result = collect_snapshot(args.out, args.station, args.date, apple_mode=args.apple_mode, shortcut_feed=feed)
         print(json.dumps({'contracts':len(result['markets']), 'errors':result['errors'], 'snapshot':result['snapshot_path']}, indent=2))
     else:
         # Bounded reads; one reviewed record only. The original snapshot stays immutable.

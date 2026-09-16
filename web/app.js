@@ -71,10 +71,11 @@ $('historical-run').onclick=()=>post('/api/historical/baseline',{});
 function renderStudy(){
   const s=state.disagreement;
   if(!s){$('study-status').textContent='Restart the dashboard server to load the tracker update.';return}
+  if(!$('shortcuts-folder-form').contains(document.activeElement))$('shortcuts-folder').value=s.shortcuts?.folder||'';
   const r=s.latest, fmt=v=>v===null||v===undefined?'—':Number(v).toFixed(1)+'°F';
-  $('study-status').textContent=(s.running?'Collecting':'Stopped')+' · '+s.snapshots+' snapshots this session · '+(s.weatherkit_configured?'WeatherKit credentials configured':'WeatherKit credentials missing — see Tracker setup')+(s.error?' · '+s.error:'');
+  $('study-status').textContent=(s.running?'Collecting':'Stopped')+' · '+s.snapshots+' snapshots this session · '+(s.shortcuts?.configured?'Synced folder connected':'iCloud folder not connected — see Shortcuts setup')+(s.error?' · '+s.error:'');
   $('study-markets').replaceChildren();$('apple-attribution').replaceChildren();
-  if(!r){$('study-weather').textContent='Automatic Apple forecasts require WeatherKit credentials. See Tracker setup to connect your developer account.';return}
+  if(!r){$('study-weather').textContent='Waiting for an automatic Apple Weather export from your iPhone. Follow Shortcuts setup once; temperatures are then retrieved and saved automatically.';return}
   const a=r.apple,n=r.nws_forecast,o=r.nws_observation;
   const fresh=a&&r.apple_fresh&&Date.now()/1000<a.expires_at;
   $('study-weather').textContent=`${r.station} / ${r.date} · Captured ${new Date(r.finished_at*1000).toLocaleString()} · Apple daily high: ${fmt(a?.high_f)}${a&&!fresh?' (expired)':''} · NWS forecast high: ${fmt(n?.high_f)} · Latest NWS observation: ${fmt(o?.temperature_f)}${o?' at '+new Date(o.observed_at*1000).toLocaleString():''} · Final CLI daily high: pending review. `+(a?.notice||'Apple data missing.');
@@ -88,5 +89,7 @@ function renderStudy(){
   $('study-audit').textContent=JSON.stringify({snapshot:r.snapshot_path,errors:r.errors,inventory_complete:r.inventory_complete,matching_contracts:r.matching_contracts,contracts_truncated:r.contracts_truncated,complete_partition:r.complete_partition,comparison_aligned:r.comparison_aligned,apple_minus_nws_forecast_f:r.apple_minus_nws_forecast_f,trade_enabled:false,individual_order_count:'Unavailable; quantities are shares, not orders',sampling:'Every 5 minutes; bounded snapshots, no continuous-fill claim'},null,2);
 }
 const today=new Date();$('study-date').value=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
-$('weather-study-form').onsubmit=e=>{e.preventDefault();post('/api/disagreement/start',{station:$('study-station').value,date:$('study-date').value,apple_mode:'weatherkit',duration:Number($('study-duration').value),interval:300})};
+$('weather-study-form').onsubmit=e=>{e.preventDefault();post('/api/disagreement/start',{station:$('study-station').value,date:$('study-date').value,apple_mode:'shortcuts',duration:Number($('study-duration').value),interval:300})};
 $('study-stop').onclick=()=>post('/api/disagreement/stop',{});
+
+$('shortcuts-folder-form').onsubmit=e=>{e.preventDefault();post('/api/shortcuts/configure',{folder:$('shortcuts-folder').value})};

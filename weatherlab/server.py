@@ -83,6 +83,10 @@ class Lab:
             count = self.rag.ingest(rows)
             return {"message": f"Indexed {count} new immutable evidence records."}
         body = json.loads(raw or b"{}")
+        if path == '/api/shortcuts/configure':
+            if self.disagreement.state()['running']: raise ValueError('Stop the tracker before changing its source folder')
+            self.disagreement.shortcuts.configure(body.get('folder',''))
+            return {'message':'Synced forecast folder connected. Start the tracker after the iPhone has exported its first file.'}
         if path == '/api/disagreement/start':
             self.disagreement.start(body)
             return {'message':'Forecast/book tracker started. This collects observations; it does not place paper or real orders.'}

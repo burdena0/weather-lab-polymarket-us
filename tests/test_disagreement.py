@@ -113,7 +113,7 @@ class DisagreementTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as tmp:
             with patch('weatherlab.disagreement.collect_snapshot',return_value={'test':True}) as collect, patch('weatherlab.disagreement.apple_configured',return_value=True):
                 s=DisagreementStudy(tmp)
-                s.start({'station':'KLAX','date':'2026-09-17','duration':1})
+                s.start({'station':'KLAX','date':'2026-09-17','duration':1,'apple_mode':'weatherkit'})
                 s.thread.join(timeout=3)
                 self.assertFalse(s.state()['running']);self.assertEqual(s.state()['snapshots'],1)
                 collect.assert_called_once()
@@ -130,10 +130,10 @@ class DisagreementTests(unittest.TestCase):
     def test_weatherkit_only_and_missing_credentials_block_start(self):
         with tempfile.TemporaryDirectory() as tmp, patch('weatherlab.disagreement.apple_configured',return_value=False):
             study=DisagreementStudy(tmp)
-            with self.assertRaisesRegex(ValueError,'only supported'):
+            with self.assertRaisesRegex(ValueError,'automatic Apple'):
                 study.start({'station':'KLAX','date':'2026-09-17','apple_mode':'manual'})
             with self.assertRaisesRegex(ValueError,'credentials missing'):
-                study.start({'station':'KLAX','date':'2026-09-17'})
+                study.start({'station':'KLAX','date':'2026-09-17','apple_mode':'weatherkit'})
             self.assertFalse(study.state()['running'])
             self.assertEqual(list(Path(tmp).iterdir()),[])
 
@@ -145,7 +145,7 @@ class DisagreementTests(unittest.TestCase):
             study=DisagreementStudy(root)
             self.assertIsNone(study.state()['latest'])
             self.assertNotIn('manual',study.state())
-            self.assertEqual(study.state()['apple_mode'],'weatherkit')
+            self.assertEqual(study.state()['apple_mode'],'shortcuts')
 
     def test_api_errors_do_not_expose_tokens(self):
         with tempfile.TemporaryDirectory() as tmp, patch('urllib.request.build_opener') as opener:
