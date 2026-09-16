@@ -31,7 +31,7 @@ sequenceDiagram
         Q-->>S: Aggregate cost including modeled fees and slippage
         S->>S: Require discovery spread at least 0.03 and sufficient budget
     end
-    S-->>E: Intent ready after 2 seconds, expires after 60 seconds; or skip
+    S-->>E: Intent ready after 2 seconds, expires after 60 seconds, or skip
     E->>J: Record decision or skip
     opt Intent is ready in a later eligible frame
         E->>A: fill(legs, current books, limits)
@@ -68,13 +68,13 @@ sequenceDiagram
     R-->>E: Eligible prior station-days, rules, notes and audit IDs
     E->>S: decide with retrieved evidence and current books
     S->>S: Validate forecast, book and at least 10 causal history days
-    Note over S,P: Forecast context excludes market prices; no model tool access
+    Note over S,P: Forecast context excludes market prices, no model tool access
     S->>M: predict(context, medium tier, medium effort)
     M->>L: Reserve estimated cost under shared daily cap
     M->>P: Structured probability request
     P-->>M: Probability, bounds, confidence, abstain and evidence IDs
-    M->>M: Validate schema, probability bounds and supplied citations
     M->>L: Reconcile known token usage
+    M->>M: Validate schema, probability bounds and supplied citations
     M-->>S: Validated prediction, latency and call audit
     S->>S: Apply selected risk profile, exit/entry logic and sizing
     S-->>E: Intent or abstention with audit
@@ -97,15 +97,16 @@ Budget/configuration failures stop a model call. Unknown billed usage retains it
 sequenceDiagram
     autonumber
     participant E as engine.replay
-    participant R as EvidenceStore and core.context
+    participant R as EvidenceStore
     participant S as Strategy
     participant T as route(context)
     participant M as CloudModel and budget gate
     participant P as Configured cloud model
     participant A as Account
-    E->>R: Retrieve and validate evidence as of decision time
-    R-->>E: Causal context with at least 10 prior station-days
+    E->>R: Retrieve eligible evidence as of decision time
+    R-->>E: History, documents and retrieval audit IDs
     E->>S: decide(current frame)
+    S->>S: core.context validates forecast and at least 10 causal history days
     S->>T: Estimate computational effort
     T->>T: Sum four binary complexity features
     T-->>S: Small/low, medium/medium or large/high
@@ -121,7 +122,7 @@ sequenceDiagram
     end
     S->>S: Force abstention if final width exceeds 0.40
     S->>S: Apply risk profile and common exit/entry sizing
-    S-->>E: Intent or skip; include route features and all call audits
+    S-->>E: Intent or skip, include route features and all call audits
     opt Intent ready in a later observed frame
         E->>A: Recheck and fill after max(2 seconds, summed call latency)
         A-->>E: Paper fill or rejection
@@ -140,18 +141,19 @@ Router score adds one point for each: fewer than 30 history days; residual stand
 sequenceDiagram
     autonumber
     participant E as engine.replay
-    participant R as EvidenceStore and core.context
+    participant R as EvidenceStore
     participant S as Strategy (polyswarm)
     participant M as CloudModel and budget gate
     participant P as Medium-tier cloud model
     participant G as Consensus aggregation
     participant A as Account
-    E->>R: Retrieve and validate evidence at decision time
-    R-->>E: Causal context and allowed evidence IDs
+    E->>R: Retrieve eligible evidence at decision time
+    R-->>E: History, documents and retrieval audit IDs
     E->>S: decide(current frame)
-    loop Each configured persona, sequentially; default count 5
+    S->>S: core.context validates forecast and at least 10 causal history days
+    loop Each configured persona, sequentially, default count 5
         S->>M: predict(same context, medium tier/effort, persona)
-        M->>P: Budget-reserved request; no prices or other persona outputs
+        M->>P: Budget-reserved request, no prices or other persona outputs
         P-->>M: Persona prediction and token usage
         M-->>S: Validated prediction and audit
     end

@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parent
 COMMON_TOP = [
     ('Observed inputs', ['US contracts, books and timestamps', 'Recorded frames or public capture', 'NWS forecast for LLM arms']),
     ('Chronological replay', ['engine.replay / Session worker', 'Decision time and evidence cutoffs', 'One isolated run per strategy']),
-    ('Strategy dispatcher', ['Strategy.decide(config)', 'Frozen per-run configuration', 'Eligible market and book checks']),
+    ('Strategy dispatcher', ['Strategy.decide(...)', 'Frozen per-run configuration', 'Eligible market and book checks']),
 ]
 COMMON_END = [
     ('Decision and risk policy', ['Entry / owned-inventory exit / skip', 'Cost-aware sizing and price limits', 'LLM arms: selected risk profile']),
