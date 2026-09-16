@@ -11,7 +11,7 @@ import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from weatherlab.disagreement import (manual_record, parse_apple, observation, compare_market,
+from weatherlab.disagreement import (parse_apple, observation, compare_market,
     score_snapshot, DisagreementStudy, collect_snapshot, apple_token, weatherkit_get)
 from weatherlab.fixtures import sample
 
@@ -24,14 +24,6 @@ class DisagreementTests(unittest.TestCase):
         self.market.update(lower_f=79, upper_f=81, day_start=1000, close_at=87400)
         self.apple = {'station':self.market['station'],'date':self.market['date'],'high_f':80,
             'received_at':self.now-5, 'expires_at':self.now+300}
-
-    def test_manual_rejects_future_backdating_and_nonfinite(self):
-        b={'station':'KLAX','date':'2026-09-17','high_f':80,'location':'LAX airport','viewed_at':995}
-        row=manual_record(b,1000)
-        self.assertEqual(row['received_at'],1000)
-        self.assertFalse(row['location_verified'])
-        for field,value in [('viewed_at',1001),('viewed_at',1),('high_f',float('nan'))]:
-            with self.assertRaises(ValueError):manual_record(dict(b,**{field:value}),1000)
 
     def apple_raw(self):
         return {'forecastDaily':{'metadata':{'units':'m','latitude':34,'longitude':-118,'readTime':900,'expireTime':1200},
@@ -97,11 +89,11 @@ class DisagreementTests(unittest.TestCase):
             def inventory(self):return [],1000,True
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp)/'snapshot'
-            r=collect_snapshot(root,'KLAX','2026-09-17','manual',source_factory=Missing)
+            r=collect_snapshot(root,'KLAX','2026-09-17',source_factory=Missing)
             self.assertIsNone(r['apple']);self.assertEqual(r['markets'],[])
             self.assertFalse(r['trade_enabled']);self.assertTrue(r['errors'])
             self.assertTrue((root/'snapshot.json').exists())
-            with self.assertRaises(FileExistsError):collect_snapshot(root,'KLAX','2026-09-17','manual',source_factory=Missing)
+            with self.assertRaises(FileExistsError):collect_snapshot(root,'KLAX','2026-09-17',source_factory=Missing)
 
     def test_scoring_separate_from_predictions_and_requires_postday_review(self):
         snapshot={'station':'KLAX','date':'2026-09-17','finished_at':100,'day_end':200,
@@ -119,7 +111,7 @@ class DisagreementTests(unittest.TestCase):
 
     def test_background_sampler_one_snapshot_and_restart_has_no_autorun(self):
         with tempfile.TemporaryDirectory() as tmp:
-            with patch('weatherlab.disagreement.collect_snapshot',return_value={'test':True}) as collect:
+            with patch('weatherlab.disagreement.collect_snapshot',return_value={'test':True}) as collect, patch('weatherlab.disagreement.apple_configured',return_value=True):
                 s=DisagreementStudy(tmp)
                 s.start({'station':'KLAX','date':'2026-09-17','duration':1})
                 s.thread.join(timeout=3)
@@ -134,6 +126,26 @@ class DisagreementTests(unittest.TestCase):
             self.assertNotIn('private-token',json.dumps(state))
         with patch.dict(os.environ,{},clear=True):
             with self.assertRaises(ValueError):apple_token()
+
+    def test_weatherkit_only_and_missing_credentials_block_start(self):
+        with tempfile.TemporaryDirectory() as tmp, patch('weatherlab.disagreement.apple_configured',return_value=False):
+            study=DisagreementStudy(tmp)
+            with self.assertRaisesRegex(ValueError,'only supported'):
+                study.start({'station':'KLAX','date':'2026-09-17','apple_mode':'manual'})
+            with self.assertRaisesRegex(ValueError,'credentials missing'):
+                study.start({'station':'KLAX','date':'2026-09-17'})
+            self.assertFalse(study.state()['running'])
+            self.assertEqual(list(Path(tmp).iterdir()),[])
+
+    def test_legacy_phone_snapshot_is_not_loaded_as_weatherkit(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            (root/'latest.json').write_text(json.dumps({'apple':{'source':'iphone_manual','high_f':99}}))
+            (root/'manual-latest.json').write_text('invalid legacy file ignored')
+            study=DisagreementStudy(root)
+            self.assertIsNone(study.state()['latest'])
+            self.assertNotIn('manual',study.state())
+            self.assertEqual(study.state()['apple_mode'],'weatherkit')
 
     def test_api_errors_do_not_expose_tokens(self):
         with tempfile.TemporaryDirectory() as tmp, patch('urllib.request.build_opener') as opener:

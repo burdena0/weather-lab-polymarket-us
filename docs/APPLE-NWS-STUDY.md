@@ -23,26 +23,18 @@ The public feed exposes price/quantity levels. **Shares and price levels are not
 
 Apple/NWS disagreement is a hypothesis about forecast-driven mispricing. This tracker does not submit paper entries or alter the four existing strategies. No Apple residual calibration, profitable rule, continuous fill coverage or NWS-versus-Apple advantage has been established. This is the data-collection stage needed to test that hypothesis.
 
-## Setup A: use the forecast on your iPhone
+## Automatic Apple WeatherKit setup
 
-No additional account, API subscription or model key is required.
-
-1. Start the updated dashboard from the repository root: `python -m weatherlab serve --port 8767`.
-2. Open `http://127.0.0.1:8767`, then find **Apple Weather / NWS**.
-3. Select the contract's settlement station and date. Use a future date for a complete NWS forecast; during the current day, the hourly forecast may no longer include the entire day and is withheld.
-4. In Apple Weather, open the closest matching airport/station location and read that date's **daily high**, not the current temperature or feels-like value. City aliases are not exact station matches.
-5. Expand **Enter the daily high shown on your iPhone**. Enter the Fahrenheit high, exact displayed location, and the local time you viewed it. Click **Save iPhone forecast** within 15 minutes of viewing.
-6. Select **iPhone entry** and a capture length; click **Start tracker**. It samples public books and NWS data every five minutes, for up to one hour. **One snapshot** makes one collection. Stop finishes the bounded in-flight collection.
-7. Save a new iPhone entry when its forecast changes. Each entry expires one hour after viewing and is retained as a separate immutable receipt. The tracker never refreshes a manual value's timestamp automatically.
-
-Manual entries explicitly retain unverified location/day alignment. They are useful exploratory evidence, not an authenticated Apple feed. Empty Apple fields stay empty until supplied. The sampler can still collect NWS and market evidence while Apple input is missing.
-
-## Setup B: automatic Apple WeatherKit
+Apple forecasts are retrieved only through WeatherKit. There is no phone entry, manual upload, or alternate Apple source. The dashboard refuses to start the tracker until credentials are configured. Existing archives remain unchanged.
 
 The connector is implemented and locally tested, but an authenticated Apple response has not been validated for this project. WeatherKit requires your own Apple Developer Program access. No account was opened, membership purchased, or paid service enabled by this change.
 
-1. Follow [Apple's WeatherKit authentication setup](https://developer.apple.com/documentation/weatherkitrestapi/request-authentication-for-weatherkit-rest-api) to enable WeatherKit, create the key, and register the Service ID. Record your Team ID, Key ID and Service ID.
-2. Save the downloaded `.p8` private key **outside this repository**. Keep the original private; do not paste it into chat or an online JWT tool.
+1. If you do not have membership, open [Apple Developer enrollment](https://developer.apple.com/programs/enroll/). Sign in with your Apple Account with two-factor authentication, choose individual enrollment if appropriate, and complete Apple's identity, agreement and payment steps yourself. Apple lists **US$99 per year**; WeatherKit includes up to **500,000 calls per month** with membership ([WeatherKit requirements](https://developer.apple.com/weatherkit/)). Wait until membership is active.
+   - In [Certificates, Identifiers & Profiles](https://developer.apple.com/account/resources/identifiers/list), create or select your App ID. Enable WeatherKit in both **App Services** and **Capabilities**, then save. [Apple instructions](https://developer.apple.com/help/account/services/weatherkit)
+   - Register the Service ID used by the REST API. Choose a unique reverse-domain identifier, such as `com.yourname.weatherlab`, and record the exact value. Follow [Apple's REST authentication instructions](https://developer.apple.com/documentation/weatherkitrestapi/request-authentication-for-weatherkit-rest-api).
+   - In **Keys → +**, name the key `Weather Lab`, enable WeatherKit, register it and download the `.p8` file. Record the Key ID. Apple only allows that private-key download once. [Key instructions](https://developer.apple.com/help/account/keys/create-a-private-key)
+   - Find your ten-character Team ID in your developer membership details. You now need four values locally: Team ID, Key ID, Service ID and the key file path.
+2. Save the downloaded `.p8` private key **outside this repository**. On this computer, the prepared folder is `C:\Users\gamev\.weatherlab\weatherkit\`. Keep the original private; do not paste it into chat or an online JWT tool.
 3. Ensure Node.js is installed. The signer uses only Node's built-in cryptography; no npm or pip dependencies are needed.
 4. Add the following to your local `.env`, replacing the placeholders. Keep `WEATHERLAB_WEATHERKIT_TOKEN` blank when using automatic signing:
 
@@ -54,7 +46,7 @@ The connector is implemented and locally tested, but an authenticated Apple resp
    WEATHERLAB_WEATHERKIT_KEY_PATH=C:\private\AuthKey_YOUR_KEY_ID.p8
    ```
 
-5. Restart the dashboard server to read the local settings. Select **WeatherKit API** and **One snapshot**, then **Start tracker**.
+5. Restart the dashboard server to read the local settings. Select the station, contract date and **One snapshot**, then **Start tracker**.
 6. Verify a returned Apple high and inspect **Source coverage and audit**. Configured credentials alone do not prove access. Authentication, attribution, coordinates, metric units, freshness and exact returned weather-day boundaries must pass. An expired token, unavailable API, or interval mismatch produces a notice and no Apple comparison.
 7. Once one authenticated snapshot succeeds, use a bounded tracking period. The server signs a new 20-minute ES256 token locally for each snapshot. An existing developer JWT can alternatively be placed in `WEATHERLAB_WEATHERKIT_TOKEN`; that override is not automatically renewed.
 
@@ -91,6 +83,6 @@ This reports signed Apple and NWS errors in Fahrenheit. It verifies station/date
 
 ## Verified in this change
 
-Unit tests cover chronology, expired inputs, station and day mismatch, unit conversion, share/level semantics, quote refusal, missing sources, isolated post-day scoring, bounded sampler behavior, and secret-free status/error output. A real public KLAX / 2026-09-17 snapshot returned six exhaustive contracts, an NWS forecast and a quality-checked observation; stale book rows were rejected. Apple remained missing because no iPhone value or WeatherKit credentials had been provided. That check is not a profit test.
+Unit tests cover chronology, expired inputs, station and day mismatch, unit conversion, share/level semantics, quote refusal, missing sources, isolated post-day scoring, bounded sampler behavior, and secret-free status/error output. A real public KLAX / 2026-09-17 snapshot returned six exhaustive contracts, an NWS forecast and a quality-checked observation; stale book rows were rejected. Apple remained missing because WeatherKit credentials had not been provided. That check is not a profit test.
 
 Sources: [Apple daily forecast fields](https://developer.apple.com/documentation/weatherkitrestapi/dayweatherconditions), [Apple request parameters](https://developer.apple.com/documentation/weatherkitrestapi/get-api-v1-weather-_language_-_latitude_-_longitude_), [Polymarket US market book](https://docs.polymarket.us/api-reference/markets/get-market-book), [NWS API](https://www.weather.gov/documentation/services-web-api).

@@ -31,7 +31,7 @@ def apple_configured():
 def apple_token():
     token = os.getenv('WEATHERLAB_WEATHERKIT_TOKEN', '').strip()
     if token: return token
-    if not apple_configured(): raise ValueError('WeatherKit credentials missing; use iPhone entry or configure local credentials')
+    if not apple_configured(): raise ValueError('WeatherKit credentials missing. Configure the local WeatherKit settings and restart the dashboard.')
     node = shutil.which('node')
     if not node: raise ValueError('Node.js is required for local WeatherKit signing')
     try:
@@ -59,22 +59,6 @@ def validate_target(station, day):
     if station not in STATIONS:
         raise ValueError('Choose a supported settlement station')
     date.fromisoformat(day)
-
-
-def manual_record(body, now):
-    station, day = body['station'], body['date']
-    validate_target(station, day)
-    high = number(body['high_f'])
-    seen = stamp(body['viewed_at'])
-    location = str(body.get('location', '')).strip()
-    if not -150 <= high <= 160 or not 0 <= now-seen <= 900:
-        raise ValueError('Enter a valid Fahrenheit daily high viewed within the last 15 minutes')
-    if not 2 <= len(location) <= 160:
-        raise ValueError('Record the exact location displayed in Apple Weather')
-    return {'station': station, 'date': day, 'high_f': high, 'viewed_at': seen,
-            'received_at': now, 'expires_at': seen+3600, 'source': 'iphone_manual',
-            'location': location, 'location_verified': False, 'interval_verified': False,
-            'notice': 'User-transcribed iPhone daily high; city location and weather-day alignment unverified.'}
 
 
 def weatherkit_get(path, root, name, token):
@@ -192,13 +176,13 @@ def compare_market(m, apple, nws, now):
     return row
 
 
-def collect_snapshot(root, station, day, apple_mode, manual=None, source_factory=PublicSource):
+def collect_snapshot(root, station, day, source_factory=PublicSource):
     validate_target(station, day)
     root = Path(root); root.mkdir(parents=True, exist_ok=False)
     source = source_factory(root/'receipts', max_requests=24)
     report = {'station': station, 'date': day, 'started_at': time.time(), 'apple': None,
         'nws_forecast': None, 'nws_observation': None, 'markets': [], 'errors': [],
-        'classification': 'forecast-disagreement study', 'trade_enabled': False,
+        'classification': 'forecast-disagreement study', 'apple_mode': 'weatherkit', 'trade_enabled': False,
         'final_cli_high_f': None, 'final_cli_status': 'Awaiting a separately reviewed CLI outcome',
         'profit_verified': False, 'snapshot_path': str(root/'snapshot.json')}
     def attempt(label, fn):
@@ -225,20 +209,7 @@ def collect_snapshot(root, station, day, apple_mode, manual=None, source_factory
         if len({(x['day_start'], x['close_at']) for x in selected}) != 1:
             raise ValueError('Venue weather-day intervals disagree')
         report.update(day_start=stamp(m['day_start']), day_end=stamp(m['close_at']))
-        if apple_mode == 'weatherkit':
-            report['apple'] = attempt('Apple', lambda: apple_forecast(source, m, root))
-        elif apple_mode == 'manual':
-            if manual and (manual['station'], manual['date']) == (station, day):
-                if (manual.get('source') != 'iphone_manual' or not -150 <= number(manual['high_f']) <= 160
-                    or not stamp(manual['viewed_at']) <= stamp(manual['received_at']) <= time.time()
-                    or stamp(manual['expires_at']) != stamp(manual['viewed_at'])+3600
-                    or manual.get('location_verified') is not False or manual.get('interval_verified') is not False):
-                    raise ValueError('Invalid manual Apple receipt; no backdating or inferred station verification')
-                report['apple'] = copy.deepcopy(manual)
-            else:
-                report['errors'].append('Apple: no iPhone entry for this station/date')
-        else:
-            raise ValueError('Unknown Apple source')
+        report['apple'] = attempt('WeatherKit', lambda: apple_forecast(source, m, root))
         def nws_forecast():
             f = source.forecast(m)
             if not 0 <= time.time()-stamp(f['issued_at']) <= 21600 or stamp(f['issued_at']) > stamp(f['received_at']):
@@ -297,30 +268,24 @@ class DisagreementStudy:
         self.root = Path(root); self.root.mkdir(parents=True, exist_ok=True)
         self.lock = threading.Lock(); self.stop = threading.Event(); self.thread = None
         self.latest = None; self.count = 0; self.error = None; self.ends_at = None
-        self.manual = None
-        path = self.root/'manual-latest.json'
-        if path.exists(): self.manual = json.loads(path.read_text(encoding='utf-8'))
         path = self.root/'latest.json'
-        if path.exists(): self.latest = json.loads(path.read_text(encoding='utf-8'))
+        if path.exists():
+            previous = json.loads(path.read_text(encoding='utf-8'))
+            if previous.get('apple_mode') == 'weatherkit' and (previous.get('apple') is None or previous['apple'].get('source') == 'weatherkit_daily'):
+                self.latest = previous
 
     def state(self):
         with self.lock:
             return copy.deepcopy({'running': bool(self.thread and self.thread.is_alive()),
                 'snapshots': self.count, 'ends_at': self.ends_at, 'error': self.error,
                 'weatherkit_configured': apple_configured(),
-                'manual': self.manual, 'latest': self.latest})
-
-    def record(self, body):
-        row = manual_record(body, time.time())
-        with self.lock:
-            write_new(self.root/('manual-'+str(uuid.uuid4())+'.json'), row)
-            (self.root/'manual-latest.json').write_text(json.dumps(row), encoding='utf-8')
-            self.manual = row
+                'apple_mode': 'weatherkit', 'latest': self.latest})
 
     def start(self, body):
         station, day = body['station'], body['date']; validate_target(station, day)
-        mode = body.get('apple_mode', 'manual')
-        if mode not in ('manual', 'weatherkit'): raise ValueError('Unknown Apple source')
+        mode = body.get('apple_mode', 'weatherkit')
+        if mode != 'weatherkit': raise ValueError('WeatherKit is the only supported Apple source')
+        if not apple_configured(): raise ValueError('WeatherKit credentials missing. Complete Tracker setup, then restart the dashboard.')
         duration, interval = int(body.get('duration', 3600)), int(body.get('interval', 300))
         if not 1 <= duration <= 3600 or not 60 <= interval <= 900:
             raise ValueError('Choose 1-3600 seconds duration and 60-900 seconds interval')
@@ -333,8 +298,7 @@ class DisagreementStudy:
             def work():
                 try:
                     while not self.stop.is_set():
-                        with self.lock: manual = copy.deepcopy(self.manual)
-                        result = collect_snapshot(run/str(self.count+1).zfill(4), station, day, mode, manual)
+                        result = collect_snapshot(run/str(self.count+1).zfill(4), station, day)
                         with self.lock:
                             self.latest = result; self.count += 1
                             (self.root/'latest.json').write_text(json.dumps(result, allow_nan=False), encoding='utf-8')
@@ -355,16 +319,12 @@ def main():
     c = sub.add_parser('snapshot')
     c.add_argument('--station', choices=sorted(STATIONS), required=True)
     c.add_argument('--date', required=True); c.add_argument('--out', required=True)
-    c.add_argument('--apple-mode', choices=('manual','weatherkit'), default='manual')
-    c.add_argument('--manual', help='A manual-*.json receipt created by the dashboard')
     s = sub.add_parser('score')
     s.add_argument('--snapshot', required=True); s.add_argument('--outcome', required=True); s.add_argument('--out', required=True)
     args = p.parse_args()
     if args.cmd == 'snapshot':
-        if args.manual and Path(args.manual).stat().st_size > 100000:
-            raise ValueError('Oversized manual receipt')
-        manual = json.loads(Path(args.manual).read_text(encoding='utf-8')) if args.manual else None
-        result = collect_snapshot(args.out, args.station, args.date, args.apple_mode, manual)
+        if not apple_configured(): raise ValueError('Configure local WeatherKit credentials before collecting a snapshot')
+        result = collect_snapshot(args.out, args.station, args.date)
         print(json.dumps({'contracts':len(result['markets']), 'errors':result['errors'], 'snapshot':result['snapshot_path']}, indent=2))
     else:
         # Bounded reads; one reviewed record only. The original snapshot stays immutable.

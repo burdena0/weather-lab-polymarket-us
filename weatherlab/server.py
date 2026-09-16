@@ -83,9 +83,6 @@ class Lab:
             count = self.rag.ingest(rows)
             return {"message": f"Indexed {count} new immutable evidence records."}
         body = json.loads(raw or b"{}")
-        if path == '/api/disagreement/manual':
-            self.disagreement.record(body)
-            return {'message':'iPhone forecast archived with its actual receipt time. Location/day alignment remains unverified.'}
         if path == '/api/disagreement/start':
             self.disagreement.start(body)
             return {'message':'Forecast/book tracker started. This collects observations; it does not place paper or real orders.'}

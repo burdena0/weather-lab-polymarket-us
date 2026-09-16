@@ -6,7 +6,7 @@ Four independently packaged strategies and a new local dashboard. Python 3.10+ w
 
 [Setup checklist](docs/GETTING-STARTED.md) · [August historical test](docs/HISTORICAL-REPLAY.md) · [Prospective data collection](docs/DATA-COLLECTION.md)
 
-[Apple Weather / NWS tracker and arbitrage explanation](docs/APPLE-NWS-STUDY.md): prospective forecast, observation and contract-depth collection; manual iPhone input or optional authenticated WeatherKit. Separate post-day CLI scoring. This study does not execute trades.
+[Apple Weather / NWS tracker and arbitrage explanation](docs/APPLE-NWS-STUDY.md): prospective forecast, observation and contract-depth collection; authenticated WeatherKit only. Separate post-day CLI scoring. This study does not execute trades.
 
 
 ```powershell
