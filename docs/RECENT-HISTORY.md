@@ -1,5 +1,28 @@
 # Recent weather benchmark
 
+## Funded cloud run: completed September 16, 2026
+
+![Historical model comparison](results/historical-comparison.svg)
+
+[PNG](results/historical-comparison.png) · [PDF](results/historical-comparison.pdf) · [Comparison JSON](results/historical-comparison.json) · [Market coverage and joins](results/market-input-coverage.json)
+
+The funded run processed all five stations and produced **333 validated model responses**: 291 Terra, 32 Luna and 10 Sol. All three configured model tiers returned validated responses. Outputs are preserved separately under `cloud-funded-STATION-v1/`; the earlier billing-failed run remains unchanged.
+
+| Model | Scored / 50 | Brier on 25 shared cases | Shared-case accuracy |
+| --- | ---: | ---: | ---: |
+| Statistical baseline | 50 / 50 | 0.104114 | 88% |
+| Fixed LLM | 49 / 50 | 0.098880 | 88% |
+| Adaptive LLM | 40 / 50 | 0.103555 | 88% |
+| PolySwarm weather only | 28 / 50 | 0.096359 | 88% |
+
+PolySwarm has the smallest observed Brier error on this selected shared-case subset. The intervals overlap substantially and every model has 22/25 correct directional classifications. This does not establish a reliable winner or a profitable strategy. The baseline's full 50-case Brier is 0.109173; comparisons to an arm's different successful subset are not a fair ranking.
+
+Fixed LLM skipped one case through abstention. Adaptive LLM had ten failed validation/response cases. The swarm skipped 16 cases through persona abstention, four through validation/response failures and two through timeouts. Generic `ValueError` diagnostics do not establish the precise provider/validation cause; no favorable replacement predictions were substituted. Each swarm prediction required all five personas. The 25-case intersection excludes those failures and can introduce selection bias.
+
+Validated responses have a token-priced estimate of **$4.459422** under the configured tariffs. Run accounting, including known failed-call usage and conservative unresolved reservations, totals **$4.630867**. These are application estimates, not an invoice. Prior billing-failed reservations are separate. The existing shared $20 UTC-day cap was retained.
+
+The graph uses all ten calendar dates. The runs read outcomes only after committing their predictions and retain the same earlier calibration; no model configuration or prompt was tuned on these outcomes. Stations ran in separate bounded Python processes sharing the budget ledger. No retrospective archive record was backdated into live RAG, and no actual orders were placed.
+
 ## Completed collection and results
 
 On September 16, 2026, the local collector downloaded September 6–15 forecasts and final daily highs for KLAX, KMDW, KMIA, KNYC and KSFO: **50 test station-days**, plus **155 earlier calibration station-days** (August 6–September 5). All five final station manifests report zero collection errors. A station-day is one station on one date.
@@ -74,7 +97,7 @@ python -m weatherlab.historical_market --start 2026-09-06 --end 2026-09-15 --out
 
 ## Comparison graph methodology
 
-The dashboard graph compares Brier error on the intersection of cases successfully scored by the baseline and all three cloud arms. The coverage table also shows every arm's total scored cases out of 50. Selection bias remains because shared-case filtering excludes abstentions and failed requests. PolySwarm here means its weather-persona ablation, not the full market-price blend. The deterministic copy/arbitrage control is explicitly unscored.
+The dashboard graph compares Brier error on the intersection of cases successfully scored by the baseline and all three cloud arms. The coverage table also shows every arm's total scored cases out of 50. Classification accuracy predicts YES when probability is at least 0.5 and uses the same shared cases as the graph. Selection bias remains because shared-case filtering excludes abstentions and failed requests. PolySwarm here means its weather-persona ablation, not the full market-price blend. The deterministic copy/arbitrage control is explicitly unscored.
 
 Intervals are descriptive 95% calendar-day block bootstrap intervals (2,000 draws, fixed seed 20260916), retaining same-day dependence across stations. Ten dates are insufficient for a strong statistical or profitability claim. Do not rank strategies on differing all-case subsets or interpret classification accuracy as returns.
 

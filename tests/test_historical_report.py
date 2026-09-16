@@ -29,6 +29,10 @@ class HistoricalReportTests(unittest.TestCase):
             self.assertEqual(report['status'],'partial')
             self.assertEqual([a['scored'] for a in report['arms']],[2,2,1,2])
             self.assertTrue(all(abs(a['paired_brier']-.04)<1e-9 for a in report['arms']))
+            score_path=root/'cloud-KLAX'/'scores.jsonl';original=score_path.read_text()
+            score_path.write_text(original.replace('0.8','0.9'))
+            with self.assertRaisesRegex(ValueError,'committed prediction'):summarize(root,'cloud-')
+            score_path.write_text(original)
             path=root/'cloud-KLAX'/'predictions.jsonl'
             path.write_text(path.read_text().replace('0.8','0.9'))
             with self.assertRaisesRegex(ValueError,'chain'):summarize(root,'cloud-')

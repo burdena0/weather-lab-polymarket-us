@@ -31,6 +31,8 @@ def build():
     files.extend(sorted((ROOT/'weatherlab').glob('*.cjs')))
     for pattern in ('*.svg', '*.html', '*.py'):
         files.extend(sorted((ROOT/'docs'/'architecture').glob(pattern)))
+    for pattern in ('*.json', '*.svg', '*.png', '*.pdf'):
+        files.extend(sorted((ROOT/'docs'/'results').glob(pattern)))
     contents={p.relative_to(ROOT).as_posix():p.read_bytes() for p in files if p.is_file()}
     hashes={name:hashlib.sha256(raw).hexdigest() for name,raw in contents.items()}
     outputs=[]

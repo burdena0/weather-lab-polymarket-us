@@ -15,7 +15,7 @@ NAMES=('Statistical baseline','Fixed LLM','Adaptive LLM','PolySwarm weather only
 
 def summarize(root, prefix, suffix=''):
     root=Path(root); scores={a:{} for a in ARMS}; errors={a:Counter() for a in ARMS}
-    completed=[]; calls=[]; accounted=0; sources=[]; station_results={}
+    completed=[]; calls=[]; accounted=0; sources=[]; station_results={}; outcomes={}
     for station in STATIONS:
         for folder in (root/('baseline-'+station),root/(prefix+station+suffix)):
             summary_path=folder/'summary.json'
@@ -24,17 +24,26 @@ def summarize(root, prefix, suffix=''):
             if summary['mode']=='cloud':
                 completed.append(station);accounted+=summary['model_cost_or_reserved_usd']
                 station_results[station]=summary['arms']
-            previous='0'*64
+            previous='0'*64; predicted={}
             for prediction in read_rows(folder/'predictions.jsonl'):
                 record=dict(prediction);tip=record.pop('chain_hash')
                 if digest({'previous':previous,'record':record})!=tip:raise ValueError('Prediction chain mismatch')
                 previous=tip
+                decision_key=(record['arm'],record['case_id'])
+                if decision_key in predicted:raise ValueError('Duplicate prediction')
+                predicted[decision_key]=record
                 if record.get('error'):errors[record['arm']][record['error']]+=1
                 calls.extend(record['calls'])
             if previous!=summary['prediction_chain_tip']:raise ValueError('Summary chain tip mismatch')
             for row in read_rows(folder/'scores.jsonl'):
                 key=(station,row['case_id']);arm=row['arm']
                 if key in scores[arm]:raise ValueError('Duplicate scored station-day')
+                prediction=predicted.get((arm,row['case_id']),{})
+                if 'error' in prediction or prediction.get('probability')!=row['p']:
+                    raise ValueError('Score differs from committed prediction')
+                if not 0<=row['p']<=1 or row['y'] not in (0,1):raise ValueError('Invalid score probability/outcome')
+                if key in outcomes and outcomes[key]!=row['y']:raise ValueError('Conflicting shared-case outcome')
+                outcomes[key]=row['y']
                 if abs(row['brier']-(row['p']-row['y'])**2)>1e-12:raise ValueError('Score calculation mismatch')
                 scores[arm][key]=row
             sources.append({'path':str(folder),'corpus_hash':summary['corpus_hash'],'prediction_chain_tip':previous})

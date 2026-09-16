@@ -12,8 +12,8 @@ def main():
     args=p.parse_args();r=json.loads(Path(args.input).read_text(encoding='utf-8'))
     if r['status']!='complete' or not r['paired_station_days']:raise ValueError('Require completed runs and shared scored cases')
     plt.rcParams.update({'font.family':'DejaVu Sans','font.size':11,'svg.fonttype':'none'})
-    fig,(ax,cov)=plt.subplots(1,2,figsize=(12,6.4),gridspec_kw={'width_ratios':[3.7,1.2]})
-    fig.subplots_adjust(left=.24,right=.97,top=.76,bottom=.26,wspace=.45)
+    fig,(ax,cov)=plt.subplots(1,2,figsize=(12,7.0),gridspec_kw={'width_ratios':[3.7,1.2]})
+    fig.subplots_adjust(left=.24,right=.97,top=.76,bottom=.32,wspace=.45)
     names=[a['name'] for a in r['arms']];values=[a['paired_brier'] for a in r['arms']]
     for i,a in enumerate(r['arms']):
         ax.barh(i,a['paired_brier'],height=.5,color='#8b8b8b' if i==0 else '#344f6f',zorder=2)

@@ -1,0 +1,373 @@
+{
+  "created_at": 1789592003.8026035,
+  "period": "2026-09-06 through 2026-09-15",
+  "completed_stations": [
+    "KLAX",
+    "KMDW",
+    "KMIA",
+    "KNYC",
+    "KSFO"
+  ],
+  "status": "complete",
+  "expected_station_days": 50,
+  "paired_station_days": 25,
+  "paired_calendar_days": 10,
+  "paired_keys": [
+    [
+      "KLAX",
+      "2026-09-06"
+    ],
+    [
+      "KLAX",
+      "2026-09-09"
+    ],
+    [
+      "KLAX",
+      "2026-09-10"
+    ],
+    [
+      "KLAX",
+      "2026-09-11"
+    ],
+    [
+      "KLAX",
+      "2026-09-13"
+    ],
+    [
+      "KLAX",
+      "2026-09-14"
+    ],
+    [
+      "KMDW",
+      "2026-09-07"
+    ],
+    [
+      "KMDW",
+      "2026-09-08"
+    ],
+    [
+      "KMDW",
+      "2026-09-09"
+    ],
+    [
+      "KMDW",
+      "2026-09-10"
+    ],
+    [
+      "KMDW",
+      "2026-09-12"
+    ],
+    [
+      "KMDW",
+      "2026-09-15"
+    ],
+    [
+      "KMIA",
+      "2026-09-06"
+    ],
+    [
+      "KMIA",
+      "2026-09-08"
+    ],
+    [
+      "KMIA",
+      "2026-09-10"
+    ],
+    [
+      "KMIA",
+      "2026-09-11"
+    ],
+    [
+      "KMIA",
+      "2026-09-12"
+    ],
+    [
+      "KMIA",
+      "2026-09-13"
+    ],
+    [
+      "KMIA",
+      "2026-09-14"
+    ],
+    [
+      "KMIA",
+      "2026-09-15"
+    ],
+    [
+      "KNYC",
+      "2026-09-07"
+    ],
+    [
+      "KNYC",
+      "2026-09-09"
+    ],
+    [
+      "KNYC",
+      "2026-09-10"
+    ],
+    [
+      "KNYC",
+      "2026-09-14"
+    ],
+    [
+      "KSFO",
+      "2026-09-15"
+    ]
+  ],
+  "arms": [
+    {
+      "id": "statistical_baseline",
+      "name": "Statistical baseline",
+      "scored": 50,
+      "expected": 50,
+      "errors": {},
+      "mean_brier_all": 0.10917337185386318,
+      "paired_brier": 0.1041139499056972,
+      "paired_correct": 22,
+      "paired_accuracy": 0.88,
+      "paired_interval": [
+        0.03863055889423077,
+        0.19143738249101314
+      ]
+    },
+    {
+      "id": "fixed_llm",
+      "name": "Fixed LLM",
+      "scored": 49,
+      "expected": 50,
+      "errors": {
+        "Model abstained": 1
+      },
+      "mean_brier_all": 0.11186040816326533,
+      "paired_brier": 0.09888008,
+      "paired_correct": 22,
+      "paired_accuracy": 0.88,
+      "paired_interval": [
+        0.03223195833333333,
+        0.17917637037037032
+      ]
+    },
+    {
+      "id": "adaptive_llm",
+      "name": "Adaptive LLM",
+      "scored": 40,
+      "expected": 50,
+      "errors": {
+        "Cloud call failed (ValueError); budget reservation retained if usage unknown": 10
+      },
+      "mean_brier_all": 0.09188375000000003,
+      "paired_brier": 0.10355536000000003,
+      "paired_correct": 22,
+      "paired_accuracy": 0.88,
+      "paired_interval": [
+        0.038808695652173916,
+        0.18910463636363636
+      ]
+    },
+    {
+      "id": "polyswarm_weather_ablation",
+      "name": "PolySwarm weather only",
+      "scored": 28,
+      "expected": 50,
+      "errors": {
+        "Cloud call failed (TimeoutError); budget reservation retained if usage unknown": 2,
+        "Persona abstained": 16,
+        "Cloud call failed (ValueError); budget reservation retained if usage unknown": 4
+      },
+      "mean_brier_all": 0.11462545428571429,
+      "paired_brier": 0.0963585888,
+      "paired_correct": 22,
+      "paired_accuracy": 0.88,
+      "paired_interval": [
+        0.03522100461538462,
+        0.1731942057142857
+      ]
+    }
+  ],
+  "station_results": {
+    "KLAX": {
+      "fixed_llm": {
+        "scored": 10,
+        "skipped": 0,
+        "yes_outcomes": 8,
+        "no_outcomes": 2,
+        "mean_brier": 0.1576225
+      },
+      "adaptive_llm": {
+        "scored": 9,
+        "skipped": 1,
+        "yes_outcomes": 7,
+        "no_outcomes": 2,
+        "mean_brier": 0.1800666666666667
+      },
+      "polyswarm_weather_ablation": {
+        "scored": 6,
+        "skipped": 4,
+        "yes_outcomes": 4,
+        "no_outcomes": 2,
+        "mean_brier": 0.2420441666666667
+      }
+    },
+    "KMDW": {
+      "fixed_llm": {
+        "scored": 10,
+        "skipped": 0,
+        "yes_outcomes": 6,
+        "no_outcomes": 4,
+        "mean_brier": 0.13425120000000001
+      },
+      "adaptive_llm": {
+        "scored": 8,
+        "skipped": 2,
+        "yes_outcomes": 6,
+        "no_outcomes": 2,
+        "mean_brier": 0.154278125
+      },
+      "polyswarm_weather_ablation": {
+        "scored": 6,
+        "skipped": 4,
+        "yes_outcomes": 5,
+        "no_outcomes": 1,
+        "mean_brier": 0.14454000000000003
+      }
+    },
+    "KMIA": {
+      "fixed_llm": {
+        "scored": 10,
+        "skipped": 0,
+        "yes_outcomes": 10,
+        "no_outcomes": 0,
+        "mean_brier": 0.00033250000000000055
+      },
+      "adaptive_llm": {
+        "scored": 10,
+        "skipped": 0,
+        "yes_outcomes": 10,
+        "no_outcomes": 0,
+        "mean_brier": 9.340000000000017e-05
+      },
+      "polyswarm_weather_ablation": {
+        "scored": 8,
+        "skipped": 2,
+        "yes_outcomes": 8,
+        "no_outcomes": 0,
+        "mean_brier": 0.00036264500000000155
+      }
+    },
+    "KNYC": {
+      "fixed_llm": {
+        "scored": 10,
+        "skipped": 0,
+        "yes_outcomes": 3,
+        "no_outcomes": 7,
+        "mean_brier": 0.07588610000000001
+      },
+      "adaptive_llm": {
+        "scored": 8,
+        "skipped": 2,
+        "yes_outcomes": 3,
+        "no_outcomes": 5,
+        "mean_brier": 0.051118750000000004
+      },
+      "polyswarm_weather_ablation": {
+        "scored": 6,
+        "skipped": 4,
+        "yes_outcomes": 2,
+        "no_outcomes": 4,
+        "mean_brier": 0.07913466666666666
+      }
+    },
+    "KSFO": {
+      "fixed_llm": {
+        "scored": 9,
+        "skipped": 1,
+        "yes_outcomes": 4,
+        "no_outcomes": 5,
+        "mean_brier": 0.2000263333333333
+      },
+      "adaptive_llm": {
+        "scored": 5,
+        "skipped": 5,
+        "yes_outcomes": 2,
+        "no_outcomes": 3,
+        "mean_brier": 0.08212820000000001
+      },
+      "polyswarm_weather_ablation": {
+        "scored": 2,
+        "skipped": 8,
+        "yes_outcomes": 1,
+        "no_outcomes": 1,
+        "mean_brier": 0.20614928000000007
+      }
+    }
+  },
+  "validated_calls": 333,
+  "models": {
+    "gpt-5.6-terra": 291,
+    "gpt-5.6-luna": 32,
+    "gpt-5.6-sol": 10
+  },
+  "token_priced_validated_usd": 4.4594218,
+  "cost_or_reserved_usd": 4.630867400000001,
+  "sources": [
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\baseline-KLAX",
+      "corpus_hash": "1762333687c0cdef63f06d0dbae987bb14c42d0f69fdc5d5ca296064326d40bb",
+      "prediction_chain_tip": "81f139e2f1eff12e0459a30f27a07f35b3bcd6861b7b94707c6631abc3d77e61"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\cloud-funded-KLAX-v1",
+      "corpus_hash": "1762333687c0cdef63f06d0dbae987bb14c42d0f69fdc5d5ca296064326d40bb",
+      "prediction_chain_tip": "e216ab13fc3053ec32a0b246acda59bfb382872f1f85142e584b3ee5bce246c9"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\baseline-KMDW",
+      "corpus_hash": "272b36b72649920a9207cc7e2d122a179c57cf62596c78c13e46ae4576e06ad0",
+      "prediction_chain_tip": "dd8aa286f9f8c8d327833056eefc6535cf7dcb1c1b7f7700e17a5d266edf8aed"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\cloud-funded-KMDW-v1",
+      "corpus_hash": "272b36b72649920a9207cc7e2d122a179c57cf62596c78c13e46ae4576e06ad0",
+      "prediction_chain_tip": "7f07e1125f0218441ee6fc1cda1c02476ca998f1cf06b1728026489ef3d62dd1"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\baseline-KMIA",
+      "corpus_hash": "674a0bb81fe7e0fb74941fe4e44ca959164eb0c46df3fda6e1938ec6fb2eb6cc",
+      "prediction_chain_tip": "db0175b4ed7d0806a04f531b437dbec7d86ddf4fdbcc27d9c19431ae570f0061"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\cloud-funded-KMIA-v1",
+      "corpus_hash": "674a0bb81fe7e0fb74941fe4e44ca959164eb0c46df3fda6e1938ec6fb2eb6cc",
+      "prediction_chain_tip": "d8ca0e92d86da71d8b1fc8d4a4bf69b4881a235fa65ccaa833f0125e98743f4c"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\baseline-KNYC",
+      "corpus_hash": "5f36af0b862fd98c4d9c0e70223040b0b701a2aa29c3dfa4b4b97098bd3999a7",
+      "prediction_chain_tip": "b72bdf503ed4b155238da4421b32a1651438a09afc0813a562b4ebaeee810dd0"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\cloud-funded-KNYC-v1",
+      "corpus_hash": "5f36af0b862fd98c4d9c0e70223040b0b701a2aa29c3dfa4b4b97098bd3999a7",
+      "prediction_chain_tip": "68b6e6e70b14927ea51476957f6ddab6900b4113ce872e64eec71e2c62193d09"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\baseline-KSFO",
+      "corpus_hash": "c34455dd859614a65fcba4a3ed60607c4926505a92261b51b12f50882697869f",
+      "prediction_chain_tip": "8dc814b0dc2d0df547822cf482932b9629697860c521d63e1c1c72d15b5f9f30"
+    },
+    {
+      "path": "data\\historical\\2026-09-06_2026-09-15-v2\\cloud-funded-KSFO-v1",
+      "corpus_hash": "c34455dd859614a65fcba4a3ed60607c4926505a92261b51b12f50882697869f",
+      "prediction_chain_tip": "fd4338dac6699ecdbd4930bf57bf1181bfb3561479ef7a1bc0cafb2910bb6adb"
+    }
+  ],
+  "control_status": "Not evaluated: no historical depth or verified reference-wallet signals",
+  "uncertainty": "Descriptive 95% calendar-day block bootstrap, 2000 draws, seed 20260916; at most 10 day blocks, not confirmatory inference.",
+  "limits": "Weather accuracy only, fixed >=80 F threshold. Pairwise chart uses intersection across baseline and all three cloud arms. Abstentions/timeouts are excluded, so selection bias remains. Assumed archive availability. No trading returns or full PolySwarm market blend.",
+  "code_sha256": {
+    "weatherlab\\historical.py": "8992655e7d799655cd10984689e4930172829abcce7bb384a72b038e834d4f35",
+    "weatherlab\\models.py": "d1f460761dea15ea3941da07b1c29c7002a99072c5f0e120ae4d2ecc853f9a7f",
+    "weatherlab\\strategies.py": "5fa74d1a41de1d311d5928ecf59eddd4acc27f5d7e114146a8a425b6444053a6",
+    "weatherlab\\historical_report.py": "3823708b2d3a8880d2de34da57ad3feeab5977a08c117983a5e195491f7967ee"
+  }
+}

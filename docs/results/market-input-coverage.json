@@ -1,0 +1,87 @@
+{
+  "start": "2026-09-06",
+  "end": "2026-09-15",
+  "created_at": 1789590743.6982534,
+  "inventory_complete": true,
+  "markets": 300,
+  "markets_with_prices": 300,
+  "price_points": 4499,
+  "settlements": 300,
+  "pre_day_prices": 2083,
+  "errors": [],
+  "requests": 604,
+  "historical_trades_simulated": false,
+  "historical_depth_available": false,
+  "public_wallet_source_found": false,
+  "first_seen_availability_verified": false,
+  "price_history_docs": "https://docs.polymarket.us/api-reference/price-history/get-price-history",
+  "limits": "Supplemental market archive only. Display prices have no depth. Current rules lack historical first-seen proof. Private reports require separate institutional authentication. No invented fills, wallet activity or P&L.",
+  "files": {
+    "markets.json": "47a53de83c86d1533ff0a9867267f5979b7608ac088a74fcd72e63d865f0923f",
+    "market-history.jsonl": "8e9dce91f63126fd531c73c3b25fa200cbb9951ffe509f15e4c328cedac629d5"
+  },
+  "weather_join": {
+    "interval_matches": 300,
+    "cli_settlement_matches": 300,
+    "contracts_with_predecision_price": 299,
+    "exact_80f_contracts": 3,
+    "mismatches": [],
+    "exact_threshold_cases": [
+      {
+        "station": "KMDW",
+        "date": "2026-09-13",
+        "market_id": "806304",
+        "slug": "tc-temp-mdwhigh-2026-09-13-gte80f",
+        "decision_at": 1789236000.0,
+        "last_display_prices": {
+          "timestamp": 1789236000.0,
+          "yes_display_price": 0.02,
+          "no_display_price": 0.99
+        },
+        "settlement": {
+          "yes_payout": 0.0,
+          "published_at": 1789393469.079544,
+          "received_at": 1789590730.3205087,
+          "receipt_hash": "9b88845345785dfdd8b7ccc1c2be19f1fbab8988720dff837a2b18e7128ab484"
+        }
+      },
+      {
+        "station": "KMDW",
+        "date": "2026-09-14",
+        "market_id": "837799",
+        "slug": "tc-temp-mdwhigh-2026-09-14-gte80f",
+        "decision_at": 1789322400.0,
+        "last_display_prices": {
+          "timestamp": 1789322400.0,
+          "yes_display_price": 0.02,
+          "no_display_price": 0.99
+        },
+        "settlement": {
+          "yes_payout": 0.0,
+          "published_at": 1789473689.050744,
+          "received_at": 1789590736.7245347,
+          "receipt_hash": "9f9f8d30ed7132ac81ebd8d1ff66b207e917a566a0d6c45f07711b6eb519627b"
+        }
+      },
+      {
+        "station": "KSFO",
+        "date": "2026-09-14",
+        "market_id": "837811",
+        "slug": "tc-temp-sfohigh-2026-09-14-gte80f",
+        "decision_at": 1789322400.0,
+        "last_display_prices": {
+          "timestamp": 1789322400.0,
+          "yes_display_price": 0.03,
+          "no_display_price": 0.99
+        },
+        "settlement": {
+          "yes_payout": 0.0,
+          "published_at": 1789484464.094413,
+          "received_at": 1789590738.7809057,
+          "receipt_hash": "1529ae316e7e81ad946b611429448280bc68a1501fcf458b2095954d5557d3f2"
+        }
+      }
+    ],
+    "method": "Matching by station, date, full weather-day interval, bucket bounds and CLI high. Last display observation must precede decision. Depth unavailable; no fills."
+  }
+}
