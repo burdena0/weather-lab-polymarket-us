@@ -423,17 +423,17 @@ sequenceDiagram
     C->>I: Bounded public reads for forecasts and raw CLI text
     I-->>C: Archived forecasts, daily highs and publication metadata
     C->>C: Verify station, date, sample coverage and raw observed maximum
-    C->>F: Hash calibration, cases and separate labels; preserve receipt times
-    Note over C,F: Assumed six-hour forecast availability; never backdate live RAG
+    C->>F: Hash calibration, cases and separate labels, preserve receipt times
+    Note over C,F: Assumed six-hour forecast availability, never backdate live RAG
     B->>F: Verify hashes and nonoverlapping calibration/test periods
     Note over F,B: Strict replay blocked unless historical availability is verified
-    loop At most 31 test days; explicit exploratory override when needed
-        B->>B: Filter calibration by outcome publication; redact station/date
+    loop At most 31 test days, explicit exploratory override when needed
+        B->>B: Filter calibration by outcome publication, redact station/date
         B->>M: Label-free context and bounded inference deadline
         alt Valid forecast
             M-->>B: Probability and call audit
         else Billing, auth, rate, budget or deadline failure
-            M-->>B: Sanitized failure; retain uncertain budget reservation
+            M-->>B: Sanitized failure, retain uncertain budget reservation
             B->>B: Skip further cloud requests in this benchmark
         end
         B->>F: Append prediction or skip and hash-chain audit
@@ -443,7 +443,7 @@ sequenceDiagram
     Note over B,D: No historical books, wallet trades, full market blend or profit claim
 ```
 
-The recent-window downloader is separate from the original August fixture downloader. Both use the bounded historical runner. Archives remain outside the live evidence index. The September 6–15 pilot contains five stations and keeps calibration in August 6–September 5. Its current cloud attempt is blocked by provider credits; the statistical baseline completed. See [RECENT-HISTORY.md](RECENT-HISTORY.md) for reproducible commands, evidence paths and limits.
+The recent-window downloader is separate from the original August fixture downloader. Both use the bounded historical runner. Archives remain outside the live evidence index. The September 6–15 pilot contains five stations and keeps calibration in August 6–September 5. Its current cloud attempt is blocked by provider credits, the statistical baseline completed. See [RECENT-HISTORY.md](RECENT-HISTORY.md) for reproducible commands, evidence paths and limits.
 
 ## Source map
 
