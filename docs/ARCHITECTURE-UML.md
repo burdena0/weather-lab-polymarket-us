@@ -1,8 +1,10 @@
 # Weather Lab architecture UML
 
-These diagrams describe the implementation at baseline commit `8259902`, not a proposed production trading system. Each arm uses the same runtime with a different strategy configuration. Component views show logical responsibilities; they do not imply separate processes or one Python class per box. Sequence views show call order and decision branches.
+These diagrams describe the implementation through commit `620b808`, including protocol `weather-methods-20260916-v1`. They describe implemented paper research. Each arm uses the same runtime with a different strategy configuration. Component views show logical responsibilities; they do not imply separate processes or one Python class per box. Sequence views show call order and decision branches.
 
 Open the [offline diagram gallery](architecture/index.html) locally, or open the SVG figures below. The Mermaid sequence diagrams also render directly on GitHub. All figures use monochrome, square components and system sans-serif text.
+
+The new protocol applies to newly packaged real-data runs. Earlier configurations and synthetic demos retain the original protocol. Its availability gate rejects decisions before September 16, 2026 at 17:07:01 UTC. Validation failures return a skip before inference or intent creation. See the [method review and setup steps](WEATHER-METHODS-REVIEW.md).
 
 ## 1. Deterministic control
 
@@ -15,18 +17,32 @@ sequenceDiagram
     autonumber
     participant E as engine.replay
     participant S as Strategy (wallet_control)
+    participant D as protocol module
     participant Q as core quote and mapping checks
     participant A as Account (isolated paper ledger)
     participant J as Run journal
     E->>S: decide(markets, signals, account, now)
+    opt New research protocol configured
+        S->>D: require_available(now)
+        break Decision predates protocol availability
+            S-->>E: Skip without further decision work
+        end
+    end
     alt control_mode = copy
         S->>S: Deduplicate reference-wallet signals
-        S->>S: Check start time, freshness, exact US identity and rules
+        S->>S: Check start time and signal freshness
+        opt New research protocol configured
+            S->>D: Require explicit full weather-day interval
+        end
+        S->>S: Check exact US identity, reviewed mapping and rules
         S->>Q: Size within reserve and exposure limits
         Q-->>S: Quantity and stressed cost
         S->>S: Apply reference price tolerance
     else control_mode = arbitrage
         S->>S: Group by station-day and verify complete partition
+        opt New research protocol configured
+            S->>D: Require identical full weather-day intervals for all legs
+        end
         S->>Q: Quote one YES share per bucket with synchronized books
         Q-->>S: Aggregate cost including modeled fees and slippage
         S->>S: Require discovery spread at least 0.03 and sufficient budget
@@ -60,6 +76,7 @@ sequenceDiagram
     participant E as engine.replay
     participant R as EvidenceStore
     participant S as Strategy and core.context
+    participant D as protocol module
     participant M as CloudModel
     participant L as Shared budget ledger
     participant P as Configured cloud model
@@ -67,11 +84,22 @@ sequenceDiagram
     E->>R: retrieve(market, decision time)
     R-->>E: Eligible prior station-days, rules, notes and audit IDs
     E->>S: decide with retrieved evidence and current books
+    opt New research protocol configured
+        S->>D: require_available(now)
+        break Decision predates protocol availability
+            S-->>E: Skip without a model call
+        end
+    end
     S->>S: Validate forecast, book and at least 10 causal history days
+    opt New research protocol configured
+        S->>D: diagnostics(market, context, now)
+        D->>D: Validate full 23-25 hour path and contract interval
+        D-->>S: Peak timing, hourly change and half-degree bin sensitivity
+    end
     Note over S,P: Forecast context excludes market prices, no model tool access
     S->>M: predict(context, medium tier, medium effort)
     M->>L: Reserve estimated cost under shared daily cap
-    M->>P: Structured probability request
+    M->>P: Structured probability request with protocol guidance when enabled
     P-->>M: Probability, bounds, confidence, abstain and evidence IDs
     M->>L: Reconcile known token usage
     M->>M: Validate schema, probability bounds and supplied citations
@@ -99,6 +127,7 @@ sequenceDiagram
     participant E as engine.replay
     participant R as EvidenceStore
     participant S as Strategy
+    participant D as protocol module
     participant T as route(context)
     participant M as CloudModel and budget gate
     participant P as Configured cloud model
@@ -106,9 +135,20 @@ sequenceDiagram
     E->>R: Retrieve eligible evidence as of decision time
     R-->>E: History, documents and retrieval audit IDs
     E->>S: decide(current frame)
+    opt New research protocol configured
+        S->>D: require_available(now)
+        break Decision predates protocol availability
+            S-->>E: Skip without a model call
+        end
+    end
     S->>S: core.context validates forecast and at least 10 causal history days
+    opt New research protocol configured
+        S->>D: diagnostics(market, context, now)
+        D->>D: Validate full 23-25 hour path and contract interval
+        D-->>S: Peak timing, hourly change and half-degree bin sensitivity
+    end
     S->>T: Estimate computational effort
-    T->>T: Sum four binary complexity features
+    T->>T: Sum four baseline features plus two protocol features when enabled
     T-->>S: Small/low, medium/medium or large/high
     S->>M: predict(context, selected tier, effort)
     M->>P: Budget-reserved structured request
@@ -129,7 +169,7 @@ sequenceDiagram
     end
 ```
 
-Router score adds one point for each: fewer than 30 history days; residual standard deviation above 3°F; forecast within 2°F of a bucket boundary; absolute forecast revision above 2°F. Score 0 selects small/low; 1–2 medium/medium; 3–4 large/high. This is a fixed heuristic, not a trained router. Maximum two calls per eligible decision.
+Router score adds one point for each: fewer than 30 history days; residual standard deviation above 3°F; forecast within 2°F of a bucket boundary; absolute forecast revision above 2°F. The new protocol adds one point for a half-degree probability span above 0.15 and one for a largest hourly temperature change above 3°F. Score 0 selects small/low; 1–2 medium/medium; any score at least 3 selects large/high (maximum 6 with the protocol). This is a fixed heuristic, not a trained router. Maximum two calls per eligible decision.
 
 ## 4. PolySwarm-inspired persona ensemble
 
@@ -143,6 +183,7 @@ sequenceDiagram
     participant E as engine.replay
     participant R as EvidenceStore
     participant S as Strategy (polyswarm)
+    participant D as protocol module
     participant M as CloudModel and budget gate
     participant P as Medium-tier cloud model
     participant G as Consensus aggregation
@@ -150,10 +191,22 @@ sequenceDiagram
     E->>R: Retrieve eligible evidence at decision time
     R-->>E: History, documents and retrieval audit IDs
     E->>S: decide(current frame)
+    opt New research protocol configured
+        S->>D: require_available(now)
+        break Decision predates protocol availability
+            S-->>E: Skip without a model call
+        end
+    end
     S->>S: core.context validates forecast and at least 10 causal history days
+    opt New research protocol configured
+        S->>D: diagnostics(market, context, now)
+        D->>D: Validate full 23-25 hour path and contract interval
+        D-->>S: Peak timing, hourly change and half-degree bin sensitivity
+    end
     loop Each configured persona, sequentially, default count 5
         S->>M: predict(same context, medium tier/effort, persona)
-        M->>P: Budget-reserved request, no prices or other persona outputs
+        M->>P: Budget-reserved request with protocol guidance when enabled
+        Note over M,P: No prices or other persona outputs
         P-->>M: Persona prediction and token usage
         M-->>S: Validated prediction and audit
     end
@@ -198,6 +251,12 @@ classDiagram
     class Strategy {
         +decide(markets, signals, account, now)
     }
+    class WeatherProtocol {
+        <<module>>
+        +require_available(now)
+        +settlement_window(market)
+        +diagnostics(market, context, now)
+    }
     class EvidenceStore {
         +ingest(rows)
         +retrieve(market, now)
@@ -219,6 +278,8 @@ classDiagram
     ReplayEngine ..> Strategy : creates per run
     ReplayEngine ..> Account : creates per run
     ReplayEngine ..> EvidenceStore : optional retrieval
+    Strategy ..> WeatherProtocol : versioned real-data decision checks
+    CloudModel ..> WeatherProtocol : versioned forecasting guidance
     Strategy ..> CloudModel : configured cloud mode
     Strategy ..> FixtureModel : test mode alternative
 ```
@@ -227,8 +288,34 @@ classDiagram
 - **Data plane:** public capture or recorded frames → chronological replay → strategy → delayed intent → observed-depth paper fill → settlement → immutable run artifacts. Four session workers have independent accounts and size-one input queues; a slow worker can drop frames. Public frames are stamped no earlier than processing time. Common publication therefore does not guarantee identical consumed frames; compare logged receipts and dropped-frame counts in research results.
 - **Risk:** $50 starting capital; $40 protected cash; $5 common position/station-day ceilings; five-share proposal cap. LLM Reliable/Balanced/Risky settings affect next-run confidence, uncertainty, edge and fractional-Kelly rules. Reliable uses a tighter $2 event cap. All fills recheck hard limits. $200/month overhead is reported separately for each alternative; model cost is additional.
 - **Causality:** RAG filters publication, receipt and availability timestamps at the decision time and uses prior-day completed history. Settlements cannot enter a prediction before availability. These controls constrain supplied data; they cannot prove that an LLM's pretrained weights lack historical outcome knowledge.
+- **Protocol:** new real-data package configurations freeze the research version. The control validates full-day settlement intervals without a forecast or LLM. LLM arms require a complete hourly path, add bounded diagnostics to context and audits, and receive versioned model guidance. Independent meteorological-model comparison remains unavailable. Sample/demo entry points explicitly remove this protocol and record the original configuration.
 - **Persistence:** evidence SQLite index, shared model-budget SQLite ledger, independent hash-chained run journals, input/config/code hashes, checkpoints and acceptance receipts. Checkpoints support inspection; automatic crash resume is not implemented.
 - **Deployment:** all orchestration and paper accounting run on the PC. Only configured inference requests go to the cloud API. Small/medium/large are configuration tiers; exact provider model IDs and returned IDs belong in the run audit. Diagrams do not assert API availability or successful paid inference.
+
+## Recurring evidence collection
+
+```mermaid
+sequenceDiagram
+    participant T as Standalone scheduled task
+    participant C as collect-evidence CLI
+    participant U as Public US market and NWS sources
+    participant F as Immutable local receipts
+    participant R as EvidenceStore
+    participant L as Dashboard readiness
+    Note over T,C: Daily 09:00 Eastern, Sol with low reasoning, old heartbeat paused
+    T->>T: Inspect latest report and skip an already successful daily collection
+    T->>C: Collect within five minutes into a new run directory
+    C->>U: Bounded public GET requests
+    U-->>C: Contract rules and up to five future station-day forecasts
+    C->>F: Archive original receipts and complete hourly forecast paths
+    C->>R: Ingest immutable rules and forecasts with actual availability
+    C-->>T: Report coverage, errors and next outcome-review step
+    T->>L: Refresh through loopback API if dashboard is running
+    Note over C,R: Completed history requires separately reviewed final CLI outcomes
+    Note over T,L: No strategy inference, trading sessions or order submission
+```
+
+Reviewed methodology notes are a separate, timestamped `research_note` input. They never count as completed weather history. The scheduled task runs in the Weather Lab deployment and is separate from the older SupahTrade trading experiment.
 
 ## Apple Weather study: separate implemented pipeline
 
@@ -263,8 +350,14 @@ The phone/iCloud path still requires user setup and end-to-end device verificati
 | Causal replay, journals, delayed intents | `weatherlab/engine.py` |
 | Four decision policies, router, aggregation, profiles | `weatherlab/strategies.py` |
 | Context validation, quotes, fills, paper account | `weatherlab/core.py` |
+| Protocol availability, settlement intervals, hourly diagnostics and model guidance | `weatherlab/protocol.py` |
+| Evidence collection and outcome pairing | `weatherlab/research.py`, `weatherlab/sources.py` |
 | RAG and immutable evidence | `weatherlab/rag.py` |
 | Model adapter, persona prompts, cost reservation | `weatherlab/models.py` |
 | Apple/NWS side study | `weatherlab/shortcut_feed.py`, `weatherlab/disagreement.py` |
 
 Figures are generated by `python docs/architecture/render.py`; this uses only the Python standard library. SVGs and the HTML gallery work offline. Mermaid source is embedded above for editing on GitHub or in a compatible diagram editor.
+
+## Maintenance rule
+
+Architecture changes must update this document and `docs/architecture/render.py` in the same change. Regenerate the four SVGs and offline gallery, verify diagram rendering and call order against the implementation, and rebuild the distributable ZIPs. State whether a connection is implemented, optional, or still unconnected. Keep the original protocol and new protocol branches explicit.
