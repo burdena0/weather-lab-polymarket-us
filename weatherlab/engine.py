@@ -14,6 +14,10 @@ from .protocol import check_version, LATEST_VERSION
 
 
 def validate_config(c):
+    if type(c.get('strategy_memory', False)) is not bool:
+        raise ValueError('strategy_memory must be boolean')
+    if c.get('strategy_memory') and c.get('strategy') == 'wallet_control':
+        raise ValueError('Strategy memory is for forecasting arms only')
     check_version(c.get('research_protocol'))
     if 'weather_hypotheses' in c or c.get('research_protocol') == LATEST_VERSION:
         from .hypotheses import selected
@@ -118,7 +122,8 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
                 for m in markets.values():
                     if m.get("forecast"):
                         retrieved = rag.retrieve(m, now, allow_synthetic=bool(dataset.get("synthetic")),
-                                                 include_recent=config.get('research_protocol') == LATEST_VERSION and config['strategy'] != 'wallet_control')
+                                                 include_recent=config.get('research_protocol') == LATEST_VERSION and config['strategy'] != 'wallet_control',
+                                                 include_strategies=config.get('strategy_memory', False))
                         m["history"] = retrieved["history"]
                         m["retrieved_documents"] = retrieved["documents"]
                         record(now, "retrieval", {"slug": m["slug"], **retrieved["audit"]})

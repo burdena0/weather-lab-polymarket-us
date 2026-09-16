@@ -55,6 +55,8 @@ class Lab:
     def state(self):
         with self.rag.connect() as db:
             count = db.execute("SELECT COUNT(*) FROM evidence").fetchone()[0]
+            from .strategy_memory import inventory
+            strategy_library = inventory(db)
         dataset = self.read("dataset.json", None)
         return {"csrf": self.token, "bots": self.registry, "latest": self.latest, "settings": self.settings,
                 "account": self.account.state(),
@@ -62,7 +64,7 @@ class Lab:
                 "historical": self.historical,
                 "disagreement": self.disagreement.state(),
                 "session": self.session.state() if self.session else None,
-                "evidence_count": count, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
+                "evidence_count": count, "strategy_library": strategy_library, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
                 "dataset": None if dataset is None else {"frames": len(dataset["frames"]), "synthetic": dataset.get("synthetic"), "coverage": dataset.get("coverage"), "errors": dataset.get("errors", [])[-10:]}}
 
     def mutate(self, path, raw):
@@ -187,6 +189,7 @@ class Lab:
                     # The original dated fixture demonstrates the original protocol.
                     config.pop('research_protocol', None)
                     config.pop('weather_hypotheses', None)
+                    config.pop('strategy_memory', None)
                 config["reference_wallet"] = WALLET if source == "sample" else self.settings["wallet"]
                 config["control_mode"] = self.settings["control_mode"]
                 if key != "wallet_control":

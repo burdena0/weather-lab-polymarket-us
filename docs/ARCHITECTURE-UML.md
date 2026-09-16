@@ -81,7 +81,7 @@ sequenceDiagram
     participant L as Shared budget ledger
     participant P as Configured cloud model
     participant A as Account
-    E->>R: retrieve(market, decision time)
+    E->>R: retrieve(market, decision time, strategy_memory flag)
     R-->>E: Prior days, rules, notes and audit IDs, v2 retains seven latest days
     E->>S: decide with retrieved evidence and current books
     opt New research protocol configured
@@ -141,7 +141,7 @@ sequenceDiagram
     participant P as Configured cloud model
     participant A as Account
     E->>R: Retrieve eligible evidence as of decision time
-    R-->>E: History, documents and audit IDs, v2 retains seven latest days
+    R-->>E: History, documents, optional strategy cards and audit hashes
     E->>S: decide(current frame)
     opt New research protocol configured
         S->>D: require_available(now)
@@ -204,7 +204,7 @@ sequenceDiagram
     participant G as Consensus aggregation
     participant A as Account
     E->>R: Retrieve eligible evidence at decision time
-    R-->>E: History, documents and audit IDs, v2 retains seven latest days
+    R-->>E: History, documents, optional strategy cards and audit hashes
     E->>S: decide(current frame)
     opt New research protocol configured
         S->>D: require_available(now)
@@ -293,7 +293,7 @@ classDiagram
     }
     class EvidenceStore {
         +ingest(rows)
-        +retrieve(market, now)
+        +retrieve(market, now, include_strategies)
     }
     class Account {
         +fill(legs, markets, now)
@@ -311,7 +311,13 @@ classDiagram
     Session ..> ReplayEngine : one worker per strategy
     ReplayEngine ..> Strategy : creates per run
     ReplayEngine ..> Account : creates per run
-    ReplayEngine ..> EvidenceStore : optional retrieval
+    ReplayEngine ..> EvidenceStore : optional causal retrieval
+    EvidenceStore ..> StrategyMemory : bounded as-of method cards
+    class StrategyMemory {
+        +validate(card)
+        +retrieve(db, market, now)
+        +inventory(db)
+    }
     Strategy ..> WeatherProtocol : versioned real-data decision checks
     CloudModel ..> WeatherProtocol : versioned forecasting guidance
     WeatherProtocol ..> WeatherHypotheses : v2 diagnostics and entry policy
@@ -399,6 +405,10 @@ sequenceDiagram
 
 The phone/iCloud path still requires user setup and end-to-end device verification. WeatherKit remains an optional CLI source. Station coordinates and weather-day equivalence are unverified for Shortcuts exports. This side pipeline must not be drawn as an active input to the four strategies until a reviewed integration exists. NWS final daily highs are scored separately after the day; a current observation is not that outcome.
 
+## Strategy memory
+
+New forecasting package configurations enable `strategy_memory: true`. Original configurations default to false; the control never consumes strategy cards. Synthetic demos and weather-hypothesis ablations explicitly disable memory. The evidence ledger stores immutable `strategy_card` revisions. Retrieval selects the latest revision available at decision time before applying retirement, expiry, station, source and synthetic filters. It adds at most four cards / 8 KB to the existing weather context, records their payload hashes, and excludes monetary evaluation results from probability prompts. Ranking uses applicability and deterministic station-day rotation, not returns. `CloudModel` adds guidance that cards are untrusted references and cannot authorize execution. No embedding service, executable strategy loading, automatic promotion or model training was added. Each changed run still uses a new journal database. See [STRATEGY-MEMORY.md](STRATEGY-MEMORY.md).
+
 ## Source map
 
 | Responsibility | Implementation |
@@ -413,6 +423,7 @@ The phone/iCloud path still requires user setup and end-to-end device verificati
 | Named GFS/IFS collection and validation | `weatherlab/weather_models.py` |
 | Weather features, switchable entry policies and ablations | `weatherlab/hypotheses.py`, `weatherlab/ablation.py` |
 | RAG and immutable evidence | `weatherlab/rag.py` |
+| Strategy reference validation, selection, seed library and inventory | `weatherlab/strategy_memory.py` |
 | Model adapter, persona prompts, cost reservation | `weatherlab/models.py` |
 | Apple/NWS side study | `weatherlab/shortcut_feed.py`, `weatherlab/disagreement.py` |
 

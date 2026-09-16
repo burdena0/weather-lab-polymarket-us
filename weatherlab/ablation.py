@@ -25,6 +25,7 @@ def run(config, dataset, out, cloud=False, rag=None, budget_path=None):
     for name,version,flags in variants:
         c=copy.deepcopy(config)
         c['research_protocol']=version
+        c['strategy_memory']=False  # Preserve weather-only ablation; compare memory separately.
         c.pop('weather_hypotheses',None)
         if flags is not None: c['weather_hypotheses']=flags
         try:

@@ -9,6 +9,7 @@
   "control_mode": "copy",
   "swarm_count": 5,
   "risk_profile": "balanced",
+  "strategy_memory": true,
   "research_protocol": "weather-methods-20260916-v2",
   "weather_hypotheses": [
     "model_consensus",

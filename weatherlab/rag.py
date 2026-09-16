@@ -34,7 +34,7 @@ class EvidenceStore:
                 ident = row["evidence_id"]
                 if not isinstance(ident, str) or not re.fullmatch(r"[A-Za-z0-9_.:-]{1,180}", ident):
                     raise ValueError("Invalid evidence identifier")
-                if row["kind"] not in ("history", "rules", "forecast", "observation", "research_note"):
+                if row["kind"] not in ("history", "rules", "forecast", "observation", "research_note", "strategy_card"):
                     raise ValueError("Unsupported evidence type")
                 published, received, available = [stamp(row[k]) for k in ("published_at", "received_at", "available_at")]
                 if not published <= received <= available:
@@ -47,6 +47,12 @@ class EvidenceStore:
                     raise ValueError("Real evidence needs source URL")
                 if len(json.dumps(row)) > 50000:
                     raise ValueError("Chunk exceeds 50 KB; split with immutable revision IDs")
+                if row["kind"] == "strategy_card":
+                    from .strategy_memory import validate
+                    validate(row)
+                    existing = db.execute("SELECT id FROM evidence WHERE kind='strategy_card' AND station=? AND json_extract(payload,'$.strategy_id')=? AND json_extract(payload,'$.revision')=?", (row["station"],row["strategy_id"],row["revision"])).fetchone()
+                    if existing and existing[0] != ident:
+                        raise ValueError("Strategy revision identity already exists")
                 hashed = digest(row)
                 old = db.execute("SELECT hash FROM evidence WHERE id=?", (ident,)).fetchone()
                 if old:
@@ -68,7 +74,7 @@ class EvidenceStore:
                 count += 1
         return count
 
-    def retrieve(self, market, now, limit=30, allow_synthetic=False, include_recent=False):
+    def retrieve(self, market, now, limit=30, allow_synthetic=False, include_recent=False, include_strategies=False):
         if not 10 <= limit <= 90:
             raise ValueError("Historical retrieval requires 10-90 records")
         query = " OR ".join(re.findall(r"[A-Za-z0-9]+", market["station"]+" temperature forecast maximum CLI")[:12])
@@ -102,9 +108,16 @@ class EvidenceStore:
         docs = [r for r in docs if allow_synthetic or not r.get("synthetic")]
         docs = [r for r in docs if r['kind']!='rules' or not r.get('market_id') or
                 (str(r['market_id'])==str(market['id']) and r.get('rules_hash')==market['rules_hash'])]
+        strategy_audit = {"enabled": False}
+        if include_strategies:
+            from .strategy_memory import retrieve
+            with self.connect() as db:
+                cards, strategy_audit = retrieve(db, market, now, allow_synthetic)
+            docs.extend(cards)
+            strategy_audit["enabled"] = True
         return {"history": selected, "documents": docs,
                 "audit": {"method": "station/time filters + numeric weather analogues + SQLite FTS5 BM25",
-                          "as_of": now, "includes_recent_seven": include_recent,
+                          "as_of": now, "includes_recent_seven": include_recent, "strategy_memory": strategy_audit,
                           "candidates": len(latest), "selected_ids": [r["evidence_id"] for r in selected],
                           "document_ids": [r["evidence_id"] for r in docs], "index_path": self.path.name,
                           "scores": {r["evidence_id"]: distance(r) for r in selected}}}

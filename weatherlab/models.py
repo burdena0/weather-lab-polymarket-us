@@ -112,6 +112,9 @@ class CloudModel:
         if version == LATEST_VERSION:
             from .hypotheses import GUIDANCE
             guidance += GUIDANCE
+        if any(d.get("kind") == "strategy_card" for d in ctx.get("retrieved_documents", [])):
+            from .strategy_memory import GUIDANCE as MEMORY_GUIDANCE
+            guidance += MEMORY_GUIDANCE
         body = {"model": model, "store": False, "instructions": PROMPT+guidance+"\nRole: "+persona,
                 "input": json.dumps(ctx, allow_nan=False), "reasoning": {"effort": effort}, "max_output_tokens": 2048,
                 "text": {"format": {"type": "json_schema", "name": "weather_probability", "strict": True, "schema": SCHEMA}}}

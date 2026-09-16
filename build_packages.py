@@ -13,7 +13,7 @@ ROOT=Path(__file__).resolve().parent
 
 
 def packaged_config(key):
-    return dict(config(key), research_protocol=LATEST_VERSION, weather_hypotheses=[] if key=='wallet_control' else list(HYPOTHESES))
+    return dict(config(key), strategy_memory=key != "wallet_control", research_protocol=LATEST_VERSION, weather_hypotheses=[] if key=='wallet_control' else list(HYPOTHESES))
 
 
 def build():
