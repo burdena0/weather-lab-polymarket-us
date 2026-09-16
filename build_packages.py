@@ -6,13 +6,14 @@ from pathlib import Path
 from weatherlab.fixtures import sample, config
 from weatherlab.strategies import STRATEGIES
 from weatherlab.packages import inspect_package
-from weatherlab.protocol import VERSION
+from weatherlab.protocol import LATEST_VERSION
+from weatherlab.hypotheses import HYPOTHESES
 
 ROOT=Path(__file__).resolve().parent
 
 
 def packaged_config(key):
-    return dict(config(key), research_protocol=VERSION)
+    return dict(config(key), research_protocol=LATEST_VERSION, weather_hypotheses=[] if key=='wallet_control' else list(HYPOTHESES))
 
 
 def build():

@@ -186,6 +186,7 @@ class Lab:
                 if source == 'sample':
                     # The original dated fixture demonstrates the original protocol.
                     config.pop('research_protocol', None)
+                    config.pop('weather_hypotheses', None)
                 config["reference_wallet"] = WALLET if source == "sample" else self.settings["wallet"]
                 config["control_mode"] = self.settings["control_mode"]
                 if key != "wallet_control":

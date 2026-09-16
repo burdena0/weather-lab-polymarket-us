@@ -69,6 +69,12 @@ def pair_history(archive, outcomes, out, store):
             'outcome_received':received,'published_at':published,'received_at':received,'available_at':available,
             'synthetic':False,'text':'Reviewed CLI daily maximum paired with an archived pre-day hourly grid forecast.',
             'forecast_evidence_id':f['evidence_id'],'product_sha256':actual['product_sha256'],'review_note':actual['review_note']})
+        comparisons=[]
+        for model in f.get('comparison_models',[]):
+            if not stamp(model['received_at']) <= stamp(model['available_at']) < stamp(f['day_start']):
+                raise ValueError('Comparison forecast was not available before target day')
+            comparisons.append({k:model[k] for k in ('model','family','high_f','received_at','available_at','evidence_id')})
+        if comparisons: rows[-1]['comparison_forecasts']=comparisons
     if not rows:raise ValueError('No reviewed outcomes supplied')
     out=Path(out)
     if out.exists():raise ValueError('History output must be new')
@@ -105,20 +111,30 @@ def collect_evidence(root, store):
             seen.add(key)
             if len(seen)>5: break
             try:
-                f=source.forecast(m)
+                f=source.forecast(m, with_comparison=True)
                 if stamp(f['received_at'])>=f['day_start']:
                     raise ValueError('Forecast was not received before venue day start')
                 forecasts.append({'market':m,'forecast':f})
+                if f.get('comparison_error'):
+                    errors.append({'station':m['station'],'date':m['date'],'reason':'comparison: '+f['comparison_error']})
+                composite_available=max([stamp(f['received_at'])]+[stamp(model['available_at']) for model in f.get('comparison_models',[])])
                 rows.append({'evidence_id':f['evidence_id']+'-'+m['date']+'-'+digest(f)[:12],
                     'kind':'forecast','station':m['station'],'date':m['date'],'source_url':f['source_url'],
-                    'published_at':f['issued_at'],'received_at':f['received_at'],'available_at':f['received_at'],
+                    'published_at':f['issued_at'],'received_at':f['received_at'],'available_at':composite_available,
                     'synthetic':False,'text':'NWS hourly grid forecast for '+m['station']+'; not a CLI observation.',
                     'forecast':f})
+                for model in f.get('comparison_models', []):
+                    rows.append({'evidence_id':model['evidence_id'],'kind':'forecast','station':m['station'],
+                        'date':m['date'],'source_url':model['source_url'],'published_at':model['received_at'],
+                        'received_at':model['received_at'],'available_at':model['available_at'],'synthetic':False,
+                        'text':model['family']+' hourly gridded forecast via Open-Meteo, not a CLI observation.',
+                        'publication_time_policy':model['availability_policy'],'forecast':model})
             except Exception as exc:
                 errors.append({'station':m['station'],'date':m['date'],'reason':str(exc)[:160]})
         added=store.ingest(rows)
         report={'inventory_complete':complete,'rules_records':sum(r['kind']=='rules' for r in rows),
-                'forecast_records':len(forecasts),'history_pairs_created':0,'indexed':added,'errors':errors,
+                'forecast_records':len(forecasts),'comparison_forecast_records':sum(len(f.get('forecast',{}).get('comparison_models',[])) for f in forecasts),
+                'history_pairs_created':0,'indexed':added,'errors':errors,
                 'next_step':'After the target day, pair archived forecasts with verified station/date NWS CLI highs. Rules and forecasts alone do not unlock LLM trading.'}
     except Exception as exc:
         report={'indexed':0,'history_pairs_created':0,'errors':[{'reason':type(exc).__name__+': '+str(exc)[:160]}]}

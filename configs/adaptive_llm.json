@@ -9,5 +9,11 @@
   "control_mode": "copy",
   "swarm_count": 5,
   "risk_profile": "balanced",
-  "research_protocol": "weather-methods-20260916-v1"
+  "research_protocol": "weather-methods-20260916-v2",
+  "weather_hypotheses": [
+    "model_consensus",
+    "peak_timing",
+    "regime_change",
+    "recent_trend_break"
+  ]
 }

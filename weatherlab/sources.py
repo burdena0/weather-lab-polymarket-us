@@ -9,7 +9,7 @@ from datetime import datetime, date
 from pathlib import Path
 from .core import digest, stamp, identity, number
 
-HOSTS = {"gateway.polymarket.us", "api.weather.gov", "data-api.polymarket.com", "gamma-api.polymarket.com"}
+HOSTS = {"gateway.polymarket.us", "api.weather.gov", "data-api.polymarket.com", "gamma-api.polymarket.com", "api.open-meteo.com"}
 STATIONS = {"KNYC", "KLAX", "KSFO", "KMIA", "KMDW"}
 
 
@@ -68,7 +68,7 @@ class PublicSource:
         return {"slug": b["marketSlug"], "state": "OPEN" if b["state"] == "MARKET_STATE_OPEN" else "CLOSED",
                 "received": received, "source_at": stamp(b["transactTime"]), "bids": ls("bids"), "asks": ls("offers")}
 
-    def forecast(self, m):
+    def forecast(self, m, with_comparison=False):
         station = m["station"]
         loc, _, _ = self.get("https://api.weather.gov/stations/"+station)
         if loc["properties"]["stationIdentifier"] != station:
@@ -77,13 +77,23 @@ class PublicSource:
         point, _, _ = self.get(f"https://api.weather.gov/points/{lat:.4f},{lon:.4f}")
         raw, received, hashed = self.get(point["properties"]["forecastHourly"])
         periods, start, end = full_day_periods(raw['properties']['periods'], m)
-        return {"station": station, "date": m["date"], "high_f": max(number(p["temperature"]) for p in periods),
+        forecast = {"station": station, "date": m["date"], "high_f": max(number(p["temperature"]) for p in periods),
                 "issued_at": raw["properties"]["updateTime"], "received_at": received,
                 "day_start": start, "day_end": end, "hours": len(periods),
                 "hourly": [{k: p[k] for k in ('startTime', 'endTime', 'temperature', 'temperatureUnit',
                             'windSpeed', 'windDirection', 'shortForecast') if k in p} for p in periods],
                 "evidence_id": "nws-"+hashed[:24], "source_url": point["properties"]["forecastHourly"],
                 "product": "NWS hourly grid forecast, not CLI", "revision_f": 0}
+        if with_comparison:
+            from .weather_models import collect
+            forecast['station_coordinates'] = [lat, lon]
+            try:
+                forecast['comparison_models'] = collect(self, m, lat, lon)
+            except Exception as exc:
+                # Preserve NWS evidence even when the supplementary feed fails.
+                forecast['comparison_models'] = []
+                forecast['comparison_error'] = type(exc).__name__+': '+str(exc)[:160]
+        return forecast
 
 
 def full_day_periods(periods, market):
@@ -213,14 +223,17 @@ def capture(root, seconds=30, max_markets=4, wallet="", mappings=None, on_frame=
                 k = (m["station"], m["date"])
                 if k not in cache:
                     try:
-                        cache[k] = source.forecast(m)
+                        cache[k] = source.forecast(m, with_comparison=True)
                     except Exception as exc:
                         cache[k] = exc
                 if isinstance(cache[k], Exception):
                     raise cache[k]
                 m["forecast"] = cache[k]
+                if m['forecast'].get('comparison_error'):
+                    dataset['errors'].append({'slug':m['slug'],'reason':'comparison: '+m['forecast']['comparison_error']})
             except Exception as exc:
                 dataset["errors"].append({"slug": m["slug"], "reason": "forecast: "+type(exc).__name__+": "+str(exc)[:180]})
+        dataset['coverage']['comparison_station_days'] = sum(isinstance(f,dict) and len(f.get('comparison_models',[]))==2 for f in cache.values())
         seen = set()
         # Wall limit includes inventory and forecast retrieval.
         while time.time()-started < seconds and source.count < 96 and not (stop_event and stop_event.is_set()):

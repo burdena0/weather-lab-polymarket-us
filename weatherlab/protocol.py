@@ -4,6 +4,8 @@ from .core import number, stamp
 
 VERSION = 'weather-methods-20260916-v1'
 AVAILABLE_AT = stamp('2026-09-16T17:07:01Z')
+LATEST_VERSION = 'weather-methods-20260916-v2'
+V2_AVAILABLE_AT = stamp('2026-09-16T17:30:00Z')
 MODEL_GUIDANCE = """
 For the weather-methods protocol, evaluate the supplied research diagnostics.
 Use the exact station, full contract weather-day interval and final NWS CLI source.
@@ -22,12 +24,13 @@ this forecast's probability. Explain material missing inputs and abstain if need
 
 
 def check_version(version):
-    if version not in (None, VERSION):
+    if version not in (None, VERSION, LATEST_VERSION):
         raise ValueError('Unknown research protocol version')
 
 
-def require_available(now):
-    if number(now) < AVAILABLE_AT:
+def require_available(now, version=VERSION):
+    check_version(version)
+    if number(now) < (V2_AVAILABLE_AT if version == LATEST_VERSION else AVAILABLE_AT):
         raise ValueError('Research protocol unavailable at decision time; use a separately frozen earlier protocol')
 
 
@@ -38,9 +41,9 @@ def settlement_window(m):
     return start, end
 
 
-def diagnostics(m, ctx, now):
+def diagnostics(m, ctx, now, version=VERSION, hypotheses=None):
     """Computed from the same eligible forecast/history; no market prices or outcomes."""
-    require_available(now)
+    require_available(now, version)
     from .sources import full_day_periods
     f = ctx['forecast']
     settlement_window(m)
@@ -62,7 +65,7 @@ def diagnostics(m, ctx, now):
     ps = [probability(shift) for shift in (-.5, 0, .5)]
     boundaries = [b for b in (None if m['lower_f'] is None else m['lower_f']-.5,
                               None if m['upper_f'] is None else m['upper_f']+.5) if b is not None]
-    return {'version': VERSION, 'available_at': AVAILABLE_AT,
+    result = {'version': version, 'available_at': V2_AVAILABLE_AT if version == LATEST_VERSION else AVAILABLE_AT,
             'station': m['station'], 'day_start': start, 'day_end': end,
             'horizon_to_day_start_hours': (start-now)/3600,
             'peak_times': [p['startTime'] for p in periods if number(p['temperature']) == high],
@@ -75,3 +78,12 @@ def diagnostics(m, ctx, now):
             'independent_model_agreement': None,
             'missing_inputs': ['independent numerical model forecast', 'calibrated ensemble probabilities'],
             'interpretation': 'Heuristic diagnostics only; no accuracy or profit claim. Full venue day retained.'}
+    if version == LATEST_VERSION:
+        from .hypotheses import compare, HYPOTHESES
+        result['weather_hypotheses'] = compare(m, ctx, now, list(HYPOTHESES) if hypotheses is None else hypotheses)
+        result['weather_model_families'] = ['NWS hourly grid', 'NOAA GFS', 'ECMWF IFS']
+        result['independent_model_agreement'] = {'high_spread_f': result['weather_hypotheses']['model_high_spread_f'],
+                                                 'statistical_independence_established': False}
+        result['missing_inputs'] = ['calibrated ensemble probabilities', 'GFS/IFS initialization timestamps']
+        ctx['evidence_ids'] = sorted(set(ctx['evidence_ids']+[r['evidence_id'] for r in result['weather_hypotheses']['models']]))
+    return result

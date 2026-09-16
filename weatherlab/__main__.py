@@ -40,6 +40,12 @@ def main():
     run.add_argument("--cloud", action="store_true")
     run.add_argument("--control-mode", choices=("copy", "arbitrage"))
     run.add_argument("--wallet")
+    ablate = sub.add_parser('ablate-weather')
+    ablate.add_argument('--dataset', required=True)
+    ablate.add_argument('--config', required=True)
+    ablate.add_argument('--out', required=True)
+    ablate.add_argument('--rag')
+    ablate.add_argument('--cloud', action='store_true')
     ingest = sub.add_parser("ingest")
     ingest.add_argument("--jsonl", required=True)
     ingest.add_argument("--db", default="data/evidence.sqlite")
@@ -77,9 +83,15 @@ def main():
         c = config(args.strategy) if args.strategy else json.loads(Path("manifest.json").read_text())["config"]
         c["reference_wallet"] = WALLET
         c.pop('research_protocol', None)
+        c.pop('weather_hypotheses', None)
         dataset, _ = sample()
         result = replay(c, dataset, Path(args.out)/(c["strategy"]+"-"+str(uuid.uuid4())[:8]))
         print(json.dumps({k: result[k] for k in ("strategy", "status", "synthetic", "inference", "fills", "realized_pnl", "net_after_costs")}, indent=2))
+    elif args.cmd == 'ablate-weather':
+        from .ablation import run as ablate_run
+        c=json.loads(Path(args.config).read_text());c=c.get('config',c)
+        print(json.dumps(ablate_run(c,json.loads(Path(args.dataset).read_text()),args.out,cloud=args.cloud,
+            rag=EvidenceStore(args.rag) if args.rag else None,budget_path=Path('data/model-budget.sqlite')),indent=2))
     elif args.cmd == "replay":
         c = json.loads(Path(args.config).read_text())
         c = c.get("config", c)

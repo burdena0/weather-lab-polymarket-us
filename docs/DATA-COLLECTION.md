@@ -9,7 +9,7 @@ python -m weatherlab collect-evidence --out data/research/day-001
 python -m weatherlab doctor
 ```
 
-Always choose a new output directory. The command stores hashed public receipts, indexes current rules, and archives up to five future station-day forecasts. It makes no model calls. Repeat manually on later days with new directory names; no recurring task is installed.
+Always choose a new output directory. The command stores hashed public receipts, indexes current rules, and archives up to five future station-day forecasts. It makes no LLM calls. It also archives explicitly named GFS and ECMWF hourly forecasts for each station-day. The separate daily 09:00 Eastern Sol/low task runs this collector on this host; other installations must configure their own schedule. See [WEATHER-HYPOTHESES.md](WEATHER-HYPOTHESES.md) for comparison-feed checks and test switches.
 
 The first local collection saved 60 rule records and five pre-day forecasts, with no source errors. It created zero completed historical pairs: outcomes cannot be known before their target day ends.
 

@@ -3,7 +3,8 @@ import math
 import statistics
 from .core import MAX_POSITION, MAX_EVENT, RESERVE, context, event, identity, levels, quote, complete_partition, number, validate_market
 from .models import PERSONAS, validate_prediction
-from .protocol import VERSION, require_available, diagnostics, settlement_window
+from .protocol import VERSION, LATEST_VERSION, require_available, diagnostics, settlement_window
+from .hypotheses import selected
 
 STRATEGIES = {"wallet_control": "Wallet control", "fixed_llm": "Fixed model", "adaptive_llm": "Adaptive model", "polyswarm": "PolySwarm"}
 RISK_PROFILES = {
@@ -52,6 +53,10 @@ def route(ctx):
         # Frozen heuristic thresholds, not fitted performance estimates.
         score += int(research['half_degree_probability_span'] > .15)
         score += int(research['largest_hourly_change_f'] > 3)
+        weather = research.get('weather_hypotheses')
+        if weather:
+            score += int(weather['model_high_spread_f'] > 3 or weather['peak_window_distance_hours'] > 3)
+            score += int(weather['regime_change'])
     tier, effort = ("large", "high") if score >= 3 else ("medium", "medium") if score >= 1 else ("small", "low")
     return tier, effort, {"complexity_score": score, "history_days": n, "residual_std_f": spread, "distance_to_boundary_f": distance,
                          "research_protocol": research['version'] if research else None}
@@ -106,16 +111,17 @@ class Strategy:
         self.last_decision = {}
 
     def decide(self, markets, signals, account, now):
-        enabled = self.config.get('research_protocol') == VERSION
+        version = self.config.get('research_protocol')
+        enabled = version in (VERSION, LATEST_VERSION)
         if enabled:
             try:
-                require_available(now)
+                require_available(now, version)
             except ValueError as exc:
-                return [{'skip': str(exc), 'research_protocol': VERSION}]
+                return [{'skip': str(exc), 'research_protocol': version}]
         result = self._decide(markets, signals, account, now)
         if enabled:
             for decision in result:
-                decision['research_protocol'] = VERSION
+                decision['research_protocol'] = version
         return result
 
     def _decide(self, markets, signals, account, now):
@@ -133,7 +139,7 @@ class Strategy:
                     if key in self.seen or not complete_partition(group):
                         continue
                     try:
-                        if self.config.get('research_protocol') == VERSION and len({settlement_window(m) for m in group}) != 1:
+                        if self.config.get('research_protocol') in (VERSION, LATEST_VERSION) and len({settlement_window(m) for m in group}) != 1:
                             raise ValueError('Basket contracts have different settlement intervals')
                         if max(m["book"]["source_at"] for m in group)-min(m["book"]["source_at"] for m in group) > 2:
                             raise ValueError("Basket book timestamps are not synchronized")
@@ -162,7 +168,7 @@ class Strategy:
                     if not self.started <= s["trade_at"] <= s["received_at"] <= now or now-s["trade_at"] > 120:
                         raise ValueError("Pre-start/stale/future wallet signal")
                     m = markets[s["slug"]]
-                    if self.config.get('research_protocol') == VERSION:
+                    if self.config.get('research_protocol') in (VERSION, LATEST_VERSION):
                         settlement_window(m)
                     if tuple(s["contract_identity"]) != identity(m) or s.get("mapping_verified") is not True:
                         raise ValueError("No exact verified US settlement mapping")
@@ -196,8 +202,10 @@ class Strategy:
                     raise ValueError("Two-sided book required for model comparison")
                 mid = (bid[0][0]+ask[0][0])/2
                 ctx = context(m, now)
-                if self.config.get('research_protocol') == VERSION:
-                    ctx['research_diagnostics'] = diagnostics(m, ctx, now)
+                if self.config.get('research_protocol') != LATEST_VERSION:
+                    ctx['forecast'] = {k:v for k,v in ctx['forecast'].items() if k not in ('comparison_models','comparison_error','station_coordinates')}
+                if self.config.get('research_protocol') in (VERSION, LATEST_VERSION):
+                    ctx['research_diagnostics'] = diagnostics(m, ctx, now, self.config['research_protocol'], selected(self.config))
                 self.last_decision[m["slug"]] = now
                 prediction, audit, latency = forecast(kind, ctx, self.model, mid, self.config.get("swarm_count", 5))
                 audit.update({"probability_yes": prediction["probability_yes"], "slug": m["slug"], "market_mid": mid,
@@ -222,8 +230,15 @@ class Strategy:
                 if exit_legs:
                     out.append({"legs": exit_legs, "ready_at": now+max(2, latency), "expires_at": now+120, "reason": "Model exit", "audit": audit})
                     continue
+                policy = ctx.get('research_diagnostics', {}).get('weather_hypotheses', {}).get('entry_policy', {})
+                if policy.get('blocks'):
+                    out.append({'skip': '; '.join(policy['blocks']), 'audit': audit})
+                    continue
+                required_edge = profile['edge']+policy.get('extra_edge', 0)
                 choices = []
                 for side in ("YES", "NO"):
+                    if side not in policy.get('allowed_sides', ['YES', 'NO']):
+                        continue
                     conservative = prediction["lower"] if side == "YES" else 1-prediction["upper"]
                     point = prediction["probability_yes"] if side == "YES" else 1-prediction["probability_yes"]
                     conservative = profile["bound_weight"]*conservative+(1-profile["bound_weight"])*point
@@ -234,11 +249,14 @@ class Strategy:
                     kelly = max(0, (conservative-unit)/max(.001, 1-unit))*profile["kelly"]
                     budget = min(budget, 50*kelly)
                     sized = size(m, side, budget, now)
+                    if sized and policy.get('size_factor', 1) < 1:
+                        reduced = math.floor(sized[0]*policy['size_factor']*100)/100
+                        sized = (reduced, quote(m, side, 'BUY', reduced, now)[0]) if reduced >= number(m['minimum_qty']) else None
                     if sized:
                         qty, cash = sized
                         edge = conservative-cash/qty
-                        if edge >= profile["edge"]:
-                            choices.append((edge, leg(m, side, "BUY", qty, conservative-profile["edge"])))
+                        if edge >= required_edge:
+                            choices.append((edge, leg(m, side, "BUY", qty, conservative-required_edge)))
                 if choices:
                     chosen = max(choices, key=lambda x: x[0])[1]
                     out.append({"legs": [chosen], "ready_at": now+max(2, latency), "expires_at": now+120, "reason": prediction["reason"], "audit": audit, "risk_event_cap": profile["event_cap"]})

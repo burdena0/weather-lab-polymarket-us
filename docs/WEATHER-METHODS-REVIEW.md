@@ -2,6 +2,8 @@
 
 Protocol: `weather-methods-20260916-v1`. First available to decisions: **September 16, 2026, 17:07:01 UTC**. This is a research implementation, with no demonstrated performance advantage.
 
+**Version note:** this page records the original v1 review. New packages now use [v2 weather hypotheses](WEATHER-HYPOTHESES.md), which adds GFS/IFS collection and explicit entry rules. Statements below about unconnected comparison feeds describe v1.
+
 ## Coverage and evidence quality
 
 Reviewed all 13 videos listed on [Polymarket Hack's channel](https://www.youtube.com/@polymarkethack/videos) on September 16. Auto-generated English captions were exported and reviewed. The local research archive contains the complete captions, source URLs, receipt times, segment counts and SHA-256 hashes. The public packages contain original analysis and code, not full captions. Channel coverage is a snapshot; future uploads are not included.

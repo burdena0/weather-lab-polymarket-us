@@ -10,11 +10,16 @@ from .core import Account, digest, number, stamp
 from .models import FixtureModel, CloudModel
 from .strategies import Strategy, STRATEGIES, RISK_PROFILES
 from .harness import code_hash, classify, verify_run
-from .protocol import check_version
+from .protocol import check_version, LATEST_VERSION
 
 
 def validate_config(c):
     check_version(c.get('research_protocol'))
+    if 'weather_hypotheses' in c or c.get('research_protocol') == LATEST_VERSION:
+        from .hypotheses import selected
+        selected(c)
+        if c.get('research_protocol') != LATEST_VERSION:
+            raise ValueError('Weather hypothesis switches require the v2 research protocol')
     if c.get("risk_profile", "balanced") not in RISK_PROFILES:
         raise ValueError("Risk profile must be reliable, balanced or risky")
     if c.get("strategy") not in STRATEGIES or c.get("venue") != "polymarket_us" or c.get("mode") != "paper":
@@ -112,7 +117,8 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
             if rag:
                 for m in markets.values():
                     if m.get("forecast"):
-                        retrieved = rag.retrieve(m, now, allow_synthetic=bool(dataset.get("synthetic")))
+                        retrieved = rag.retrieve(m, now, allow_synthetic=bool(dataset.get("synthetic")),
+                                                 include_recent=config.get('research_protocol') == LATEST_VERSION and config['strategy'] != 'wallet_control')
                         m["history"] = retrieved["history"]
                         m["retrieved_documents"] = retrieved["documents"]
                         record(now, "retrieval", {"slug": m["slug"], **retrieved["audit"]})

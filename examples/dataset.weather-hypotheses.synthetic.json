@@ -1,0 +1,2567 @@
+{
+  "schema_version": 1,
+  "venue": "polymarket_us",
+  "synthetic": true,
+  "frames": [
+    {
+      "at": 1789579860.0,
+      "markets": [
+        {
+          "venue": "polymarket_us",
+          "id": "fixture-nyc-01",
+          "slug": "fixture-nyc-high",
+          "station": "KNYC",
+          "date": "2026-09-17",
+          "lower_f": 75,
+          "upper_f": 77,
+          "source": "NWS_CLI",
+          "rules_hash": "406a13ff4a4538a866a63d77aafb8f23f4e9d566f914cadfe7980ba118fe6416",
+          "metadata_received": 1789579860.0,
+          "active": true,
+          "close_at": 1789689600,
+          "minimum_qty": 0.01,
+          "tick": 0.01,
+          "fee_coefficient": 0.06,
+          "forecast": {
+            "station": "KNYC",
+            "date": "2026-09-17",
+            "high_f": 75,
+            "issued_at": 1789579800.0,
+            "received_at": 1789579830.0,
+            "revision_f": 0.1,
+            "evidence_id": "fixture-forecast",
+            "product": "SYNTHETIC hourly grid maximum",
+            "day_start": 1789603200,
+            "day_end": 1789689600,
+            "station_coordinates": [
+              40.7789,
+              -73.9692
+            ],
+            "hourly": [
+              {
+                "startTime": 1789603200,
+                "endTime": 1789606800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789606800,
+                "endTime": 1789610400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789610400,
+                "endTime": 1789614000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789614000,
+                "endTime": 1789617600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789617600,
+                "endTime": 1789621200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789621200,
+                "endTime": 1789624800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789624800,
+                "endTime": 1789628400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789628400,
+                "endTime": 1789632000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789632000,
+                "endTime": 1789635600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789635600,
+                "endTime": 1789639200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789639200,
+                "endTime": 1789642800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789642800,
+                "endTime": 1789646400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789646400,
+                "endTime": 1789650000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789650000,
+                "endTime": 1789653600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789653600,
+                "endTime": 1789657200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789657200,
+                "endTime": 1789660800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789660800,
+                "endTime": 1789664400,
+                "temperature": 75,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789664400,
+                "endTime": 1789668000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789668000,
+                "endTime": 1789671600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789671600,
+                "endTime": 1789675200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789675200,
+                "endTime": 1789678800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789678800,
+                "endTime": 1789682400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789682400,
+                "endTime": 1789686000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789686000,
+                "endTime": 1789689600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              }
+            ],
+            "comparison_models": [
+              {
+                "model": "gfs_global",
+                "family": "NOAA GFS",
+                "provider": "Open-Meteo",
+                "station": "KNYC",
+                "date": "2026-09-17",
+                "day_start": 1789603200.0,
+                "day_end": 1789689600.0,
+                "requested_coordinates": [
+                  40.7789,
+                  -73.9692
+                ],
+                "provider_grid_coordinates": [
+                  40.8,
+                  -73.95
+                ],
+                "grid_distance_km": 2.849115133255264,
+                "issued_at": null,
+                "received_at": 1789579850.0,
+                "available_at": 1789579850.0,
+                "availability_policy": "Actual first receipt, latest stitched forecast. Model initialization not provided.",
+                "evidence_id": "model-d6789f36718337bc7858ef356c38a498",
+                "source_url": "https://example.invalid/synthetic-weather-models",
+                "high_f": 75.0,
+                "hourly": [
+                  {
+                    "at": 1789603200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789606800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789610400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789614000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789617600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789621200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789624800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789628400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789632000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789635600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789639200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789642800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789646400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789650000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789653600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789657200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789660800.0,
+                    "temperature_2m": 75.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789664400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789668000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789671600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789675200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789678800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789682400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789686000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  }
+                ],
+                "attribution": "Open-Meteo / NOAA GFS / ECMWF IFS, CC BY 4.0",
+                "limitations": "Distinct model families can share observations and errors. Gridded hourly maxima are not final station CLI maxima.",
+                "synthetic": true
+              },
+              {
+                "model": "ecmwf_ifs025",
+                "family": "ECMWF IFS",
+                "provider": "Open-Meteo",
+                "station": "KNYC",
+                "date": "2026-09-17",
+                "day_start": 1789603200.0,
+                "day_end": 1789689600.0,
+                "requested_coordinates": [
+                  40.7789,
+                  -73.9692
+                ],
+                "provider_grid_coordinates": [
+                  40.8,
+                  -73.95
+                ],
+                "grid_distance_km": 2.849115133255264,
+                "issued_at": null,
+                "received_at": 1789579850.0,
+                "available_at": 1789579850.0,
+                "availability_policy": "Actual first receipt, latest stitched forecast. Model initialization not provided.",
+                "evidence_id": "model-00a98c9ec1b972d7e65082fd741343c2",
+                "source_url": "https://example.invalid/synthetic-weather-models",
+                "high_f": 75.0,
+                "hourly": [
+                  {
+                    "at": 1789603200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789606800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789610400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789614000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789617600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789621200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789624800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789628400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789632000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789635600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789639200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789642800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789646400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789650000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789653600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789657200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789660800.0,
+                    "temperature_2m": 75.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789664400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789668000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789671600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789675200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789678800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789682400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789686000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  }
+                ],
+                "attribution": "Open-Meteo / NOAA GFS / ECMWF IFS, CC BY 4.0",
+                "limitations": "Distinct model families can share observations and errors. Gridded hourly maxima are not final station CLI maxima.",
+                "synthetic": true
+              }
+            ]
+          },
+          "history": [
+            {
+              "evidence_id": "fixture-history-0",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-12",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786485600,
+              "forecast_received": 1786489200,
+              "day_start": 1786492800,
+              "day_end": 1786579200,
+              "outcome_received": 1786582800,
+              "published_at": 1786582700,
+              "received_at": 1786582800,
+              "available_at": 1786582800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-1",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-13",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786572000,
+              "forecast_received": 1786575600,
+              "day_start": 1786579200,
+              "day_end": 1786665600,
+              "outcome_received": 1786669200,
+              "published_at": 1786669100,
+              "received_at": 1786669200,
+              "available_at": 1786669200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-2",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-14",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786658400,
+              "forecast_received": 1786662000,
+              "day_start": 1786665600,
+              "day_end": 1786752000,
+              "outcome_received": 1786755600,
+              "published_at": 1786755500,
+              "received_at": 1786755600,
+              "available_at": 1786755600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-3",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-15",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786744800,
+              "forecast_received": 1786748400,
+              "day_start": 1786752000,
+              "day_end": 1786838400,
+              "outcome_received": 1786842000,
+              "published_at": 1786841900,
+              "received_at": 1786842000,
+              "available_at": 1786842000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-4",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-16",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786831200,
+              "forecast_received": 1786834800,
+              "day_start": 1786838400,
+              "day_end": 1786924800,
+              "outcome_received": 1786928400,
+              "published_at": 1786928300,
+              "received_at": 1786928400,
+              "available_at": 1786928400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-5",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-17",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786917600,
+              "forecast_received": 1786921200,
+              "day_start": 1786924800,
+              "day_end": 1787011200,
+              "outcome_received": 1787014800,
+              "published_at": 1787014700,
+              "received_at": 1787014800,
+              "available_at": 1787014800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-6",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-18",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787004000,
+              "forecast_received": 1787007600,
+              "day_start": 1787011200,
+              "day_end": 1787097600,
+              "outcome_received": 1787101200,
+              "published_at": 1787101100,
+              "received_at": 1787101200,
+              "available_at": 1787101200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-7",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-19",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787090400,
+              "forecast_received": 1787094000,
+              "day_start": 1787097600,
+              "day_end": 1787184000,
+              "outcome_received": 1787187600,
+              "published_at": 1787187500,
+              "received_at": 1787187600,
+              "available_at": 1787187600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-8",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-20",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787176800,
+              "forecast_received": 1787180400,
+              "day_start": 1787184000,
+              "day_end": 1787270400,
+              "outcome_received": 1787274000,
+              "published_at": 1787273900,
+              "received_at": 1787274000,
+              "available_at": 1787274000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-9",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-21",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787263200,
+              "forecast_received": 1787266800,
+              "day_start": 1787270400,
+              "day_end": 1787356800,
+              "outcome_received": 1787360400,
+              "published_at": 1787360300,
+              "received_at": 1787360400,
+              "available_at": 1787360400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-10",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-22",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787349600,
+              "forecast_received": 1787353200,
+              "day_start": 1787356800,
+              "day_end": 1787443200,
+              "outcome_received": 1787446800,
+              "published_at": 1787446700,
+              "received_at": 1787446800,
+              "available_at": 1787446800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-11",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-23",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787436000,
+              "forecast_received": 1787439600,
+              "day_start": 1787443200,
+              "day_end": 1787529600,
+              "outcome_received": 1787533200,
+              "published_at": 1787533100,
+              "received_at": 1787533200,
+              "available_at": 1787533200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-12",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-24",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787522400,
+              "forecast_received": 1787526000,
+              "day_start": 1787529600,
+              "day_end": 1787616000,
+              "outcome_received": 1787619600,
+              "published_at": 1787619500,
+              "received_at": 1787619600,
+              "available_at": 1787619600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-13",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-25",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787608800,
+              "forecast_received": 1787612400,
+              "day_start": 1787616000,
+              "day_end": 1787702400,
+              "outcome_received": 1787706000,
+              "published_at": 1787705900,
+              "received_at": 1787706000,
+              "available_at": 1787706000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-14",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-26",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787695200,
+              "forecast_received": 1787698800,
+              "day_start": 1787702400,
+              "day_end": 1787788800,
+              "outcome_received": 1787792400,
+              "published_at": 1787792300,
+              "received_at": 1787792400,
+              "available_at": 1787792400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-15",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-27",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787781600,
+              "forecast_received": 1787785200,
+              "day_start": 1787788800,
+              "day_end": 1787875200,
+              "outcome_received": 1787878800,
+              "published_at": 1787878700,
+              "received_at": 1787878800,
+              "available_at": 1787878800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-16",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-28",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787868000,
+              "forecast_received": 1787871600,
+              "day_start": 1787875200,
+              "day_end": 1787961600,
+              "outcome_received": 1787965200,
+              "published_at": 1787965100,
+              "received_at": 1787965200,
+              "available_at": 1787965200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-17",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-29",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787954400,
+              "forecast_received": 1787958000,
+              "day_start": 1787961600,
+              "day_end": 1788048000,
+              "outcome_received": 1788051600,
+              "published_at": 1788051500,
+              "received_at": 1788051600,
+              "available_at": 1788051600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-18",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-30",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788040800,
+              "forecast_received": 1788044400,
+              "day_start": 1788048000,
+              "day_end": 1788134400,
+              "outcome_received": 1788138000,
+              "published_at": 1788137900,
+              "received_at": 1788138000,
+              "available_at": 1788138000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-19",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-31",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788127200,
+              "forecast_received": 1788130800,
+              "day_start": 1788134400,
+              "day_end": 1788220800,
+              "outcome_received": 1788224400,
+              "published_at": 1788224300,
+              "received_at": 1788224400,
+              "available_at": 1788224400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-20",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-01",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788213600,
+              "forecast_received": 1788217200,
+              "day_start": 1788220800,
+              "day_end": 1788307200,
+              "outcome_received": 1788310800,
+              "published_at": 1788310700,
+              "received_at": 1788310800,
+              "available_at": 1788310800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-21",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-02",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788300000,
+              "forecast_received": 1788303600,
+              "day_start": 1788307200,
+              "day_end": 1788393600,
+              "outcome_received": 1788397200,
+              "published_at": 1788397100,
+              "received_at": 1788397200,
+              "available_at": 1788397200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-22",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-03",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788386400,
+              "forecast_received": 1788390000,
+              "day_start": 1788393600,
+              "day_end": 1788480000,
+              "outcome_received": 1788483600,
+              "published_at": 1788483500,
+              "received_at": 1788483600,
+              "available_at": 1788483600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-23",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-04",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788472800,
+              "forecast_received": 1788476400,
+              "day_start": 1788480000,
+              "day_end": 1788566400,
+              "outcome_received": 1788570000,
+              "published_at": 1788569900,
+              "received_at": 1788570000,
+              "available_at": 1788570000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-24",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-05",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788559200,
+              "forecast_received": 1788562800,
+              "day_start": 1788566400,
+              "day_end": 1788652800,
+              "outcome_received": 1788656400,
+              "published_at": 1788656300,
+              "received_at": 1788656400,
+              "available_at": 1788656400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-25",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-06",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788645600,
+              "forecast_received": 1788649200,
+              "day_start": 1788652800,
+              "day_end": 1788739200,
+              "outcome_received": 1788742800,
+              "published_at": 1788742700,
+              "received_at": 1788742800,
+              "available_at": 1788742800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-26",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-07",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788732000,
+              "forecast_received": 1788735600,
+              "day_start": 1788739200,
+              "day_end": 1788825600,
+              "outcome_received": 1788829200,
+              "published_at": 1788829100,
+              "received_at": 1788829200,
+              "available_at": 1788829200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-27",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-08",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788818400,
+              "forecast_received": 1788822000,
+              "day_start": 1788825600,
+              "day_end": 1788912000,
+              "outcome_received": 1788915600,
+              "published_at": 1788915500,
+              "received_at": 1788915600,
+              "available_at": 1788915600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-28",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-09",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788904800,
+              "forecast_received": 1788908400,
+              "day_start": 1788912000,
+              "day_end": 1788998400,
+              "outcome_received": 1789002000,
+              "published_at": 1789001900,
+              "received_at": 1789002000,
+              "available_at": 1789002000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-29",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-10",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788991200,
+              "forecast_received": 1788994800,
+              "day_start": 1788998400,
+              "day_end": 1789084800,
+              "outcome_received": 1789088400,
+              "published_at": 1789088300,
+              "received_at": 1789088400,
+              "available_at": 1789088400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-30",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-11",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789077600,
+              "forecast_received": 1789081200,
+              "day_start": 1789084800,
+              "day_end": 1789171200,
+              "outcome_received": 1789174800,
+              "published_at": 1789174700,
+              "received_at": 1789174800,
+              "available_at": 1789174800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-31",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-12",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789164000,
+              "forecast_received": 1789167600,
+              "day_start": 1789171200,
+              "day_end": 1789257600,
+              "outcome_received": 1789261200,
+              "published_at": 1789261100,
+              "received_at": 1789261200,
+              "available_at": 1789261200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-32",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-13",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789250400,
+              "forecast_received": 1789254000,
+              "day_start": 1789257600,
+              "day_end": 1789344000,
+              "outcome_received": 1789347600,
+              "published_at": 1789347500,
+              "received_at": 1789347600,
+              "available_at": 1789347600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-33",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-14",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789336800,
+              "forecast_received": 1789340400,
+              "day_start": 1789344000,
+              "day_end": 1789430400,
+              "outcome_received": 1789434000,
+              "published_at": 1789433900,
+              "received_at": 1789434000,
+              "available_at": 1789434000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-34",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-15",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789423200,
+              "forecast_received": 1789426800,
+              "day_start": 1789430400,
+              "day_end": 1789516800,
+              "outcome_received": 1789520400,
+              "published_at": 1789520300,
+              "received_at": 1789520400,
+              "available_at": 1789520400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            }
+          ],
+          "book": {
+            "slug": "fixture-nyc-high",
+            "state": "OPEN",
+            "received": 1789579860.0,
+            "source_at": 1789579860.0,
+            "bids": [
+              [
+                0.34,
+                50
+              ]
+            ],
+            "asks": [
+              [
+                0.36,
+                50
+              ]
+            ]
+          },
+          "day_start": 1789603200
+        }
+      ],
+      "signals": [],
+      "settlements": []
+    },
+    {
+      "at": 1789579880.0,
+      "markets": [
+        {
+          "venue": "polymarket_us",
+          "id": "fixture-nyc-01",
+          "slug": "fixture-nyc-high",
+          "station": "KNYC",
+          "date": "2026-09-17",
+          "lower_f": 75,
+          "upper_f": 77,
+          "source": "NWS_CLI",
+          "rules_hash": "406a13ff4a4538a866a63d77aafb8f23f4e9d566f914cadfe7980ba118fe6416",
+          "metadata_received": 1789579880.0,
+          "active": true,
+          "close_at": 1789689600,
+          "minimum_qty": 0.01,
+          "tick": 0.01,
+          "fee_coefficient": 0.06,
+          "forecast": {
+            "station": "KNYC",
+            "date": "2026-09-17",
+            "high_f": 75,
+            "issued_at": 1789579800.0,
+            "received_at": 1789579830.0,
+            "revision_f": 0.1,
+            "evidence_id": "fixture-forecast",
+            "product": "SYNTHETIC hourly grid maximum",
+            "day_start": 1789603200,
+            "day_end": 1789689600,
+            "station_coordinates": [
+              40.7789,
+              -73.9692
+            ],
+            "hourly": [
+              {
+                "startTime": 1789603200,
+                "endTime": 1789606800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789606800,
+                "endTime": 1789610400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789610400,
+                "endTime": 1789614000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789614000,
+                "endTime": 1789617600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789617600,
+                "endTime": 1789621200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789621200,
+                "endTime": 1789624800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789624800,
+                "endTime": 1789628400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789628400,
+                "endTime": 1789632000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789632000,
+                "endTime": 1789635600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789635600,
+                "endTime": 1789639200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789639200,
+                "endTime": 1789642800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789642800,
+                "endTime": 1789646400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789646400,
+                "endTime": 1789650000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789650000,
+                "endTime": 1789653600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789653600,
+                "endTime": 1789657200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789657200,
+                "endTime": 1789660800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789660800,
+                "endTime": 1789664400,
+                "temperature": 75,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789664400,
+                "endTime": 1789668000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789668000,
+                "endTime": 1789671600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789671600,
+                "endTime": 1789675200,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789675200,
+                "endTime": 1789678800,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789678800,
+                "endTime": 1789682400,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789682400,
+                "endTime": 1789686000,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              },
+              {
+                "startTime": 1789686000,
+                "endTime": 1789689600,
+                "temperature": 71,
+                "temperatureUnit": "F"
+              }
+            ],
+            "comparison_models": [
+              {
+                "model": "gfs_global",
+                "family": "NOAA GFS",
+                "provider": "Open-Meteo",
+                "station": "KNYC",
+                "date": "2026-09-17",
+                "day_start": 1789603200.0,
+                "day_end": 1789689600.0,
+                "requested_coordinates": [
+                  40.7789,
+                  -73.9692
+                ],
+                "provider_grid_coordinates": [
+                  40.8,
+                  -73.95
+                ],
+                "grid_distance_km": 2.849115133255264,
+                "issued_at": null,
+                "received_at": 1789579850.0,
+                "available_at": 1789579850.0,
+                "availability_policy": "Actual first receipt, latest stitched forecast. Model initialization not provided.",
+                "evidence_id": "model-d6789f36718337bc7858ef356c38a498",
+                "source_url": "https://example.invalid/synthetic-weather-models",
+                "high_f": 75.0,
+                "hourly": [
+                  {
+                    "at": 1789603200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789606800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789610400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789614000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789617600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789621200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789624800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789628400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789632000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789635600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789639200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789642800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789646400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789650000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789653600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789657200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789660800.0,
+                    "temperature_2m": 75.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789664400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789668000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789671600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789675200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789678800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789682400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789686000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  }
+                ],
+                "attribution": "Open-Meteo / NOAA GFS / ECMWF IFS, CC BY 4.0",
+                "limitations": "Distinct model families can share observations and errors. Gridded hourly maxima are not final station CLI maxima.",
+                "synthetic": true
+              },
+              {
+                "model": "ecmwf_ifs025",
+                "family": "ECMWF IFS",
+                "provider": "Open-Meteo",
+                "station": "KNYC",
+                "date": "2026-09-17",
+                "day_start": 1789603200.0,
+                "day_end": 1789689600.0,
+                "requested_coordinates": [
+                  40.7789,
+                  -73.9692
+                ],
+                "provider_grid_coordinates": [
+                  40.8,
+                  -73.95
+                ],
+                "grid_distance_km": 2.849115133255264,
+                "issued_at": null,
+                "received_at": 1789579850.0,
+                "available_at": 1789579850.0,
+                "availability_policy": "Actual first receipt, latest stitched forecast. Model initialization not provided.",
+                "evidence_id": "model-00a98c9ec1b972d7e65082fd741343c2",
+                "source_url": "https://example.invalid/synthetic-weather-models",
+                "high_f": 75.0,
+                "hourly": [
+                  {
+                    "at": 1789603200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789606800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789610400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789614000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789617600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789621200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789624800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789628400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789632000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789635600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789639200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789642800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789646400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789650000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789653600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789657200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789660800.0,
+                    "temperature_2m": 75.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789664400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789668000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789671600.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789675200.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789678800.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789682400.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  },
+                  {
+                    "at": 1789686000.0,
+                    "temperature_2m": 71.0,
+                    "cloud_cover": 20.0,
+                    "wind_speed_10m": 10.0,
+                    "wind_direction_10m": 350.0
+                  }
+                ],
+                "attribution": "Open-Meteo / NOAA GFS / ECMWF IFS, CC BY 4.0",
+                "limitations": "Distinct model families can share observations and errors. Gridded hourly maxima are not final station CLI maxima.",
+                "synthetic": true
+              }
+            ]
+          },
+          "history": [
+            {
+              "evidence_id": "fixture-history-0",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-12",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786485600,
+              "forecast_received": 1786489200,
+              "day_start": 1786492800,
+              "day_end": 1786579200,
+              "outcome_received": 1786582800,
+              "published_at": 1786582700,
+              "received_at": 1786582800,
+              "available_at": 1786582800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-1",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-13",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786572000,
+              "forecast_received": 1786575600,
+              "day_start": 1786579200,
+              "day_end": 1786665600,
+              "outcome_received": 1786669200,
+              "published_at": 1786669100,
+              "received_at": 1786669200,
+              "available_at": 1786669200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-2",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-14",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786658400,
+              "forecast_received": 1786662000,
+              "day_start": 1786665600,
+              "day_end": 1786752000,
+              "outcome_received": 1786755600,
+              "published_at": 1786755500,
+              "received_at": 1786755600,
+              "available_at": 1786755600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-3",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-15",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786744800,
+              "forecast_received": 1786748400,
+              "day_start": 1786752000,
+              "day_end": 1786838400,
+              "outcome_received": 1786842000,
+              "published_at": 1786841900,
+              "received_at": 1786842000,
+              "available_at": 1786842000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-4",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-16",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786831200,
+              "forecast_received": 1786834800,
+              "day_start": 1786838400,
+              "day_end": 1786924800,
+              "outcome_received": 1786928400,
+              "published_at": 1786928300,
+              "received_at": 1786928400,
+              "available_at": 1786928400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-5",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-17",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1786917600,
+              "forecast_received": 1786921200,
+              "day_start": 1786924800,
+              "day_end": 1787011200,
+              "outcome_received": 1787014800,
+              "published_at": 1787014700,
+              "received_at": 1787014800,
+              "available_at": 1787014800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-6",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-18",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787004000,
+              "forecast_received": 1787007600,
+              "day_start": 1787011200,
+              "day_end": 1787097600,
+              "outcome_received": 1787101200,
+              "published_at": 1787101100,
+              "received_at": 1787101200,
+              "available_at": 1787101200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-7",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-19",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787090400,
+              "forecast_received": 1787094000,
+              "day_start": 1787097600,
+              "day_end": 1787184000,
+              "outcome_received": 1787187600,
+              "published_at": 1787187500,
+              "received_at": 1787187600,
+              "available_at": 1787187600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-8",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-20",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787176800,
+              "forecast_received": 1787180400,
+              "day_start": 1787184000,
+              "day_end": 1787270400,
+              "outcome_received": 1787274000,
+              "published_at": 1787273900,
+              "received_at": 1787274000,
+              "available_at": 1787274000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-9",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-21",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787263200,
+              "forecast_received": 1787266800,
+              "day_start": 1787270400,
+              "day_end": 1787356800,
+              "outcome_received": 1787360400,
+              "published_at": 1787360300,
+              "received_at": 1787360400,
+              "available_at": 1787360400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-10",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-22",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787349600,
+              "forecast_received": 1787353200,
+              "day_start": 1787356800,
+              "day_end": 1787443200,
+              "outcome_received": 1787446800,
+              "published_at": 1787446700,
+              "received_at": 1787446800,
+              "available_at": 1787446800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-11",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-23",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787436000,
+              "forecast_received": 1787439600,
+              "day_start": 1787443200,
+              "day_end": 1787529600,
+              "outcome_received": 1787533200,
+              "published_at": 1787533100,
+              "received_at": 1787533200,
+              "available_at": 1787533200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-12",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-24",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787522400,
+              "forecast_received": 1787526000,
+              "day_start": 1787529600,
+              "day_end": 1787616000,
+              "outcome_received": 1787619600,
+              "published_at": 1787619500,
+              "received_at": 1787619600,
+              "available_at": 1787619600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-13",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-25",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787608800,
+              "forecast_received": 1787612400,
+              "day_start": 1787616000,
+              "day_end": 1787702400,
+              "outcome_received": 1787706000,
+              "published_at": 1787705900,
+              "received_at": 1787706000,
+              "available_at": 1787706000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-14",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-26",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787695200,
+              "forecast_received": 1787698800,
+              "day_start": 1787702400,
+              "day_end": 1787788800,
+              "outcome_received": 1787792400,
+              "published_at": 1787792300,
+              "received_at": 1787792400,
+              "available_at": 1787792400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-15",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-27",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787781600,
+              "forecast_received": 1787785200,
+              "day_start": 1787788800,
+              "day_end": 1787875200,
+              "outcome_received": 1787878800,
+              "published_at": 1787878700,
+              "received_at": 1787878800,
+              "available_at": 1787878800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-16",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-28",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787868000,
+              "forecast_received": 1787871600,
+              "day_start": 1787875200,
+              "day_end": 1787961600,
+              "outcome_received": 1787965200,
+              "published_at": 1787965100,
+              "received_at": 1787965200,
+              "available_at": 1787965200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-17",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-29",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1787954400,
+              "forecast_received": 1787958000,
+              "day_start": 1787961600,
+              "day_end": 1788048000,
+              "outcome_received": 1788051600,
+              "published_at": 1788051500,
+              "received_at": 1788051600,
+              "available_at": 1788051600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-18",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-30",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788040800,
+              "forecast_received": 1788044400,
+              "day_start": 1788048000,
+              "day_end": 1788134400,
+              "outcome_received": 1788138000,
+              "published_at": 1788137900,
+              "received_at": 1788138000,
+              "available_at": 1788138000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-19",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-08-31",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788127200,
+              "forecast_received": 1788130800,
+              "day_start": 1788134400,
+              "day_end": 1788220800,
+              "outcome_received": 1788224400,
+              "published_at": 1788224300,
+              "received_at": 1788224400,
+              "available_at": 1788224400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-20",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-01",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788213600,
+              "forecast_received": 1788217200,
+              "day_start": 1788220800,
+              "day_end": 1788307200,
+              "outcome_received": 1788310800,
+              "published_at": 1788310700,
+              "received_at": 1788310800,
+              "available_at": 1788310800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-21",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-02",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788300000,
+              "forecast_received": 1788303600,
+              "day_start": 1788307200,
+              "day_end": 1788393600,
+              "outcome_received": 1788397200,
+              "published_at": 1788397100,
+              "received_at": 1788397200,
+              "available_at": 1788397200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-22",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-03",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788386400,
+              "forecast_received": 1788390000,
+              "day_start": 1788393600,
+              "day_end": 1788480000,
+              "outcome_received": 1788483600,
+              "published_at": 1788483500,
+              "received_at": 1788483600,
+              "available_at": 1788483600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-23",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-04",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788472800,
+              "forecast_received": 1788476400,
+              "day_start": 1788480000,
+              "day_end": 1788566400,
+              "outcome_received": 1788570000,
+              "published_at": 1788569900,
+              "received_at": 1788570000,
+              "available_at": 1788570000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-24",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-05",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788559200,
+              "forecast_received": 1788562800,
+              "day_start": 1788566400,
+              "day_end": 1788652800,
+              "outcome_received": 1788656400,
+              "published_at": 1788656300,
+              "received_at": 1788656400,
+              "available_at": 1788656400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-25",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-06",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788645600,
+              "forecast_received": 1788649200,
+              "day_start": 1788652800,
+              "day_end": 1788739200,
+              "outcome_received": 1788742800,
+              "published_at": 1788742700,
+              "received_at": 1788742800,
+              "available_at": 1788742800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-26",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-07",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788732000,
+              "forecast_received": 1788735600,
+              "day_start": 1788739200,
+              "day_end": 1788825600,
+              "outcome_received": 1788829200,
+              "published_at": 1788829100,
+              "received_at": 1788829200,
+              "available_at": 1788829200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-27",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-08",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788818400,
+              "forecast_received": 1788822000,
+              "day_start": 1788825600,
+              "day_end": 1788912000,
+              "outcome_received": 1788915600,
+              "published_at": 1788915500,
+              "received_at": 1788915600,
+              "available_at": 1788915600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-28",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-09",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788904800,
+              "forecast_received": 1788908400,
+              "day_start": 1788912000,
+              "day_end": 1788998400,
+              "outcome_received": 1789002000,
+              "published_at": 1789001900,
+              "received_at": 1789002000,
+              "available_at": 1789002000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-29",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-10",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1788991200,
+              "forecast_received": 1788994800,
+              "day_start": 1788998400,
+              "day_end": 1789084800,
+              "outcome_received": 1789088400,
+              "published_at": 1789088300,
+              "received_at": 1789088400,
+              "available_at": 1789088400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-30",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-11",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789077600,
+              "forecast_received": 1789081200,
+              "day_start": 1789084800,
+              "day_end": 1789171200,
+              "outcome_received": 1789174800,
+              "published_at": 1789174700,
+              "received_at": 1789174800,
+              "available_at": 1789174800,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-31",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-12",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789164000,
+              "forecast_received": 1789167600,
+              "day_start": 1789171200,
+              "day_end": 1789257600,
+              "outcome_received": 1789261200,
+              "published_at": 1789261100,
+              "received_at": 1789261200,
+              "available_at": 1789261200,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-32",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-13",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789250400,
+              "forecast_received": 1789254000,
+              "day_start": 1789257600,
+              "day_end": 1789344000,
+              "outcome_received": 1789347600,
+              "published_at": 1789347500,
+              "received_at": 1789347600,
+              "available_at": 1789347600,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-33",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-14",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789336800,
+              "forecast_received": 1789340400,
+              "day_start": 1789344000,
+              "day_end": 1789430400,
+              "outcome_received": 1789434000,
+              "published_at": 1789433900,
+              "received_at": 1789434000,
+              "available_at": 1789434000,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            },
+            {
+              "evidence_id": "fixture-history-34",
+              "kind": "history",
+              "station": "KNYC",
+              "date": "2026-09-15",
+              "source": "NWS_CLI",
+              "forecast_high_f": 75,
+              "actual_high_f": 76,
+              "forecast_issued": 1789423200,
+              "forecast_received": 1789426800,
+              "day_start": 1789430400,
+              "day_end": 1789516800,
+              "outcome_received": 1789520400,
+              "published_at": 1789520300,
+              "received_at": 1789520400,
+              "available_at": 1789520400,
+              "synthetic": true,
+              "text": "Synthetic KNYC NWS CLI temperature forecast residual example; not observed data."
+            }
+          ],
+          "book": {
+            "slug": "fixture-nyc-high",
+            "state": "OPEN",
+            "received": 1789579880.0,
+            "source_at": 1789579880.0,
+            "bids": [
+              [
+                0.34,
+                50
+              ]
+            ],
+            "asks": [
+              [
+                0.36,
+                50
+              ]
+            ]
+          },
+          "day_start": 1789603200
+        }
+      ],
+      "signals": [],
+      "settlements": []
+    },
+    {
+      "at": 1789693200,
+      "markets": [],
+      "signals": [],
+      "settlements": [
+        {
+          "slug": "fixture-nyc-high",
+          "market_id": "fixture-nyc-01",
+          "rules_hash": "406a13ff4a4538a866a63d77aafb8f23f4e9d566f914cadfe7980ba118fe6416",
+          "venue": "polymarket_us",
+          "final": true,
+          "yes_payout": 1,
+          "received_at": 1789693200,
+          "evidence_id": "synthetic-v2-settlement"
+        }
+      ]
+    }
+  ],
+  "coverage": {
+    "description": "Fully invented v2 wiring example. No observed forecasts, actual LLM inference or trading performance evidence."
+  }
+}

@@ -39,6 +39,10 @@ class EvidenceStore:
                 published, received, available = [stamp(row[k]) for k in ("published_at", "received_at", "available_at")]
                 if not published <= received <= available:
                     raise ValueError("Evidence chronology violated")
+                if row['kind']=='forecast':
+                    for component in row.get('forecast',{}).get('comparison_models',[]):
+                        if stamp(component['available_at'])>available:
+                            raise ValueError('Composite forecast available before a component')
                 if row.get("synthetic") is not True and not str(row.get("source_url", "")).startswith("https://"):
                     raise ValueError("Real evidence needs source URL")
                 if len(json.dumps(row)) > 50000:
@@ -64,7 +68,7 @@ class EvidenceStore:
                 count += 1
         return count
 
-    def retrieve(self, market, now, limit=30, allow_synthetic=False):
+    def retrieve(self, market, now, limit=30, allow_synthetic=False, include_recent=False):
         if not 10 <= limit <= 90:
             raise ValueError("Historical retrieval requires 10-90 records")
         query = " OR ".join(re.findall(r"[A-Za-z0-9]+", market["station"]+" temperature forecast maximum CLI")[:12])
@@ -90,12 +94,17 @@ class EvidenceStore:
             if r["date"] not in latest or stamp(r["available_at"]) > stamp(latest[r["date"]]["available_at"]):
                 latest[r["date"]] = r
         selected = sorted(latest.values(), key=lambda r: (distance(r), r["date"], r["evidence_id"]))[:limit]
+        if include_recent:
+            recent = sorted(latest.values(), key=lambda r:r['date'], reverse=True)[:7]
+            recent_ids = {r['evidence_id'] for r in recent}
+            selected = recent+[r for r in selected if r['evidence_id'] not in recent_ids][:limit-len(recent)]
         docs = [json.loads(r[0]) for r in notes]
         docs = [r for r in docs if allow_synthetic or not r.get("synthetic")]
         docs = [r for r in docs if r['kind']!='rules' or not r.get('market_id') or
                 (str(r['market_id'])==str(market['id']) and r.get('rules_hash')==market['rules_hash'])]
         return {"history": selected, "documents": docs,
                 "audit": {"method": "station/time filters + numeric weather analogues + SQLite FTS5 BM25",
-                          "as_of": now, "candidates": len(latest), "selected_ids": [r["evidence_id"] for r in selected],
+                          "as_of": now, "includes_recent_seven": include_recent,
+                          "candidates": len(latest), "selected_ids": [r["evidence_id"] for r in selected],
                           "document_ids": [r["evidence_id"] for r in docs], "index_path": self.path.name,
                           "scores": {r["evidence_id"]: distance(r) for r in selected}}}
