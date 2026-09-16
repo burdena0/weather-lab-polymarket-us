@@ -177,17 +177,17 @@ def fee(qty, price):
     return float((Decimal('.06')*Decimal(str(qty))*p*(1-p)).quantize(Decimal('.01'),rounding=ROUND_HALF_EVEN))
 
 
-def signal(probability, quote):
+def signal(probability, quote, minimum_edge=None):
     candidates = []
     for side, p, price in [('YES',probability,quote['yes_display_price']),('NO',1-probability,quote['no_display_price'])]:
         # Primary assumptions choose signals once; sensitivity never selects using outcomes.
         entry = round(price+POLICY['primary_slippage'], 8)
         edge = p-entry-.06*entry*(1-entry)
-        if entry <= .99 and edge >= POLICY['minimum_edge']: candidates.append((edge,side))
+        if entry <= .99 and edge >= (POLICY['minimum_edge'] if minimum_edge is None else minimum_edge): candidates.append((edge,side))
     return max(candidates)[1] if candidates else None
 
 
-def simulate(rows, slip, model_cost, overhead):
+def simulate(rows, slip, model_cost, overhead, *, minimum_edge=None, recheck_edge=False):
     cash = 50.; pending = []; trades = []; skips = Counter(); fees = 0.; deployed = 0.; curve = []
     def settle(at):
         nonlocal cash
@@ -198,10 +198,15 @@ def simulate(rows, slip, model_cost, overhead):
     for r in sorted(rows,key=lambda r:(r['execution_quote']['timestamp'],r['key'])):
         settle(r['execution_quote']['timestamp'])
         if 'error' in r: skips['model_failure_or_abstention'] += 1;continue
-        side = signal(r['probability'],r['decision_quote'])
+        side = signal(r['probability'],r['decision_quote'],minimum_edge)
         if side is None: skips['insufficient_edge'] += 1;continue
         entry = round(r['execution_quote']['yes_display_price' if side=='YES' else 'no_display_price']+slip,8)
         if entry > .99: skips['price_above_limit'] += 1;continue
+        if recheck_edge:
+            p = r['probability'] if side == 'YES' else 1-r['probability']
+            threshold = POLICY['minimum_edge'] if minimum_edge is None else minimum_edge
+            if p-entry-.06*entry*(1-entry) < threshold:
+                skips['edge_lost_before_execution'] += 1;continue
         # Price is observed only after committing signal; do not reverse side with hindsight.
         budget = min(2.,cash-40.)
         qty = max((q for q in range(1,6) if q*entry+fee(q,entry) <= budget+1e-9),default=0)
@@ -224,7 +229,7 @@ def simulate(rows, slip, model_cost, overhead):
             'trade_ledger':trades,'settled_pnl_curve':curve}
 
 
-def report(prepared):
+def load_verified_rows(prepared):
     root = Path(prepared); prep = json.loads((root/'preparation.json').read_text(encoding='utf-8'))
     cases = json.loads((root/'cases.json').read_text(encoding='utf-8'))
     if digest(cases) != prep['cases_hash'] or digest(POLICY) != prep['protocol_hash']: raise ValueError('Frozen inputs changed')
@@ -257,6 +262,11 @@ def report(prepared):
         if y!=int(matches(labels[r['key']]['actual_high_f'],m)) or settlement['published_at']<stamp(m['close_at']): raise ValueError('CLI / settlement mismatch')
         joined.append({**r,**{k:c[k] for k in ('decision_at','decision_quote','execution_quote')},'slug':m['slug'],
                        'yes_payout':y,'settled_at':settlement['published_at']})
+    return prep, bykey, joined, calls
+
+
+def report(prepared):
+    prep, bykey, joined, calls = load_verified_rows(prepared)
     start=min(c['decision_at'] for c in bykey.values());end=max(r['settled_at'] for r in joined)
     overhead_days=(end-start)/86400;overhead=200*overhead_days/30
     arms=[]; paired=set.intersection(*(set(r['key'] for r in joined if r['arm']==a and 'error' not in r) for a in ARMS))

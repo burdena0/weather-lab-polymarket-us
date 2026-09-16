@@ -14,7 +14,11 @@ def main():
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("serve").add_argument("--port", type=int, default=8766)
     memory=sub.add_parser("seed-strategies")
+    memory.add_argument("--collection", choices=("builtin", "outcome-guide"), default="builtin")
     memory.add_argument("--out",required=True)
+    external=sub.add_parser("import-predictions")
+    external.add_argument("--jsonl", required=True)
+    external.add_argument("--db", default="data/evidence.sqlite")
     memory.add_argument("--db",default="data/evidence.sqlite")
     doctor=sub.add_parser('doctor')
     doctor.add_argument('--check-models',action='store_true')
@@ -64,12 +68,18 @@ def main():
     if args.cmd == 'seed-strategies':
         import time
         from .strategy_memory import seed
+        if args.collection == "outcome-guide":
+            from .strategy_sources import seed
         rows=seed(time.time())
         target=Path(args.out)
         target.parent.mkdir(parents=True,exist_ok=True)
         with target.open('x',encoding='utf-8') as f:
             f.write(''.join(json.dumps(r)+'\n' for r in rows))
         print(json.dumps({'ingested':EvidenceStore(args.db).ingest(rows),'archive':str(target)}))
+    elif args.cmd == 'import-predictions':
+        import time
+        from .external_predictions import import_file
+        print(json.dumps(import_file(args.jsonl, EvidenceStore(args.db), time.time()), indent=2))
     elif args.cmd == 'doctor':
         from .readiness import readiness, check_models
         report=readiness(Path('data'),EvidenceStore('data/evidence.sqlite'))
@@ -97,6 +107,7 @@ def main():
         c.pop('research_protocol', None)
         c.pop('weather_hypotheses', None)
         c.pop('strategy_memory', None)
+        c.pop('external_predictions', None)
         dataset, _ = sample()
         result = replay(c, dataset, Path(args.out)/(c["strategy"]+"-"+str(uuid.uuid4())[:8]))
         print(json.dumps({k: result[k] for k in ("strategy", "status", "synthetic", "inference", "fills", "realized_pnl", "net_after_costs")}, indent=2))

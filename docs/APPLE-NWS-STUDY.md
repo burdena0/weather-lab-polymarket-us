@@ -88,3 +88,11 @@ This reports signed Apple and NWS errors in Fahrenheit. It verifies station/date
 Unit tests cover chronology, expired inputs, station and day mismatch, unit conversion, share/level semantics, quote refusal, missing sources, isolated post-day scoring, bounded sampler behavior, and secret-free status/error output. A real public KLAX / 2026-09-17 snapshot returned six exhaustive contracts, an NWS forecast and a quality-checked observation; stale book rows were rejected. Apple remained missing because WeatherKit credentials had not been provided. That check is not a profit test.
 
 Sources: [Apple daily forecast fields](https://developer.apple.com/documentation/weatherkitrestapi/dayweatherconditions), [Apple request parameters](https://developer.apple.com/documentation/weatherkitrestapi/get-api-v1-weather-_language_-_latitude_-_longitude_), [Polymarket US market book](https://docs.polymarket.us/api-reference/markets/get-market-book), [NWS API](https://www.weather.gov/documentation/services-web-api).
+
+## Previous weeks: available archive, not recovered iPhone forecasts
+
+The panel now has **Previous weeks / NOAA archive**. Select the station at the top of the panel, choose one, two or four weeks, and press **Download for selected station**. The app downloads the most recent completed station-standard days into a new `data/previous-weeks/<run-id>` folder. Leave the server running until it reports complete, partial or failed. Only one download runs at a time.
+
+Each day includes a prior-day GFS MOS forecast vintage and a raw-text-checked NWS CLI maximum, retrieved from Iowa Environmental Mesonet. No new earlier calibration days or cloud calls are requested by this button. Missing products are reported. The archive contains `cases.jsonl`, separate `labels.jsonl`, raw receipts and a checksummed manifest. Historical forecast dissemination time is assumed; actual download times are recorded now. It cannot unlock live RAG or prove executable returns.
+
+Apple records remain zero unless the phone previously exported forecasts and the tracker retained them. Installing iCloud today does not recover last week's forecast vintages. NWS actual highs are not prior forecasts. This new archive must never be labeled iPhone Weather or used as an Apple-versus-NWS backtest.

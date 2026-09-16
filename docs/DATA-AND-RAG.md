@@ -83,3 +83,7 @@ Keep train/development/test splits chronological and grouped by observation date
 Before fine-tuning an LLM, compare the empirical residual baseline, a calibrated statistical forecaster, and a fixed model with RAG. If model calibration helps, fit calibration only on development predictions. If routing helps, construct offline examples containing context features and every candidate model's held-out error, latency and cost, then optimize a predeclared cost/accuracy objective. Current routing is deterministic; no trained router or calibrator is included. Fine-tuning support and price depend on the model and must be checked before selecting a training API.
 
 Measure retrieval separately with hand-labeled required evidence, recall at k, citation precision, temporal violations, station mismatches and abstention behavior. A citation's existence does not prove that the cited text supports the model's claim; human entailment audits remain necessary.
+
+## Optional private model and reviewed article
+
+The [private-model interface](EXTERNAL-MODELS.md) imports bounded, timestamped contract probabilities without model internals. Retrieval is exact-contract and opt-in; outputs do not count as completed historical station-days. The [reviewed article library](OUTCOME-GUIDE-REVIEW.md) contributes unproven hypotheses under existing card/time limits. Neither source is retroactively inserted into historical decisions.

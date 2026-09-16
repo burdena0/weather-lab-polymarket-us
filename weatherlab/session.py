@@ -24,6 +24,7 @@ class Session:
                 config.pop('research_protocol', None)
                 config.pop('weather_hypotheses', None)
                 config.pop('strategy_memory', None)
+                config.pop('external_predictions', None)
         self.mode, self.rag, self.budget_path = mode, rag, budget_path
         self.wallet, self.mappings, self.duration = wallet, mappings or [], duration
         self.id = 'session-'+str(uuid.uuid4())[:12]

@@ -14,6 +14,10 @@ from .protocol import check_version, LATEST_VERSION
 
 
 def validate_config(c):
+    if type(c.get("external_predictions", False)) is not bool:
+        raise ValueError("external_predictions must be boolean")
+    if c.get("external_predictions") and c.get("strategy") == "wallet_control":
+        raise ValueError("External predictions are for forecasting arms only")
     if type(c.get('strategy_memory', False)) is not bool:
         raise ValueError('strategy_memory must be boolean')
     if c.get('strategy_memory') and c.get('strategy') == 'wallet_control':
@@ -123,7 +127,8 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
                     if m.get("forecast"):
                         retrieved = rag.retrieve(m, now, allow_synthetic=bool(dataset.get("synthetic")),
                                                  include_recent=config.get('research_protocol') == LATEST_VERSION and config['strategy'] != 'wallet_control',
-                                                 include_strategies=config.get('strategy_memory', False))
+                                                 include_strategies=config.get('strategy_memory', False),
+                                                 include_external=config.get('external_predictions', False))
                         m["history"] = retrieved["history"]
                         m["retrieved_documents"] = retrieved["documents"]
                         record(now, "retrieval", {"slug": m["slug"], **retrieved["audit"]})

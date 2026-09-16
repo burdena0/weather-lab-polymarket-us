@@ -21,6 +21,7 @@ from .readiness import readiness, check_models
 from .research import collect_evidence
 from .historical import run_month
 from .disagreement import DisagreementStudy
+from .archive_history import ArchiveHistory
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -41,6 +42,7 @@ class Lab:
         self.model_access = None
         self.historical = self.read('historical/latest.json',None)
         self.disagreement = DisagreementStudy(self.root/'disagreement')
+        self.archive_history = ArchiveHistory(self.root/'previous-weeks')
 
     def read(self, filename, default):
         p = self.root/filename
@@ -57,14 +59,17 @@ class Lab:
             count = db.execute("SELECT COUNT(*) FROM evidence").fetchone()[0]
             from .strategy_memory import inventory
             strategy_library = inventory(db)
+            from .external_predictions import inventory as external_inventory
+            external_models = external_inventory(db)
         dataset = self.read("dataset.json", None)
         return {"csrf": self.token, "bots": self.registry, "latest": self.latest, "settings": self.settings,
                 "account": self.account.state(),
                 "readiness": self.readiness, "model_access": self.model_access,
+                "profit_policy_comparison": self.read("historical/profit-policy-comparison-v1/report.json",None),
                 "historical": self.historical, "recent_historical": self.read("historical/latest-recent.json",None),
-                "disagreement": self.disagreement.state(),
+                "disagreement": self.disagreement.state(), "archive_history": self.archive_history.state(),
                 "session": self.session.state() if self.session else None,
-                "evidence_count": count, "strategy_library": strategy_library, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
+                "external_models": external_models, "evidence_count": count, "strategy_library": strategy_library, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
                 "dataset": None if dataset is None else {"frames": len(dataset["frames"]), "synthetic": dataset.get("synthetic"), "coverage": dataset.get("coverage"), "errors": dataset.get("errors", [])[-10:]}}
 
     def mutate(self, path, raw):
@@ -85,6 +90,8 @@ class Lab:
             count = self.rag.ingest(rows)
             return {"message": f"Indexed {count} new immutable evidence records."}
         body = json.loads(raw or b"{}")
+        if path == '/api/history/previous-weeks':
+            return self.archive_history.start(body.get('station'), body.get('weeks'))
         if path == '/api/shortcuts/configure':
             if self.disagreement.state()['running']: raise ValueError('Stop the tracker before changing its source folder')
             self.disagreement.shortcuts.configure(body.get('folder',''))
@@ -190,6 +197,7 @@ class Lab:
                     config.pop('research_protocol', None)
                     config.pop('weather_hypotheses', None)
                     config.pop('strategy_memory', None)
+                    config.pop('external_predictions', None)
                 config["reference_wallet"] = WALLET if source == "sample" else self.settings["wallet"]
                 config["control_mode"] = self.settings["control_mode"]
                 if key != "wallet_control":

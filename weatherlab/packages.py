@@ -17,7 +17,7 @@ def inspect_package(raw, trusted_root):
     with zipfile.ZipFile(io.BytesIO(raw)) as archive:
         entries = archive.infolist()
         names = [f.filename for f in entries]
-        if len(entries) > 100 or len(set(names)) != len(names) or len({n.lower() for n in names}) != len(names):
+        if len(entries) > 128 or len(set(names)) != len(names) or len({n.lower() for n in names}) != len(names):
             raise ValueError("Duplicate/oversized ZIP directory")
         if sum(f.file_size for f in entries) > 16000000:
             raise ValueError("Expanded ZIP exceeds 16 MB")

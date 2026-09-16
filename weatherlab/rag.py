@@ -27,14 +27,14 @@ class EvidenceStore:
     def connect(self):
         return sqlite3.connect(self.path, timeout=5)
 
-    def ingest(self, rows):
+    def ingest(self, rows, *, external_receipt_at=None):
         count = 0
         with self.connect() as db:
             for row in rows:
                 ident = row["evidence_id"]
                 if not isinstance(ident, str) or not re.fullmatch(r"[A-Za-z0-9_.:-]{1,180}", ident):
                     raise ValueError("Invalid evidence identifier")
-                if row["kind"] not in ("history", "rules", "forecast", "observation", "research_note", "strategy_card"):
+                if row["kind"] not in ("history", "rules", "forecast", "observation", "research_note", "strategy_card", "external_prediction"):
                     raise ValueError("Unsupported evidence type")
                 published, received, available = [stamp(row[k]) for k in ("published_at", "received_at", "available_at")]
                 if not published <= received <= available:
@@ -43,7 +43,7 @@ class EvidenceStore:
                     for component in row.get('forecast',{}).get('comparison_models',[]):
                         if stamp(component['available_at'])>available:
                             raise ValueError('Composite forecast available before a component')
-                if row.get("synthetic") is not True and not str(row.get("source_url", "")).startswith("https://"):
+                if row["kind"] != "external_prediction" and row.get("synthetic") is not True and not str(row.get("source_url", "")).startswith("https://"):
                     raise ValueError("Real evidence needs source URL")
                 if len(json.dumps(row)) > 50000:
                     raise ValueError("Chunk exceeds 50 KB; split with immutable revision IDs")
@@ -53,12 +53,17 @@ class EvidenceStore:
                     existing = db.execute("SELECT id FROM evidence WHERE kind='strategy_card' AND station=? AND json_extract(payload,'$.strategy_id')=? AND json_extract(payload,'$.revision')=?", (row["station"],row["strategy_id"],row["revision"])).fetchone()
                     if existing and existing[0] != ident:
                         raise ValueError("Strategy revision identity already exists")
+                if row["kind"] == "external_prediction":
+                    from .external_predictions import validate_record
+                    validate_record(row)
                 hashed = digest(row)
                 old = db.execute("SELECT hash FROM evidence WHERE id=?", (ident,)).fetchone()
                 if old:
                     if old[0] != hashed:
                         raise ValueError("Evidence revision is immutable: "+ident)
                     continue
+                if row["kind"] == "external_prediction" and (external_receipt_at is None or received != external_receipt_at):
+                    raise ValueError("Use import-predictions to record actual local receipt")
                 if row["kind"] == "history":
                     for key in ("forecast_high_f", "actual_high_f", "forecast_received", "forecast_issued", "outcome_received", "day_start", "day_end", "source"):
                         if key not in row:
@@ -74,7 +79,7 @@ class EvidenceStore:
                 count += 1
         return count
 
-    def retrieve(self, market, now, limit=30, allow_synthetic=False, include_recent=False, include_strategies=False):
+    def retrieve(self, market, now, limit=30, allow_synthetic=False, include_recent=False, include_strategies=False, include_external=False):
         if not 10 <= limit <= 90:
             raise ValueError("Historical retrieval requires 10-90 records")
         query = " OR ".join(re.findall(r"[A-Za-z0-9]+", market["station"]+" temperature forecast maximum CLI")[:12])
@@ -115,9 +120,16 @@ class EvidenceStore:
                 cards, strategy_audit = retrieve(db, market, now, allow_synthetic)
             docs.extend(cards)
             strategy_audit["enabled"] = True
+        external_audit = {"enabled": False}
+        if include_external:
+            from .external_predictions import retrieve as retrieve_external
+            with self.connect() as db:
+                predictions, external_audit = retrieve_external(db, market, now, allow_synthetic)
+            docs.extend(predictions)
+            external_audit["enabled"] = True
         return {"history": selected, "documents": docs,
                 "audit": {"method": "station/time filters + numeric weather analogues + SQLite FTS5 BM25",
-                          "as_of": now, "includes_recent_seven": include_recent, "strategy_memory": strategy_audit,
+                          "external_predictions": external_audit, "as_of": now, "includes_recent_seven": include_recent, "strategy_memory": strategy_audit,
                           "candidates": len(latest), "selected_ids": [r["evidence_id"] for r in selected],
                           "document_ids": [r["evidence_id"] for r in docs], "index_path": self.path.name,
                           "scores": {r["evidence_id"]: distance(r) for r in selected}}}

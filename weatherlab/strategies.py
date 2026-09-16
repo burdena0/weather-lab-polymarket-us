@@ -203,6 +203,8 @@ class Strategy:
                 mid = (bid[0][0]+ask[0][0])/2
                 if not self.config.get("strategy_memory", False):
                     m = dict(m, retrieved_documents=[d for d in m.get("retrieved_documents", []) if d.get("kind") != "strategy_card"])
+                if not self.config.get("external_predictions", False):
+                    m = dict(m, retrieved_documents=[d for d in m.get("retrieved_documents", []) if d.get("kind") != "external_prediction"])
                 ctx = context(m, now)
                 if self.config.get('research_protocol') != LATEST_VERSION:
                     ctx['forecast'] = {k:v for k,v in ctx['forecast'].items() if k not in ('comparison_models','comparison_error','station_coordinates')}

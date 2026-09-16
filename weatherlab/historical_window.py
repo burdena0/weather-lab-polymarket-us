@@ -36,15 +36,17 @@ def verify_cli(raw, station, day, expected):
             'validation':'Raw CLI station name, product, date and observed Fahrenheit MAXIMUM matched'}
 
 
-def build_window(root, station, start, end):
+def build_window(root, station, start, end, training_days=31):
     if station not in STATIONS:raise ValueError('Unsupported station')
     first=datetime.strptime(start,'%Y-%m-%d').replace(tzinfo=timezone.utc)
     last=datetime.strptime(end,'%Y-%m-%d').replace(tzinfo=timezone.utc)
     if not 1 <= (last-first).days+1 <= 31 or last.date()>=datetime.now(timezone.utc).date():
         raise ValueError('Require 1-31 completed test dates')
-    begin_train=first-timedelta(days=31)
+    if type(training_days) is not int or not 0 <= training_days <= 31:
+        raise ValueError('Require 0-31 earlier calibration days')
+    begin_train=first-timedelta(days=training_days)
     root=Path(root);root.mkdir(parents=True,exist_ok=False);receipts=root/'receipts';receipts.mkdir()
-    protocol={'station':station,'training_start':begin_train.date().isoformat(),'training_end':(first-timedelta(days=1)).date().isoformat(),
+    protocol={'station':station,'training_start':begin_train.date().isoformat() if training_days else None,'training_end':(first-timedelta(days=1)).date().isoformat() if training_days else None,
               'test_start':start,'test_end':end,'expected_test_days':(last-first).days+1,'threshold_f':80,
               'availability_verified':False,'historical_book_data':False,'created_at':time.time(),
               'purpose':'Exploratory forecast accuracy; no trades or strategy profitability',

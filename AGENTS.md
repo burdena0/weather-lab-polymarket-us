@@ -11,3 +11,7 @@ Whenever a change affects architecture, update the corresponding UML diagrams an
 - Rebuild distributable ZIPs when their included runtime or documentation changes. Include updated documentation in the authorized repository update.
 
 Keep acquisition details out of the README as requested. Put source methodology and limitations in the relevant research documentation.
+
+## Current user priority
+
+After completing the previous-weeks archive update, freeze frontend changes. Focus on profitability research using existing data, configuration and isolated experiments. Do not resume frontend design or feature work without a new user instruction. Preserve all costs and report negative results; never label NOAA archives as historical Apple forecasts.

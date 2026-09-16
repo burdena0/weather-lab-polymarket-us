@@ -159,6 +159,13 @@ def context(m, now):
     p = (sum(yes(t) for t in projected)+.5)/(len(h)+1)
     docs = [r for r in m.get("retrieved_documents", []) if r.get("station") == m["station"] and
             max(stamp(r["published_at"]), stamp(r["received_at"]), stamp(r["available_at"])) <= now]
+    for doc in docs:
+        if doc.get("kind") == "external_prediction":
+            from .external_predictions import validate_record
+            validate_record(doc)
+            if (doc["market_id"] != str(m["id"]) or doc["expires_at"] is None or stamp(doc["expires_at"]) <= now or
+                any(doc[k] != m[k] for k in ("station", "date", "source", "rules_hash", "lower_f", "upper_f"))):
+                raise ValueError("External prediction contract or expiry mismatch")
     return {"as_of": now, "contract": {k: m[k] for k in ("id", "slug", "station", "date", "lower_f", "upper_f", "source", "rules_hash")},
             "forecast": f, "history": h, "baseline_probability": p,
             "retrieved_documents": docs,

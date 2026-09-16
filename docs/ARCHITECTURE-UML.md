@@ -502,6 +502,65 @@ sequenceDiagram
 
 This separate exploratory harness uses all three production forecasting functions, including PolySwarm's fixed market blend, with one common point-probability entry rule. It does not reproduce the complete live RAG, confidence gates or order engine. Portfolio cash is released only at the archived settlement time, costs of cloud calls and the $200 monthly overhead are reported outside the $50 trading cash account. Old weather-only results remain immutable. Exact historical rules availability, quantities and actual fills remain unverified, this does not unlock live RAG.
 
+## Optional private-model evidence and reviewed methods
+
+New forecasting package manifests enable `external_predictions`; old configurations default to false. The deterministic control excludes it. `import-predictions` accepts bounded local JSONL, records current receipt time, and validates the exact US contract and frozen-model metadata. Model internals and training data are not available or audited. No private predictions have been supplied; the current state is waiting for predictions.
+
+```mermaid
+sequenceDiagram
+    participant U as Private model export
+    participant I as import-predictions
+    participant R as EvidenceStore
+    participant E as Chronological replay
+    participant L as Forecasting strategy
+    U->>I: Local probability JSONL
+    I->>I: Validate schema and record current receipt
+    I->>R: Append immutable prediction records
+    E->>R: Retrieve exact contract as of decision time
+    R->>R: Check expiry and latest model revision
+    R-->>E: At most three eligible external predictions
+    E->>L: Evidence with unverified-model limitations
+    L->>L: Existing model, uncertainty and risk gates
+    Note over R,L: No data means no additional prediction context
+```
+
+The reviewed outcome-guide source adds five hypothesis identities across five stations through the existing strategy-card path. Cards are available only after review; four cards/8 KB remain the retrieval bound. Private probabilities are a separate typed evidence kind, not labels or strategy instructions. See [model setup](EXTERNAL-MODELS.md) and [source review](OUTCOME-GUIDE-REVIEW.md).
+
+## Exploratory profitability policy comparison
+
+```mermaid
+flowchart TD
+    P[Freeze 23 candidate policies in new experiment] --> V[Verify committed forecasts and archive hashes]
+    V --> D[First four dates for development]
+    D --> S[Select on stressed development net returns]
+    S --> F[Write immutable selection receipt]
+    F --> E[Evaluate later dates after development settlements]
+    E --> R[Report all variants and every cost scenario]
+    R --> U[Dashboard and public results]
+```
+
+The analysis reuses committed outputs and costs. A baseline gate can model skipped calls using only decision-time inputs, but cannot refund prior spend. Probability blends are local; execution checks cancel a deteriorated entry without changing its side. Every alternative starts with $50, retains $40, caps entries at $2/five shares, and reports $200 monthly overhead. No new cloud calls or automatic adoption of the evaluation winner occurs. Dates were previously inspected, so this is exploratory, not an untouched holdout. External-model outputs and newly reviewed RAG cards are absent from the historical inputs.
+
+## Previous-weeks archive job
+
+```mermaid
+sequenceDiagram
+    participant U as Dashboard
+    participant A as ArchiveHistory
+    participant W as historical_window
+    participant I as IEM NOAA and NWS archives
+    U->>A: Station and 1 to 4 weeks
+    A->>A: Serialize job and choose completed standard days
+    A->>W: build_window with zero added calibration days
+    W->>I: Bounded reads of MOS and raw CLI products
+    I-->>W: Forecast vintages and separate outcomes
+    W-->>A: Immutable receipts and checksummed corpus
+    A-->>U: Complete or partial coverage or failure
+    Note over A,U: Zero Apple records and no RAG backdating or trades
+```
+
+This final backend data addition supports up to 28 requested days, one station per job, one active job, no paid calls and explicit missing-day reporting. The existing archive downloader keeps 31 earlier calibration days by default for benchmark commands; this dashboard path sets zero. Phone history remains unavailable unless previously captured.
+
 ## Source map
 
 | Responsibility | Implementation |
@@ -515,6 +574,10 @@ This separate exploratory harness uses all three production forecasting function
 | Evidence collection and outcome pairing | `weatherlab/research.py`, `weatherlab/sources.py` |
 | Named GFS/IFS collection and validation | `weatherlab/weather_models.py` |
 | Weather features, switchable entry policies and ablations | `weatherlab/hypotheses.py`, `weatherlab/ablation.py` |
+| Previous-weeks archive job | `weatherlab/archive_history.py`, `weatherlab/historical_window.py` |
+| Private model intake and exact-contract retrieval | `weatherlab/external_predictions.py` |
+| Reviewed source hypotheses and ladder arithmetic | `weatherlab/strategy_sources.py` |
+| Cost-aware policy comparison and chronological selection | `weatherlab/profitability_research.py` |
 | RAG and immutable evidence | `weatherlab/rag.py` |
 | Strategy reference validation, selection, seed library and inventory | `weatherlab/strategy_memory.py` |
 | Model adapter, persona prompts, cost reservation | `weatherlab/models.py` |

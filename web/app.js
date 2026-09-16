@@ -30,6 +30,10 @@ function render(){
   if(state.recent_historical?.market_inputs){const m=state.recent_historical.market_inputs;$('historical-market-inputs').textContent=`US market archive: ${m.markets} contracts / ${m.price_points} historical display prices / ${m.settlements} verified settlements. Historical depth and reference-wallet signals unavailable; no simulated fills.`;}
   renderHistoricalComparison();
   renderProfitability();
+  renderProfitPolicy();
+  renderArchiveHistory();
+  const external=state.external_models;
+  $("external-model-status").textContent=external?.records ? `Private model: ${external.records} imported prediction records; calibration unvalidated. Expiry and contract matching checked per decision.` : "Private model: waiting for predictions. No reinforcement-model output connected yet.";
   const session=state.session;
   $('session-badge').textContent=session?(session.alive?'Running':'Stopped')+' · '+(session.mode==='demo'?'SAMPLE':'PUBLIC DATA'):'Stopped';
   $('session-badge').className=session?.alive?'active':'';
@@ -130,3 +134,21 @@ function renderProfitability(){
   rows.forEach(({a,s})=>{const tr=el('tr');[a.name,a.scored+' / 50',s.trades,s.win_rate===null?'No trades':(100*s.win_rate).toFixed(1)+'%',dollars(s.trading_pnl),dollars(a.model_cost_or_reserved_usd),dollars(s.net_after_all_costs)].forEach(v=>tr.append(el('td',String(v))));body.append(tr)});table.append(body);$('profitability-table').replaceChildren(table,el('p','*Includes known failed-call usage and unresolved reservations; estimates, not invoices. Trading P&L includes fees and the selected entry-price assumption.','hint'));
 }
 $('profitability-slippage').addEventListener('change',renderProfitability);
+
+function renderProfitPolicy(){
+  const r=state.profit_policy_comparison;$('policy-comparison').hidden=!r;if(!r)return;
+  const select=$('policy-variant');
+  if(select.options.length!==r.variants.length){select.replaceChildren();for(const x of r.variants){const o=el('option',x.variant.name+(x.variant.id===r.selection.candidate_id?' / development selection':''));o.value=x.variant.id;select.append(o)}select.value=r.selection.candidate_id}
+  $('policy-caption').textContent=`Development: ${r.selection.development_dates[0]} to ${r.selection.development_dates.at(-1)} / ${r.development_cases} contracts. Evaluation: ${r.selection.evaluation_dates[0]} to ${r.selection.evaluation_dates.at(-1)} / ${r.evaluation_cases} contracts. Embargo: ${r.embargo_dates.join(', ')}. Overhead per alternative: ${money(r.evaluation_overhead_per_arm)}.`;
+  const x=r.variants.find(v=>v.variant.id===select.value)||r.variants[0],e=x.evaluation;
+  $('policy-result').textContent=`${x.variant.name}: ${e.model_decisions_consulted} modeled LLM decisions, ${e.model_decisions_withheld} withheld by pre-call gate. Model cost: ${money(e.modeled_model_cost)}. All scenarios below use $50 capital and $40 reserve.`;
+  const table=el('table'),head=el('tr');['Extra entry cost','Trades','Trading P&L','After model costs','After all costs'].forEach(t=>head.append(el('th',t)));const th=el('thead');th.append(head);table.append(th);const body=el('tbody');
+  for(const q of e.scenarios){const row=el('tr');[`${100*q.slippage_per_share} cents/share`,q.trades,money(q.trading_pnl),money(q.pnl_after_models),money(q.net_after_all_costs)].forEach(v=>row.append(el('td',String(v))));body.append(row)}table.append(body);$('policy-table').replaceChildren(table);
+}
+$('policy-variant').addEventListener('change',renderProfitPolicy);
+
+function renderArchiveHistory(){
+  const a=state.archive_history,r=a?.latest;$('history-download').disabled=Boolean(a?.running);if(!r)return;
+  $('history-download-status').textContent=`${r.status.toUpperCase()} / ${r.station} / ${r.start} to ${r.end} / ${r.days??0} of ${r.expected_days} days. NOAA GFS MOS + NWS CLI, Apple records: 0. ${r.error||''}${r.errors?.length?' Missing/invalid days: '+r.errors.length+'.':''}${a.running?' Downloading; keep the app running.':''}`;
+}
+$('history-download').onclick=()=>post('/api/history/previous-weeks',{station:$('study-station').value,weeks:Number($('history-weeks').value)});
