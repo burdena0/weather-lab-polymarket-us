@@ -69,6 +69,8 @@ Cloud calls require your own API access, verified current token prices and an ex
 
 ## Guides
 
+- [UML for all four architectures](docs/ARCHITECTURE-UML.md) — component figures, sequence diagrams and implementation boundaries; [offline gallery](docs/architecture/index.html).
+
 - [Read-only account linking](docs/ACCOUNT-LINK.md)
 
 - [LLM setup and commands](docs/LLM-SETUP.md)
