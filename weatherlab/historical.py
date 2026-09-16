@@ -118,9 +118,11 @@ def blind_context(case, training):
     return ctx
 
 
-def run_month(corpus, out, mode='baseline', allow_assumed=False):
+def run_month(corpus, out, mode='baseline', allow_assumed=False, max_seconds=900):
     root=Path(corpus);out=Path(out)
     manifest=json.loads((root/'manifest.json').read_text(encoding='utf-8'))
+    if set(manifest['files']) != {'training.jsonl','cases.jsonl','labels.jsonl'}:
+        raise ValueError('Historical manifest must hash all three corpus files')
     for name,h in manifest['files'].items():
         if name not in ('training.jsonl','cases.jsonl','labels.jsonl') or hashlib.sha256((root/name).read_bytes()).hexdigest()!=h:
             raise ValueError('Historical corpus hash mismatch')
@@ -128,11 +130,20 @@ def run_month(corpus, out, mode='baseline', allow_assumed=False):
         raise ValueError('Archive first-seen times unverified. Strict replay blocked; exploratory testing requires --allow-assumed-availability.')
     training=list(read_rows(root/'training.jsonl',31))
     if len(training)>31:raise ValueError('Calibration buffer exceeds predeclared month')
-    if any(r['date'][:7]!=manifest.get('training_month','2026-07') for r in training):
+    if 'training_start' in manifest:
+        if not manifest['training_start'] <= manifest['training_end'] < manifest['test_start'] <= manifest['test_end']:
+            raise ValueError('Historical calibration/test split overlaps')
+        training_valid = all(manifest['training_start'] <= r['date'] <= manifest['training_end'] for r in training)
+    else:
+        training_valid = all(r['date'][:7]==manifest.get('training_month','2026-07') for r in training)
+    if not training_valid:
         raise ValueError('Calibration contains a day outside the frozen training month')
     out.mkdir(parents=True,exist_ok=False)
     model=CloudModel(Path('data/model-budget.sqlite')) if mode=='cloud' else None
     if mode not in ('baseline','cloud'):raise ValueError('Unknown benchmark mode')
+    if not 60 <= max_seconds <= 1800:raise ValueError('Benchmark runtime must be 60-1800 seconds')
+    if model:model.deadline=time.monotonic()+max_seconds
+    validated_calls=0;provider_block=None
     totals={};cases=0;started=time.perf_counter();own_trace=not tracemalloc.is_tracing()
     if own_trace:tracemalloc.start()
     previous='';tip='0'*64
@@ -142,12 +153,14 @@ def run_month(corpus, out, mode='baseline', allow_assumed=False):
             for case in read_rows(root/'cases.jsonl',31):
                 if not allow_assumed and (case.get('availability_verified') is not True or any(r.get('availability_verified') is not True for r in training)):
                     raise ValueError('Per-record first-seen availability is unverified')
-                if case['date'][:7]!=manifest['test_month'] or case['date']<=previous or cases>=31:raise ValueError('Invalid test chronology or month size')
+                in_test = manifest['test_start'] <= case['date'] <= manifest['test_end'] if 'test_start' in manifest else case['date'][:7]==manifest['test_month']
+                if not in_test or case['date']<=previous or cases>=31:raise ValueError('Invalid test chronology or size')
                 previous=case['date'];cases+=1;ctx=blind_context(case,training)
                 inputs.write(json.dumps({'case_id':case['case_id'],'payload':ctx})+'\n')
                 arms=['statistical_baseline'] if model is None else ['fixed_llm','adaptive_llm','polyswarm_weather_ablation']
                 for arm in arms:
                     try:
+                        if provider_block:raise ValueError(provider_block)
                         if model is None:p=ctx['baseline_probability'];calls=[]
                         elif arm=='polyswarm_weather_ablation':
                             # No invented market prior: standalone weather-persona ablation.
@@ -155,14 +168,19 @@ def run_month(corpus, out, mode='baseline', allow_assumed=False):
                             if any(v['abstain'] for v in votes):raise ValueError('Persona abstained')
                             p=sum(v['probability_yes'] for v in votes)/len(votes);calls=list(model.calls)
                         else:
-                            prediction,_=forecast(arm,ctx,model,None)
+                            prediction,_,_=forecast(arm,ctx,model,None)
                             if prediction['abstain']:raise ValueError('Model abstained')
                             p=prediction['probability_yes'];calls=list(model.calls)
                         record={'case_id':case['case_id'],'arm':arm,'probability':p,'threshold_f':ctx['contract']['lower_f'],
                                 'context_hash':digest(ctx),'calls':calls}
-                    except Exception as exc:record={'case_id':case['case_id'],'arm':arm,'error':str(exc)[:180]}
+                    except Exception as exc:
+                        reason=str(exc)[:180]
+                        if model and any(code in reason for code in ('HTTP 401','HTTP 403','HTTP 429','credit_balance_exhausted','insufficient_quota','Shared daily model budget exhausted','Insufficient remaining run time')):
+                            provider_block=reason
+                        record={'case_id':case['case_id'],'arm':arm,'error':reason,'calls':list(model.calls) if model else []}
                     tip=digest({'previous':tip,'record':record});record['chain_hash']=tip
                     predictions.write(json.dumps(record)+'\n');predictions.flush()
+                    if model:validated_calls+=len(model.calls)
                     if model:model.calls.clear() # Each response is already persisted; no growing in-memory call history.
         labels={r['case_id']:r for r in read_rows(root/'labels.jsonl',31)}
         if len(labels)>31:raise ValueError('Too many scoring labels')
@@ -175,14 +193,16 @@ def run_month(corpus, out, mode='baseline', allow_assumed=False):
                 t['yes_outcomes']+=y;t['no_outcomes']+=1-y
                 scores.write(json.dumps({'case_id':r['case_id'],'arm':r['arm'],'y':y,'p':r['probability'],'brier':brier})+'\n')
         _,peak=tracemalloc.get_traced_memory()
-        for t in totals.values():t['mean_brier']=t.pop('brier_sum')/t['scored'] if t['scored'] else None
-        result={'mode':mode,'cases':cases,'seconds':time.perf_counter()-started,'python_peak_bytes':peak,'arms':totals,
+        for t in totals.values():
+            total=t.pop('brier_sum');t['mean_brier']=total/t['scored'] if t['scored'] else None
+        result={'mode':mode,'cases':cases,'validated_model_calls':validated_calls,'model_cost_or_reserved_usd':model.cost if model else 0,'provider_block':provider_block,
+                'station':manifest.get('station','KLAX'),'test_start':manifest.get('test_start',manifest.get('test_month')),'test_end':manifest.get('test_end'),'seconds':time.perf_counter()-started,'python_peak_bytes':peak,'arms':totals,
                 'forecast_product': 'GFS MOS 3-hour sample maximum; product differs from live NWS grid forecasts',
                 'corpus_hash':digest(manifest),'prediction_chain_tip':tip,'outcomes_read_after_predictions':True,
                 'first_seen_availability_verified':manifest['availability_verified'],'pretraining_contamination_excluded':False,
                 'historical_trades_simulated':False,'profitability_established':False,'threshold_f':80,
                 'development_status':'Exploratory pilot: initial test-period aggregate diagnostics informed harness development. Use a fresh held-out period for confirmatory claims.',
-                'controls':'Frozen July calibration; no August outcomes in model inputs; date/station redaction; stateless calls; no simulated-clock sleeps.',
+                'controls':'Frozen earlier calibration; no test outcomes in model inputs; date/station redaction; stateless calls; no simulated-clock sleeps.',
                 'limits':'Weather-only experiment. Wallet/arbitrage need historical signals/books. PolySwarm is a persona-only ablation without its market blend. Python peak excludes native runtime memory.'}
         (out/'summary.json').write_text(json.dumps(result,indent=2),encoding='utf-8')
         return result
@@ -194,9 +214,9 @@ def main():
     p=argparse.ArgumentParser(description=__doc__);sub=p.add_subparsers(dest='cmd',required=True)
     build=sub.add_parser('download');build.add_argument('--out',required=True)
     run=sub.add_parser('run');run.add_argument('--corpus',required=True);run.add_argument('--out',required=True)
-    run.add_argument('--mode',choices=('baseline','cloud'),default='baseline');run.add_argument('--allow-assumed-availability',action='store_true')
+    run.add_argument('--max-seconds',type=int,default=900);run.add_argument('--mode',choices=('baseline','cloud'),default='baseline');run.add_argument('--allow-assumed-availability',action='store_true')
     args=p.parse_args();load_env(Path('.env'))
-    result=build_month(args.out) if args.cmd=='download' else run_month(args.corpus,args.out,args.mode,args.allow_assumed_availability)
+    result=build_month(args.out) if args.cmd=='download' else run_month(args.corpus,args.out,args.mode,args.allow_assumed_availability,args.max_seconds)
     print(json.dumps(result,indent=2))
 
 

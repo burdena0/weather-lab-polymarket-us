@@ -1,6 +1,7 @@
 """One bounded Responses call at a time. No tools, brokers, or model authority over risk."""
 import json
 import os
+import re
 import sqlite3
 import time
 import urllib.request
@@ -159,6 +160,16 @@ class CloudModel:
             with sqlite3.connect(self.path) as db:
                 db.execute("UPDATE calls SET status='validated',detail=? WHERE id=?", (json.dumps(audit), call_id))
             return prediction, audit
+        except urllib.error.HTTPError as exc:
+            # Retain only a bounded machine code, never provider messages/keys.
+            code = ''
+            try:
+                error = json.loads(exc.read(10000)).get('error', {}).get('code')
+                if isinstance(error, str) and re.fullmatch(r'[a-zA-Z0-9_:-]{1,80}', error):
+                    code = ' / '+error
+            except Exception:
+                pass
+            raise ValueError('Cloud call failed (HTTP '+str(exc.code)+code+'); budget reservation retained if usage unknown') from None
         except Exception as exc:
             # Do not log exception payloads/HTTP bodies or bearer credentials.
             raise ValueError("Cloud call failed ("+type(exc).__name__+"); budget reservation retained if usage unknown") from None

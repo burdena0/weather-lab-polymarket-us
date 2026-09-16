@@ -61,7 +61,7 @@ class Lab:
         return {"csrf": self.token, "bots": self.registry, "latest": self.latest, "settings": self.settings,
                 "account": self.account.state(),
                 "readiness": self.readiness, "model_access": self.model_access,
-                "historical": self.historical,
+                "historical": self.historical, "recent_historical": self.read("historical/latest-recent.json",None),
                 "disagreement": self.disagreement.state(),
                 "session": self.session.state() if self.session else None,
                 "evidence_count": count, "strategy_library": strategy_library, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
