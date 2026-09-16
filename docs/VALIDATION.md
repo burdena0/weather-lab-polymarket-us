@@ -1,3 +1,7 @@
+# Current revision verification
+
+See [VALIDATION-V2.md](VALIDATION-V2.md) for the monochrome interface, 67 tests, real August corpus, next-day collection, and reconciliation verification. The original delivery evidence below is retained as historical context; its NERV styling has been replaced.
+
 # Delivery verification — 2026-09-15
 
 ## Verified

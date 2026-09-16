@@ -92,6 +92,8 @@ class EvidenceStore:
         selected = sorted(latest.values(), key=lambda r: (distance(r), r["date"], r["evidence_id"]))[:limit]
         docs = [json.loads(r[0]) for r in notes]
         docs = [r for r in docs if allow_synthetic or not r.get("synthetic")]
+        docs = [r for r in docs if r['kind']!='rules' or not r.get('market_id') or
+                (str(r['market_id'])==str(market['id']) and r.get('rules_hash')==market['rules_hash'])]
         return {"history": selected, "documents": docs,
                 "audit": {"method": "station/time filters + numeric weather analogues + SQLite FTS5 BM25",
                           "as_of": now, "candidates": len(latest), "selected_ids": [r["evidence_id"] for r in selected],

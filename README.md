@@ -4,16 +4,19 @@ Four independently packaged strategies and a new local dashboard. Python 3.10+ w
 
 ## Start here
 
+[Setup checklist](docs/GETTING-STARTED.md) · [August historical test](docs/HISTORICAL-REPLAY.md) · [Prospective data collection](docs/DATA-COLLECTION.md)
+
+
 ```powershell
 
 git clone https://github.com/burdena0/weather-lab-polymarket-us.git
 cd weather-lab-polymarket-us
 
-python -m weatherlab serve --port 8766
+python -m weatherlab serve --port 8767
 
 ```
 
-Open http://127.0.0.1:8766. Upload the four bot ZIPs from `dist`, then click **Start sample** for an animated background paper session, or **Replay sample** for one completed fixture run. Each sample uses an independent $50 account and a deterministic test double; the dashboard explicitly labels those results synthetic. Start the server from the extracted dashboard ZIP the same way on another computer.
+Open http://127.0.0.1:8767. Upload the four bot ZIPs from `dist`, then click **Start sample** for an animated background paper session, or **Replay sample** for one completed fixture run. Each sample uses an independent $50 account and a deterministic test double; the dashboard explicitly labels those results synthetic. Start the server from the extracted dashboard ZIP the same way on another computer.
 
 | ZIP | Role |
 
@@ -33,6 +36,11 @@ Every bot ZIP is standalone: extract it and run `python -m weatherlab demo`. Eac
 
 ## What works now
 
+- Monochrome dashboard with system sans-serif typography, setup checks, public evidence collection and historical replay.
+- Bundled July calibration and August 2026 KLAX weather examples; fast bounded-memory baseline and optional stateless cloud forecast benchmark.
+- Verified binary settlement retrieval and separate post-run paper-ledger reconciliation.
+
+
 - Public Polymarket US inventory/book capture and bounded NWS hourly forecast retrieval.
 
 - RAG index creation from JSONL; station/time filters, numeric analogues and SQLite FTS5 lexical search.
@@ -49,7 +57,7 @@ Every bot ZIP is standalone: extract it and run `python -m weatherlab demo`. Eac
 
 ## What the delivery does not establish
 
-The supplied fixtures are synthetic. No paid cloud request, real forecast edge, real fill, profitable strategy, comprehensive historical corpus or continuous prospective trading run is established. The application supports bounded background sessions (15 minutes, one hour, or four hours), concurrent strategy workers and continuous public capture within a session. Public sessions preserve accounts across capture windows, but do not yet automatically retrieve final settlements or synthesize intraday observed highs. Checkpoints support inspection, not automatic crash resume. A later publication experiment needs a predeclared prospective collection protocol, settlement reconciliation, a complete real evidence corpus, and account-authorized model validation. Do not describe retrospective replay as prospective execution.
+The supplied fixtures are synthetic. No paid cloud request, real forecast edge, real fill, profitable strategy, comprehensive historical corpus or continuous prospective trading run is established. The application supports bounded background sessions (15 minutes, one hour, or four hours), concurrent strategy workers and continuous public capture within a session. Public sessions preserve accounts across capture windows, and completed runs can use a separate settlement-only reconciliation command. Intraday observed highs remain unimplemented; new captures select future venue-days with complete hourly forecast coverage. Checkpoints support inspection, not automatic crash resume. A later publication experiment needs a predeclared prospective collection protocol, settlement reconciliation, a complete real evidence corpus, and account-authorized model validation. Do not describe retrospective replay as prospective execution.
 
 The native US API does not supply the international public-wallet feed. Copy mode requires a configured international wallet plus reviewed exact mapping to US contracts. Hourly station observations or Weather Underground rules are not assumed equivalent to NWS CLI settlement. No matching evidence means no copied trade. Arbitrage mode needs complete disjoint temperature coverage and sufficient synchronized depth; bounded captures may not contain the full basket.
 

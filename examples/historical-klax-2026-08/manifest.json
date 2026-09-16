@@ -1,0 +1,17 @@
+{
+  "station": "KLAX",
+  "test_month": "2026-08",
+  "training_month": "2026-07",
+  "training_days": 31,
+  "test_days": 31,
+  "expected_test_days": 31,
+  "errors": [],
+  "historical_book_data": false,
+  "availability_verified": false,
+  "purpose": "Weather forecast benchmark only; no Polymarket strategy P&L claim",
+  "files": {
+    "training.jsonl": "3929521e247a47881a7a260c9f0c63bc7fb08717f860d9382bbc6a0bf43df20c",
+    "cases.jsonl": "a44b5a153a93e9cd4d3567bcae6ed41ff82c654269c022d2bce93af1445fb4c1",
+    "labels.jsonl": "26048726a73ab5608da5618aaffc758914f9a8a4e9c095d8626450cd43f92162"
+  }
+}

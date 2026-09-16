@@ -1,5 +1,7 @@
 # Set up the models
 
+Use [GETTING-STARTED.md](GETTING-STARTED.md) for the step-by-step setup checklist, separate from [historical replay instructions](HISTORICAL-REPLAY.md).
+
 ## Model choices
 
 | Bot | Default API model | Effort | Paid calls per eligible market decision |

@@ -23,6 +23,8 @@ function render(){
   $('account-connect').hidden=!!account.linked;
   $('account-refresh').hidden=!account.linked;
   $('account-disconnect').hidden=!account.linked;
+  if(state.readiness){const r=state.readiness;$('readiness-summary').textContent=(r.cloud_configured?'Cloud settings complete; inference still needs validation.':'Cloud setup incomplete.')+'\nReal evidence: '+r.real_evidence_records+' records. Historical station-days: '+(Object.entries(r.history_station_days).map(([k,v])=>k+': '+v).join(', ')||'0')+'\n'+r.blockers.map(x=>'• '+x).join('\n')+(state.model_access?'\nModel access: '+(state.model_access.reason||Object.values(state.model_access.models||{}).map(m=>m.model+': '+(m.listed?'listed':'not listed')).join('; ')):'');}
+  if(state.historical){const h=state.historical;const a=h.arms.statistical_baseline;$('historical-summary').textContent=`${h.cases} days · ${h.seconds.toFixed(3)} seconds · ${(h.python_peak_bytes/1024).toFixed(0)} KB traced Python peak · Baseline Brier ${a.mean_brier.toFixed(4)} · ${a.yes_outcomes} YES / ${a.no_outcomes} NO outcomes. Actual LLM calls: 0.`;}
   const session=state.session;
   $('session-badge').textContent=session?(session.alive?'Running':'Stopped')+' · '+(session.mode==='demo'?'SAMPLE':'PUBLIC DATA'):'Stopped';
   $('session-badge').className=session?.alive?'active':'';
@@ -58,3 +60,9 @@ setInterval(()=>{if(!busy)refresh().catch(e=>notice(e.message,true))},2000);
 $('account-connect').onclick=()=>post('/api/account/connect',{});
 $('account-refresh').onclick=()=>post('/api/account/refresh',{});
 $('account-disconnect').onclick=()=>post('/api/account/disconnect',{});
+
+$('readiness-refresh').onclick=()=>post('/api/readiness',{});
+$('model-check').onclick=()=>post('/api/models/check',{});
+$('collect-evidence').onclick=()=>{notice('Collecting public rules and future-day forecasts. This may take a minute.');post('/api/research/collect',{})};
+
+$('historical-run').onclick=()=>post('/api/historical/baseline',{});

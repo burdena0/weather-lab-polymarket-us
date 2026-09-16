@@ -17,6 +17,9 @@ from .sources import capture
 from .strategies import STRATEGIES, RISK_PROFILES
 from .session import Session
 from .accounts import AccountLink
+from .readiness import readiness, check_models
+from .research import collect_evidence
+from .historical import run_month
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -33,6 +36,9 @@ class Lab:
         self.session = None
         self.account = AccountLink(self.root)
         self.rag = EvidenceStore(self.root/"evidence.sqlite")
+        self.readiness = readiness(self.root, self.rag, self.read('dataset.json',None), self.settings)
+        self.model_access = None
+        self.historical = self.read('historical/latest.json',None)
 
     def read(self, filename, default):
         p = self.root/filename
@@ -50,6 +56,8 @@ class Lab:
         dataset = self.read("dataset.json", None)
         return {"csrf": self.token, "bots": self.registry, "latest": self.latest, "settings": self.settings,
                 "account": self.account.state(),
+                "readiness": self.readiness, "model_access": self.model_access,
+                "historical": self.historical,
                 "session": self.session.state() if self.session else None,
                 "evidence_count": count, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
                 "dataset": None if dataset is None else {"frames": len(dataset["frames"]), "synthetic": dataset.get("synthetic"), "coverage": dataset.get("coverage"), "errors": dataset.get("errors", [])[-10:]}}
@@ -72,6 +80,20 @@ class Lab:
             count = self.rag.ingest(rows)
             return {"message": f"Indexed {count} new immutable evidence records."}
         body = json.loads(raw or b"{}")
+        if path == '/api/historical/baseline':
+            self.historical = run_month(ROOT/'examples/historical-klax-2026-08',self.root/'historical'/str(uuid.uuid4()),allow_assumed=True)
+            self.save('historical/latest.json',self.historical)
+            return {'message':'August baseline completed. Exploratory weather accuracy only; archive availability unverified; no trades or cloud calls.'}
+        if path == '/api/readiness':
+            self.readiness = readiness(self.root,self.rag,self.read('dataset.json',None),self.settings)
+            return {'message':'Readiness refreshed. No paid inference was requested.'}
+        if path == '/api/models/check':
+            self.model_access = check_models()
+            return {'message':self.model_access.get('reason',self.model_access.get('note','Model access checked.'))}
+        if path == '/api/research/collect':
+            report=collect_evidence(self.root/'research'/str(uuid.uuid4()),self.rag)
+            self.readiness=readiness(self.root,self.rag,self.read('dataset.json',None),self.settings)
+            return {'message':f"Indexed {report['indexed']} public records; {report['history_pairs_created']} completed history pairs. "+report.get('next_step','Inspect collection receipts for source errors.')}
         if path in ('/api/account/connect', '/api/account/refresh'):
             account = self.account.refresh()
             if account['status'] != 'connected':

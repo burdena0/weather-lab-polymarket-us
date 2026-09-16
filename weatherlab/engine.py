@@ -4,6 +4,7 @@ import json
 import math
 import sqlite3
 import time
+from collections import deque
 from pathlib import Path
 from .core import Account, digest, number, stamp
 from .models import FixtureModel, CloudModel
@@ -61,10 +62,11 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
     account = Account()
     started = times[0] if times else dataset['started_at']
     strategy = Strategy(config, model, started)
-    pending, forecasts, journal = [], {}, []
+    pending, forecasts, journal = [], {}, deque(maxlen=200)
     scored = []
     last_markets = {}
     residual_depth = {}
+    depth_times = {}
     status, error = "completed", None
     wall_start = time.monotonic()
     model.deadline = wall_start+duration
@@ -74,7 +76,7 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
                 **account.summary(last_markets, now, max(0, now-started)),
                 'mean_brier':sum(s['brier'] for s in scored)/len(scored) if scored else None,
                 'independent_station_days':len({s['station_day'] for s in scored}),
-                'journal':copy.deepcopy(journal[-200:]), 'validated_model_calls':len(model.calls),
+                'journal':copy.deepcopy(list(journal)), 'validated_model_calls':len(model.calls),
                 'cloud_connection_validated':cloud and bool(model.calls), 'last_frame_at':now,
                 'heartbeat_at':time.time(), 'frames_processed':index+1,
                 'pending_count':len(pending), 'profitability_established':False}
@@ -94,6 +96,10 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
             if len(rows) > 100 or len({m["slug"] for m in rows}) != len(rows):
                 raise ValueError("Duplicate or oversized market frame")
             markets = {m["slug"]: m for m in rows}
+            # Quotes older than 120 seconds cannot execute; release their consumed-depth cache.
+            for key in list(depth_times):
+                if now-depth_times[key]>120:
+                    depth_times.pop(key);residual_depth.pop(key,None)
             for m in markets.values():
                 b = m["book"]
                 key = digest([m["slug"], b["source_at"], b["bids"], b["asks"]])
@@ -153,7 +159,9 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
                     pending.append(decision)
             account.model_cost = model.cost
             for m in markets.values():
-                residual_depth[m["depth_key"]] = copy.deepcopy((m["book"]["bids"], m["book"]["asks"]))
+                if 0 <= now-number(m['book']['source_at']) <= 120:
+                    residual_depth[m["depth_key"]] = copy.deepcopy((m["book"]["bids"], m["book"]["asks"]))
+                    depth_times[m['depth_key']]=number(m['book']['source_at'])
             record(now, "account", account.__dict__)
             checkpoint = {"phase":"running", "last_frame":index, "account":account.__dict__, "pending":pending,
                           "seen_signals":sorted(strategy.seen), "journal_tip":tip, "last_decision":strategy.last_decision,
@@ -178,7 +186,7 @@ def replay(config, dataset, output, cloud=False, rag=None, budget_path=None, fra
                    **account.summary(last_markets, now, max(0, now-started)), "forecast_scores": scored,
                    "scored_contracts": len(scored), "independent_station_days": len({s["station_day"] for s in scored}),
                    "mean_brier": sum(s["brier"] for s in scored)/len(scored) if scored else None,
-                   "journal": journal[-200:], "next_job": "Collect prospective common inputs and verified history; run cloud only after explicit local budget configuration.",
+                   "journal": list(journal), "next_job": "Collect prospective common inputs and verified history; run cloud only after explicit local budget configuration.",
                    "profitability_established": False, "journal_tip":tip,
                    "validated_model_calls":len(model.calls), "cloud_connection_validated":cloud and bool(model.calls),
                    "failure_classes":[classify(j['reason']) for j in journal if j['kind'] in ('skip','reject_fill')]}

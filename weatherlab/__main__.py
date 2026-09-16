@@ -13,6 +13,22 @@ def main():
     p = argparse.ArgumentParser(description="Weather Lab: isolated Polymarket US paper research")
     sub = p.add_subparsers(dest="cmd", required=True)
     sub.add_parser("serve").add_argument("--port", type=int, default=8766)
+    doctor=sub.add_parser('doctor')
+    doctor.add_argument('--check-models',action='store_true')
+    collect=sub.add_parser('collect-evidence')
+    collect.add_argument('--out',required=True)
+    collect.add_argument('--db',default='data/evidence.sqlite')
+    recon=sub.add_parser('reconcile')
+    recon.add_argument('--run',required=True)
+    recon.add_argument('--out',required=True)
+    pairs=sub.add_parser('pair-history')
+    pairs.add_argument('--archive',required=True)
+    pairs.add_argument('--outcomes',required=True)
+    pairs.add_argument('--out',required=True)
+    pairs.add_argument('--db',default='data/evidence.sqlite')
+    outcome=sub.add_parser('record-outcome')
+    for field in ('url','station','date','review-note','out'): outcome.add_argument('--'+field,required=True)
+    outcome.add_argument('--high',required=True,type=int)
     demo = sub.add_parser("demo")
     demo.add_argument("--strategy", choices=STRATEGIES)
     demo.add_argument("--out", default="runs")
@@ -33,9 +49,28 @@ def main():
     cap.add_argument("--max-markets", type=int, default=4)
     cap.add_argument("--wallet", default="")
     cap.add_argument("--mappings")
+    cap.add_argument('--selection',choices=('future_day','all_dates'),default='future_day')
     args = p.parse_args()
     load_env(Path.cwd()/".env")
-    if args.cmd == "serve":
+    if args.cmd == 'doctor':
+        from .readiness import readiness, check_models
+        report=readiness(Path('data'),EvidenceStore('data/evidence.sqlite'))
+        if args.check_models: report['model_access']=check_models()
+        print(json.dumps(report,indent=2))
+    elif args.cmd == 'collect-evidence':
+        from .research import collect_evidence
+        print(json.dumps(collect_evidence(args.out,EvidenceStore(args.db)),indent=2))
+    elif args.cmd == 'record-outcome':
+        from .research import record_outcome
+        print(json.dumps(record_outcome(args.url,args.station,args.date,args.high,args.review_note,args.out),indent=2))
+    elif args.cmd == 'pair-history':
+        from .research import pair_history
+        print(json.dumps(pair_history(args.archive,args.outcomes,args.out,EvidenceStore(args.db)),indent=2))
+    elif args.cmd == 'reconcile':
+        from .research import reconcile
+        report=reconcile(args.run,args.out)
+        print(json.dumps({k:v for k,v in report.items() if k!='account'},indent=2))
+    elif args.cmd == "serve":
         from .server import serve
         serve(args.port)
     elif args.cmd == "demo":
@@ -62,7 +97,7 @@ def main():
     elif args.cmd == "capture":
         from .sources import capture
         mappings = json.loads(Path(args.mappings).read_text()) if args.mappings else []
-        result = capture(args.out, args.seconds, args.max_markets, args.wallet, mappings)
+        result = capture(args.out, args.seconds, args.max_markets, args.wallet, mappings, selection_policy=args.selection)
         print(json.dumps({"frames": len(result["frames"]), "coverage": result["coverage"], "errors": result["errors"]}, indent=2))
 
 

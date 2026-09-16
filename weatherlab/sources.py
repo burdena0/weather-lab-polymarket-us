@@ -7,7 +7,7 @@ import urllib.parse
 import urllib.request
 from datetime import datetime, date
 from pathlib import Path
-from .core import digest, stamp, identity
+from .core import digest, stamp, identity, number
 
 HOSTS = {"gateway.polymarket.us", "api.weather.gov", "data-api.polymarket.com", "gamma-api.polymarket.com"}
 STATIONS = {"KNYC", "KLAX", "KSFO", "KMIA", "KMDW"}
@@ -76,16 +76,37 @@ class PublicSource:
         lon, lat = loc["geometry"]["coordinates"][:2]
         point, _, _ = self.get(f"https://api.weather.gov/points/{lat:.4f},{lon:.4f}")
         raw, received, hashed = self.get(point["properties"]["forecastHourly"])
-        periods = [p for p in raw["properties"]["periods"] if p["startTime"][:10] == m["date"]]
-        # An intraday partial forecast cannot establish a full-day maximum without observed highs.
-        if len(periods) < 23 or len({p["startTime"] for p in periods}) != len(periods):
-            raise ValueError("Incomplete full-day hourly forecast; intraday observed-high adapter required")
-        if any(p["temperatureUnit"] != "F" for p in periods):
-            raise ValueError("Expected Fahrenheit forecast")
-        return {"station": station, "date": m["date"], "high_f": max(p["temperature"] for p in periods),
+        periods, start, end = full_day_periods(raw['properties']['periods'], m)
+        return {"station": station, "date": m["date"], "high_f": max(number(p["temperature"]) for p in periods),
                 "issued_at": raw["properties"]["updateTime"], "received_at": received,
+                "day_start": start, "day_end": end, "hours": len(periods),
                 "evidence_id": "nws-"+hashed[:24], "source_url": point["properties"]["forecastHourly"],
                 "product": "NWS hourly grid forecast, not CLI", "revision_f": 0}
+
+
+def full_day_periods(periods, market):
+    """Cover the venue's exact time interval; never infer midnight from date text."""
+    start, end = stamp(market['day_start']), stamp(market['close_at'])
+    if end-start not in (23*3600, 24*3600, 25*3600):
+        raise ValueError('Unsupported venue weather-day duration')
+    selected = sorted([p for p in periods if start <= stamp(p['startTime']) < end], key=lambda p:stamp(p['startTime']))
+    cursor = start
+    for p in selected:
+        if stamp(p['startTime']) != cursor or stamp(p['endTime'])-cursor != 3600:
+            raise ValueError('Missing, duplicate or overlapping hourly forecast period')
+        if p['temperatureUnit'] != 'F' or not -150 <= number(p['temperature']) <= 160:
+            raise ValueError('Invalid Fahrenheit hourly forecast')
+        cursor = stamp(p['endTime'])
+    if cursor != end:
+        raise ValueError('Incomplete venue-day forecast; intraday observed-high adapter required')
+    return selected, start, end
+
+
+def select_markets(markets, now, limit, policy='future_day'):
+    if policy not in ('future_day', 'all_dates'):
+        raise ValueError('Unknown market selection policy')
+    eligible = [m for m in markets if policy == 'all_dates' or (m.get('day_start') and stamp(m['day_start']) > now)]
+    return sorted(eligible, key=lambda m:(m['date'], m['station'], m['slug']))[:limit]
 
 
 def normalize_market(m, received):
@@ -114,7 +135,7 @@ def normalize_market(m, received):
     return {"venue": "polymarket_us", "id": str(m["id"]), "slug": m["slug"], "station": stations.pop(), "date": day[1],
             "lower_f": lower, "upper_f": upper, "source": "NWS_CLI", "rules_hash": hashlib.sha256(text.encode()).hexdigest(),
             "metadata_received": received, "active": m.get("active") is True and m.get("closed") is False,
-            "close_at": m["endDate"], "minimum_qty": float(m["minimumTradeQty"]), "tick": float(m["orderPriceMinTickSize"]),
+            "day_start": m.get('gameStartTime'), "close_at": m["endDate"], "minimum_qty": float(m["minimumTradeQty"]), "tick": float(m["orderPriceMinTickSize"]),
             "fee_coefficient": float(m.get("feeCoefficient", .07)), "forecast": None, "history": []}
 
 
@@ -162,7 +183,7 @@ def wallet_signals(source, wallet, mappings, markets, started, seen):
     return signals, rejects
 
 
-def capture(root, seconds=30, max_markets=4, wallet="", mappings=None, on_frame=None, stop_event=None):
+def capture(root, seconds=30, max_markets=4, wallet="", mappings=None, on_frame=None, stop_event=None, selection_policy='future_day'):
     if not 5 <= seconds <= 120 or not 1 <= max_markets <= 12:
         raise ValueError("Capture bound: 5-120 seconds and 1-12 markets")
     root = Path(root)
@@ -179,15 +200,22 @@ def capture(root, seconds=30, max_markets=4, wallet="", mappings=None, on_frame=
             except (ValueError, KeyError) as exc:
                 dataset["errors"].append({"slug": row.get("slug"), "reason": str(exc)})
         # Predeclared lexicographic subset, never rank/select by observed profitability.
-        selected = sorted(normalized, key=lambda m: (m["date"], m["station"], m["slug"]))[:max_markets]
+        selected = select_markets(normalized, started, max_markets, selection_policy)
         dataset["coverage"] = {"inventory_complete": complete, "inventory_count": len(raw), "supported": len(normalized), "selected": len(selected),
-                               "selection": "date/station/slug ascending, bounded subset", "continuous": False, "settlements_collected": False}
+                               "selection": selection_policy+": date/station/slug ascending, bounded subset", "continuous": False, "settlements_collected": False}
+        if not selected:
+            raise ValueError('No markets match the declared selection policy')
         cache = {}
         for m in selected:
             try:
                 k = (m["station"], m["date"])
                 if k not in cache:
-                    cache[k] = source.forecast(m)
+                    try:
+                        cache[k] = source.forecast(m)
+                    except Exception as exc:
+                        cache[k] = exc
+                if isinstance(cache[k], Exception):
+                    raise cache[k]
                 m["forecast"] = cache[k]
             except Exception as exc:
                 dataset["errors"].append({"slug": m["slug"], "reason": "forecast: "+type(exc).__name__+": "+str(exc)[:180]})

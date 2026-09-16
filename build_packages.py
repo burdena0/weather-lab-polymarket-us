@@ -21,7 +21,7 @@ def build():
         (ROOT/'configs'/f'{key}.json').write_text(json.dumps(config(key),indent=2),encoding='utf-8')
     files=[ROOT/'README.md',ROOT/'run.py',ROOT/'build_packages.py',ROOT/'settings.env.example',ROOT/'.gitignore',ROOT/'.gitattributes']
     for directory,pattern in [('weatherlab','*.py'),('tests','*.py'),('web','*'),('docs','*.md'),('configs','*.json'),('examples','*')]:
-        files.extend(sorted((ROOT/directory).glob(pattern)))
+        files.extend(sorted((ROOT/directory).rglob(pattern) if directory=='examples' else (ROOT/directory).glob(pattern)))
     files.extend(sorted((ROOT/'weatherlab').glob('*.cjs')))
     contents={p.relative_to(ROOT).as_posix():p.read_bytes() for p in files if p.is_file()}
     hashes={name:hashlib.sha256(raw).hexdigest() for name,raw in contents.items()}
