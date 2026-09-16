@@ -26,7 +26,7 @@ def build():
     for key in STRATEGIES:
         (ROOT/'configs'/f'{key}.json').write_text(json.dumps(packaged_config(key),indent=2),encoding='utf-8')
     files=[ROOT/'README.md',ROOT/'run.py',ROOT/'build_packages.py',ROOT/'settings.env.example',ROOT/'.gitignore',ROOT/'.gitattributes']
-    for directory,pattern in [('weatherlab','*.py'),('tests','*.py'),('web','*'),('docs','*.md'),('configs','*.json'),('examples','*')]:
+    for directory,pattern in [('weatherlab','*.py'),('tests','*.py'),('web','*'),('docs','*.md'),('configs','*.json'),('examples','*'),('tools','*')]:
         files.extend(sorted((ROOT/directory).rglob(pattern) if directory=='examples' else (ROOT/directory).glob(pattern)))
     files.extend(sorted((ROOT/'weatherlab').glob('*.cjs')))
     for pattern in ('*.svg', '*.html', '*.py'):

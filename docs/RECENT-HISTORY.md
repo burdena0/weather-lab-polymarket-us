@@ -26,13 +26,13 @@ Earlier calibration outcomes are admitted only if their publication precedes tha
 
 These archive records are **not added to live RAG as causal history** and do not unlock its ten-day readiness requirement. Today's download timestamp cannot prove that a forecast was available to a live agent ten days ago. The benchmark excludes present-day strategy cards, unavailable historical books and wallet signals. The control cannot be scored without those market inputs. PolySwarm cloud mode is a weather-persona ablation, without its market-price blend or the full trading pipeline.
 
-## Cloud status and remaining setup
+## Initial cloud attempt (before credits were added)
 
 Cloud inference is enabled locally with the existing $20/day application cap. The attempted KLAX cloud benchmark produced **zero validated model responses**. The provider returned **HTTP 429 / `credit_balance_exhausted`**. Thirty benchmark requests and one diagnostic request were attempted before the billing cause was identified. The updated runner stops further benchmark requests after the first billing, authentication, rate-limit, budget or deadline block.
 
 The benchmark ledger retained $1.0486652 in conservative reservations; the diagnostic has a separate reservation. **Reservations are not confirmed charges.** They remain because failed requests provide no reliable usage reconciliation.
 
-The user must fund the API account associated with the configured key before a cloud rerun can succeed. No credits were purchased, no account was created, and no real orders were submitted. Model-list access alone does not validate inference. After funding, rerun into a new output directory; do not overwrite previous evidence. Historical contract books, public-wallet signals and reviewed exact US contract rules are still needed for a trading backtest.
+This initial attempt required funding the API account associated with the configured key. The user subsequently added credits and authorized a fresh run. No credits were purchased, no account was created, and no real orders were submitted. Model-list access alone does not validate inference. After funding, rerun into a new output directory; do not overwrite previous evidence. Historical contract books, public-wallet signals and reviewed exact US contract rules are still needed for a trading backtest.
 
 ## Local evidence
 
@@ -56,3 +56,33 @@ python -m weatherlab.historical run --corpus data/historical/2026-09-06_2026-09-
 ```
 
 Supported station IDs: `KLAX`, `KMDW`, `KMIA`, `KNYC`, `KSFO`. Collection accepts 1–31 completed test dates with 31 preceding calibration dates. Reads, row counts, memory buffers and inference runtime are bounded; replay does not sleep to simulate elapsed historical time. Reported Python peak memory does not measure all native-process memory.
+
+
+## Supplemental Polymarket US market inputs
+
+A separate public archive collected 300 contracts for September 6–15, 4,499 historical display-price observations and 300 binary USD settlements, with zero collection errors. Of those prices, 2,083 precede the contract weather-day start. At least one price exists at or before the benchmark decision for 299 contracts. All 300 exact weather-day intervals and venue payouts matched the station/date CLI outcomes. Only three contracts exactly match this pilot's fixed >=80°F question; the other temperature buckets must not be substituted.
+
+The [public price-history API](https://docs.polymarket.us/api-reference/price-history/get-price-history) returns book-derived displayed YES/NO prices, normally the YES ask and one minus the YES bid. The one-month profile samples every three hours. It does not provide quantities or individual executions. Closed-book receipts supply settlement prices and publication timestamps. None of this is a historical depth reconstruction. The [institutional report API](https://docs.polymarket.us/institutional/report/overview) requires separate Auth0 report credentials (and participant identity for trade/order searches). The saved retail account key is not evidence of institutional access. No reference-wallet ID is configured.
+
+Local receipts and hashes are in `data/historical/market-inputs-20260916-v2/`. `weather-join-audit.json` records the station/date/interval/bucket checks. Current metadata lacks verified historical first-seen rules. These records are supplemental research inputs and remain separate from the frozen weather prompts and live RAG. They do not unlock trade execution or establish trading returns.
+
+To collect another immutable archive:
+
+```powershell
+python -m weatherlab.historical_market --start 2026-09-06 --end 2026-09-15 --out data/historical/new-market-archive
+```
+
+## Comparison graph methodology
+
+The dashboard graph compares Brier error on the intersection of cases successfully scored by the baseline and all three cloud arms. The coverage table also shows every arm's total scored cases out of 50. Selection bias remains because shared-case filtering excludes abstentions and failed requests. PolySwarm here means its weather-persona ablation, not the full market-price blend. The deterministic copy/arbitrage control is explicitly unscored.
+
+Intervals are descriptive 95% calendar-day block bootstrap intervals (2,000 draws, fixed seed 20260916), retaining same-day dependence across stations. Ten dates are insufficient for a strong statistical or profitability claim. Do not rank strategies on differing all-case subsets or interpret classification accuracy as returns.
+
+`weatherlab.historical_report` verifies completed prediction hash chains and builds the shared comparison JSON. The dashboard and optional Matplotlib export use those same values. Export dependencies were installed only into ignored `data/tools/plotting`; the core and dashboard still use the standard library and browser APIs.
+
+```powershell
+python -m weatherlab.historical_report --root data/historical/2026-09-06_2026-09-15-v2 --prefix cloud-funded- --suffix=-v1 --out data/historical/new-comparison.json
+python -m pip install --no-user --target data/tools/plotting --only-binary=:all: -r tools/plotting-requirements.txt
+$env:PYTHONPATH = "$PWD/data/tools/plotting"
+python tools/plot_historical.py --input data/historical/new-comparison.json --out docs/results/historical-comparison
+```
