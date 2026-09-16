@@ -488,19 +488,19 @@ sequenceDiagram
     I->>P: Fetch bounded minute-level windows for selected contracts
     P-->>I: Prices before decision and after fixed five-minute delay
     I->>I: Omit ambiguous seconds and reject stale prices
-    I->>M: Blind station and date; exact bounds and earlier calibration
-    Note over I,M: Prices withheld from cloud prompts; prior quote midpoint enters local swarm aggregation
+    I->>M: Blind station and date, exact bounds and earlier calibration
+    Note over I,M: Prices withheld from cloud prompts, prior quote midpoint enters local swarm aggregation
     M->>A: Commit forecast, failures, cost and hash chain
     Note over A,S: All prediction journals close before the scorer opens outcomes
     A->>S: Verify cases, protocol and prediction chains
     C->>S: Final NWS CLI labels
     P-->>S: Previously archived verified settlement payouts and times
-    S->>S: Check CLI agreement; simulate fee and entry-price scenarios
-    Note over S,D: Full fills are hypothetical; no historical quantity or wallet signals
+    S->>S: Check CLI agreement, simulate fee and entry-price scenarios
+    Note over S,D: Full fills are hypothetical, no historical quantity or wallet signals
     S->>D: Payouts, PnL, costs, coverage and sensitivity
 ```
 
-This separate exploratory harness uses all three production forecasting functions, including PolySwarm's fixed market blend, with one common point-probability entry rule. It does not reproduce the complete live RAG, confidence gates or order engine. Portfolio cash is released only at the archived settlement time; costs of cloud calls and the $200 monthly overhead are reported outside the $50 trading cash account. Old weather-only results remain immutable. Exact historical rules availability, quantities and actual fills remain unverified; this does not unlock live RAG.
+This separate exploratory harness uses all three production forecasting functions, including PolySwarm's fixed market blend, with one common point-probability entry rule. It does not reproduce the complete live RAG, confidence gates or order engine. Portfolio cash is released only at the archived settlement time, costs of cloud calls and the $200 monthly overhead are reported outside the $50 trading cash account. Old weather-only results remain immutable. Exact historical rules availability, quantities and actual fills remain unverified, this does not unlock live RAG.
 
 ## Source map
 
