@@ -25,3 +25,10 @@ footer{font-family:inherit;text-transform:none;letter-spacing:0;color:#888}.acti
 @media(max-width:700px){[data-sector]{padding-left:14px}.intro h1{font-size:28px}.shell{padding:0 8px 8px}.section-head{flex-wrap:wrap}.metrics strong{font-size:21px}}
 
 #session-badge{font-family:inherit}.comparison td:before{text-transform:none}footer,#notice:not(:empty){padding-left:22px}
+/* Forecast comparison uses the same restrained typography and palette. */
+.weather-study-form { display:flex; flex-wrap:wrap; align-items:end; gap:16px; margin:18px 0; }
+.weather-study-form label { display:flex; flex-direction:column; gap:8px; flex:1 1 180px; min-width:0; }
+.weather-study-form input,.weather-study-form select { width:100%; box-sizing:border-box; }
+#study-audit { white-space:pre-wrap; overflow-wrap:anywhere; }
+#study-weather { line-height:1.7; }
+#apple-attribution { margin:12px 0; }

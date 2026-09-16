@@ -14,6 +14,7 @@ function disable(value){busy=value;document.querySelectorAll('button').forEach(b
 async function refresh(){const r=await fetch('/api/state');if(!r.ok)throw Error('Cannot read local dashboard state');state=await r.json();render()}
 async function post(path,body,raw=false){if(busy)return;disable(true);try{const r=await fetch(path,{method:'POST',headers:{'X-WeatherLab-CSRF':state.csrf,'Content-Type':raw?'application/octet-stream':'application/json'},body:raw?body:JSON.stringify(body)});const d=await r.json();if(!r.ok)throw Error(d.error||'Operation failed');notice(d.message);await refresh()}catch(e){notice(e.message,true);try{await refresh()}catch(_){}}finally{disable(false)}}
 function render(){
+  renderStudy();
   const account=state.account||{status:'disconnected'};
   $('account-badge').textContent=account.status==='connected'?'Verified / read only':account.status;
   $('account-balance').textContent=money(account.current_balance);
@@ -66,3 +67,28 @@ $('model-check').onclick=()=>post('/api/models/check',{});
 $('collect-evidence').onclick=()=>{notice('Collecting public rules and future-day forecasts. This may take a minute.');post('/api/research/collect',{})};
 
 $('historical-run').onclick=()=>post('/api/historical/baseline',{});
+
+function renderStudy(){
+  const s=state.disagreement;
+  if(!s){$('study-status').textContent='Restart the dashboard server to load the tracker update.';return}
+  const r=s.latest, fmt=v=>v===null||v===undefined?'—':Number(v).toFixed(1)+'°F';
+  $('study-status').textContent=(s.running?'Collecting':'Stopped')+' · '+s.snapshots+' snapshots this session · '+(s.weatherkit_configured?'WeatherKit token configured':'WeatherKit not configured; iPhone entry available')+(s.error?' · '+s.error:'');
+  $('study-markets').replaceChildren();$('apple-attribution').replaceChildren();
+  if(!r){$('study-weather').textContent=s.manual?'Saved iPhone high: '+fmt(s.manual.high_f)+' for '+s.manual.station+' / '+s.manual.date:'Save an iPhone forecast or configure WeatherKit, then start a snapshot.';return}
+  const a=r.apple,n=r.nws_forecast,o=r.nws_observation;
+  const fresh=a&&r.apple_fresh&&Date.now()/1000<a.expires_at;
+  $('study-weather').textContent=`${r.station} / ${r.date} · Captured ${new Date(r.finished_at*1000).toLocaleString()} · Apple daily high: ${fmt(a?.high_f)}${a&&!fresh?' (expired)':''} · NWS forecast high: ${fmt(n?.high_f)} · Latest NWS observation: ${fmt(o?.temperature_f)}${o?' at '+new Date(o.observed_at*1000).toLocaleString():''} · Final CLI daily high: pending review. `+(a?.notice||'Apple data missing.');
+  if(a?.logo_url&&a?.attribution_url){try{const logo=new URL(a.logo_url),legal=new URL(a.attribution_url);if(logo.origin==='https://weatherkit.apple.com'&&legal.protocol==='https:'){const link=el('a');link.href=legal.href;link.target='_blank';link.rel='noreferrer';const img=el('img');img.src=logo.href;img.alt='Apple Weather';img.width=130;link.append(img,el('span',' Data sources'));$('apple-attribution').append(link)}}catch(_){}}
+  for(const m of r.markets){const tr=el('tr'),match=x=>x===null?'—':x?'Yes':'No';
+    const bin=m.lower_f===null?'≤ '+m.upper_f:m.upper_f===null?'≥ '+m.lower_f:m.lower_f===m.upper_f?String(m.lower_f):m.lower_f+'–'+m.upper_f;
+    const stale=Date.now()/1000-m.compared_at>10;
+    const shares=v=>v===null||v===undefined?'—':Number(v).toLocaleString('en-US',{maximumFractionDigits:2});
+    [bin,match(fresh?m.apple_match:null),match(m.nws_match),money(m.best_bid)+' / '+money(m.best_ask),shares(m.ask_shares),shares(m.ask_shares_within_2c),m.break_even_probability===undefined?'—':(m.break_even_probability*100).toFixed(1)+'%',(stale?'Archived snapshot. ':'')+m.status].forEach(v=>tr.append(el('td',String(v))));$('study-markets').append(tr);
+  }
+  $('study-audit').textContent=JSON.stringify({snapshot:r.snapshot_path,errors:r.errors,inventory_complete:r.inventory_complete,matching_contracts:r.matching_contracts,contracts_truncated:r.contracts_truncated,complete_partition:r.complete_partition,comparison_aligned:r.comparison_aligned,apple_minus_nws_forecast_f:r.apple_minus_nws_forecast_f,trade_enabled:false,individual_order_count:'Unavailable; quantities are shares, not orders',sampling:'Every 5 minutes; bounded snapshots, no continuous-fill claim'},null,2);
+}
+const today=new Date();$('study-date').value=today.getFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+$('apple-viewed').value=new Date(Date.now()-today.getTimezoneOffset()*60000).toISOString().slice(0,16);
+$('weather-study-form').onsubmit=e=>{e.preventDefault();post('/api/disagreement/start',{station:$('study-station').value,date:$('study-date').value,apple_mode:$('study-source').value,duration:Number($('study-duration').value),interval:300})};
+$('study-stop').onclick=()=>post('/api/disagreement/stop',{});
+$('apple-entry-form').onsubmit=e=>{e.preventDefault();post('/api/disagreement/manual',{station:$('study-station').value,date:$('study-date').value,high_f:Number($('apple-high').value),location:$('apple-location').value,viewed_at:new Date($('apple-viewed').value).toISOString()})};

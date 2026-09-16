@@ -20,6 +20,7 @@ from .accounts import AccountLink
 from .readiness import readiness, check_models
 from .research import collect_evidence
 from .historical import run_month
+from .disagreement import DisagreementStudy
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -39,6 +40,7 @@ class Lab:
         self.readiness = readiness(self.root, self.rag, self.read('dataset.json',None), self.settings)
         self.model_access = None
         self.historical = self.read('historical/latest.json',None)
+        self.disagreement = DisagreementStudy(self.root/'disagreement')
 
     def read(self, filename, default):
         p = self.root/filename
@@ -58,6 +60,7 @@ class Lab:
                 "account": self.account.state(),
                 "readiness": self.readiness, "model_access": self.model_access,
                 "historical": self.historical,
+                "disagreement": self.disagreement.state(),
                 "session": self.session.state() if self.session else None,
                 "evidence_count": count, "cloud_enabled": os.getenv("WEATHERLAB_ENABLE_CLOUD") == "1",
                 "dataset": None if dataset is None else {"frames": len(dataset["frames"]), "synthetic": dataset.get("synthetic"), "coverage": dataset.get("coverage"), "errors": dataset.get("errors", [])[-10:]}}
@@ -80,6 +83,15 @@ class Lab:
             count = self.rag.ingest(rows)
             return {"message": f"Indexed {count} new immutable evidence records."}
         body = json.loads(raw or b"{}")
+        if path == '/api/disagreement/manual':
+            self.disagreement.record(body)
+            return {'message':'iPhone forecast archived with its actual receipt time. Location/day alignment remains unverified.'}
+        if path == '/api/disagreement/start':
+            self.disagreement.start(body)
+            return {'message':'Forecast/book tracker started. This collects observations; it does not place paper or real orders.'}
+        if path == '/api/disagreement/stop':
+            self.disagreement.stop.set()
+            return {'message':'Tracker stop requested. The bounded in-flight snapshot will finish.'}
         if path == '/api/historical/baseline':
             self.historical = run_month(ROOT/'examples/historical-klax-2026-08',self.root/'historical'/str(uuid.uuid4()),allow_assumed=True)
             self.save('historical/latest.json',self.historical)
@@ -198,7 +210,7 @@ def serve(port=8766):
             self.send_header("Content-Length", str(len(data)))
             self.send_header("Cache-Control", "no-store")
             self.send_header("X-Content-Type-Options", "nosniff")
-            self.send_header("Content-Security-Policy", "default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data:; frame-ancestors 'none'; base-uri 'none'")
+            self.send_header("Content-Security-Policy", "default-src 'self'; style-src 'self'; script-src 'self'; img-src 'self' data: https://weatherkit.apple.com; frame-ancestors 'none'; base-uri 'none'")
             self.end_headers()
             self.wfile.write(data)
 

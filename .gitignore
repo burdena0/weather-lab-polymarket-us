@@ -4,6 +4,7 @@
 *.dpapi
 *.pem
 *.key
+*.p8
 *.sqlite
 *.sqlite-*
 *.db
