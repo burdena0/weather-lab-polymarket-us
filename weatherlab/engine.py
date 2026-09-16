@@ -10,9 +10,11 @@ from .core import Account, digest, number, stamp
 from .models import FixtureModel, CloudModel
 from .strategies import Strategy, STRATEGIES, RISK_PROFILES
 from .harness import code_hash, classify, verify_run
+from .protocol import check_version
 
 
 def validate_config(c):
+    check_version(c.get('research_protocol'))
     if c.get("risk_profile", "balanced") not in RISK_PROFILES:
         raise ValueError("Risk profile must be reliable, balanced or risky")
     if c.get("strategy") not in STRATEGIES or c.get("venue") != "polymarket_us" or c.get("mode") != "paper":

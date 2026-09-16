@@ -3,6 +3,7 @@ import math
 import statistics
 from .core import MAX_POSITION, MAX_EVENT, RESERVE, context, event, identity, levels, quote, complete_partition, number, validate_market
 from .models import PERSONAS, validate_prediction
+from .protocol import VERSION, require_available, diagnostics, settlement_window
 
 STRATEGIES = {"wallet_control": "Wallet control", "fixed_llm": "Fixed model", "adaptive_llm": "Adaptive model", "polyswarm": "PolySwarm"}
 RISK_PROFILES = {
@@ -46,8 +47,14 @@ def route(ctx):
     spread = statistics.pstdev(residuals)
     distance = min([abs(f["high_f"]-b) for b in (ctx["contract"]["lower_f"], ctx["contract"]["upper_f"]) if b is not None] or [100])
     score = int(n < 30)+int(spread > 3)+int(distance < 2)+int(abs(f.get("revision_f", 0)) > 2)
+    research = ctx.get('research_diagnostics')
+    if research:
+        # Frozen heuristic thresholds, not fitted performance estimates.
+        score += int(research['half_degree_probability_span'] > .15)
+        score += int(research['largest_hourly_change_f'] > 3)
     tier, effort = ("large", "high") if score >= 3 else ("medium", "medium") if score >= 1 else ("small", "low")
-    return tier, effort, {"complexity_score": score, "history_days": n, "residual_std_f": spread, "distance_to_boundary_f": distance}
+    return tier, effort, {"complexity_score": score, "history_days": n, "residual_std_f": spread, "distance_to_boundary_f": distance,
+                         "research_protocol": research['version'] if research else None}
 
 
 def forecast(strategy, ctx, model, market_mid, swarm_count=5):
@@ -99,6 +106,19 @@ class Strategy:
         self.last_decision = {}
 
     def decide(self, markets, signals, account, now):
+        enabled = self.config.get('research_protocol') == VERSION
+        if enabled:
+            try:
+                require_available(now)
+            except ValueError as exc:
+                return [{'skip': str(exc), 'research_protocol': VERSION}]
+        result = self._decide(markets, signals, account, now)
+        if enabled:
+            for decision in result:
+                decision['research_protocol'] = VERSION
+        return result
+
+    def _decide(self, markets, signals, account, now):
         out = []
         kind = self.config["strategy"]
         profile_name = self.config.get("risk_profile", "balanced")
@@ -113,6 +133,8 @@ class Strategy:
                     if key in self.seen or not complete_partition(group):
                         continue
                     try:
+                        if self.config.get('research_protocol') == VERSION and len({settlement_window(m) for m in group}) != 1:
+                            raise ValueError('Basket contracts have different settlement intervals')
                         if max(m["book"]["source_at"] for m in group)-min(m["book"]["source_at"] for m in group) > 2:
                             raise ValueError("Basket book timestamps are not synchronized")
                         # A complete 1-share YES basket pays exactly $1 on ordinary resolution.
@@ -125,7 +147,7 @@ class Strategy:
                             out.append({"legs": legs, "ready_at": now+2, "expires_at": now+60, "minimum_payout": 1,
                                         "reason": "Exhaustive disjoint temperature basket below payout after stress costs; ideal all-legs-fill scenario"})
                             self.seen.add(key)
-                    except ValueError as exc:
+                    except (ValueError, KeyError) as exc:
                         out.append({"skip": str(exc), "slug": group[0]["slug"]})
                 return out or [{"skip": "No eligible complete basket with positive net edge"}]
             wallet = self.config.get("reference_wallet", "").lower()
@@ -140,6 +162,8 @@ class Strategy:
                     if not self.started <= s["trade_at"] <= s["received_at"] <= now or now-s["trade_at"] > 120:
                         raise ValueError("Pre-start/stale/future wallet signal")
                     m = markets[s["slug"]]
+                    if self.config.get('research_protocol') == VERSION:
+                        settlement_window(m)
                     if tuple(s["contract_identity"]) != identity(m) or s.get("mapping_verified") is not True:
                         raise ValueError("No exact verified US settlement mapping")
                     if s.get("us_rules_hash") != m["rules_hash"] or s.get("us_market_id") != m["id"]:
@@ -172,12 +196,16 @@ class Strategy:
                     raise ValueError("Two-sided book required for model comparison")
                 mid = (bid[0][0]+ask[0][0])/2
                 ctx = context(m, now)
+                if self.config.get('research_protocol') == VERSION:
+                    ctx['research_diagnostics'] = diagnostics(m, ctx, now)
                 self.last_decision[m["slug"]] = now
                 prediction, audit, latency = forecast(kind, ctx, self.model, mid, self.config.get("swarm_count", 5))
                 audit.update({"probability_yes": prediction["probability_yes"], "slug": m["slug"], "market_mid": mid,
                               "risk_profile": profile_name, "risk_parameters": dict(profile),
                               "market_id": m["id"], "rules_hash": m["rules_hash"],
                               "baseline_probability": ctx["baseline_probability"], "at": now, "reason": prediction["reason"]})
+                if 'research_diagnostics' in ctx:
+                    audit['research_diagnostics'] = ctx['research_diagnostics']
                 if prediction["abstain"] or prediction["confidence"] < profile["min_confidence"] or prediction["upper"]-prediction["lower"] > profile["max_width"]:
                     out.append({"skip": "Model abstained or risk-profile uncertainty gate failed", "audit": audit})
                     continue

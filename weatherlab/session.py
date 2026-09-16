@@ -20,6 +20,8 @@ class Session:
         self.configs = copy.deepcopy(configs)
         for config in self.configs.values():
             validate_config(config)
+            if mode == 'demo':
+                config.pop('research_protocol', None)
         self.mode, self.rag, self.budget_path = mode, rag, budget_path
         self.wallet, self.mappings, self.duration = wallet, mappings or [], duration
         self.id = 'session-'+str(uuid.uuid4())[:12]

@@ -8,5 +8,6 @@
   "reference_wallet": "",
   "control_mode": "copy",
   "swarm_count": 5,
-  "risk_profile": "balanced"
+  "risk_profile": "balanced",
+  "research_protocol": "weather-methods-20260916-v1"
 }

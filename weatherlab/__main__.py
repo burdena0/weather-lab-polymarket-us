@@ -76,6 +76,7 @@ def main():
     elif args.cmd == "demo":
         c = config(args.strategy) if args.strategy else json.loads(Path("manifest.json").read_text())["config"]
         c["reference_wallet"] = WALLET
+        c.pop('research_protocol', None)
         dataset, _ = sample()
         result = replay(c, dataset, Path(args.out)/(c["strategy"]+"-"+str(uuid.uuid4())[:8]))
         print(json.dumps({k: result[k] for k in ("strategy", "status", "synthetic", "inference", "fills", "realized_pnl", "net_after_costs")}, indent=2))

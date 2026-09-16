@@ -6,6 +6,7 @@ import time
 import urllib.request
 from pathlib import Path
 from .core import digest, number
+from .protocol import VERSION, MODEL_GUIDANCE
 
 MODEL_NAMES = {"small": "gpt-5.6-luna", "medium": "gpt-5.6-terra", "large": "gpt-5.6-sol"}
 PERSONAS = [
@@ -106,7 +107,8 @@ class CloudModel:
                 raise ValueError()
         except ValueError:
             raise ValueError("Set WEATHERLAB_PRICE_"+tier.upper()+"=input_USD_per_million,output_USD_per_million from current pricing") from None
-        body = {"model": model, "store": False, "instructions": PROMPT+"\nRole: "+persona,
+        guidance = MODEL_GUIDANCE if ctx.get('research_diagnostics', {}).get('version') == VERSION else ''
+        body = {"model": model, "store": False, "instructions": PROMPT+guidance+"\nRole: "+persona,
                 "input": json.dumps(ctx, allow_nan=False), "reasoning": {"effort": effort}, "max_output_tokens": 2048,
                 "text": {"format": {"type": "json_schema", "name": "weather_probability", "strict": True, "schema": SCHEMA}}}
         data = json.dumps(body, allow_nan=False).encode()

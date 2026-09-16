@@ -80,6 +80,8 @@ class PublicSource:
         return {"station": station, "date": m["date"], "high_f": max(number(p["temperature"]) for p in periods),
                 "issued_at": raw["properties"]["updateTime"], "received_at": received,
                 "day_start": start, "day_end": end, "hours": len(periods),
+                "hourly": [{k: p[k] for k in ('startTime', 'endTime', 'temperature', 'temperatureUnit',
+                            'windSpeed', 'windDirection', 'shortForecast') if k in p} for p in periods],
                 "evidence_id": "nws-"+hashed[:24], "source_url": point["properties"]["forecastHourly"],
                 "product": "NWS hourly grid forecast, not CLI", "revision_f": 0}
 

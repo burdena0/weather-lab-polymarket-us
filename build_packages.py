@@ -6,8 +6,13 @@ from pathlib import Path
 from weatherlab.fixtures import sample, config
 from weatherlab.strategies import STRATEGIES
 from weatherlab.packages import inspect_package
+from weatherlab.protocol import VERSION
 
 ROOT=Path(__file__).resolve().parent
+
+
+def packaged_config(key):
+    return dict(config(key), research_protocol=VERSION)
 
 
 def build():
@@ -18,7 +23,7 @@ def build():
     (ROOT/'examples/dataset.synthetic.json').write_text(json.dumps(data,indent=2),encoding='utf-8')
     (ROOT/'examples/history.synthetic.jsonl').write_text(''.join(json.dumps(r)+'\n' for r in history),encoding='utf-8')
     for key in STRATEGIES:
-        (ROOT/'configs'/f'{key}.json').write_text(json.dumps(config(key),indent=2),encoding='utf-8')
+        (ROOT/'configs'/f'{key}.json').write_text(json.dumps(packaged_config(key),indent=2),encoding='utf-8')
     files=[ROOT/'README.md',ROOT/'run.py',ROOT/'build_packages.py',ROOT/'settings.env.example',ROOT/'.gitignore',ROOT/'.gitattributes']
     for directory,pattern in [('weatherlab','*.py'),('tests','*.py'),('web','*'),('docs','*.md'),('configs','*.json'),('examples','*')]:
         files.extend(sorted((ROOT/directory).rglob(pattern) if directory=='examples' else (ROOT/directory).glob(pattern)))
@@ -30,7 +35,7 @@ def build():
     outputs=[]
     for index,key in enumerate(STRATEGIES,1):
         manifest={'schema_version':1,'runtime':'weatherlab-1.0.0','bot_id':key,'version':'1.0.0','entrypoint':'python -m weatherlab',
-                  'config':config(key),'files':hashes,'paper_only':True}
+                  'config':packaged_config(key),'files':hashes,'paper_only':True}
         name=f'{index:02d}-'+{'wallet_control':'wallet-control','fixed_llm':'fixed-llm','adaptive_llm':'adaptive-llm','polyswarm':'polyswarm'}[key]+'.zip'
         path=ROOT/'dist'/name
         with zipfile.ZipFile(path,'w',zipfile.ZIP_DEFLATED) as z:
