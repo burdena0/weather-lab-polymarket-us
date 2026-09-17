@@ -1,0 +1,18 @@
+{
+  "data_checks": [
+    {
+      "platform": "international",
+      "events_reconciled": 10047,
+      "signals_checked": 9548
+    },
+    {
+      "platform": "us",
+      "events_reconciled": 673,
+      "signals_checked": 304
+    }
+  ],
+  "png_figures": 125,
+  "local_links_exist": true,
+  "collection_errors": [],
+  "strategy_backtests_run": false
+}

@@ -1,0 +1,5615 @@
+[
+  {
+    "platform": "international",
+    "city": "Amsterdam",
+    "clean_events": 167,
+    "n": 162,
+    "buckets": 1782,
+    "weather_dates": 162,
+    "favorite_hit": 0.4567901234567901,
+    "favorite_ci": [
+      0.37492283950617283,
+      0.5308641975308642
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06197984455667789,
+    "event_mean_brier": 0.06197984455667789,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.062153455363093996,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1240,
+        "mean_price": 0.021365322580645163,
+        "win_rate": 0.012903225806451613,
+        "weather_dates": 162,
+        "lower": 0.007266425665632253,
+        "upper": 0.01930410691003911
+      },
+      {
+        "bin": 1,
+        "n": 185,
+        "mean_price": 0.14452162162162163,
+        "win_rate": 0.13513513513513514,
+        "weather_dates": 123,
+        "lower": 0.08822837201752962,
+        "upper": 0.19075708935259494
+      },
+      {
+        "bin": 2,
+        "n": 156,
+        "mean_price": 0.2484391025641026,
+        "win_rate": 0.21153846153846154,
+        "weather_dates": 109,
+        "lower": 0.1580503070382617,
+        "upper": 0.2669063926940639
+      },
+      {
+        "bin": 3,
+        "n": 139,
+        "mean_price": 0.34647482014388487,
+        "win_rate": 0.3669064748201439,
+        "weather_dates": 107,
+        "lower": 0.2972972972972973,
+        "upper": 0.4335906862745098
+      },
+      {
+        "bin": 4,
+        "n": 52,
+        "mean_price": 0.4406730769230769,
+        "win_rate": 0.5576923076923077,
+        "weather_dates": 49,
+        "lower": 0.425531914893617,
+        "upper": 0.6809545454545454
+      },
+      {
+        "bin": 5,
+        "n": 7,
+        "mean_price": 0.5207142857142858,
+        "win_rate": 0.7142857142857143,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.605,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.7,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.845,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Ankara",
+    "clean_events": 237,
+    "n": 230,
+    "buckets": 2394,
+    "weather_dates": 230,
+    "favorite_hit": 0.4340579710144927,
+    "favorite_ci": [
+      0.36842391304347827,
+      0.500036231884058
+    ],
+    "random_hit": 0.09783549783549784,
+    "bucket_brier": 0.06500847848788638,
+    "event_mean_brier": 0.06618858673693456,
+    "event_uniform_brier": 0.08803552722242723,
+    "event_normalized_brier": 0.06634070977987565,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1593,
+        "mean_price": 0.021701506591337103,
+        "win_rate": 0.011299435028248588,
+        "weather_dates": 230,
+        "lower": 0.006908921247368764,
+        "upper": 0.01660948088448431
+      },
+      {
+        "bin": 1,
+        "n": 286,
+        "mean_price": 0.14550874125874128,
+        "win_rate": 0.11188811188811189,
+        "weather_dates": 185,
+        "lower": 0.07761345852895149,
+        "upper": 0.1491300975177305
+      },
+      {
+        "bin": 2,
+        "n": 253,
+        "mean_price": 0.2503241106719367,
+        "win_rate": 0.24110671936758893,
+        "weather_dates": 162,
+        "lower": 0.19728260869565217,
+        "upper": 0.2869052706552706
+      },
+      {
+        "bin": 3,
+        "n": 183,
+        "mean_price": 0.33916393442622955,
+        "win_rate": 0.41530054644808745,
+        "weather_dates": 141,
+        "lower": 0.3565605232892467,
+        "upper": 0.47687708234174203
+      },
+      {
+        "bin": 4,
+        "n": 50,
+        "mean_price": 0.43660000000000004,
+        "win_rate": 0.46,
+        "weather_dates": 44,
+        "lower": 0.3448286140089419,
+        "upper": 0.589027149321267
+      },
+      {
+        "bin": 5,
+        "n": 21,
+        "mean_price": 0.5354761904761907,
+        "win_rate": 0.6190476190476191,
+        "weather_dates": 21,
+        "lower": 0.4079166666666667,
+        "upper": 0.822531512605042
+      },
+      {
+        "bin": 6,
+        "n": 4,
+        "mean_price": 0.6375,
+        "win_rate": 0.75,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.7616666666666667,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.81,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Atlanta",
+    "clean_events": 282,
+    "n": 264,
+    "buckets": 2622,
+    "weather_dates": 264,
+    "favorite_hit": 0.44507575757575757,
+    "favorite_ci": [
+      0.38446969696969696,
+      0.5018939393939394
+    ],
+    "random_hit": 0.10419126328217237,
+    "bucket_brier": 0.06876499418382914,
+    "event_mean_brier": 0.07037195123994272,
+    "event_uniform_brier": 0.0928874680350477,
+    "event_normalized_brier": 0.07043994098312288,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1717,
+        "mean_price": 0.023402154921374492,
+        "win_rate": 0.0168899242865463,
+        "weather_dates": 264,
+        "lower": 0.010860091480846198,
+        "upper": 0.023641921448182786
+      },
+      {
+        "bin": 1,
+        "n": 352,
+        "mean_price": 0.14535795454545453,
+        "win_rate": 0.13352272727272727,
+        "weather_dates": 222,
+        "lower": 0.09957012559808613,
+        "upper": 0.16738765379511458
+      },
+      {
+        "bin": 2,
+        "n": 275,
+        "mean_price": 0.25115272727272725,
+        "win_rate": 0.26545454545454544,
+        "weather_dates": 182,
+        "lower": 0.21788594470046083,
+        "upper": 0.3126193181818182
+      },
+      {
+        "bin": 3,
+        "n": 202,
+        "mean_price": 0.3411386138613862,
+        "win_rate": 0.3316831683168317,
+        "weather_dates": 156,
+        "lower": 0.2810367627611743,
+        "upper": 0.39392749942276606
+      },
+      {
+        "bin": 4,
+        "n": 40,
+        "mean_price": 0.43808749999999996,
+        "win_rate": 0.475,
+        "weather_dates": 38,
+        "lower": 0.30895225464190984,
+        "upper": 0.6428571428571429
+      },
+      {
+        "bin": 5,
+        "n": 12,
+        "mean_price": 0.5304583333333334,
+        "win_rate": 0.5833333333333334,
+        "weather_dates": 12,
+        "lower": 0.2857142857142857,
+        "upper": 0.8571428571428571
+      },
+      {
+        "bin": 6,
+        "n": 9,
+        "mean_price": 0.6594444444444445,
+        "win_rate": 0.8888888888888888,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 8,
+        "mean_price": 0.7598750000000001,
+        "win_rate": 0.875,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 7,
+        "mean_price": 0.8485714285714286,
+        "win_rate": 1.0,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Austin",
+    "clean_events": 174,
+    "n": 154,
+    "buckets": 1694,
+    "weather_dates": 154,
+    "favorite_hit": 0.5,
+    "favorite_ci": [
+      0.4253246753246753,
+      0.577922077922078
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.0568275488488784,
+    "event_mean_brier": 0.056827548848878404,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.05699311254423634,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1216,
+        "mean_price": 0.019354029605263157,
+        "win_rate": 0.011513157894736841,
+        "weather_dates": 154,
+        "lower": 0.006097296790050495,
+        "upper": 0.01739850869925435
+      },
+      {
+        "bin": 1,
+        "n": 179,
+        "mean_price": 0.1467709497206704,
+        "win_rate": 0.1340782122905028,
+        "weather_dates": 122,
+        "lower": 0.08659037650367131,
+        "upper": 0.18488156572003014
+      },
+      {
+        "bin": 2,
+        "n": 118,
+        "mean_price": 0.25115254237288137,
+        "win_rate": 0.22033898305084745,
+        "weather_dates": 80,
+        "lower": 0.15810617860851506,
+        "upper": 0.2787664783427495
+      },
+      {
+        "bin": 3,
+        "n": 98,
+        "mean_price": 0.3440816326530612,
+        "win_rate": 0.3877551020408163,
+        "weather_dates": 76,
+        "lower": 0.308128078817734,
+        "upper": 0.4644397721106891
+      },
+      {
+        "bin": 4,
+        "n": 44,
+        "mean_price": 0.4356818181818181,
+        "win_rate": 0.45454545454545453,
+        "weather_dates": 40,
+        "lower": 0.3333333333333333,
+        "upper": 0.5897435897435898
+      },
+      {
+        "bin": 5,
+        "n": 20,
+        "mean_price": 0.5350000000000001,
+        "win_rate": 0.8,
+        "weather_dates": 20,
+        "lower": 0.6190476190476191,
+        "upper": 0.9545454545454546
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.62,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 9,
+        "mean_price": 0.7438888888888889,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 3,
+        "mean_price": 0.8649999999999999,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 5,
+        "mean_price": 0.9358000000000001,
+        "win_rate": 1.0,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Beijing",
+    "clean_events": 179,
+    "n": 175,
+    "buckets": 1925,
+    "weather_dates": 175,
+    "favorite_hit": 0.26857142857142857,
+    "favorite_ci": [
+      0.20557142857142857,
+      0.33578571428571424
+    ],
+    "random_hit": 0.09090909090909095,
+    "bucket_brier": 0.07172128636363637,
+    "event_mean_brier": 0.07172128636363637,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.0717228092844773,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1253,
+        "mean_price": 0.024580207501995213,
+        "win_rate": 0.023942537909018357,
+        "weather_dates": 175,
+        "lower": 0.016551179267269508,
+        "upper": 0.03117505995203837
+      },
+      {
+        "bin": 1,
+        "n": 287,
+        "mean_price": 0.14485714285714285,
+        "win_rate": 0.13937282229965156,
+        "weather_dates": 153,
+        "lower": 0.1056196090598821,
+        "upper": 0.17543036667240489
+      },
+      {
+        "bin": 2,
+        "n": 279,
+        "mean_price": 0.250320788530466,
+        "win_rate": 0.24372759856630824,
+        "weather_dates": 156,
+        "lower": 0.2045371407241508,
+        "upper": 0.2829841304665789
+      },
+      {
+        "bin": 3,
+        "n": 86,
+        "mean_price": 0.3247674418604651,
+        "win_rate": 0.3488372093023256,
+        "weather_dates": 73,
+        "lower": 0.2553191489361702,
+        "upper": 0.44770204413158243
+      },
+      {
+        "bin": 4,
+        "n": 14,
+        "mean_price": 0.44678571428571434,
+        "win_rate": 0.21428571428571427,
+        "weather_dates": 14,
+        "lower": 0.0,
+        "upper": 0.4369047619047615
+      },
+      {
+        "bin": 5,
+        "n": 4,
+        "mean_price": 0.52,
+        "win_rate": 0.5,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 2,
+        "mean_price": 0.925,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Buenos Aires",
+    "clean_events": 281,
+    "n": 267,
+    "buckets": 2645,
+    "weather_dates": 267,
+    "favorite_hit": 0.44569288389513106,
+    "favorite_ci": [
+      0.39325842696629215,
+      0.49812734082397003
+    ],
+    "random_hit": 0.10446357637368872,
+    "bucket_brier": 0.06997051493383744,
+    "event_mean_brier": 0.07078303162172826,
+    "event_uniform_brier": 0.0931025925432268,
+    "event_normalized_brier": 0.0708282742902495,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1708,
+        "mean_price": 0.02414929742388759,
+        "win_rate": 0.019320843091334895,
+        "weather_dates": 267,
+        "lower": 0.0135161514840644,
+        "upper": 0.025237842678054827
+      },
+      {
+        "bin": 1,
+        "n": 382,
+        "mean_price": 0.1428494764397906,
+        "win_rate": 0.10209424083769633,
+        "weather_dates": 221,
+        "lower": 0.07381473546944858,
+        "upper": 0.1309385179421578
+      },
+      {
+        "bin": 2,
+        "n": 314,
+        "mean_price": 0.24761305732484082,
+        "win_rate": 0.2898089171974522,
+        "weather_dates": 194,
+        "lower": 0.2503868078175896,
+        "upper": 0.3333692717039733
+      },
+      {
+        "bin": 3,
+        "n": 157,
+        "mean_price": 0.3369808917197452,
+        "win_rate": 0.3630573248407643,
+        "weather_dates": 129,
+        "lower": 0.3051567047707428,
+        "upper": 0.42619594594594595
+      },
+      {
+        "bin": 4,
+        "n": 33,
+        "mean_price": 0.43924242424242416,
+        "win_rate": 0.42424242424242425,
+        "weather_dates": 33,
+        "lower": 0.25,
+        "upper": 0.5970312499999998
+      },
+      {
+        "bin": 5,
+        "n": 12,
+        "mean_price": 0.5341666666666667,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 12,
+        "lower": 0.07153846153846155,
+        "upper": 0.5833333333333334
+      },
+      {
+        "bin": 6,
+        "n": 13,
+        "mean_price": 0.6407692307692308,
+        "win_rate": 0.7692307692307693,
+        "weather_dates": 13,
+        "lower": 0.5182692307692308,
+        "upper": 1.0
+      },
+      {
+        "bin": 7,
+        "n": 12,
+        "mean_price": 0.7291666666666666,
+        "win_rate": 0.5,
+        "weather_dates": 12,
+        "lower": 0.2067857142857143,
+        "upper": 0.8
+      },
+      {
+        "bin": 8,
+        "n": 11,
+        "mean_price": 0.8431818181818183,
+        "win_rate": 0.9090909090909091,
+        "weather_dates": 11,
+        "lower": 0.6666666666666666,
+        "upper": 1.0
+      },
+      {
+        "bin": 9,
+        "n": 3,
+        "mean_price": 0.915,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Busan",
+    "clean_events": 167,
+    "n": 161,
+    "buckets": 1771,
+    "weather_dates": 161,
+    "favorite_hit": 0.36335403726708076,
+    "favorite_ci": [
+      0.2934006211180124,
+      0.43330745341614896
+    ],
+    "random_hit": 0.09090909090909094,
+    "bucket_brier": 0.0674842960191982,
+    "event_mean_brier": 0.06748429601919818,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.06758307931187266,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1207,
+        "mean_price": 0.024545981772990888,
+        "win_rate": 0.012427506213753107,
+        "weather_dates": 161,
+        "lower": 0.006611570247933884,
+        "upper": 0.019000808702595354
+      },
+      {
+        "bin": 1,
+        "n": 199,
+        "mean_price": 0.14324371859296484,
+        "win_rate": 0.1658291457286432,
+        "weather_dates": 132,
+        "lower": 0.1187644106876441,
+        "upper": 0.215
+      },
+      {
+        "bin": 2,
+        "n": 209,
+        "mean_price": 0.24777511961722487,
+        "win_rate": 0.2679425837320574,
+        "weather_dates": 132,
+        "lower": 0.22062145590337007,
+        "upper": 0.3245437447757035
+      },
+      {
+        "bin": 3,
+        "n": 129,
+        "mean_price": 0.33711627906976743,
+        "win_rate": 0.35658914728682173,
+        "weather_dates": 105,
+        "lower": 0.2789867109634551,
+        "upper": 0.4274516744644176
+      },
+      {
+        "bin": 4,
+        "n": 25,
+        "mean_price": 0.42180000000000006,
+        "win_rate": 0.4,
+        "weather_dates": 25,
+        "lower": 0.20833333333333334,
+        "upper": 0.5833333333333334
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.505,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.835,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Cape Town",
+    "clean_events": 156,
+    "n": 152,
+    "buckets": 1672,
+    "weather_dates": 152,
+    "favorite_hit": 0.3190789473684211,
+    "favorite_ci": [
+      0.24498355263157895,
+      0.3881578947368421
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06778835002990431,
+    "event_mean_brier": 0.06778835002990431,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.06782362823865053,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1138,
+        "mean_price": 0.02351274165202109,
+        "win_rate": 0.015817223198594025,
+        "weather_dates": 152,
+        "lower": 0.008873114463176575,
+        "upper": 0.02214658819172906
+      },
+      {
+        "bin": 1,
+        "n": 185,
+        "mean_price": 0.1458972972972973,
+        "win_rate": 0.15135135135135136,
+        "weather_dates": 109,
+        "lower": 0.10734463276836158,
+        "upper": 0.19568910256410252
+      },
+      {
+        "bin": 2,
+        "n": 181,
+        "mean_price": 0.2469337016574586,
+        "win_rate": 0.27071823204419887,
+        "weather_dates": 116,
+        "lower": 0.2182091836734694,
+        "upper": 0.32867888138862095
+      },
+      {
+        "bin": 3,
+        "n": 148,
+        "mean_price": 0.34175675675675676,
+        "win_rate": 0.3108108108108108,
+        "weather_dates": 111,
+        "lower": 0.24720496894409938,
+        "upper": 0.37723725549812503
+      },
+      {
+        "bin": 4,
+        "n": 20,
+        "mean_price": 0.43125,
+        "win_rate": 0.55,
+        "weather_dates": 20,
+        "lower": 0.31692583732057417,
+        "upper": 0.7777777777777778
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Chengdu",
+    "clean_events": 176,
+    "n": 172,
+    "buckets": 1892,
+    "weather_dates": 172,
+    "favorite_hit": 0.2441860465116279,
+    "favorite_ci": [
+      0.1787063953488372,
+      0.3081395348837209
+    ],
+    "random_hit": 0.09090909090909095,
+    "bucket_brier": 0.07214301123150105,
+    "event_mean_brier": 0.07214301123150106,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07216447317519159,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1200,
+        "mean_price": 0.028748333333333338,
+        "win_rate": 0.0275,
+        "weather_dates": 172,
+        "lower": 0.019532310207875964,
+        "upper": 0.036442851754055074
+      },
+      {
+        "bin": 1,
+        "n": 335,
+        "mean_price": 0.14934776119402987,
+        "win_rate": 0.12835820895522387,
+        "weather_dates": 158,
+        "lower": 0.09939357517482517,
+        "upper": 0.1574855603191616
+      },
+      {
+        "bin": 2,
+        "n": 305,
+        "mean_price": 0.24049016393442624,
+        "win_rate": 0.25573770491803277,
+        "weather_dates": 161,
+        "lower": 0.2209636026694152,
+        "upper": 0.2918783694575861
+      },
+      {
+        "bin": 3,
+        "n": 43,
+        "mean_price": 0.32616279069767445,
+        "win_rate": 0.3023255813953488,
+        "weather_dates": 39,
+        "lower": 0.18269944341372915,
+        "upper": 0.4318181818181818
+      },
+      {
+        "bin": 4,
+        "n": 2,
+        "mean_price": 0.44,
+        "win_rate": 0.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 2,
+        "mean_price": 0.52825,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.645,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 2,
+        "mean_price": 0.86,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Chicago",
+    "clean_events": 238,
+    "n": 206,
+    "buckets": 2128,
+    "weather_dates": 206,
+    "favorite_hit": 0.40048543689320387,
+    "favorite_ci": [
+      0.33737864077669905,
+      0.4672936893203883
+    ],
+    "random_hit": 0.09879656481598231,
+    "bucket_brier": 0.06765324612312029,
+    "event_mean_brier": 0.06845037209648495,
+    "event_uniform_brier": 0.08877856181685034,
+    "event_normalized_brier": 0.06843549884387272,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1413,
+        "mean_price": 0.02359341825902336,
+        "win_rate": 0.020523708421797595,
+        "weather_dates": 206,
+        "lower": 0.014401406295548218,
+        "upper": 0.02779806057796322
+      },
+      {
+        "bin": 1,
+        "n": 291,
+        "mean_price": 0.1447508591065292,
+        "win_rate": 0.13058419243986255,
+        "weather_dates": 166,
+        "lower": 0.09877830507684056,
+        "upper": 0.16697154471544715
+      },
+      {
+        "bin": 2,
+        "n": 237,
+        "mean_price": 0.24729957805907174,
+        "win_rate": 0.20253164556962025,
+        "weather_dates": 151,
+        "lower": 0.1615618738669974,
+        "upper": 0.24622159306832864
+      },
+      {
+        "bin": 3,
+        "n": 121,
+        "mean_price": 0.341198347107438,
+        "win_rate": 0.4462809917355372,
+        "weather_dates": 96,
+        "lower": 0.3697478991596639,
+        "upper": 0.5165914066776136
+      },
+      {
+        "bin": 4,
+        "n": 37,
+        "mean_price": 0.43486486486486486,
+        "win_rate": 0.43243243243243246,
+        "weather_dates": 36,
+        "lower": 0.2754094827586207,
+        "upper": 0.5882352941176471
+      },
+      {
+        "bin": 5,
+        "n": 8,
+        "mean_price": 0.5618749999999999,
+        "win_rate": 0.5,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 7,
+        "mean_price": 0.6407142857142857,
+        "win_rate": 0.5714285714285714,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.7600000000000001,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 8,
+        "mean_price": 0.855,
+        "win_rate": 0.875,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 3,
+        "mean_price": 0.9255,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Chongqing",
+    "clean_events": 179,
+    "n": 174,
+    "buckets": 1914,
+    "weather_dates": 174,
+    "favorite_hit": 0.3007662835249042,
+    "favorite_ci": [
+      0.23704501915708812,
+      0.365493295019157
+    ],
+    "random_hit": 0.09090909090909097,
+    "bucket_brier": 0.07134230825496343,
+    "event_mean_brier": 0.07134230825496345,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07138111175734362,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1217,
+        "mean_price": 0.024930977814297456,
+        "win_rate": 0.0238290879211175,
+        "weather_dates": 174,
+        "lower": 0.016521759900635362,
+        "upper": 0.03068961775863177
+      },
+      {
+        "bin": 1,
+        "n": 315,
+        "mean_price": 0.14605396825396827,
+        "win_rate": 0.13015873015873017,
+        "weather_dates": 161,
+        "lower": 0.09635304337407141,
+        "upper": 0.16340153803900026
+      },
+      {
+        "bin": 2,
+        "n": 294,
+        "mean_price": 0.24462925170068026,
+        "win_rate": 0.24149659863945577,
+        "weather_dates": 156,
+        "lower": 0.20648492286115008,
+        "upper": 0.278095238095238
+      },
+      {
+        "bin": 3,
+        "n": 76,
+        "mean_price": 0.33539473684210525,
+        "win_rate": 0.3815789473684211,
+        "weather_dates": 64,
+        "lower": 0.2864864864864865,
+        "upper": 0.4691358024691358
+      },
+      {
+        "bin": 4,
+        "n": 8,
+        "mean_price": 0.43062500000000004,
+        "win_rate": 0.0,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 4,
+        "mean_price": 0.54625,
+        "win_rate": 1.0,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Dallas",
+    "clean_events": 285,
+    "n": 256,
+    "buckets": 2532,
+    "weather_dates": 256,
+    "favorite_hit": 0.4140625,
+    "favorite_ci": [
+      0.353515625,
+      0.47563476562499996
+    ],
+    "random_hit": 0.10473033910533908,
+    "bucket_brier": 0.06729690501579778,
+    "event_mean_brier": 0.06911456272828734,
+    "event_uniform_brier": 0.09330007064043858,
+    "event_normalized_brier": 0.06911785580700315,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1713,
+        "mean_price": 0.021255983654407475,
+        "win_rate": 0.018096906012842966,
+        "weather_dates": 256,
+        "lower": 0.01252081230887045,
+        "upper": 0.02408256880733945
+      },
+      {
+        "bin": 1,
+        "n": 289,
+        "mean_price": 0.14305709342560555,
+        "win_rate": 0.14186851211072665,
+        "weather_dates": 179,
+        "lower": 0.10532805997991103,
+        "upper": 0.1773713858481628
+      },
+      {
+        "bin": 2,
+        "n": 262,
+        "mean_price": 0.24885877862595418,
+        "win_rate": 0.2633587786259542,
+        "weather_dates": 165,
+        "lower": 0.22020155748969308,
+        "upper": 0.30786684024549005
+      },
+      {
+        "bin": 3,
+        "n": 158,
+        "mean_price": 0.3394303797468355,
+        "win_rate": 0.3291139240506329,
+        "weather_dates": 131,
+        "lower": 0.262128889823381,
+        "upper": 0.39497319739331505
+      },
+      {
+        "bin": 4,
+        "n": 46,
+        "mean_price": 0.43847826086956526,
+        "win_rate": 0.3695652173913043,
+        "weather_dates": 46,
+        "lower": 0.22329931972789116,
+        "upper": 0.5128872775214238
+      },
+      {
+        "bin": 5,
+        "n": 22,
+        "mean_price": 0.5288636363636365,
+        "win_rate": 0.45454545454545453,
+        "weather_dates": 22,
+        "lower": 0.23662464985994397,
+        "upper": 0.6521739130434783
+      },
+      {
+        "bin": 6,
+        "n": 7,
+        "mean_price": 0.6385714285714287,
+        "win_rate": 0.7142857142857143,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 7,
+        "mean_price": 0.7528571428571428,
+        "win_rate": 0.7142857142857143,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 17,
+        "mean_price": 0.8640588235294118,
+        "win_rate": 0.8823529411764706,
+        "weather_dates": 17,
+        "lower": 0.6923076923076923,
+        "upper": 1.0
+      },
+      {
+        "bin": 9,
+        "n": 11,
+        "mean_price": 0.9238181818181819,
+        "win_rate": 1.0,
+        "weather_dates": 11,
+        "lower": 1.0,
+        "upper": 1.0
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Denver",
+    "clean_events": 177,
+    "n": 148,
+    "buckets": 1628,
+    "weather_dates": 148,
+    "favorite_hit": 0.49324324324324326,
+    "favorite_ci": [
+      0.41714527027027026,
+      0.5641891891891891
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.05950798556511057,
+    "event_mean_brier": 0.059507985565110555,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.05965811926057896,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1144,
+        "mean_price": 0.020637237762237765,
+        "win_rate": 0.013986013986013986,
+        "weather_dates": 148,
+        "lower": 0.007823994991118764,
+        "upper": 0.020880040685723973
+      },
+      {
+        "bin": 1,
+        "n": 174,
+        "mean_price": 0.14284770114942527,
+        "win_rate": 0.13793103448275862,
+        "weather_dates": 108,
+        "lower": 0.09593903436988543,
+        "upper": 0.18682659932659926
+      },
+      {
+        "bin": 2,
+        "n": 155,
+        "mean_price": 0.24549999999999997,
+        "win_rate": 0.2064516129032258,
+        "weather_dates": 93,
+        "lower": 0.15028614457831327,
+        "upper": 0.26502100840336135
+      },
+      {
+        "bin": 3,
+        "n": 103,
+        "mean_price": 0.34703883495145627,
+        "win_rate": 0.36893203883495146,
+        "weather_dates": 81,
+        "lower": 0.2863425925925926,
+        "upper": 0.45116258892937705
+      },
+      {
+        "bin": 4,
+        "n": 31,
+        "mean_price": 0.4408064516129032,
+        "win_rate": 0.6451612903225806,
+        "weather_dates": 31,
+        "lower": 0.4611607142857143,
+        "upper": 0.8086538461538462
+      },
+      {
+        "bin": 5,
+        "n": 5,
+        "mean_price": 0.522,
+        "win_rate": 0.8,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.615,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.73,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 5,
+        "mean_price": 0.8290000000000001,
+        "win_rate": 0.8,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 7,
+        "mean_price": 0.9262857142857143,
+        "win_rate": 1.0,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Guangzhou",
+    "clean_events": 155,
+    "n": 148,
+    "buckets": 1628,
+    "weather_dates": 148,
+    "favorite_hit": 0.3344594594594595,
+    "favorite_ci": [
+      0.2635135135135135,
+      0.4155405405405405
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.07023010104422606,
+    "event_mean_brier": 0.07023010104422603,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07030921324806427,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1044,
+        "mean_price": 0.02505507662835249,
+        "win_rate": 0.019157088122605363,
+        "weather_dates": 148,
+        "lower": 0.011720808480414246,
+        "upper": 0.027554104875080792
+      },
+      {
+        "bin": 1,
+        "n": 256,
+        "mean_price": 0.14759765625000001,
+        "win_rate": 0.15234375,
+        "weather_dates": 135,
+        "lower": 0.1117430204930205,
+        "upper": 0.19129710477941175
+      },
+      {
+        "bin": 2,
+        "n": 254,
+        "mean_price": 0.2465531496062992,
+        "win_rate": 0.2637795275590551,
+        "weather_dates": 136,
+        "lower": 0.22312320964077575,
+        "upper": 0.3070181154100286
+      },
+      {
+        "bin": 3,
+        "n": 62,
+        "mean_price": 0.32687096774193547,
+        "win_rate": 0.22580645161290322,
+        "weather_dates": 57,
+        "lower": 0.1271212121212121,
+        "upper": 0.3333333333333333
+      },
+      {
+        "bin": 4,
+        "n": 9,
+        "mean_price": 0.4472222222222222,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.585,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.685,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.8,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Helsinki",
+    "clean_events": 167,
+    "n": 163,
+    "buckets": 1793,
+    "weather_dates": 163,
+    "favorite_hit": 0.3987730061349693,
+    "favorite_ci": [
+      0.3220858895705521,
+      0.4709355828220858
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06544897350808701,
+    "event_mean_brier": 0.06544897350808701,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06559435020204482,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1221,
+        "mean_price": 0.0229987714987715,
+        "win_rate": 0.015561015561015561,
+        "weather_dates": 163,
+        "lower": 0.009060233737189508,
+        "upper": 0.02227816191642562
+      },
+      {
+        "bin": 1,
+        "n": 218,
+        "mean_price": 0.14314449541284405,
+        "win_rate": 0.13302752293577982,
+        "weather_dates": 137,
+        "lower": 0.09132630654369785,
+        "upper": 0.1739338527920908
+      },
+      {
+        "bin": 2,
+        "n": 190,
+        "mean_price": 0.25331578947368427,
+        "win_rate": 0.24736842105263157,
+        "weather_dates": 121,
+        "lower": 0.20339988425925926,
+        "upper": 0.29925392670157064
+      },
+      {
+        "bin": 3,
+        "n": 130,
+        "mean_price": 0.3389615384615384,
+        "win_rate": 0.36923076923076925,
+        "weather_dates": 103,
+        "lower": 0.3054442324003393,
+        "upper": 0.4375574825909866
+      },
+      {
+        "bin": 4,
+        "n": 28,
+        "mean_price": 0.4307142857142857,
+        "win_rate": 0.6071428571428571,
+        "weather_dates": 28,
+        "lower": 0.4179435483870968,
+        "upper": 0.7727272727272727
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.52,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.6325000000000001,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.745,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Hong Kong",
+    "clean_events": 185,
+    "n": 179,
+    "buckets": 1967,
+    "weather_dates": 179,
+    "favorite_hit": 0.31564245810055863,
+    "favorite_ci": [
+      0.24860335195530725,
+      0.3841480446927374
+    ],
+    "random_hit": 0.09102195135714691,
+    "bucket_brier": 0.06974324987290291,
+    "event_mean_brier": 0.06980506853450709,
+    "event_uniform_brier": 0.08273468845671314,
+    "event_normalized_brier": 0.06969919649004053,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1325,
+        "mean_price": 0.01865433962264151,
+        "win_rate": 0.02339622641509434,
+        "weather_dates": 179,
+        "lower": 0.016248546564857542,
+        "upper": 0.03116745351162065
+      },
+      {
+        "bin": 1,
+        "n": 216,
+        "mean_price": 0.1446111111111111,
+        "win_rate": 0.12962962962962962,
+        "weather_dates": 139,
+        "lower": 0.09422820708031976,
+        "upper": 0.16977938626907074
+      },
+      {
+        "bin": 2,
+        "n": 183,
+        "mean_price": 0.24763934426229506,
+        "win_rate": 0.2185792349726776,
+        "weather_dates": 117,
+        "lower": 0.16747448979591836,
+        "upper": 0.2698859038679398
+      },
+      {
+        "bin": 3,
+        "n": 221,
+        "mean_price": 0.34239819004524885,
+        "win_rate": 0.3167420814479638,
+        "weather_dates": 153,
+        "lower": 0.2685981451284142,
+        "upper": 0.3634427231960864
+      },
+      {
+        "bin": 4,
+        "n": 18,
+        "mean_price": 0.43222222222222223,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 18,
+        "lower": 0.1,
+        "upper": 0.5555555555555556
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.57,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.67,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.89,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Houston",
+    "clean_events": 175,
+    "n": 165,
+    "buckets": 1815,
+    "weather_dates": 165,
+    "favorite_hit": 0.4666666666666667,
+    "favorite_ci": [
+      0.38181818181818183,
+      0.5454545454545454
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.05846232396694215,
+    "event_mean_brier": 0.05846232396694215,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.0586692219830036,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1289,
+        "mean_price": 0.018948409619860357,
+        "win_rate": 0.011636927851047323,
+        "weather_dates": 165,
+        "lower": 0.006163094438934404,
+        "upper": 0.017740414132328162
+      },
+      {
+        "bin": 1,
+        "n": 189,
+        "mean_price": 0.14305820105820105,
+        "win_rate": 0.1164021164021164,
+        "weather_dates": 132,
+        "lower": 0.07484913793103448,
+        "upper": 0.15592013888888887
+      },
+      {
+        "bin": 2,
+        "n": 117,
+        "mean_price": 0.24559829059829064,
+        "win_rate": 0.2564102564102564,
+        "weather_dates": 87,
+        "lower": 0.18409999999999999,
+        "upper": 0.33488200589970496
+      },
+      {
+        "bin": 3,
+        "n": 137,
+        "mean_price": 0.34518248175182475,
+        "win_rate": 0.3722627737226277,
+        "weather_dates": 106,
+        "lower": 0.3036469871510855,
+        "upper": 0.43861486153542917
+      },
+      {
+        "bin": 4,
+        "n": 50,
+        "mean_price": 0.4449099999999999,
+        "win_rate": 0.46,
+        "weather_dates": 46,
+        "lower": 0.3333333333333333,
+        "upper": 0.5833333333333334
+      },
+      {
+        "bin": 5,
+        "n": 17,
+        "mean_price": 0.5344117647058824,
+        "win_rate": 0.5294117647058824,
+        "weather_dates": 17,
+        "lower": 0.28154761904761905,
+        "upper": 0.8
+      },
+      {
+        "bin": 6,
+        "n": 4,
+        "mean_price": 0.665,
+        "win_rate": 1.0,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 4,
+        "mean_price": 0.7437499999999999,
+        "win_rate": 1.0,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 5,
+        "mean_price": 0.828,
+        "win_rate": 0.8,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 3,
+        "mean_price": 0.92,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Istanbul",
+    "clean_events": 171,
+    "n": 167,
+    "buckets": 1837,
+    "weather_dates": 167,
+    "favorite_hit": 0.45808383233532934,
+    "favorite_ci": [
+      0.38323353293413176,
+      0.5329341317365269
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.05951779831246598,
+    "event_mean_brier": 0.05951779831246598,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.05979867187224781,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1289,
+        "mean_price": 0.021477114041892943,
+        "win_rate": 0.01008533747090768,
+        "weather_dates": 167,
+        "lower": 0.005386383474132142,
+        "upper": 0.015058409023926252
+      },
+      {
+        "bin": 1,
+        "n": 188,
+        "mean_price": 0.14120212765957446,
+        "win_rate": 0.14361702127659576,
+        "weather_dates": 123,
+        "lower": 0.10192179144385027,
+        "upper": 0.19198069852941174
+      },
+      {
+        "bin": 2,
+        "n": 172,
+        "mean_price": 0.2508720930232558,
+        "win_rate": 0.20930232558139536,
+        "weather_dates": 114,
+        "lower": 0.15361669580419582,
+        "upper": 0.2647058823529412
+      },
+      {
+        "bin": 3,
+        "n": 107,
+        "mean_price": 0.33976635514018694,
+        "win_rate": 0.34579439252336447,
+        "weather_dates": 92,
+        "lower": 0.25908564814814816,
+        "upper": 0.4227560128936276
+      },
+      {
+        "bin": 4,
+        "n": 46,
+        "mean_price": 0.4397826086956521,
+        "win_rate": 0.6956521739130435,
+        "weather_dates": 41,
+        "lower": 0.5940898345153665,
+        "upper": 0.8137152777777777
+      },
+      {
+        "bin": 5,
+        "n": 29,
+        "mean_price": 0.5381034482758621,
+        "win_rate": 0.5517241379310345,
+        "weather_dates": 29,
+        "lower": 0.36316666666666664,
+        "upper": 0.7241379310344828
+      },
+      {
+        "bin": 6,
+        "n": 4,
+        "mean_price": 0.62,
+        "win_rate": 1.0,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 2,
+        "mean_price": 0.8225,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Jakarta",
+    "clean_events": 49,
+    "n": 44,
+    "buckets": 484,
+    "weather_dates": 44,
+    "favorite_hit": 0.4090909090909091,
+    "favorite_ci": [
+      0.2727272727272727,
+      0.5454545454545454
+    ],
+    "random_hit": 0.09090909090909091,
+    "bucket_brier": 0.06797485640495868,
+    "event_mean_brier": 0.06797485640495866,
+    "event_uniform_brier": 0.08264462809917354,
+    "event_normalized_brier": 0.06772443846976227,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 319,
+        "mean_price": 0.021158307210031348,
+        "win_rate": 0.01567398119122257,
+        "weather_dates": 44,
+        "lower": 0.0031446540880503146,
+        "upper": 0.031015634014076376
+      },
+      {
+        "bin": 1,
+        "n": 65,
+        "mean_price": 0.13533076923076923,
+        "win_rate": 0.12307692307692308,
+        "weather_dates": 39,
+        "lower": 0.048763881544156534,
+        "upper": 0.21450757575757567
+      },
+      {
+        "bin": 2,
+        "n": 60,
+        "mean_price": 0.2524666666666667,
+        "win_rate": 0.2833333333333333,
+        "weather_dates": 33,
+        "lower": 0.2,
+        "upper": 0.3738767455980569
+      },
+      {
+        "bin": 3,
+        "n": 34,
+        "mean_price": 0.33808823529411763,
+        "win_rate": 0.3235294117647059,
+        "weather_dates": 25,
+        "lower": 0.1875,
+        "upper": 0.4444444444444444
+      },
+      {
+        "bin": 4,
+        "n": 5,
+        "mean_price": 0.42300000000000004,
+        "win_rate": 0.4,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.515,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Jeddah",
+    "clean_events": 160,
+    "n": 151,
+    "buckets": 1661,
+    "weather_dates": 151,
+    "favorite_hit": 0.37748344370860926,
+    "favorite_ci": [
+      0.2980132450331126,
+      0.45695364238410596
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.0674678103552077,
+    "event_mean_brier": 0.06746781035520771,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.06745793651292696,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1101,
+        "mean_price": 0.017909173478655768,
+        "win_rate": 0.01634877384196185,
+        "weather_dates": 151,
+        "lower": 0.009889705525560693,
+        "upper": 0.022995559242631268
+      },
+      {
+        "bin": 1,
+        "n": 224,
+        "mean_price": 0.14571875000000004,
+        "win_rate": 0.17857142857142858,
+        "weather_dates": 125,
+        "lower": 0.1361597243032664,
+        "upper": 0.22740140817600246
+      },
+      {
+        "bin": 2,
+        "n": 211,
+        "mean_price": 0.24810426540284364,
+        "win_rate": 0.22274881516587677,
+        "weather_dates": 123,
+        "lower": 0.18245641624730408,
+        "upper": 0.26559894831345393
+      },
+      {
+        "bin": 3,
+        "n": 85,
+        "mean_price": 0.3364117647058824,
+        "win_rate": 0.32941176470588235,
+        "weather_dates": 72,
+        "lower": 0.24403715258082812,
+        "upper": 0.4236888111888112
+      },
+      {
+        "bin": 4,
+        "n": 21,
+        "mean_price": 0.426904761904762,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 21,
+        "lower": 0.125,
+        "upper": 0.5507575757575756
+      },
+      {
+        "bin": 5,
+        "n": 8,
+        "mean_price": 0.545625,
+        "win_rate": 0.375,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 7,
+        "mean_price": 0.6314285714285715,
+        "win_rate": 0.5714285714285714,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.7,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 2,
+        "mean_price": 0.8075000000000001,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.935,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Jinan",
+    "clean_events": 40,
+    "n": 7,
+    "buckets": 77,
+    "weather_dates": 7,
+    "favorite_hit": 0.8571428571428571,
+    "favorite_ci": null,
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.04027729220779221,
+    "event_mean_brier": 0.040277292207792206,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.03967631297931645,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 64,
+        "mean_price": 0.013625000000000002,
+        "win_rate": 0.015625,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 1,
+        "n": 3,
+        "mean_price": 0.11833333333333333,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 2,
+        "n": 4,
+        "mean_price": 0.2475,
+        "win_rate": 0.25,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 3,
+        "n": 1,
+        "mean_price": 0.325,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.795,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.815,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 3,
+        "mean_price": 0.915,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Karachi",
+    "clean_events": 155,
+    "n": 150,
+    "buckets": 1650,
+    "weather_dates": 150,
+    "favorite_hit": 0.44,
+    "favorite_ci": [
+      0.36333333333333334,
+      0.51
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.05973468166666667,
+    "event_mean_brier": 0.059734681666666664,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.05985531548407116,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1171,
+        "mean_price": 0.017866780529461997,
+        "win_rate": 0.006831767719897523,
+        "weather_dates": 150,
+        "lower": 0.0025815410593672235,
+        "upper": 0.011130621606584847
+      },
+      {
+        "bin": 1,
+        "n": 142,
+        "mean_price": 0.14324295774647886,
+        "win_rate": 0.09154929577464789,
+        "weather_dates": 106,
+        "lower": 0.04681543624161074,
+        "upper": 0.14568238213399504
+      },
+      {
+        "bin": 2,
+        "n": 132,
+        "mean_price": 0.2507954545454546,
+        "win_rate": 0.29545454545454547,
+        "weather_dates": 87,
+        "lower": 0.23270946161197834,
+        "upper": 0.3644067796610169
+      },
+      {
+        "bin": 3,
+        "n": 125,
+        "mean_price": 0.34431999999999996,
+        "win_rate": 0.432,
+        "weather_dates": 93,
+        "lower": 0.3580988332189431,
+        "upper": 0.5
+      },
+      {
+        "bin": 4,
+        "n": 57,
+        "mean_price": 0.44219298245614036,
+        "win_rate": 0.42105263157894735,
+        "weather_dates": 57,
+        "lower": 0.2928308823529412,
+        "upper": 0.547840909090909
+      },
+      {
+        "bin": 5,
+        "n": 15,
+        "mean_price": 0.5266666666666667,
+        "win_rate": 0.4666666666666667,
+        "weather_dates": 15,
+        "lower": 0.2,
+        "upper": 0.7184523809523807
+      },
+      {
+        "bin": 6,
+        "n": 7,
+        "mean_price": 0.6421428571428571,
+        "win_rate": 0.5714285714285714,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.82,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Kuala Lumpur",
+    "clean_events": 166,
+    "n": 162,
+    "buckets": 1782,
+    "weather_dates": 162,
+    "favorite_hit": 0.3888888888888889,
+    "favorite_ci": [
+      0.3148148148148148,
+      0.46149691358024686
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06406997306397307,
+    "event_mean_brier": 0.06406997306397305,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.0642156451496258,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1222,
+        "mean_price": 0.019712765957446806,
+        "win_rate": 0.014729950900163666,
+        "weather_dates": 162,
+        "lower": 0.00830435982339956,
+        "upper": 0.02133815167887754
+      },
+      {
+        "bin": 1,
+        "n": 184,
+        "mean_price": 0.14241304347826086,
+        "win_rate": 0.10869565217391304,
+        "weather_dates": 122,
+        "lower": 0.06759664825747477,
+        "upper": 0.14987299465240642
+      },
+      {
+        "bin": 2,
+        "n": 191,
+        "mean_price": 0.25031413612565445,
+        "win_rate": 0.24607329842931938,
+        "weather_dates": 117,
+        "lower": 0.20053072625698326,
+        "upper": 0.2916473634010083
+      },
+      {
+        "bin": 3,
+        "n": 139,
+        "mean_price": 0.3379856115107914,
+        "win_rate": 0.37410071942446044,
+        "weather_dates": 110,
+        "lower": 0.3020833333333333,
+        "upper": 0.4440727699530516
+      },
+      {
+        "bin": 4,
+        "n": 37,
+        "mean_price": 0.43459459459459454,
+        "win_rate": 0.5135135135135135,
+        "weather_dates": 37,
+        "lower": 0.3479807692307692,
+        "upper": 0.6575375939849624
+      },
+      {
+        "bin": 5,
+        "n": 7,
+        "mean_price": 0.5385714285714286,
+        "win_rate": 0.7142857142857143,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.635,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.935,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Lagos",
+    "clean_events": 35,
+    "n": 32,
+    "buckets": 352,
+    "weather_dates": 32,
+    "favorite_hit": 0.3125,
+    "favorite_ci": [
+      0.15625,
+      0.46875
+    ],
+    "random_hit": 0.09090909090909091,
+    "bucket_brier": 0.07681568536931818,
+    "event_mean_brier": 0.07681568536931818,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07652449117130328,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 229,
+        "mean_price": 0.031091703056768564,
+        "win_rate": 0.039301310043668124,
+        "weather_dates": 32,
+        "lower": 0.017543859649122806,
+        "upper": 0.062091445427728605
+      },
+      {
+        "bin": 1,
+        "n": 53,
+        "mean_price": 0.14593396226415095,
+        "win_rate": 0.16981132075471697,
+        "weather_dates": 27,
+        "lower": 0.09567307692307693,
+        "upper": 0.24322660098522159
+      },
+      {
+        "bin": 2,
+        "n": 58,
+        "mean_price": 0.2497413793103448,
+        "win_rate": 0.1724137931034483,
+        "weather_dates": 29,
+        "lower": 0.09489182692307693,
+        "upper": 0.26120491803278684
+      },
+      {
+        "bin": 3,
+        "n": 12,
+        "mean_price": 0.3195833333333333,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 11,
+        "lower": 0.07403846153846155,
+        "upper": 0.6363636363636364
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "London",
+    "clean_events": 364,
+    "n": 355,
+    "buckets": 3269,
+    "weather_dates": 355,
+    "favorite_hit": 0.3788732394366197,
+    "favorite_ci": [
+      0.33024647887323944,
+      0.4267605633802817
+    ],
+    "random_hit": 0.1136881897445278,
+    "bucket_brier": 0.07704022698072806,
+    "event_mean_brier": 0.07947632854703982,
+    "event_uniform_brier": 0.10015294002855737,
+    "event_normalized_brier": 0.07947365841431352,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 2076,
+        "mean_price": 0.022506984585741813,
+        "win_rate": 0.01348747591522158,
+        "weather_dates": 355,
+        "lower": 0.009038797502174428,
+        "upper": 0.018385913812464905
+      },
+      {
+        "bin": 1,
+        "n": 391,
+        "mean_price": 0.14703580562659846,
+        "win_rate": 0.15601023017902813,
+        "weather_dates": 251,
+        "lower": 0.12167053446302986,
+        "upper": 0.18505279856474596
+      },
+      {
+        "bin": 2,
+        "n": 347,
+        "mean_price": 0.24673919308357348,
+        "win_rate": 0.2622478386167147,
+        "weather_dates": 218,
+        "lower": 0.22589925818978393,
+        "upper": 0.3042951907131011
+      },
+      {
+        "bin": 3,
+        "n": 285,
+        "mean_price": 0.3423859649122807,
+        "win_rate": 0.3473684210526316,
+        "weather_dates": 217,
+        "lower": 0.3019441287878788,
+        "upper": 0.39793083278496744
+      },
+      {
+        "bin": 4,
+        "n": 117,
+        "mean_price": 0.4419230769230769,
+        "win_rate": 0.4358974358974359,
+        "weather_dates": 104,
+        "lower": 0.3564217032967033,
+        "upper": 0.5094339622641509
+      },
+      {
+        "bin": 5,
+        "n": 36,
+        "mean_price": 0.5462500000000001,
+        "win_rate": 0.4166666666666667,
+        "weather_dates": 36,
+        "lower": 0.2454741379310345,
+        "upper": 0.5783235581622678
+      },
+      {
+        "bin": 6,
+        "n": 13,
+        "mean_price": 0.6569230769230769,
+        "win_rate": 0.46153846153846156,
+        "weather_dates": 13,
+        "lower": 0.18181818181818182,
+        "upper": 0.75
+      },
+      {
+        "bin": 8,
+        "n": 4,
+        "mean_price": 0.8412499999999999,
+        "win_rate": 1.0,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Los Angeles",
+    "clean_events": 177,
+    "n": 172,
+    "buckets": 1892,
+    "weather_dates": 172,
+    "favorite_hit": 0.36627906976744184,
+    "favorite_ci": [
+      0.29069767441860467,
+      0.4331395348837209
+    ],
+    "random_hit": 0.09090909090909095,
+    "bucket_brier": 0.06249906818181818,
+    "event_mean_brier": 0.06249906818181819,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06252829218221397,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1328,
+        "mean_price": 0.020158132530120484,
+        "win_rate": 0.011295180722891566,
+        "weather_dates": 172,
+        "lower": 0.006069575959790988,
+        "upper": 0.017185078947250913
+      },
+      {
+        "bin": 1,
+        "n": 180,
+        "mean_price": 0.14285833333333334,
+        "win_rate": 0.1111111111111111,
+        "weather_dates": 122,
+        "lower": 0.07492981283422459,
+        "upper": 0.15579351795496044
+      },
+      {
+        "bin": 2,
+        "n": 171,
+        "mean_price": 0.2514853801169591,
+        "win_rate": 0.3157894736842105,
+        "weather_dates": 115,
+        "lower": 0.25852603964244075,
+        "upper": 0.374193481073411
+      },
+      {
+        "bin": 3,
+        "n": 133,
+        "mean_price": 0.3414097744360902,
+        "win_rate": 0.3233082706766917,
+        "weather_dates": 100,
+        "lower": 0.2534672015517545,
+        "upper": 0.3867231465622705
+      },
+      {
+        "bin": 4,
+        "n": 65,
+        "mean_price": 0.4401538461538461,
+        "win_rate": 0.4461538461538462,
+        "weather_dates": 62,
+        "lower": 0.3400735294117647,
+        "upper": 0.5590852442671984
+      },
+      {
+        "bin": 5,
+        "n": 10,
+        "mean_price": 0.5525,
+        "win_rate": 0.7,
+        "weather_dates": 10,
+        "lower": 0.3477272727272728,
+        "upper": 1.0
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.6333333333333333,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.775,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.84,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Lucknow",
+    "clean_events": 195,
+    "n": 190,
+    "buckets": 2068,
+    "weather_dates": 190,
+    "favorite_hit": 0.5394736842105263,
+    "favorite_ci": [
+      0.46842105263157896,
+      0.6092763157894736
+    ],
+    "random_hit": 0.0920786815523658,
+    "bucket_brier": 0.05473096820599613,
+    "event_mean_brier": 0.05425341136363637,
+    "event_uniform_brier": 0.08357793780441301,
+    "event_normalized_brier": 0.054446067031550464,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1471,
+        "mean_price": 0.019673351461590757,
+        "win_rate": 0.010876954452753228,
+        "weather_dates": 190,
+        "lower": 0.0061431379017288035,
+        "upper": 0.01588489158703719
+      },
+      {
+        "bin": 1,
+        "n": 208,
+        "mean_price": 0.14448076923076922,
+        "win_rate": 0.10096153846153846,
+        "weather_dates": 139,
+        "lower": 0.06565656565656566,
+        "upper": 0.1421793570219966
+      },
+      {
+        "bin": 2,
+        "n": 183,
+        "mean_price": 0.2503333333333333,
+        "win_rate": 0.2786885245901639,
+        "weather_dates": 116,
+        "lower": 0.22847883597883598,
+        "upper": 0.3342641843971631
+      },
+      {
+        "bin": 3,
+        "n": 131,
+        "mean_price": 0.3372137404580152,
+        "win_rate": 0.3282442748091603,
+        "weather_dates": 106,
+        "lower": 0.2509350393700787,
+        "upper": 0.4015803527074019
+      },
+      {
+        "bin": 4,
+        "n": 28,
+        "mean_price": 0.44303571428571437,
+        "win_rate": 0.6785714285714286,
+        "weather_dates": 28,
+        "lower": 0.5,
+        "upper": 0.8846153846153846
+      },
+      {
+        "bin": 5,
+        "n": 10,
+        "mean_price": 0.5449999999999999,
+        "win_rate": 0.7,
+        "weather_dates": 10,
+        "lower": 0.4,
+        "upper": 1.0
+      },
+      {
+        "bin": 6,
+        "n": 6,
+        "mean_price": 0.6516666666666667,
+        "win_rate": 0.8333333333333334,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 7,
+        "mean_price": 0.7642857142857143,
+        "win_rate": 0.7142857142857143,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 13,
+        "mean_price": 0.8365384615384617,
+        "win_rate": 1.0,
+        "weather_dates": 13,
+        "lower": 1.0,
+        "upper": 1.0
+      },
+      {
+        "bin": 9,
+        "n": 11,
+        "mean_price": 0.9295454545454547,
+        "win_rate": 0.9090909090909091,
+        "weather_dates": 11,
+        "lower": 0.6825,
+        "upper": 1.0
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Madrid",
+    "clean_events": 183,
+    "n": 179,
+    "buckets": 1969,
+    "weather_dates": 179,
+    "favorite_hit": 0.441340782122905,
+    "favorite_ci": [
+      0.3715083798882682,
+      0.5139664804469274
+    ],
+    "random_hit": 0.09090909090909095,
+    "bucket_brier": 0.06035997917724734,
+    "event_mean_brier": 0.06035997917724734,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06058759892663865,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1392,
+        "mean_price": 0.01899676724137931,
+        "win_rate": 0.005747126436781609,
+        "weather_dates": 179,
+        "lower": 0.002152080344332855,
+        "upper": 0.010097550850975509
+      },
+      {
+        "bin": 1,
+        "n": 175,
+        "mean_price": 0.14276285714285716,
+        "win_rate": 0.10857142857142857,
+        "weather_dates": 135,
+        "lower": 0.06666666666666667,
+        "upper": 0.15659897327495093
+      },
+      {
+        "bin": 2,
+        "n": 159,
+        "mean_price": 0.24706289308176102,
+        "win_rate": 0.2830188679245283,
+        "weather_dates": 111,
+        "lower": 0.21781135531135531,
+        "upper": 0.35541666666666666
+      },
+      {
+        "bin": 3,
+        "n": 150,
+        "mean_price": 0.34590000000000004,
+        "win_rate": 0.4266666666666667,
+        "weather_dates": 119,
+        "lower": 0.3589230108450553,
+        "upper": 0.5
+      },
+      {
+        "bin": 4,
+        "n": 63,
+        "mean_price": 0.44611111111111107,
+        "win_rate": 0.47619047619047616,
+        "weather_dates": 57,
+        "lower": 0.35699344758064516,
+        "upper": 0.576271186440678
+      },
+      {
+        "bin": 5,
+        "n": 29,
+        "mean_price": 0.5318965517241379,
+        "win_rate": 0.41379310344827586,
+        "weather_dates": 29,
+        "lower": 0.21462450592885376,
+        "upper": 0.5925925925925926
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.785,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Manila",
+    "clean_events": 154,
+    "n": 151,
+    "buckets": 1661,
+    "weather_dates": 151,
+    "favorite_hit": 0.33774834437086093,
+    "favorite_ci": [
+      0.26490066225165565,
+      0.41721854304635764
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06885079650812764,
+    "event_mean_brier": 0.06885079650812764,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.06890501960116346,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1127,
+        "mean_price": 0.02023558118899734,
+        "win_rate": 0.015971606033717833,
+        "weather_dates": 151,
+        "lower": 0.009742711667608109,
+        "upper": 0.023128842555466447
+      },
+      {
+        "bin": 1,
+        "n": 182,
+        "mean_price": 0.1423214285714286,
+        "win_rate": 0.16483516483516483,
+        "weather_dates": 118,
+        "lower": 0.11373967231480185,
+        "upper": 0.2178625564987322
+      },
+      {
+        "bin": 2,
+        "n": 171,
+        "mean_price": 0.24690058479532162,
+        "win_rate": 0.2573099415204678,
+        "weather_dates": 105,
+        "lower": 0.19124293785310734,
+        "upper": 0.31790132924335374
+      },
+      {
+        "bin": 3,
+        "n": 156,
+        "mean_price": 0.3404166666666667,
+        "win_rate": 0.32051282051282054,
+        "weather_dates": 113,
+        "lower": 0.2531055900621118,
+        "upper": 0.38647520242914973
+      },
+      {
+        "bin": 4,
+        "n": 20,
+        "mean_price": 0.44425,
+        "win_rate": 0.3,
+        "weather_dates": 20,
+        "lower": 0.10526315789473684,
+        "upper": 0.5263157894736842
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.535,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.63,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.795,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Mexico City",
+    "clean_events": 168,
+    "n": 144,
+    "buckets": 1584,
+    "weather_dates": 144,
+    "favorite_hit": 0.5104166666666666,
+    "favorite_ci": [
+      0.4322048611111111,
+      0.59375
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.05605820912247475,
+    "event_mean_brier": 0.05605820912247475,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.05626013279856078,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1134,
+        "mean_price": 0.01859567901234568,
+        "win_rate": 0.009700176366843033,
+        "weather_dates": 144,
+        "lower": 0.004414370968949213,
+        "upper": 0.015152202388943213
+      },
+      {
+        "bin": 1,
+        "n": 144,
+        "mean_price": 0.1395451388888889,
+        "win_rate": 0.14583333333333334,
+        "weather_dates": 100,
+        "lower": 0.09723502304147465,
+        "upper": 0.2
+      },
+      {
+        "bin": 2,
+        "n": 134,
+        "mean_price": 0.25438432835820896,
+        "win_rate": 0.23134328358208955,
+        "weather_dates": 87,
+        "lower": 0.1746031746031746,
+        "upper": 0.2930243902439024
+      },
+      {
+        "bin": 3,
+        "n": 99,
+        "mean_price": 0.3385353535353535,
+        "win_rate": 0.29292929292929293,
+        "weather_dates": 81,
+        "lower": 0.20913919413919416,
+        "upper": 0.375
+      },
+      {
+        "bin": 4,
+        "n": 43,
+        "mean_price": 0.43348837209302327,
+        "win_rate": 0.6511627906976745,
+        "weather_dates": 42,
+        "lower": 0.4938953488372093,
+        "upper": 0.7777777777777778
+      },
+      {
+        "bin": 5,
+        "n": 9,
+        "mean_price": 0.5305555555555556,
+        "win_rate": 0.4444444444444444,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.6366666666666667,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 6,
+        "mean_price": 0.7733333333333334,
+        "win_rate": 1.0,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 3,
+        "mean_price": 0.855,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 9,
+        "mean_price": 0.9233333333333333,
+        "win_rate": 0.8888888888888888,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Miami",
+    "clean_events": 238,
+    "n": 234,
+    "buckets": 2426,
+    "weather_dates": 234,
+    "favorite_hit": 0.49786324786324787,
+    "favorite_ci": [
+      0.4337606837606838,
+      0.5588141025641026
+    ],
+    "random_hit": 0.09838309838309837,
+    "bucket_brier": 0.06360329822753504,
+    "event_mean_brier": 0.06474174602557936,
+    "event_uniform_brier": 0.08845368729928611,
+    "event_normalized_brier": 0.0648432233907004,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1698,
+        "mean_price": 0.02049440518256773,
+        "win_rate": 0.012367491166077738,
+        "weather_dates": 234,
+        "lower": 0.007606567648629771,
+        "upper": 0.01769964330266646
+      },
+      {
+        "bin": 1,
+        "n": 221,
+        "mean_price": 0.14098868778280543,
+        "win_rate": 0.11764705882352941,
+        "weather_dates": 167,
+        "lower": 0.07766990291262135,
+        "upper": 0.15926383399209484
+      },
+      {
+        "bin": 2,
+        "n": 180,
+        "mean_price": 0.24268888888888887,
+        "win_rate": 0.24444444444444444,
+        "weather_dates": 128,
+        "lower": 0.18764375251566903,
+        "upper": 0.30529691317561525
+      },
+      {
+        "bin": 3,
+        "n": 177,
+        "mean_price": 0.3423446327683616,
+        "win_rate": 0.3502824858757062,
+        "weather_dates": 139,
+        "lower": 0.29444444444444445,
+        "upper": 0.41062499999999996
+      },
+      {
+        "bin": 4,
+        "n": 109,
+        "mean_price": 0.4420183486238532,
+        "win_rate": 0.5229357798165137,
+        "weather_dates": 96,
+        "lower": 0.4464108910891089,
+        "upper": 0.6
+      },
+      {
+        "bin": 5,
+        "n": 33,
+        "mean_price": 0.5312121212121212,
+        "win_rate": 0.5454545454545454,
+        "weather_dates": 33,
+        "lower": 0.36683501683501685,
+        "upper": 0.7144316730523622
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.635,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 5,
+        "mean_price": 0.742,
+        "win_rate": 0.8,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Milan",
+    "clean_events": 183,
+    "n": 179,
+    "buckets": 1969,
+    "weather_dates": 179,
+    "favorite_hit": 0.44692737430167595,
+    "favorite_ci": [
+      0.3687150837988827,
+      0.5182262569832402
+    ],
+    "random_hit": 0.09090909090909095,
+    "bucket_brier": 0.060907739715591665,
+    "event_mean_brier": 0.06090773971559167,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06113431749632672,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1343,
+        "mean_price": 0.019708116157855546,
+        "win_rate": 0.008190618019359643,
+        "weather_dates": 179,
+        "lower": 0.004419650706206412,
+        "upper": 0.012816933546109447
+      },
+      {
+        "bin": 1,
+        "n": 229,
+        "mean_price": 0.14303275109170305,
+        "win_rate": 0.11790393013100436,
+        "weather_dates": 147,
+        "lower": 0.0782608695652174,
+        "upper": 0.16309236355593237
+      },
+      {
+        "bin": 2,
+        "n": 161,
+        "mean_price": 0.2480869565217391,
+        "win_rate": 0.2111801242236025,
+        "weather_dates": 105,
+        "lower": 0.15997596153846155,
+        "upper": 0.26301085329341317
+      },
+      {
+        "bin": 3,
+        "n": 183,
+        "mean_price": 0.3454016393442623,
+        "win_rate": 0.4262295081967213,
+        "weather_dates": 132,
+        "lower": 0.3752896341463415,
+        "upper": 0.47619047619047616
+      },
+      {
+        "bin": 4,
+        "n": 42,
+        "mean_price": 0.43130952380952375,
+        "win_rate": 0.4523809523809524,
+        "weather_dates": 41,
+        "lower": 0.30657051282051284,
+        "upper": 0.6070652173913043
+      },
+      {
+        "bin": 5,
+        "n": 5,
+        "mean_price": 0.524,
+        "win_rate": 0.8,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.6649999999999999,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.755,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Moscow",
+    "clean_events": 169,
+    "n": 167,
+    "buckets": 1837,
+    "weather_dates": 167,
+    "favorite_hit": 0.3413173652694611,
+    "favorite_ci": [
+      0.27245508982035926,
+      0.41317365269461076
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06804577817093087,
+    "event_mean_brier": 0.06804577817093087,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.06820181544784609,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1227,
+        "mean_price": 0.02422982885085575,
+        "win_rate": 0.018744906275468622,
+        "weather_dates": 167,
+        "lower": 0.01143169746589942,
+        "upper": 0.02605194805194805
+      },
+      {
+        "bin": 1,
+        "n": 251,
+        "mean_price": 0.14587848605577688,
+        "win_rate": 0.14741035856573706,
+        "weather_dates": 150,
+        "lower": 0.11088054457619674,
+        "upper": 0.19026327123936682
+      },
+      {
+        "bin": 2,
+        "n": 214,
+        "mean_price": 0.24843457943925237,
+        "win_rate": 0.24299065420560748,
+        "weather_dates": 128,
+        "lower": 0.19707106274007682,
+        "upper": 0.28739504067173965
+      },
+      {
+        "bin": 3,
+        "n": 107,
+        "mean_price": 0.33293925233644855,
+        "win_rate": 0.34579439252336447,
+        "weather_dates": 90,
+        "lower": 0.26534591194968554,
+        "upper": 0.436021602160216
+      },
+      {
+        "bin": 4,
+        "n": 29,
+        "mean_price": 0.43189655172413793,
+        "win_rate": 0.4482758620689655,
+        "weather_dates": 29,
+        "lower": 0.25,
+        "upper": 0.6397727272727272
+      },
+      {
+        "bin": 5,
+        "n": 6,
+        "mean_price": 0.5533333333333333,
+        "win_rate": 0.5,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 2,
+        "mean_price": 0.7224999999999999,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.83,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Munich",
+    "clean_events": 193,
+    "n": 191,
+    "buckets": 2081,
+    "weather_dates": 191,
+    "favorite_hit": 0.39267015706806285,
+    "favorite_ci": [
+      0.32585078534031414,
+      0.46335078534031415
+    ],
+    "random_hit": 0.09196678830186689,
+    "bucket_brier": 0.06521410451705911,
+    "event_mean_brier": 0.06529314371463325,
+    "event_uniform_brier": 0.08348864925098459,
+    "event_normalized_brier": 0.06538402175152512,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1381,
+        "mean_price": 0.021023533671252717,
+        "win_rate": 0.010861694424330196,
+        "weather_dates": 191,
+        "lower": 0.005826656955571741,
+        "upper": 0.016360215760875582
+      },
+      {
+        "bin": 1,
+        "n": 254,
+        "mean_price": 0.1446673228346457,
+        "win_rate": 0.12992125984251968,
+        "weather_dates": 158,
+        "lower": 0.09520280945184778,
+        "upper": 0.16603081518175858
+      },
+      {
+        "bin": 2,
+        "n": 252,
+        "mean_price": 0.24937103174603176,
+        "win_rate": 0.23809523809523808,
+        "weather_dates": 154,
+        "lower": 0.19454755568006724,
+        "upper": 0.28033201581027667
+      },
+      {
+        "bin": 3,
+        "n": 168,
+        "mean_price": 0.3365803571428571,
+        "win_rate": 0.39285714285714285,
+        "weather_dates": 136,
+        "lower": 0.3282017381656805,
+        "upper": 0.44886363636363635
+      },
+      {
+        "bin": 4,
+        "n": 18,
+        "mean_price": 0.4327777777777777,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 18,
+        "lower": 0.414093137254902,
+        "upper": 0.875
+      },
+      {
+        "bin": 5,
+        "n": 5,
+        "mean_price": 0.5309999999999999,
+        "win_rate": 0.6,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.625,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 2,
+        "mean_price": 0.8625,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "NYC",
+    "clean_events": 365,
+    "n": 348,
+    "buckets": 3222,
+    "weather_dates": 348,
+    "favorite_hit": 0.4410919540229885,
+    "favorite_ci": [
+      0.39080459770114945,
+      0.49137931034482757
+    ],
+    "random_hit": 0.11304340614685444,
+    "bucket_brier": 0.07330137383612663,
+    "event_mean_brier": 0.0755320262062331,
+    "event_uniform_brier": 0.09965813232469946,
+    "event_normalized_brier": 0.07567867986051535,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 2054,
+        "mean_price": 0.024657740993184032,
+        "win_rate": 0.02044790652385589,
+        "weather_dates": 348,
+        "lower": 0.015125465166325073,
+        "upper": 0.02664930881074539
+      },
+      {
+        "bin": 1,
+        "n": 430,
+        "mean_price": 0.14548139534883722,
+        "win_rate": 0.11395348837209303,
+        "weather_dates": 273,
+        "lower": 0.08871681888016388,
+        "upper": 0.14077786617166094
+      },
+      {
+        "bin": 2,
+        "n": 336,
+        "mean_price": 0.24942559523809524,
+        "win_rate": 0.24702380952380953,
+        "weather_dates": 233,
+        "lower": 0.21212121212121213,
+        "upper": 0.2840915409305734
+      },
+      {
+        "bin": 3,
+        "n": 249,
+        "mean_price": 0.3408433734939759,
+        "win_rate": 0.3132530120481928,
+        "weather_dates": 198,
+        "lower": 0.2616240985576923,
+        "upper": 0.3620758928571428
+      },
+      {
+        "bin": 4,
+        "n": 97,
+        "mean_price": 0.440360824742268,
+        "win_rate": 0.5670103092783505,
+        "weather_dates": 91,
+        "lower": 0.4684009308510638,
+        "upper": 0.6560598377281947
+      },
+      {
+        "bin": 5,
+        "n": 31,
+        "mean_price": 0.545258064516129,
+        "win_rate": 0.7096774193548387,
+        "weather_dates": 31,
+        "lower": 0.5361280487804878,
+        "upper": 0.8644827586206896
+      },
+      {
+        "bin": 6,
+        "n": 13,
+        "mean_price": 0.6288461538461539,
+        "win_rate": 0.6923076923076923,
+        "weather_dates": 13,
+        "lower": 0.4,
+        "upper": 0.9259615384615384
+      },
+      {
+        "bin": 7,
+        "n": 6,
+        "mean_price": 0.7333333333333334,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 5,
+        "mean_price": 0.843,
+        "win_rate": 1.0,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.94,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Panama City",
+    "clean_events": 164,
+    "n": 156,
+    "buckets": 1716,
+    "weather_dates": 156,
+    "favorite_hit": 0.483974358974359,
+    "favorite_ci": [
+      0.40384615384615385,
+      0.5674679487179486
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.05742153817016317,
+    "event_mean_brier": 0.057421538170163176,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.0575887621096213,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1220,
+        "mean_price": 0.01722377049180328,
+        "win_rate": 0.012295081967213115,
+        "weather_dates": 156,
+        "lower": 0.00651113172541744,
+        "upper": 0.018185022170859044
+      },
+      {
+        "bin": 1,
+        "n": 151,
+        "mean_price": 0.14016556291390728,
+        "win_rate": 0.09933774834437085,
+        "weather_dates": 105,
+        "lower": 0.055927230046948356,
+        "upper": 0.14755178907721278
+      },
+      {
+        "bin": 2,
+        "n": 148,
+        "mean_price": 0.2490878378378378,
+        "win_rate": 0.25675675675675674,
+        "weather_dates": 95,
+        "lower": 0.19271825396825398,
+        "upper": 0.31582486182392416
+      },
+      {
+        "bin": 3,
+        "n": 139,
+        "mean_price": 0.341568345323741,
+        "win_rate": 0.381294964028777,
+        "weather_dates": 102,
+        "lower": 0.3198432678252396,
+        "upper": 0.4577678571428571
+      },
+      {
+        "bin": 4,
+        "n": 30,
+        "mean_price": 0.4356666666666666,
+        "win_rate": 0.36666666666666664,
+        "weather_dates": 30,
+        "lower": 0.19289702233250622,
+        "upper": 0.5509051724137931
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.5383333333333333,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 6,
+        "mean_price": 0.6499999999999999,
+        "win_rate": 0.8333333333333334,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 9,
+        "mean_price": 0.745,
+        "win_rate": 0.8888888888888888,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 7,
+        "mean_price": 0.8685714285714285,
+        "win_rate": 1.0,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 3,
+        "mean_price": 0.93,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Paris",
+    "clean_events": 214,
+    "n": 206,
+    "buckets": 2216,
+    "weather_dates": 206,
+    "favorite_hit": 0.41262135922330095,
+    "favorite_ci": [
+      0.3506674757281554,
+      0.47572815533980584
+    ],
+    "random_hit": 0.09336079238991864,
+    "bucket_brier": 0.06647800823555958,
+    "event_mean_brier": 0.06683743656222418,
+    "event_uniform_brier": 0.08460103635155115,
+    "event_normalized_brier": 0.06692460149229035,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1484,
+        "mean_price": 0.02113510781671159,
+        "win_rate": 0.014150943396226415,
+        "weather_dates": 206,
+        "lower": 0.009336290860573717,
+        "upper": 0.020223489960332065
+      },
+      {
+        "bin": 1,
+        "n": 262,
+        "mean_price": 0.14502480916030536,
+        "win_rate": 0.1183206106870229,
+        "weather_dates": 171,
+        "lower": 0.07849761026329029,
+        "upper": 0.15134778012684988
+      },
+      {
+        "bin": 2,
+        "n": 222,
+        "mean_price": 0.24915990990990994,
+        "win_rate": 0.2702702702702703,
+        "weather_dates": 148,
+        "lower": 0.22686026200873363,
+        "upper": 0.3220395200300568
+      },
+      {
+        "bin": 3,
+        "n": 209,
+        "mean_price": 0.340956937799043,
+        "win_rate": 0.3492822966507177,
+        "weather_dates": 158,
+        "lower": 0.2974953095684803,
+        "upper": 0.4050675250597659
+      },
+      {
+        "bin": 4,
+        "n": 28,
+        "mean_price": 0.44267857142857153,
+        "win_rate": 0.5,
+        "weather_dates": 28,
+        "lower": 0.32,
+        "upper": 0.6859375
+      },
+      {
+        "bin": 5,
+        "n": 9,
+        "mean_price": 0.5399999999999999,
+        "win_rate": 0.5555555555555556,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 2,
+        "mean_price": 0.75,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Phoenix",
+    "clean_events": 2,
+    "n": 1,
+    "buckets": 7,
+    "weather_dates": 1,
+    "favorite_hit": 1.0,
+    "favorite_ci": null,
+    "random_hit": 0.14285714285714285,
+    "bucket_brier": 0.06505860714285713,
+    "event_mean_brier": 0.06505860714285713,
+    "event_uniform_brier": 0.12244897959183677,
+    "event_normalized_brier": 0.06058883321345627,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 4,
+        "mean_price": 0.031375,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 1,
+        "n": 1,
+        "mean_price": 0.15,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 2,
+        "n": 1,
+        "mean_price": 0.235,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 3,
+        "n": 1,
+        "mean_price": 0.39,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Qingdao",
+    "clean_events": 142,
+    "n": 136,
+    "buckets": 1496,
+    "weather_dates": 136,
+    "favorite_hit": 0.2977941176470588,
+    "favorite_ci": [
+      0.21691176470588236,
+      0.37325367647058816
+    ],
+    "random_hit": 0.09090909090909094,
+    "bucket_brier": 0.06783783071524065,
+    "event_mean_brier": 0.06783783071524063,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.06782652392649824,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 988,
+        "mean_price": 0.02361437246963563,
+        "win_rate": 0.01720647773279352,
+        "weather_dates": 136,
+        "lower": 0.009577785088032954,
+        "upper": 0.025357645403377108
+      },
+      {
+        "bin": 1,
+        "n": 209,
+        "mean_price": 0.14636124401913875,
+        "win_rate": 0.11961722488038277,
+        "weather_dates": 117,
+        "lower": 0.08311991869918699,
+        "upper": 0.15789473684210525
+      },
+      {
+        "bin": 2,
+        "n": 195,
+        "mean_price": 0.246451282051282,
+        "win_rate": 0.27692307692307694,
+        "weather_dates": 107,
+        "lower": 0.23076923076923078,
+        "upper": 0.32161421499292786
+      },
+      {
+        "bin": 3,
+        "n": 80,
+        "mean_price": 0.33625,
+        "win_rate": 0.3625,
+        "weather_dates": 65,
+        "lower": 0.25974124809741245,
+        "upper": 0.4582320119920052
+      },
+      {
+        "bin": 4,
+        "n": 18,
+        "mean_price": 0.44,
+        "win_rate": 0.4444444444444444,
+        "weather_dates": 17,
+        "lower": 0.21052631578947367,
+        "upper": 0.6587499999999996
+      },
+      {
+        "bin": 5,
+        "n": 2,
+        "mean_price": 0.51,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.7566666666666667,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.8,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "San Francisco",
+    "clean_events": 175,
+    "n": 169,
+    "buckets": 1859,
+    "weather_dates": 169,
+    "favorite_hit": 0.40532544378698226,
+    "favorite_ci": [
+      0.33136094674556216,
+      0.4867603550295857
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06531840411511565,
+    "event_mean_brier": 0.06531840411511565,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06537655981621125,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1255,
+        "mean_price": 0.02179800796812749,
+        "win_rate": 0.016733067729083666,
+        "weather_dates": 169,
+        "lower": 0.010324483682760153,
+        "upper": 0.023293172690763052
+      },
+      {
+        "bin": 1,
+        "n": 241,
+        "mean_price": 0.14491701244813276,
+        "win_rate": 0.12033195020746888,
+        "weather_dates": 144,
+        "lower": 0.0828159921603686,
+        "upper": 0.16244925213675215
+      },
+      {
+        "bin": 2,
+        "n": 195,
+        "mean_price": 0.24812820512820516,
+        "win_rate": 0.26666666666666666,
+        "weather_dates": 125,
+        "lower": 0.21400182731841025,
+        "upper": 0.3226733265027322
+      },
+      {
+        "bin": 3,
+        "n": 140,
+        "mean_price": 0.3349142857142857,
+        "win_rate": 0.3357142857142857,
+        "weather_dates": 109,
+        "lower": 0.265625,
+        "upper": 0.4074556830031282
+      },
+      {
+        "bin": 4,
+        "n": 14,
+        "mean_price": 0.4353571428571429,
+        "win_rate": 0.6428571428571429,
+        "weather_dates": 14,
+        "lower": 0.35714285714285715,
+        "upper": 0.875
+      },
+      {
+        "bin": 5,
+        "n": 5,
+        "mean_price": 0.53,
+        "win_rate": 1.0,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 5,
+        "mean_price": 0.631,
+        "win_rate": 0.6,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 4,
+        "mean_price": 0.7474999999999999,
+        "win_rate": 0.75,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Sao Paulo",
+    "clean_events": 211,
+    "n": 205,
+    "buckets": 2205,
+    "weather_dates": 205,
+    "favorite_hit": 0.34552845528455284,
+    "favorite_ci": [
+      0.2841260162601626,
+      0.40573170731707314
+    ],
+    "random_hit": 0.09337275190933729,
+    "bucket_brier": 0.0703637589569161,
+    "event_mean_brier": 0.0707763711998029,
+    "event_uniform_brier": 0.0846105798064408,
+    "event_normalized_brier": 0.07073606120875128,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1466,
+        "mean_price": 0.024852660300136428,
+        "win_rate": 0.019781718963165076,
+        "weather_dates": 205,
+        "lower": 0.013108591041395074,
+        "upper": 0.027360729619456518
+      },
+      {
+        "bin": 1,
+        "n": 294,
+        "mean_price": 0.1482789115646259,
+        "win_rate": 0.11904761904761904,
+        "weather_dates": 176,
+        "lower": 0.08260251217403176,
+        "upper": 0.15384615384615385
+      },
+      {
+        "bin": 2,
+        "n": 255,
+        "mean_price": 0.250843137254902,
+        "win_rate": 0.28627450980392155,
+        "weather_dates": 159,
+        "lower": 0.24146730462519936,
+        "upper": 0.33273584905660375
+      },
+      {
+        "bin": 3,
+        "n": 145,
+        "mean_price": 0.33741379310344827,
+        "win_rate": 0.33793103448275863,
+        "weather_dates": 114,
+        "lower": 0.2723763368983957,
+        "upper": 0.4007664233576642
+      },
+      {
+        "bin": 4,
+        "n": 42,
+        "mean_price": 0.4271428571428571,
+        "win_rate": 0.42857142857142855,
+        "weather_dates": 42,
+        "lower": 0.2783914728682171,
+        "upper": 0.5802325581395349
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.54,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.66,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.865,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Seattle",
+    "clean_events": 282,
+    "n": 261,
+    "buckets": 2563,
+    "weather_dates": 261,
+    "favorite_hit": 0.42911877394636017,
+    "favorite_ci": [
+      0.36872605363984673,
+      0.4933429118773946
+    ],
+    "random_hit": 0.10557131246786419,
+    "bucket_brier": 0.06901751053452986,
+    "event_mean_brier": 0.07035529530665163,
+    "event_uniform_brier": 0.09395303389431864,
+    "event_normalized_brier": 0.07045709929372049,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1679,
+        "mean_price": 0.02434812388326385,
+        "win_rate": 0.015485407980941036,
+        "weather_dates": 261,
+        "lower": 0.010089020771513354,
+        "upper": 0.020719779777044398
+      },
+      {
+        "bin": 1,
+        "n": 329,
+        "mean_price": 0.14624316109422494,
+        "win_rate": 0.13069908814589665,
+        "weather_dates": 209,
+        "lower": 0.097913308951153,
+        "upper": 0.16694801714898175
+      },
+      {
+        "bin": 2,
+        "n": 265,
+        "mean_price": 0.25169811320754715,
+        "win_rate": 0.2528301886792453,
+        "weather_dates": 176,
+        "lower": 0.20696053340517243,
+        "upper": 0.2921385326384694
+      },
+      {
+        "bin": 3,
+        "n": 221,
+        "mean_price": 0.3423529411764706,
+        "win_rate": 0.3665158371040724,
+        "weather_dates": 179,
+        "lower": 0.3157730986800754,
+        "upper": 0.4249541108170409
+      },
+      {
+        "bin": 4,
+        "n": 46,
+        "mean_price": 0.4394565217391304,
+        "win_rate": 0.5217391304347826,
+        "weather_dates": 45,
+        "lower": 0.3737514688601645,
+        "upper": 0.6501937984496123
+      },
+      {
+        "bin": 5,
+        "n": 5,
+        "mean_price": 0.518,
+        "win_rate": 0.8,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 5,
+        "mean_price": 0.633,
+        "win_rate": 0.6,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.75,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 7,
+        "mean_price": 0.8492857142857142,
+        "win_rate": 1.0,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 3,
+        "mean_price": 0.9195000000000001,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Seoul",
+    "clean_events": 235,
+    "n": 212,
+    "buckets": 2074,
+    "weather_dates": 212,
+    "favorite_hit": 0.3561320754716981,
+    "favorite_ci": [
+      0.2830188679245283,
+      0.418691037735849
+    ],
+    "random_hit": 0.10592447384900218,
+    "bucket_brier": 0.07518541357280617,
+    "event_mean_brier": 0.07723684923187399,
+    "event_uniform_brier": 0.09423765116814203,
+    "event_normalized_brier": 0.07723119862943664,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1243,
+        "mean_price": 0.022672566371681416,
+        "win_rate": 0.010458567980691875,
+        "weather_dates": 212,
+        "lower": 0.005595303514376997,
+        "upper": 0.016130374948946275
+      },
+      {
+        "bin": 1,
+        "n": 368,
+        "mean_price": 0.14947282608695653,
+        "win_rate": 0.14402173913043478,
+        "weather_dates": 184,
+        "lower": 0.114584297050137,
+        "upper": 0.17449084904362186
+      },
+      {
+        "bin": 2,
+        "n": 287,
+        "mean_price": 0.24413240418118468,
+        "win_rate": 0.2926829268292683,
+        "weather_dates": 164,
+        "lower": 0.2540052573325955,
+        "upper": 0.33647274633123686
+      },
+      {
+        "bin": 3,
+        "n": 131,
+        "mean_price": 0.3349236641221375,
+        "win_rate": 0.32061068702290074,
+        "weather_dates": 105,
+        "lower": 0.25384615384615383,
+        "upper": 0.38656323185011704
+      },
+      {
+        "bin": 4,
+        "n": 29,
+        "mean_price": 0.4387413793103448,
+        "win_rate": 0.3793103448275862,
+        "weather_dates": 27,
+        "lower": 0.20689655172413793,
+        "upper": 0.5421328671328669
+      },
+      {
+        "bin": 5,
+        "n": 6,
+        "mean_price": 0.5483333333333333,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 4,
+        "mean_price": 0.66,
+        "win_rate": 0.5,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 4,
+        "mean_price": 0.7475,
+        "win_rate": 1.0,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 2,
+        "mean_price": 0.8625,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Seoul (Incheon)",
+    "clean_events": 48,
+    "n": 48,
+    "buckets": 528,
+    "weather_dates": 48,
+    "favorite_hit": 0.3958333333333333,
+    "favorite_ci": [
+      0.25,
+      0.5208333333333334
+    ],
+    "random_hit": 0.09090909090909093,
+    "bucket_brier": 0.06695775,
+    "event_mean_brier": 0.06695775,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06696679251756299,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 361,
+        "mean_price": 0.021858725761772856,
+        "win_rate": 0.01662049861495845,
+        "weather_dates": 48,
+        "lower": 0.005516871375736268,
+        "upper": 0.027896002240861483
+      },
+      {
+        "bin": 1,
+        "n": 52,
+        "mean_price": 0.1461153846153846,
+        "win_rate": 0.09615384615384616,
+        "weather_dates": 37,
+        "lower": 0.021725768321513003,
+        "upper": 0.1780542986425339
+      },
+      {
+        "bin": 2,
+        "n": 59,
+        "mean_price": 0.24796610169491526,
+        "win_rate": 0.2711864406779661,
+        "weather_dates": 36,
+        "lower": 0.17692669172932332,
+        "upper": 0.3707627118644067
+      },
+      {
+        "bin": 3,
+        "n": 45,
+        "mean_price": 0.3403333333333333,
+        "win_rate": 0.37777777777777777,
+        "weather_dates": 36,
+        "lower": 0.24679878048780488,
+        "upper": 0.5173564189189188
+      },
+      {
+        "bin": 4,
+        "n": 9,
+        "mean_price": 0.43444444444444447,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 2,
+        "mean_price": 0.54,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Shanghai",
+    "clean_events": 186,
+    "n": 183,
+    "buckets": 2007,
+    "weather_dates": 183,
+    "favorite_hit": 0.35792349726775957,
+    "favorite_ci": [
+      0.29508196721311475,
+      0.4207650273224044
+    ],
+    "random_hit": 0.09124027156814048,
+    "bucket_brier": 0.06763348891380169,
+    "event_mean_brier": 0.067677397568582,
+    "event_uniform_brier": 0.08290890357457667,
+    "event_normalized_brier": 0.0677947359259057,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1348,
+        "mean_price": 0.023117952522255195,
+        "win_rate": 0.017804154302670624,
+        "weather_dates": 183,
+        "lower": 0.01122272887590064,
+        "upper": 0.02416058267144105
+      },
+      {
+        "bin": 1,
+        "n": 265,
+        "mean_price": 0.14282830188679244,
+        "win_rate": 0.14339622641509434,
+        "weather_dates": 146,
+        "lower": 0.10773601398601398,
+        "upper": 0.18811088977423635
+      },
+      {
+        "bin": 2,
+        "n": 199,
+        "mean_price": 0.24959547738693466,
+        "win_rate": 0.24120603015075376,
+        "weather_dates": 127,
+        "lower": 0.18673691860465116,
+        "upper": 0.2982157967105611
+      },
+      {
+        "bin": 3,
+        "n": 161,
+        "mean_price": 0.3364751552795031,
+        "win_rate": 0.33540372670807456,
+        "weather_dates": 123,
+        "lower": 0.26706030897207367,
+        "upper": 0.39695784729586425
+      },
+      {
+        "bin": 4,
+        "n": 26,
+        "mean_price": 0.4457692307692307,
+        "win_rate": 0.6153846153846154,
+        "weather_dates": 23,
+        "lower": 0.45985576923076926,
+        "upper": 0.7803140096618356
+      },
+      {
+        "bin": 5,
+        "n": 5,
+        "mean_price": 0.554,
+        "win_rate": 0.2,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.665,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 2,
+        "mean_price": 0.765,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Shenzhen",
+    "clean_events": 178,
+    "n": 174,
+    "buckets": 1914,
+    "weather_dates": 174,
+    "favorite_hit": 0.3160919540229885,
+    "favorite_ci": [
+      0.2471264367816092,
+      0.3923132183908045
+    ],
+    "random_hit": 0.09090909090909097,
+    "bucket_brier": 0.07201766836468129,
+    "event_mean_brier": 0.07201766836468129,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07202079160437844,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1225,
+        "mean_price": 0.023701632653061227,
+        "win_rate": 0.0236734693877551,
+        "weather_dates": 174,
+        "lower": 0.015586546349466776,
+        "upper": 0.03186406794933836
+      },
+      {
+        "bin": 1,
+        "n": 284,
+        "mean_price": 0.1431725352112676,
+        "win_rate": 0.13732394366197184,
+        "weather_dates": 155,
+        "lower": 0.10397743656286043,
+        "upper": 0.16988138215575038
+      },
+      {
+        "bin": 2,
+        "n": 264,
+        "mean_price": 0.24602272727272728,
+        "win_rate": 0.22727272727272727,
+        "weather_dates": 146,
+        "lower": 0.19180642469753859,
+        "upper": 0.26903260450514954
+      },
+      {
+        "bin": 3,
+        "n": 137,
+        "mean_price": 0.33010948905109483,
+        "win_rate": 0.31386861313868614,
+        "weather_dates": 111,
+        "lower": 0.24274684873949579,
+        "upper": 0.38919390669628684
+      },
+      {
+        "bin": 4,
+        "n": 3,
+        "mean_price": 0.41500000000000004,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.745,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Singapore",
+    "clean_events": 184,
+    "n": 182,
+    "buckets": 1996,
+    "weather_dates": 182,
+    "favorite_hit": 0.49175824175824173,
+    "favorite_ci": [
+      0.4230769230769231,
+      0.5659340659340659
+    ],
+    "random_hit": 0.0912420912420913,
+    "bucket_brier": 0.06010510245490982,
+    "event_mean_brier": 0.06022563017538017,
+    "event_uniform_brier": 0.08291035563762834,
+    "event_normalized_brier": 0.06031329273224957,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1413,
+        "mean_price": 0.01784961075725407,
+        "win_rate": 0.009907997169143666,
+        "weather_dates": 182,
+        "lower": 0.005637577226404974,
+        "upper": 0.015592339220059067
+      },
+      {
+        "bin": 1,
+        "n": 181,
+        "mean_price": 0.14590883977900554,
+        "win_rate": 0.14917127071823205,
+        "weather_dates": 136,
+        "lower": 0.10224697336561744,
+        "upper": 0.19571256038647342
+      },
+      {
+        "bin": 2,
+        "n": 138,
+        "mean_price": 0.24942028985507247,
+        "win_rate": 0.2318840579710145,
+        "weather_dates": 100,
+        "lower": 0.16131161971830987,
+        "upper": 0.2907017332691382
+      },
+      {
+        "bin": 3,
+        "n": 182,
+        "mean_price": 0.3432692307692308,
+        "win_rate": 0.33516483516483514,
+        "weather_dates": 133,
+        "lower": 0.2783120032725573,
+        "upper": 0.39526262880120616
+      },
+      {
+        "bin": 4,
+        "n": 46,
+        "mean_price": 0.4427173913043478,
+        "win_rate": 0.5217391304347826,
+        "weather_dates": 42,
+        "lower": 0.3858695652173913,
+        "upper": 0.6516071428571427
+      },
+      {
+        "bin": 5,
+        "n": 27,
+        "mean_price": 0.5431481481481483,
+        "win_rate": 0.5555555555555556,
+        "weather_dates": 27,
+        "lower": 0.34328125,
+        "upper": 0.7291083916083915
+      },
+      {
+        "bin": 6,
+        "n": 6,
+        "mean_price": 0.6441666666666667,
+        "win_rate": 1.0,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.725,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Taipei",
+    "clean_events": 184,
+    "n": 174,
+    "buckets": 1914,
+    "weather_dates": 174,
+    "favorite_hit": 0.31513409961685823,
+    "favorite_ci": [
+      0.25237068965517245,
+      0.38122605363984674
+    ],
+    "random_hit": 0.09090909090909097,
+    "bucket_brier": 0.07128049451410658,
+    "event_mean_brier": 0.07128049451410659,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07129930356045074,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1206,
+        "mean_price": 0.023897180762852403,
+        "win_rate": 0.019071310116086235,
+        "weather_dates": 174,
+        "lower": 0.011690780931181598,
+        "upper": 0.026678343063664164
+      },
+      {
+        "bin": 1,
+        "n": 319,
+        "mean_price": 0.14709090909090908,
+        "win_rate": 0.14106583072100312,
+        "weather_dates": 158,
+        "lower": 0.10381347628912156,
+        "upper": 0.17309876543209876
+      },
+      {
+        "bin": 2,
+        "n": 296,
+        "mean_price": 0.24314864864864863,
+        "win_rate": 0.22635135135135134,
+        "weather_dates": 157,
+        "lower": 0.1852924958900473,
+        "upper": 0.26466606802110226
+      },
+      {
+        "bin": 3,
+        "n": 82,
+        "mean_price": 0.3347073170731707,
+        "win_rate": 0.4268292682926829,
+        "weather_dates": 69,
+        "lower": 0.3312745098039216,
+        "upper": 0.5194805194805194
+      },
+      {
+        "bin": 4,
+        "n": 8,
+        "mean_price": 0.42812500000000003,
+        "win_rate": 0.375,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.54,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Tel Aviv",
+    "clean_events": 190,
+    "n": 187,
+    "buckets": 2047,
+    "weather_dates": 187,
+    "favorite_hit": 0.5374331550802139,
+    "favorite_ci": [
+      0.4679144385026738,
+      0.6016042780748663
+    ],
+    "random_hit": 0.09144925187705938,
+    "bucket_brier": 0.05333362506106498,
+    "event_mean_brier": 0.053393174931129474,
+    "event_uniform_brier": 0.08307566563926955,
+    "event_normalized_brier": 0.05361964702586344,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1472,
+        "mean_price": 0.018707880434782612,
+        "win_rate": 0.0020380434782608695,
+        "weather_dates": 187,
+        "lower": 0.0,
+        "upper": 0.00475390129209835
+      },
+      {
+        "bin": 1,
+        "n": 197,
+        "mean_price": 0.14380710659898477,
+        "win_rate": 0.1065989847715736,
+        "weather_dates": 133,
+        "lower": 0.06830549568965517,
+        "upper": 0.14859408033826638
+      },
+      {
+        "bin": 2,
+        "n": 137,
+        "mean_price": 0.24934306569343062,
+        "win_rate": 0.2773722627737226,
+        "weather_dates": 107,
+        "lower": 0.21173318551367332,
+        "upper": 0.3475736961451247
+      },
+      {
+        "bin": 3,
+        "n": 124,
+        "mean_price": 0.3441935483870967,
+        "win_rate": 0.4274193548387097,
+        "weather_dates": 106,
+        "lower": 0.352,
+        "upper": 0.4963525835866261
+      },
+      {
+        "bin": 4,
+        "n": 53,
+        "mean_price": 0.4373584905660378,
+        "win_rate": 0.5283018867924528,
+        "weather_dates": 51,
+        "lower": 0.409375,
+        "upper": 0.6569021948402001
+      },
+      {
+        "bin": 5,
+        "n": 39,
+        "mean_price": 0.5515384615384614,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 39,
+        "lower": 0.5135135135135135,
+        "upper": 0.8048780487804879
+      },
+      {
+        "bin": 6,
+        "n": 21,
+        "mean_price": 0.6461904761904762,
+        "win_rate": 0.7619047619047619,
+        "weather_dates": 21,
+        "lower": 0.5588541666666667,
+        "upper": 0.9394301470588234
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.7116666666666666,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.865,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Tokyo",
+    "clean_events": 188,
+    "n": 186,
+    "buckets": 2034,
+    "weather_dates": 186,
+    "favorite_hit": 0.33064516129032256,
+    "favorite_ci": [
+      0.26344086021505375,
+      0.3978494623655914
+    ],
+    "random_hit": 0.09156076898012384,
+    "bucket_brier": 0.06811290990658801,
+    "event_mean_brier": 0.06817740486857826,
+    "event_uniform_brier": 0.08316465403464422,
+    "event_normalized_brier": 0.06818059264305427,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1349,
+        "mean_price": 0.022165307635285396,
+        "win_rate": 0.015567086730911787,
+        "weather_dates": 186,
+        "lower": 0.009618765302055458,
+        "upper": 0.0218045658193049
+      },
+      {
+        "bin": 1,
+        "n": 253,
+        "mean_price": 0.1438102766798419,
+        "win_rate": 0.15019762845849802,
+        "weather_dates": 152,
+        "lower": 0.11109081460718391,
+        "upper": 0.19238181818181815
+      },
+      {
+        "bin": 2,
+        "n": 247,
+        "mean_price": 0.24944331983805673,
+        "win_rate": 0.2631578947368421,
+        "weather_dates": 163,
+        "lower": 0.21712971788028973,
+        "upper": 0.3096708683473389
+      },
+      {
+        "bin": 3,
+        "n": 167,
+        "mean_price": 0.3351586826347305,
+        "win_rate": 0.31137724550898205,
+        "weather_dates": 145,
+        "lower": 0.23884756097560975,
+        "upper": 0.3771970216518075
+      },
+      {
+        "bin": 4,
+        "n": 11,
+        "mean_price": 0.4336363636363636,
+        "win_rate": 0.36363636363636365,
+        "weather_dates": 11,
+        "lower": 0.0,
+        "upper": 0.6666666666666666
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.5625,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.62,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.79,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.825,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Toronto",
+    "clean_events": 283,
+    "n": 263,
+    "buckets": 2617,
+    "weather_dates": 263,
+    "favorite_hit": 0.3745247148288973,
+    "favorite_ci": [
+      0.3193916349809886,
+      0.43155893536121676
+    ],
+    "random_hit": 0.10387964380359817,
+    "bucket_brier": 0.0735933564195644,
+    "event_mean_brier": 0.0750161137460976,
+    "event_uniform_brier": 0.0926562596603582,
+    "event_normalized_brier": 0.07508586370944528,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1655,
+        "mean_price": 0.02491691842900302,
+        "win_rate": 0.01812688821752266,
+        "weather_dates": 263,
+        "lower": 0.012108973982929047,
+        "upper": 0.024543036128035697
+      },
+      {
+        "bin": 1,
+        "n": 403,
+        "mean_price": 0.14672704714640197,
+        "win_rate": 0.15384615384615385,
+        "weather_dates": 226,
+        "lower": 0.11925324675324675,
+        "upper": 0.1856273145192185
+      },
+      {
+        "bin": 2,
+        "n": 333,
+        "mean_price": 0.24646096096096096,
+        "win_rate": 0.25225225225225223,
+        "weather_dates": 204,
+        "lower": 0.2129881043039836,
+        "upper": 0.28688907107271233
+      },
+      {
+        "bin": 3,
+        "n": 156,
+        "mean_price": 0.3368365384615385,
+        "win_rate": 0.3269230769230769,
+        "weather_dates": 130,
+        "lower": 0.26100118835412955,
+        "upper": 0.39019738539606086
+      },
+      {
+        "bin": 4,
+        "n": 43,
+        "mean_price": 0.43581395348837204,
+        "win_rate": 0.3488372093023256,
+        "weather_dates": 43,
+        "lower": 0.1974390243902439,
+        "upper": 0.49515306122448954
+      },
+      {
+        "bin": 5,
+        "n": 9,
+        "mean_price": 0.5499999999999999,
+        "win_rate": 0.7777777777777778,
+        "weather_dates": 9,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.63,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 8,
+        "mean_price": 0.75,
+        "win_rate": 0.75,
+        "weather_dates": 8,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 7,
+        "mean_price": 0.8507142857142858,
+        "win_rate": 0.8571428571428571,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Warsaw",
+    "clean_events": 183,
+    "n": 179,
+    "buckets": 1969,
+    "weather_dates": 179,
+    "favorite_hit": 0.4134078212290503,
+    "favorite_ci": [
+      0.34210893854748603,
+      0.4860335195530726
+    ],
+    "random_hit": 0.09090909090909095,
+    "bucket_brier": 0.06452763382427629,
+    "event_mean_brier": 0.06452763382427629,
+    "event_uniform_brier": 0.08264462809917351,
+    "event_normalized_brier": 0.06469747089861555,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1341,
+        "mean_price": 0.021712900820283373,
+        "win_rate": 0.01267710663683818,
+        "weather_dates": 179,
+        "lower": 0.00745129133691253,
+        "upper": 0.018588061849925706
+      },
+      {
+        "bin": 1,
+        "n": 222,
+        "mean_price": 0.14304054054054058,
+        "win_rate": 0.13063063063063063,
+        "weather_dates": 147,
+        "lower": 0.08651334911144329,
+        "upper": 0.1732688861915496
+      },
+      {
+        "bin": 2,
+        "n": 210,
+        "mean_price": 0.2525,
+        "win_rate": 0.2571428571428571,
+        "weather_dates": 132,
+        "lower": 0.21026779295470885,
+        "upper": 0.3128066588785047
+      },
+      {
+        "bin": 3,
+        "n": 153,
+        "mean_price": 0.33748366013071895,
+        "win_rate": 0.35294117647058826,
+        "weather_dates": 115,
+        "lower": 0.2888636913401064,
+        "upper": 0.4153516295025729
+      },
+      {
+        "bin": 4,
+        "n": 34,
+        "mean_price": 0.42544117647058827,
+        "win_rate": 0.5294117647058824,
+        "weather_dates": 33,
+        "lower": 0.375,
+        "upper": 0.681531954887218
+      },
+      {
+        "bin": 5,
+        "n": 4,
+        "mean_price": 0.55,
+        "win_rate": 0.5,
+        "weather_dates": 4,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.645,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.7366666666666667,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Wellington",
+    "clean_events": 235,
+    "n": 226,
+    "buckets": 2360,
+    "weather_dates": 226,
+    "favorite_hit": 0.5420353982300885,
+    "favorite_ci": [
+      0.48008849557522126,
+      0.6061946902654868
+    ],
+    "random_hit": 0.09740898236473457,
+    "bucket_brier": 0.059611862711864395,
+    "event_mean_brier": 0.059905832464978485,
+    "event_uniform_brier": 0.08770735947688785,
+    "event_normalized_brier": 0.06017864885775004,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1636,
+        "mean_price": 0.017277811735941322,
+        "win_rate": 0.008557457212713936,
+        "weather_dates": 226,
+        "lower": 0.004311350562611117,
+        "upper": 0.012920089040020724
+      },
+      {
+        "bin": 1,
+        "n": 227,
+        "mean_price": 0.14397797356828196,
+        "win_rate": 0.10572687224669604,
+        "weather_dates": 163,
+        "lower": 0.06889222392852157,
+        "upper": 0.1396453147136207
+      },
+      {
+        "bin": 2,
+        "n": 179,
+        "mean_price": 0.24630167597765365,
+        "win_rate": 0.22346368715083798,
+        "weather_dates": 118,
+        "lower": 0.1729424703891709,
+        "upper": 0.274540181097906
+      },
+      {
+        "bin": 3,
+        "n": 175,
+        "mean_price": 0.33898,
+        "win_rate": 0.36,
+        "weather_dates": 135,
+        "lower": 0.3031068665377176,
+        "upper": 0.4159180199057098
+      },
+      {
+        "bin": 4,
+        "n": 78,
+        "mean_price": 0.4378205128205128,
+        "win_rate": 0.5256410256410257,
+        "weather_dates": 67,
+        "lower": 0.43327702702702703,
+        "upper": 0.633114125932063
+      },
+      {
+        "bin": 5,
+        "n": 51,
+        "mean_price": 0.5413725490196079,
+        "win_rate": 0.6274509803921569,
+        "weather_dates": 51,
+        "lower": 0.4953947368421053,
+        "upper": 0.7604565217391305
+      },
+      {
+        "bin": 6,
+        "n": 10,
+        "mean_price": 0.6369999999999999,
+        "win_rate": 0.9,
+        "weather_dates": 10,
+        "lower": 0.5770833333333334,
+        "upper": 1.0
+      },
+      {
+        "bin": 7,
+        "n": 3,
+        "mean_price": 0.7416666666666667,
+        "win_rate": 1.0,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.8,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Wuhan",
+    "clean_events": 178,
+    "n": 171,
+    "buckets": 1881,
+    "weather_dates": 171,
+    "favorite_hit": 0.2894736842105263,
+    "favorite_ci": [
+      0.2236111111111111,
+      0.36257309941520466
+    ],
+    "random_hit": 0.09090909090909094,
+    "bucket_brier": 0.07104877631578949,
+    "event_mean_brier": 0.07104877631578947,
+    "event_uniform_brier": 0.08264462809917353,
+    "event_normalized_brier": 0.07100995603961613,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 1221,
+        "mean_price": 0.023695741195741197,
+        "win_rate": 0.0171990171990172,
+        "weather_dates": 171,
+        "lower": 0.010625040081445497,
+        "upper": 0.023899329747789595
+      },
+      {
+        "bin": 1,
+        "n": 283,
+        "mean_price": 0.1445017667844523,
+        "win_rate": 0.18374558303886926,
+        "weather_dates": 151,
+        "lower": 0.15008699633699632,
+        "upper": 0.22098915108489142
+      },
+      {
+        "bin": 2,
+        "n": 262,
+        "mean_price": 0.2479770992366412,
+        "win_rate": 0.21755725190839695,
+        "weather_dates": 151,
+        "lower": 0.1771298984034833,
+        "upper": 0.2623048128342246
+      },
+      {
+        "bin": 3,
+        "n": 105,
+        "mean_price": 0.33128571428571424,
+        "win_rate": 0.3619047619047619,
+        "weather_dates": 91,
+        "lower": 0.2782852564102564,
+        "upper": 0.4398375203635428
+      },
+      {
+        "bin": 4,
+        "n": 6,
+        "mean_price": 0.43416666666666665,
+        "win_rate": 0.0,
+        "weather_dates": 6,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.525,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.6074999999999999,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.935,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "international",
+    "city": "Zhengzhou",
+    "clean_events": 40,
+    "n": 30,
+    "buckets": 330,
+    "weather_dates": 30,
+    "favorite_hit": 0.6083333333333333,
+    "favorite_ci": [
+      0.4372916666666667,
+      0.775
+    ],
+    "random_hit": 0.09090909090909088,
+    "bucket_brier": 0.05208141742424243,
+    "event_mean_brier": 0.05208141742424243,
+    "event_uniform_brier": 0.08264462809917357,
+    "event_normalized_brier": 0.05232224739965682,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 239,
+        "mean_price": 0.016357740585774057,
+        "win_rate": 0.016736401673640166,
+        "weather_dates": 30,
+        "lower": 0.004123303744515866,
+        "upper": 0.033129865230959156
+      },
+      {
+        "bin": 1,
+        "n": 30,
+        "mean_price": 0.1416666666666667,
+        "win_rate": 0.1,
+        "weather_dates": 20,
+        "lower": 0.0,
+        "upper": 0.2
+      },
+      {
+        "bin": 2,
+        "n": 31,
+        "mean_price": 0.25725806451612904,
+        "win_rate": 0.12903225806451613,
+        "weather_dates": 19,
+        "lower": 0.037037037037037035,
+        "upper": 0.2088021778584391
+      },
+      {
+        "bin": 3,
+        "n": 12,
+        "mean_price": 0.35041666666666665,
+        "win_rate": 0.5,
+        "weather_dates": 7,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 4,
+        "n": 10,
+        "mean_price": 0.4535,
+        "win_rate": 0.6,
+        "weather_dates": 10,
+        "lower": 0.2925,
+        "upper": 0.8888888888888888
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.5333333333333333,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.605,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 2,
+        "mean_price": 0.715,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.86,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.935,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "us",
+    "city": "Chicago",
+    "clean_events": 135,
+    "n": 67,
+    "buckets": 402,
+    "weather_dates": 67,
+    "favorite_hit": 0.417910447761194,
+    "favorite_ci": [
+      0.2835820895522388,
+      0.5373134328358209
+    ],
+    "random_hit": 0.16666666666666663,
+    "bucket_brier": 0.1147733830845771,
+    "event_mean_brier": 0.11477338308457712,
+    "event_uniform_brier": 0.13888888888888895,
+    "event_normalized_brier": 0.1149415282186929,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 167,
+        "mean_price": 0.046646706586826354,
+        "win_rate": 0.029940119760479042,
+        "weather_dates": 67,
+        "lower": 0.0061711694547117325,
+        "upper": 0.05742050438596486
+      },
+      {
+        "bin": 1,
+        "n": 81,
+        "mean_price": 0.14777777777777776,
+        "win_rate": 0.08641975308641975,
+        "weather_dates": 54,
+        "lower": 0.02530448717948718,
+        "upper": 0.14794823232323231
+      },
+      {
+        "bin": 2,
+        "n": 58,
+        "mean_price": 0.2556896551724138,
+        "win_rate": 0.29310344827586204,
+        "weather_dates": 40,
+        "lower": 0.17925,
+        "upper": 0.4203030303030302
+      },
+      {
+        "bin": 3,
+        "n": 70,
+        "mean_price": 0.34014285714285714,
+        "win_rate": 0.34285714285714286,
+        "weather_dates": 51,
+        "lower": 0.24324324324324326,
+        "upper": 0.45051470588235293
+      },
+      {
+        "bin": 4,
+        "n": 24,
+        "mean_price": 0.42958333333333326,
+        "win_rate": 0.5416666666666666,
+        "weather_dates": 23,
+        "lower": 0.3333333333333333,
+        "upper": 0.7339574898785424
+      },
+      {
+        "bin": 5,
+        "n": 1,
+        "mean_price": 0.53,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 1,
+        "mean_price": 0.69,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "us",
+    "city": "Los Angeles",
+    "clean_events": 134,
+    "n": 62,
+    "buckets": 372,
+    "weather_dates": 62,
+    "favorite_hit": 0.5887096774193549,
+    "favorite_ci": [
+      0.46774193548387094,
+      0.7016129032258065
+    ],
+    "random_hit": 0.1666666666666666,
+    "bucket_brier": 0.09789166666666667,
+    "event_mean_brier": 0.09789166666666668,
+    "event_uniform_brier": 0.13888888888888898,
+    "event_normalized_brier": 0.09842645295685883,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 187,
+        "mean_price": 0.03721925133689839,
+        "win_rate": 0.0213903743315508,
+        "weather_dates": 62,
+        "lower": 0.005128205128205128,
+        "upper": 0.04279341111873712
+      },
+      {
+        "bin": 1,
+        "n": 53,
+        "mean_price": 0.14773584905660378,
+        "win_rate": 0.07547169811320754,
+        "weather_dates": 43,
+        "lower": 0.0196078431372549,
+        "upper": 0.14814814814814814
+      },
+      {
+        "bin": 2,
+        "n": 48,
+        "mean_price": 0.24520833333333333,
+        "win_rate": 0.25,
+        "weather_dates": 38,
+        "lower": 0.14,
+        "upper": 0.3548958333333333
+      },
+      {
+        "bin": 3,
+        "n": 27,
+        "mean_price": 0.342962962962963,
+        "win_rate": 0.25925925925925924,
+        "weather_dates": 25,
+        "lower": 0.11538461538461539,
+        "upper": 0.4491810344827586
+      },
+      {
+        "bin": 4,
+        "n": 23,
+        "mean_price": 0.44217391304347825,
+        "win_rate": 0.6521739130434783,
+        "weather_dates": 20,
+        "lower": 0.4771739130434783,
+        "upper": 0.8333333333333334
+      },
+      {
+        "bin": 5,
+        "n": 26,
+        "mean_price": 0.5446153846153846,
+        "win_rate": 0.5769230769230769,
+        "weather_dates": 26,
+        "lower": 0.37704741379310347,
+        "upper": 0.76
+      },
+      {
+        "bin": 6,
+        "n": 5,
+        "mean_price": 0.6559999999999999,
+        "win_rate": 0.6,
+        "weather_dates": 5,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 2,
+        "mean_price": 0.74,
+        "win_rate": 0.5,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.8,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "us",
+    "city": "Miami",
+    "clean_events": 134,
+    "n": 60,
+    "buckets": 360,
+    "weather_dates": 60,
+    "favorite_hit": 0.4166666666666667,
+    "favorite_ci": [
+      0.3,
+      0.55
+    ],
+    "random_hit": 0.1666666666666666,
+    "bucket_brier": 0.10880027777777779,
+    "event_mean_brier": 0.10880027777777777,
+    "event_uniform_brier": 0.13888888888888895,
+    "event_normalized_brier": 0.10858279105452498,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 191,
+        "mean_price": 0.035287958115183246,
+        "win_rate": 0.015706806282722512,
+        "weather_dates": 60,
+        "lower": 0.0,
+        "upper": 0.03225806451612903
+      },
+      {
+        "bin": 1,
+        "n": 41,
+        "mean_price": 0.1478048780487805,
+        "win_rate": 0.1951219512195122,
+        "weather_dates": 37,
+        "lower": 0.09296536796536797,
+        "upper": 0.30338725985844284
+      },
+      {
+        "bin": 2,
+        "n": 37,
+        "mean_price": 0.24594594594594588,
+        "win_rate": 0.2702702702702703,
+        "weather_dates": 27,
+        "lower": 0.14705882352941177,
+        "upper": 0.414945652173913
+      },
+      {
+        "bin": 3,
+        "n": 27,
+        "mean_price": 0.34296296296296297,
+        "win_rate": 0.37037037037037035,
+        "weather_dates": 26,
+        "lower": 0.18341750841750842,
+        "upper": 0.5335937499999999
+      },
+      {
+        "bin": 4,
+        "n": 35,
+        "mean_price": 0.45457142857142857,
+        "win_rate": 0.5142857142857142,
+        "weather_dates": 31,
+        "lower": 0.375,
+        "upper": 0.6551724137931034
+      },
+      {
+        "bin": 5,
+        "n": 24,
+        "mean_price": 0.5383333333333333,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 24,
+        "lower": 0.14814814814814814,
+        "upper": 0.525125313283208
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.6233333333333334,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.71,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 8,
+        "n": 1,
+        "mean_price": 0.82,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "us",
+    "city": "NYC",
+    "clean_events": 135,
+    "n": 57,
+    "buckets": 342,
+    "weather_dates": 57,
+    "favorite_hit": 0.4824561403508772,
+    "favorite_ci": [
+      0.35964912280701755,
+      0.5964912280701754
+    ],
+    "random_hit": 0.16666666666666663,
+    "bucket_brier": 0.10627076023391813,
+    "event_mean_brier": 0.10627076023391811,
+    "event_uniform_brier": 0.13888888888888895,
+    "event_normalized_brier": 0.10644919299462209,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 166,
+        "mean_price": 0.03590361445783132,
+        "win_rate": 0.018072289156626505,
+        "weather_dates": 57,
+        "lower": 0.0,
+        "upper": 0.041176470588235294
+      },
+      {
+        "bin": 1,
+        "n": 46,
+        "mean_price": 0.14347826086956522,
+        "win_rate": 0.13043478260869565,
+        "weather_dates": 37,
+        "lower": 0.048170731707317074,
+        "upper": 0.22442348008385735
+      },
+      {
+        "bin": 2,
+        "n": 40,
+        "mean_price": 0.25325000000000003,
+        "win_rate": 0.175,
+        "weather_dates": 29,
+        "lower": 0.06701050262565642,
+        "upper": 0.3
+      },
+      {
+        "bin": 3,
+        "n": 44,
+        "mean_price": 0.34454545454545454,
+        "win_rate": 0.4090909090909091,
+        "weather_dates": 37,
+        "lower": 0.2926829268292683,
+        "upper": 0.5365853658536586
+      },
+      {
+        "bin": 4,
+        "n": 38,
+        "mean_price": 0.4378947368421053,
+        "win_rate": 0.47368421052631576,
+        "weather_dates": 34,
+        "lower": 0.3292635658914729,
+        "upper": 0.6066287878787878
+      },
+      {
+        "bin": 5,
+        "n": 3,
+        "mean_price": 0.5233333333333333,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 3,
+        "mean_price": 0.6166666666666667,
+        "win_rate": 0.6666666666666666,
+        "weather_dates": 3,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 7,
+        "n": 1,
+        "mean_price": 0.76,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.93,
+        "win_rate": 0.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  },
+  {
+    "platform": "us",
+    "city": "San Francisco",
+    "clean_events": 135,
+    "n": 58,
+    "buckets": 348,
+    "weather_dates": 58,
+    "favorite_hit": 0.3879310344827586,
+    "favorite_ci": [
+      0.27586206896551724,
+      0.5086206896551724
+    ],
+    "random_hit": 0.16666666666666663,
+    "bucket_brier": 0.11608706896551726,
+    "event_mean_brier": 0.11608706896551724,
+    "event_uniform_brier": 0.13888888888888895,
+    "event_normalized_brier": 0.11639545828417643,
+    "calibration": [
+      {
+        "bin": 0,
+        "n": 130,
+        "mean_price": 0.051076923076923075,
+        "win_rate": 0.046153846153846156,
+        "weather_dates": 58,
+        "lower": 0.015625,
+        "upper": 0.08203144115488133
+      },
+      {
+        "bin": 1,
+        "n": 85,
+        "mean_price": 0.14305882352941174,
+        "win_rate": 0.058823529411764705,
+        "weather_dates": 49,
+        "lower": 0.012980769230769231,
+        "upper": 0.10841656874265569
+      },
+      {
+        "bin": 2,
+        "n": 67,
+        "mean_price": 0.24417910447761193,
+        "win_rate": 0.3283582089552239,
+        "weather_dates": 43,
+        "lower": 0.24400943396226416,
+        "upper": 0.4057971014492754
+      },
+      {
+        "bin": 3,
+        "n": 49,
+        "mean_price": 0.33734693877551025,
+        "win_rate": 0.32653061224489793,
+        "weather_dates": 39,
+        "lower": 0.20482226107226106,
+        "upper": 0.4380756578947368
+      },
+      {
+        "bin": 4,
+        "n": 12,
+        "mean_price": 0.42583333333333334,
+        "win_rate": 0.3333333333333333,
+        "weather_dates": 12,
+        "lower": 0.09090909090909091,
+        "upper": 0.6263986013986009
+      },
+      {
+        "bin": 5,
+        "n": 2,
+        "mean_price": 0.56,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 6,
+        "n": 2,
+        "mean_price": 0.635,
+        "win_rate": 1.0,
+        "weather_dates": 2,
+        "lower": null,
+        "upper": null
+      },
+      {
+        "bin": 9,
+        "n": 1,
+        "mean_price": 0.92,
+        "win_rate": 1.0,
+        "weather_dates": 1,
+        "lower": null,
+        "upper": null
+      }
+    ]
+  }
+]

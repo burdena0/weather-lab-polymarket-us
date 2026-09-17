@@ -1,0 +1,538 @@
+{
+  "cities.json": {
+    "bytes": 137746,
+    "sha256": "e1213975610d73e8091835a1d8fe98a525b274dfb7f45315f308aea1d1657422"
+  },
+  "coverage.png": {
+    "bytes": 107936,
+    "sha256": "6323cc364bbfb05015d174eb66693129978f5834dba788681d50034806c2ed49"
+  },
+  "event-results.csv": {
+    "bytes": 1575215,
+    "sha256": "787c8ad671dc7e5c7ef8a3bbf4d12e50918f8b663d40574b37eefd9b38a6b2fc"
+  },
+  "event-results.jsonl.gz": {
+    "bytes": 1423571,
+    "sha256": "e928d9bf955b02947d3b7f2de43ae63d838f44aa489c33619cb796187bb63415"
+  },
+  "excluded-events.json": {
+    "bytes": 7067,
+    "sha256": "91a485c26a93c6013608a3c2711723871caff2a1b01976e4862207ff27957766"
+  },
+  "index.html": {
+    "bytes": 10848,
+    "sha256": "064198acb4fb1325cfac039f434284a4c0570535eae1bb9e3a6971f1202955d2"
+  },
+  "international-amsterdam-timeline.png": {
+    "bytes": 144899,
+    "sha256": "af6e44d0ccf9d3d94e370ee3fb462c726556f860c46fa3b94a811076f4fe1e6c"
+  },
+  "international-amsterdam.png": {
+    "bytes": 196671,
+    "sha256": "9cb868c513a6a080409455c84a527b4ff67e5ef4c90403c0a26b2a9574f2409c"
+  },
+  "international-ankara-timeline.png": {
+    "bytes": 166037,
+    "sha256": "ef0270d43defc20957124fde22df1c34877c59ca6de9d70e0d43d9c9e5a115ed"
+  },
+  "international-ankara.png": {
+    "bytes": 205979,
+    "sha256": "60e65cae0c31b109a09cb6ad0d2983be1e7526219821e005e3089087d0f9d624"
+  },
+  "international-atlanta-timeline.png": {
+    "bytes": 180017,
+    "sha256": "b831ccc2e5a4f0563ef41224a2230a10432a7d2ed8d4d3351b6bee7efe587d76"
+  },
+  "international-atlanta.png": {
+    "bytes": 208325,
+    "sha256": "4600f6a8f970fee8bcc1aa2575f6b67dfde67bcb593c6c1fd10bb2b9115fc297"
+  },
+  "international-austin-timeline.png": {
+    "bytes": 239028,
+    "sha256": "1279f1132cc7c9d4977adadc62eb76c8ec5121b0e82849ae0fcf100b3ef353a2"
+  },
+  "international-austin.png": {
+    "bytes": 197763,
+    "sha256": "ebaa4f8eb12268b4f621350ed9e236e672281c9c9670469479e4c18c387babf8"
+  },
+  "international-beijing-timeline.png": {
+    "bytes": 190665,
+    "sha256": "ad04cdc4f1f7862a4ba0c4e4274c02577b1e7748ed054396e8b9791275d7ab44"
+  },
+  "international-beijing.png": {
+    "bytes": 197739,
+    "sha256": "08eaf6eaa4011348cc378038fb814d96e0488a4266d79d5ddca1b1d0829589e8"
+  },
+  "international-buenos-aires-timeline.png": {
+    "bytes": 126841,
+    "sha256": "0ab97b5f0d207a179d5e64d0cce91d1f6ff49a28555d0b428270ecc552bcd822"
+  },
+  "international-buenos-aires.png": {
+    "bytes": 209364,
+    "sha256": "65e4917d77d13e55165ec81cf2960961c80b1d12fccbc47feef876ad4989aa11"
+  },
+  "international-busan-timeline.png": {
+    "bytes": 144378,
+    "sha256": "c072c54d002b3f7d8f365037562e023cf43acb06337251d445e2ec71aa7465b8"
+  },
+  "international-busan.png": {
+    "bytes": 196239,
+    "sha256": "78e3ae0bd5550872e62c759c0d91b30708b084f79b8d45271e164c8915aeb9d1"
+  },
+  "international-cape-town-timeline.png": {
+    "bytes": 191828,
+    "sha256": "24c0cab14b2dffffd23f5439ec482f8c9f3e056becedb551456ccaa1bcf970b1"
+  },
+  "international-cape-town.png": {
+    "bytes": 194146,
+    "sha256": "dc5d42843c223175136283f7ab7830b818edbd1d3f8ac217035656d46596ddd4"
+  },
+  "international-chengdu-timeline.png": {
+    "bytes": 204791,
+    "sha256": "2267751621ef8b91b8d6b6fecffb73f01b6f94e8c9d24dc76dae3224dc52bd70"
+  },
+  "international-chengdu.png": {
+    "bytes": 197077,
+    "sha256": "979f8e29a44daa888c05e5002397072708fd959d71ed81b43659380119ce8b47"
+  },
+  "international-chicago-timeline.png": {
+    "bytes": 197909,
+    "sha256": "c744d1a0e20b85dd202f3da9475f5c20dfa21ff5410caeced16e8ff7cadfaf94"
+  },
+  "international-chicago.png": {
+    "bytes": 207229,
+    "sha256": "e34daa82f072dfd8bc165f153bb8ce8772391f0bc1c048b1fc87c12a40f0f89e"
+  },
+  "international-chongqing-timeline.png": {
+    "bytes": 196950,
+    "sha256": "d3fcb395d526d1c6d878a747176820c9d6c3fcf04533e58062fa5d77dcb7c114"
+  },
+  "international-chongqing.png": {
+    "bytes": 197362,
+    "sha256": "82faba1d189109adce2bfd14cac2c017663908e18dba901876c0a97b4bac1c3e"
+  },
+  "international-dallas-timeline.png": {
+    "bytes": 123468,
+    "sha256": "606a89cc2c4c3d0ffeb26af9389e19ec234e35ecd5f5d23c0ceeec3abd940de3"
+  },
+  "international-dallas.png": {
+    "bytes": 207668,
+    "sha256": "5af97f434e9b2974ed7d0fa6c0c5104b2479ec0e97a395f65d31abe19f59ce22"
+  },
+  "international-denver-timeline.png": {
+    "bytes": 295930,
+    "sha256": "e6bb994fd1a21cec3d58bebad5d782fc927cd5088dad730a28e2b348c9cfda40"
+  },
+  "international-denver.png": {
+    "bytes": 197655,
+    "sha256": "8007e7bd4662bd2777c99d12f1d96f8ccae46d33ca36b591c34116102cfc8287"
+  },
+  "international-guangzhou-timeline.png": {
+    "bytes": 196426,
+    "sha256": "648993fba8367ede5bb91e43d0e31522ea2d8fb4fb7f006d4bfd6c861df63046"
+  },
+  "international-guangzhou.png": {
+    "bytes": 196492,
+    "sha256": "7e9ff98844b3d441d3f70ef713a297269d5863ea8ee795e617acae2c7e6104b9"
+  },
+  "international-helsinki-timeline.png": {
+    "bytes": 137783,
+    "sha256": "80a32b1edc8704bb0398499f860030db2052265bfbac74b06b7bcaa1ea5b2bcd"
+  },
+  "international-helsinki.png": {
+    "bytes": 195590,
+    "sha256": "fc2858dc14e4833efcd0e0ae23bedbd9a74dd81869614301e825c455e887a905"
+  },
+  "international-hong-kong-timeline.png": {
+    "bytes": 178587,
+    "sha256": "8ee77e0d2f5bc2a5d11719336f745514e758241ea6f914fbbf6e5238f1540e5d"
+  },
+  "international-hong-kong.png": {
+    "bytes": 200185,
+    "sha256": "65c9b0ad3d27583a914fae4931703e9a330e082235c9527fa306ece3abd3fc8d"
+  },
+  "international-houston-timeline.png": {
+    "bytes": 268948,
+    "sha256": "2352618628d40f9178be2629cc46bdad5d57fb665e77b843faf494fb62acadcc"
+  },
+  "international-houston.png": {
+    "bytes": 198029,
+    "sha256": "338de2ab1d24c99929bec79f2a3f917e03ff518de2303b83d9044b1eb19d4059"
+  },
+  "international-istanbul-timeline.png": {
+    "bytes": 274103,
+    "sha256": "7a2afb9d72c89bfd933ccb241e035c1992c2483220f5029d3745c54efce4473b"
+  },
+  "international-istanbul.png": {
+    "bytes": 195555,
+    "sha256": "9d058027c3616a06a7339b8202bfe31706dc2fd480ade132bdcc45655b291775"
+  },
+  "international-jakarta-timeline.png": {
+    "bytes": 181084,
+    "sha256": "5fd086753da1955852611ca9b104cbab2d0cf5cf5c81598fc5985f099a6991d9"
+  },
+  "international-jakarta.png": {
+    "bytes": 191178,
+    "sha256": "0c0f6df9db21c8a60f6bd919396b6ff958aadb979829c634c97f1b4c88288327"
+  },
+  "international-jeddah-timeline.png": {
+    "bytes": 173761,
+    "sha256": "d62bfc536386154802dd5c5424d05ac53a368195682c7a4c92460cad430c5524"
+  },
+  "international-jeddah.png": {
+    "bytes": 195388,
+    "sha256": "559f1359edd0359a13da3d833c938489e40726064a7923de38687782ca6cbae6"
+  },
+  "international-jinan-timeline.png": {
+    "bytes": 117662,
+    "sha256": "6586b1c8f6ce6d28443b60e209dfc0c33eda227eb76d88357cb5947174a6466d"
+  },
+  "international-jinan.png": {
+    "bytes": 186090,
+    "sha256": "a07d3caf74a0339e488b5b401b1a86793156cfed10c1f876453ebeeef739486e"
+  },
+  "international-karachi-timeline.png": {
+    "bytes": 166633,
+    "sha256": "626fbb666a4f68fb60338cff2233d550fd66d35faf8ceb7484b73e360a1622b6"
+  },
+  "international-karachi.png": {
+    "bytes": 194371,
+    "sha256": "2acca779b7352432e261c3d972cb28c1c0d5f6a5c04a70497e07b1fc48d17362"
+  },
+  "international-kuala-lumpur-timeline.png": {
+    "bytes": 158715,
+    "sha256": "c7ea5159b94dc1a5d067ee26a4fef96a16d2bb91c4f9320edede6f244e0afd7d"
+  },
+  "international-kuala-lumpur.png": {
+    "bytes": 195967,
+    "sha256": "44c2c886f5bae45c55b504f4a81fd4f5b8a5e1cf377f3dc6a634b646c93afa66"
+  },
+  "international-lagos-timeline.png": {
+    "bytes": 222868,
+    "sha256": "e724a553c923180b87cab1eeee485361632f9a23c0ca4e7f941b93edd9c8474b"
+  },
+  "international-lagos.png": {
+    "bytes": 190691,
+    "sha256": "9a7a97ef42d38a9f669340679cd682d695c27b686dfb43f29c199e42146337dc"
+  },
+  "international-london-timeline.png": {
+    "bytes": 207446,
+    "sha256": "a2188cd7b76788996da63b64c2fe38b26b0005c7ee532208bdf7e436e86f698f"
+  },
+  "international-london.png": {
+    "bytes": 209569,
+    "sha256": "8474dec5cdc828f1876987546bf900ed813c2805e35e6ec907e2e2b08114b895"
+  },
+  "international-los-angeles-timeline.png": {
+    "bytes": 296547,
+    "sha256": "8ef555012249f42da026ecb10d04d4f660242c8494c3d5ccdf63ecefa0e178d7"
+  },
+  "international-los-angeles.png": {
+    "bytes": 201181,
+    "sha256": "a932f97cd672aac1c25aeec7fefb5ebd63cc7fbd94a41ad6ac0fbbd424064055"
+  },
+  "international-lucknow-timeline.png": {
+    "bytes": 152000,
+    "sha256": "5aed55740e29cca678874ba2b294369f5947ddb3ed6dae8a891a1aa1170870ef"
+  },
+  "international-lucknow.png": {
+    "bytes": 201017,
+    "sha256": "1f6a0103e1105be8f198efd6091a0befa7f8be8ac8e5ac75db98c84b5145c6f4"
+  },
+  "international-madrid-timeline.png": {
+    "bytes": 238708,
+    "sha256": "cd32710aeb0ff5e0f434d6584c813b70166db4047fccb8dcb23da2bbc9f37e53"
+  },
+  "international-madrid.png": {
+    "bytes": 196371,
+    "sha256": "0d67505aeeac7f60d93e04f53f7c154fda0768574815d63c317f3a88fdc99fc4"
+  },
+  "international-manila-timeline.png": {
+    "bytes": 158891,
+    "sha256": "07c89de6a2846ac0c01b672eb2ad57da7bfcdf64b7c768205392a52d08968fa7"
+  },
+  "international-manila.png": {
+    "bytes": 195069,
+    "sha256": "80f1e84d8bb8c4239a8e65d9705854883cfc096eef07568dad8ae0c81077e53b"
+  },
+  "international-mexico-city-timeline.png": {
+    "bytes": 273799,
+    "sha256": "4ae190cfa23225b7180f6af315ab2f0abf7fff5ea18801dd8a37729ccac70c55"
+  },
+  "international-mexico-city.png": {
+    "bytes": 199426,
+    "sha256": "fa7da11cb29182f96fc25a7a6103ebc294b655705a74a61e3dedac04a9c39313"
+  },
+  "international-miami-timeline.png": {
+    "bytes": 160126,
+    "sha256": "00a668ce075566b1a7ecba0c00429ea042f5d3b0751957e3188ddc042e8529e5"
+  },
+  "international-miami.png": {
+    "bytes": 204529,
+    "sha256": "bc140acf8d1733e2e0e6955e4a67f02f5df75b16d5f71da53609d1cb0be16db3"
+  },
+  "international-milan-timeline.png": {
+    "bytes": 200739,
+    "sha256": "2c5163e0b8aca44433e71145cb10136337bc26a6c26064adb3d1123c3dddcae0"
+  },
+  "international-milan.png": {
+    "bytes": 196855,
+    "sha256": "5e5552d250a497660b55e9515f6a2c0e0bcdd34067b6dfefefd01b959f1a2f3f"
+  },
+  "international-moscow-timeline.png": {
+    "bytes": 167250,
+    "sha256": "b6dd970f52b54f83a5c3cd59a58867a3dfdaec6c5f4c3490958de0b4ea27a4f6"
+  },
+  "international-moscow.png": {
+    "bytes": 197050,
+    "sha256": "812481a6b827b549a529c853193e14bced657cacd7feae16945d33c88c362d09"
+  },
+  "international-munich-timeline.png": {
+    "bytes": 231068,
+    "sha256": "8f0c980971609a1d46f7c5b15b1ee37734cc45681759d2bd1570a674e848caf0"
+  },
+  "international-munich.png": {
+    "bytes": 199032,
+    "sha256": "f7edc8b5bde78d8434d37d11590a89093ddc39e7916c9ee4e9d8e298f3fa8ce8"
+  },
+  "international-nyc-timeline.png": {
+    "bytes": 204312,
+    "sha256": "5759e8b8a8028d50f938177b7c3d536b33df652962e4fe5225de24537f78ead6"
+  },
+  "international-nyc.png": {
+    "bytes": 212020,
+    "sha256": "89d4f4a667042ce5623156207a6ce8fee991da39452488e85970ff6e3adb04a0"
+  },
+  "international-panama-city-timeline.png": {
+    "bytes": 181327,
+    "sha256": "5f3d2ad569477c4ad30a6f9081a0e476642bb21836f312cfc3464d55cd261737"
+  },
+  "international-panama-city.png": {
+    "bytes": 198315,
+    "sha256": "727f8c90515f4a01b76f1e47f0c7f48c776582fa5b5633a5340af916011f3b6c"
+  },
+  "international-paris-timeline.png": {
+    "bytes": 204085,
+    "sha256": "df7a425aa89e6a91c2c1aa010b9b3908293fc45aff17eba17e8158b132fd044b"
+  },
+  "international-paris.png": {
+    "bytes": 199627,
+    "sha256": "676c2313161080f7d487d2dd17630394e86332ab4a9d99f1a7beaba50ad2494e"
+  },
+  "international-phoenix-timeline.png": {
+    "bytes": 165546,
+    "sha256": "71567432a3e3cb6f42ddade6e6479691e532bcd5470591fe90490c453b33705f"
+  },
+  "international-phoenix.png": {
+    "bytes": 186443,
+    "sha256": "5d9f4d27d0cecb0d644c0a168c81ee871eed6723f673c36732374ea0a1f2f2b8"
+  },
+  "international-qingdao-timeline.png": {
+    "bytes": 182241,
+    "sha256": "669ca2e96d99aae2a105b5c8148699b1f287b2da20945bb14e19595a50a56cec"
+  },
+  "international-qingdao.png": {
+    "bytes": 198830,
+    "sha256": "7ea7790ac802051a635a029034c66824efc9c8ba81b5a03c079587446dbc55a1"
+  },
+  "international-san-francisco-timeline.png": {
+    "bytes": 230496,
+    "sha256": "ac65125e13a11132bba0f8549a5da8c24099ed8ae54a154ed92d8698f0f672c1"
+  },
+  "international-san-francisco.png": {
+    "bytes": 199470,
+    "sha256": "baf508bf6cafe47c3b05f524c11bb7ecefc9936093755f5fb937135971569384"
+  },
+  "international-sao-paulo-timeline.png": {
+    "bytes": 207424,
+    "sha256": "2086cd4eba267f75fe3121cddb05318caccab3ea7e5aa7e2275fdc197b5c7ec5"
+  },
+  "international-sao-paulo.png": {
+    "bytes": 200492,
+    "sha256": "1c25747a7a50f25d0a48c38b250b8cc9efe42be356bc2e2d6d40aab6567e3cce"
+  },
+  "international-seattle-timeline.png": {
+    "bytes": 106785,
+    "sha256": "3edb1bcea50dbf3a89bf5984d2c815a45eb9da15812edb4378e7e581acb7b8d4"
+  },
+  "international-seattle.png": {
+    "bytes": 208841,
+    "sha256": "5cc1dd2e47ce3fbe125feec3ad9cd645ee9ce8926ab523e59b4077a7f618ed43"
+  },
+  "international-seoul-incheon-timeline.png": {
+    "bytes": 174288,
+    "sha256": "e5c93b3caaeae0c083e90bf06bc6eb6019cdd34588306f2cd4426f3fc075eefa"
+  },
+  "international-seoul-incheon.png": {
+    "bytes": 191302,
+    "sha256": "5e0e95b576328ab732a8d82759d2cc9b9965d8fb0bad7a6cade97205721af719"
+  },
+  "international-seoul-timeline.png": {
+    "bytes": 141992,
+    "sha256": "7b873ee38745c10327005ddd26a0cc16fca41cb4d8b4e7afc6da4daacaabf1ab"
+  },
+  "international-seoul.png": {
+    "bytes": 205615,
+    "sha256": "62de1afcd41fa0165c4e65b28f773830b4d0fe4d832bb1b408fbc1476206824c"
+  },
+  "international-shanghai-timeline.png": {
+    "bytes": 237475,
+    "sha256": "3afe617af2cc54e7d405f05878c4e8e88b15f3dc5e84f3605f5e0dd0be6f8db2"
+  },
+  "international-shanghai.png": {
+    "bytes": 201487,
+    "sha256": "4114737c513012576620656321a34f81eeea5b053a679be62f03b978a89282a5"
+  },
+  "international-shenzhen-timeline.png": {
+    "bytes": 238500,
+    "sha256": "c828bf0fe8f57c465ef063685b27ea1148dd2c180f69ce94c07729cdea2f6d33"
+  },
+  "international-shenzhen.png": {
+    "bytes": 196851,
+    "sha256": "db97a551ed0a2d09654d5ff1b76e962e38ecded9869006c822d06edaeec3060f"
+  },
+  "international-singapore-timeline.png": {
+    "bytes": 195330,
+    "sha256": "60bbd8e73b1d8f7079402c682fa5e797b88bb655daea13cabf83c1765b416137"
+  },
+  "international-singapore.png": {
+    "bytes": 200088,
+    "sha256": "6674fea432eaf7cfcba288a7fd39bda0598ff0db62640ae1b7731e804bfeb77c"
+  },
+  "international-taipei-timeline.png": {
+    "bytes": 285230,
+    "sha256": "3d22afd4c243dc17cd070583cecfe955a7fed20c0054779f2bf01ee9e8f10e0f"
+  },
+  "international-taipei.png": {
+    "bytes": 195984,
+    "sha256": "51fdb70e562131c91516c8e82d27aa84889dfda6276e059de1025090b8ba8682"
+  },
+  "international-tel-aviv-timeline.png": {
+    "bytes": 182751,
+    "sha256": "f49a3a6e7dc1e88a83795a007a1a4bd35b71dc64b595f589a146922a0f55bbe7"
+  },
+  "international-tel-aviv.png": {
+    "bytes": 200262,
+    "sha256": "bab179f600e3a1f54532bb3d4174dd22cf770025eee8b87a7121d628b6cc1913"
+  },
+  "international-timing.png": {
+    "bytes": 136501,
+    "sha256": "260d4e2819c73a7730f5d792ce118898e82d97b1a90f2686ca3670d05752208d"
+  },
+  "international-tokyo-timeline.png": {
+    "bytes": 225798,
+    "sha256": "6809a9b53bafe13f7c47adb48ca632df492e543fc15c3b63c54607d2cc540df5"
+  },
+  "international-tokyo.png": {
+    "bytes": 199468,
+    "sha256": "f7585d3c8d105bbce612fd95356b0c49aaca4b3e8fb890da252c7414de1d0a48"
+  },
+  "international-toronto-timeline.png": {
+    "bytes": 135101,
+    "sha256": "0c667883865395ec108168a94cca9703d7eb90bb4d88157a07e918b896372d6b"
+  },
+  "international-toronto.png": {
+    "bytes": 206434,
+    "sha256": "147bed56476c6cd98bab89a2fb6212ced23e29a75343725f603ae220ac6e8608"
+  },
+  "international-warsaw-timeline.png": {
+    "bytes": 206204,
+    "sha256": "841667058e9aeedb2097ad83fd01e1e8ce900a866b3a24fa65abb863df3c3b48"
+  },
+  "international-warsaw.png": {
+    "bytes": 199697,
+    "sha256": "01155cb9ebcefd0bccb7a4d4d2d7eb5230e2877f8fa8ac15fffab7c7eee9548a"
+  },
+  "international-wellington-timeline.png": {
+    "bytes": 165484,
+    "sha256": "5c37b2febad9568e7c650bc939b53cba903879753ee7f207153574e02cc5ff7e"
+  },
+  "international-wellington.png": {
+    "bytes": 205414,
+    "sha256": "1cfd37f287c2070dce7be1d59a7ce613259d8fb3ce14c9eaef01896bfb90a24e"
+  },
+  "international-wuhan-timeline.png": {
+    "bytes": 233388,
+    "sha256": "8c842502f9c2de96e97814ba7b409ce7993d424c8640436ed8ceeeb3248e9fba"
+  },
+  "international-wuhan.png": {
+    "bytes": 196732,
+    "sha256": "24fb762f8f0a1ca9e4a99b6ed418447cc2541b12d1455b1d1ba0616db67c68ff"
+  },
+  "international-zhengzhou-timeline.png": {
+    "bytes": 95357,
+    "sha256": "5d35463d95e92b0928e47c58642862391bf9e664e7999acf676b31d7b9e4f680"
+  },
+  "international-zhengzhou.png": {
+    "bytes": 191924,
+    "sha256": "5b74b544d206a5a628624af32e4a2293b41d44dc4bc835e218fb884b70d63bee"
+  },
+  "international.png": {
+    "bytes": 219443,
+    "sha256": "ca1c83873b5611b3fd5731da7ac30024c86e97dd82ef3d66c0b4dc66ffa26a72"
+  },
+  "methodology.md": {
+    "bytes": 10383,
+    "sha256": "9ebf8e11c394d10a7a1c229345f11eaa1b5e909416909cce6c7898556a169228"
+  },
+  "summary.json": {
+    "bytes": 18184,
+    "sha256": "d6dc5735c3c68fd90cef14bfaeaa9a1d314599ce822c3d9b9f5988ca3d92cb8b"
+  },
+  "us-chicago-timeline.png": {
+    "bytes": 219920,
+    "sha256": "57b23bd8ede00b1d9c0b3c5f8b2fab2c3f0a838e258ce10b4d50dc618640c9ed"
+  },
+  "us-chicago.png": {
+    "bytes": 201062,
+    "sha256": "db076c4a2734650373dd5b8986182bee0bbedca2b93444f4623d932db069e941"
+  },
+  "us-los-angeles-timeline.png": {
+    "bytes": 203419,
+    "sha256": "c19068ac25a28b91baf56264b606d1741da4aad13e8dcf9c0654b85882471a65"
+  },
+  "us-los-angeles.png": {
+    "bytes": 202140,
+    "sha256": "ca6c05bdb3577817a57e6dc7c3bdabda66de6920b1aeab2884cc7f75fc94fec5"
+  },
+  "us-miami-timeline.png": {
+    "bytes": 203056,
+    "sha256": "9d878df7bb3980bc5591669789cb2508439c32f43bdde59f91ae21ead563a9f3"
+  },
+  "us-miami.png": {
+    "bytes": 201764,
+    "sha256": "267ff65592a49a89811ab4e40fceddb2097a23831a8207f0342eeb16f07eb528"
+  },
+  "us-nyc-timeline.png": {
+    "bytes": 200657,
+    "sha256": "9ec0b6b98daf7ba647271971f668cb498568719a083b407daca37694b39f8de5"
+  },
+  "us-nyc.png": {
+    "bytes": 200825,
+    "sha256": "899e2221b5176bb1d6426b0172086f9d2a4fde43a6468d12b320635e07705551"
+  },
+  "us-san-francisco-timeline.png": {
+    "bytes": 212564,
+    "sha256": "e79d14f30340b47567a5658e9c8c5a0ad16c7416dec4393b78cff0d109ab5bc3"
+  },
+  "us-san-francisco.png": {
+    "bytes": 198264,
+    "sha256": "bff9f06dfb2b606138a64ec031596276b98b748015ec7e0dab2ec7c68cc6d46d"
+  },
+  "us-timing.png": {
+    "bytes": 138566,
+    "sha256": "02bc0f095ef123ffcdb7acef549eea25c2023f3047ba16feedf265e04c1fff44"
+  },
+  "us.png": {
+    "bytes": 208553,
+    "sha256": "c10b5e861ff26fa9142648aeda4ba49884e6cf961838b14ce7272c9964fce12e"
+  },
+  "validation.json": {
+    "bytes": 348,
+    "sha256": "8b924b31446d3a8b6aa3f6f03a5d787d58365de16ecc777b0eecdacf50d27726"
+  },
+  "weather-crowd-study.pdf": {
+    "bytes": 685813,
+    "sha256": "11e7b677e08b19c4b13deca0fee35263a56f232194f561b02b4001a46ab5bd3f"
+  }
+}

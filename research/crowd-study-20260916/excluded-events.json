@@ -1,0 +1,296 @@
+[
+  {
+    "id": "international:106072",
+    "platform": "international",
+    "city": "Atlanta",
+    "day": "2025-12-17",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:322397",
+    "platform": "international",
+    "city": "Wellington",
+    "day": "2026-03-30",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:322399",
+    "platform": "international",
+    "city": "Munich",
+    "day": "2026-03-30",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:322401",
+    "platform": "international",
+    "city": "Tokyo",
+    "day": "2026-03-30",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:322403",
+    "platform": "international",
+    "city": "Shanghai",
+    "day": "2026-03-30",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:322404",
+    "platform": "international",
+    "city": "Singapore",
+    "day": "2026-03-30",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:322419",
+    "platform": "international",
+    "city": "Chengdu",
+    "day": "2026-03-30",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:322426",
+    "platform": "international",
+    "city": "Moscow",
+    "day": "2026-03-30",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:362120",
+    "platform": "international",
+    "city": "Jeddah",
+    "day": "2026-04-09",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:362121",
+    "platform": "international",
+    "city": "Lagos",
+    "day": "2026-04-09",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:362122",
+    "platform": "international",
+    "city": "Cape Town",
+    "day": "2026-04-09",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:362131",
+    "platform": "international",
+    "city": "Lagos",
+    "day": "2026-04-10",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:379783",
+    "platform": "international",
+    "city": "Manila",
+    "day": "2026-04-15",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:379797",
+    "platform": "international",
+    "city": "Wellington",
+    "day": "2026-04-16",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:379801",
+    "platform": "international",
+    "city": "Tokyo",
+    "day": "2026-04-16",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:379812",
+    "platform": "international",
+    "city": "Chengdu",
+    "day": "2026-04-16",
+    "reason": "no_common_history"
+  },
+  {
+    "id": "international:493696",
+    "platform": "international",
+    "city": "Cape Town",
+    "day": "2026-05-19",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:496987",
+    "platform": "international",
+    "city": "London",
+    "day": "2026-05-20",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:497002",
+    "platform": "international",
+    "city": "Munich",
+    "day": "2026-05-20",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:497010",
+    "platform": "international",
+    "city": "Warsaw",
+    "day": "2026-05-20",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:497016",
+    "platform": "international",
+    "city": "Shenzhen",
+    "day": "2026-05-20",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:497028",
+    "platform": "international",
+    "city": "Panama City",
+    "day": "2026-05-20",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:497032",
+    "platform": "international",
+    "city": "Cape Town",
+    "day": "2026-05-20",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:503528",
+    "platform": "international",
+    "city": "Sao Paulo",
+    "day": "2026-05-19",
+    "reason": "incomplete_or_unparsed_temperature_partition"
+  },
+  {
+    "id": "international:503558",
+    "platform": "international",
+    "city": "Seoul",
+    "day": "2026-05-19",
+    "reason": "incomplete_or_unparsed_temperature_partition"
+  },
+  {
+    "id": "international:504566",
+    "platform": "international",
+    "city": "Jinan",
+    "day": "2026-05-22",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:504568",
+    "platform": "international",
+    "city": "Zhengzhou",
+    "day": "2026-05-22",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515632",
+    "platform": "international",
+    "city": "Toronto",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515647",
+    "platform": "international",
+    "city": "Singapore",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515682",
+    "platform": "international",
+    "city": "Chongqing",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515690",
+    "platform": "international",
+    "city": "Beijing",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515698",
+    "platform": "international",
+    "city": "Wuhan",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515699",
+    "platform": "international",
+    "city": "Chengdu",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515700",
+    "platform": "international",
+    "city": "Shenzhen",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515708",
+    "platform": "international",
+    "city": "Mexico City",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515713",
+    "platform": "international",
+    "city": "Kuala Lumpur",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:515718",
+    "platform": "international",
+    "city": "Qingdao",
+    "day": "2026-05-25",
+    "reason": "unverified_resolution_or_placeholder"
+  },
+  {
+    "id": "international:614102",
+    "platform": "international",
+    "city": "Singapore",
+    "day": "2026-06-22",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:614103",
+    "platform": "international",
+    "city": "Milan",
+    "day": "2026-06-22",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:614104",
+    "platform": "international",
+    "city": "Madrid",
+    "day": "2026-06-22",
+    "reason": "empty_history"
+  },
+  {
+    "id": "international:614109",
+    "platform": "international",
+    "city": "Wuhan",
+    "day": "2026-06-22",
+    "reason": "empty_history"
+  },
+  {
+    "id": "us:Miami:2026-07-09",
+    "platform": "us",
+    "city": "Miami",
+    "day": "2026-07-09",
+    "reason": "incomplete_or_unparsed_temperature_partition"
+  }
+]
